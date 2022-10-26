@@ -14,9 +14,8 @@ import { Course, CourseDetail, CourseLearn, CourseListChapter, CourseText } from
 
 // Exam
 import { Exam } from '../features/exam/components';
-
 // Public routes
-// Không truyền `layout` thì mặc định là DefaultLayout
+//  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
   { path: config.routes.home, component: Home },
   { path: config.routes.signin, component: Signin, layout: AuthLayout },

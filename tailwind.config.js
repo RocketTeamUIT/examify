@@ -5,12 +5,15 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontSize: {
-      h1: '36px',
-      h2: '32px',
-      h3: '24px',
-      h4: '20px',
-      h5: '16px',
-      h6: '14px',
+      h1: ['36px', '40px'],
+      h2: ['32px', '36px'],
+      h3: ['24px', '32px'],
+      h4: ['20px', '28px'],
+      h5: ['16px', '20px'],
+      h6: ['14px', '20px'],
+      sm: ['12px', '16px'],
+      md: ['14px', '20px'],
+      lg: ['16px', '20px'],
     },
     screens: {
       sm: '320px', // Mobile
@@ -40,6 +43,7 @@ module.exports = {
         t_white: '#FFFFFF',
         t_light_gray: '#E7E5EA',
         t_light_gray_2: '#A9A7AC',
+        t_light_gray_3: '#D2D0D5',
 
         // Background
         bg_light_gray: '#F5F7F9',
