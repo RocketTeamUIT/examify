@@ -5,72 +5,96 @@ import classnames from 'classnames';
 - leftIcon: show left icon
 - rightIcon: show right icon // You should not pass both leftIcon and rightIcon
 - type: button type
+    - primary
+    - default
+    - danger
 - size: button size
+    - normal
+    - large
 - shape: button shape
+    - circle
+    - rectangle
 - disabled: disable button, it no longer can be clicked
 - unbold: unbold button text
 - onClick: onClick event
+- width: specify width of button
+- height: specify height of button
+- rounded: button border radius
+    - [topLeft, topRight, bottomRight, bottomLeft]
+- dark: dark mode
 */
 
 const TYPES = ['primary', 'default', 'danger', 'disabled'];
 const SIZE = ['normal', 'large'];
+const SHAPE = ['rectangle', 'circle'];
 
 const Button = (props) => {
-  const { children, leftIcon, rightIcon, type, size, onClick, disabled, unbold, width, height } = props;
+  const { children, leftIcon, rightIcon, type, size, shape, onClick, disabled, unbold, width, height, dark, rounded } =
+    props;
 
   // Check validity of props
-  const checkButtonType = disabled ? '' : TYPES.includes(type) ? type : TYPES[0];
-  const checkButtonSize = SIZE.includes(size) ? size : SIZE[0];
+  const checkType = disabled ? '' : TYPES.includes(type) ? type : TYPES[0];
+  const checkSize = SIZE.includes(size) ? size : SIZE[0];
+  const checkShape = SHAPE.includes(shape) ? shape : SHAPE[0];
+
+  // Get children based on shape
+  const getChildren = () => {
+    if (checkShape === 'circle' && (leftIcon || rightIcon)) return null;
+
+    return (
+      <span className={classnames([unbold ? 'font-normal' : 'font-bold'])}>
+        {checkShape === 'circle' && !leftIcon && !rightIcon ? children[0].toUpperCase() : children}
+      </span>
+    );
+  };
 
   return (
     <button
       className={classnames(
         // General
-        'rounded-md transition duration-300 flex items-center justify-center gap-2',
+        'transition duration-300 flex items-center justify-center gap-2',
 
         // Type
         {
-          'bg-ac_blue text-white hover:bg-opacity-90': checkButtonType === 'primary',
-          'border-[1px] border-br_light_gray text-t_dark hover:bg-br_light_gray': checkButtonType === 'default',
-          'text-ac_red border-[1px] border-ac_red hover:bg-ac_red hover:text-white': checkButtonType === 'danger',
+          'bg-ac_blue text-white hover:bg-opacity-90': checkType === 'primary',
+          'border-[1px] border-br_light_gray hover:bg-br_light_gray': checkType === 'default',
+          'text-t_dark': checkType === 'default' && !dark,
+          'text-white': checkType === 'default' && dark,
+          'text-ac_red border-[1px] border-ac_red hover:bg-ac_red hover:text-white': checkType === 'danger',
         },
 
         // Size
         {
-          'text-md px-4 h-11': checkButtonSize === 'normal',
-          'text-lg px-5 h-12': checkButtonSize === 'large',
+          'text-md': checkSize === 'normal',
+          'text-lg': checkSize === 'large',
+          'h-11': checkSize === 'normal' && !height,
+          'h-12': checkSize === 'large' && !height,
+        },
+
+        // Shape
+        {
+          'rounded-md px-4': checkShape === 'rectangle',
+          'rounded-full aspect-square': checkShape === 'circle',
         },
 
         // Special
         disabled && 'cursor:default pointer-events-none text-t_light_gray_3 bg-bg_primary',
       )}
       onClick={!disabled ? onClick : undefined}
+      style={{
+        width: width,
+        height: height,
+        borderTopLeftRadius: rounded[0],
+        borderTopRightRadius: rounded[1],
+        borderBottomRightRadius: rounded[2],
+        borderBottomLeftRadius: rounded[3],
+      }}
     >
       {leftIcon}
-      <span className={classnames([unbold ? 'font-normal' : 'font-bold'])}>{children}</span>
+      {getChildren()}
       {rightIcon}
     </button>
   );
 };
 
 export default Button;
-{
-  /* <button
-      className={classnames([
-        // General
-        'rounded-md transition duration-300 flex items-center justify-center gap-2',
-        // Size and Icon
-        (size === 'normal' || !size) && 'px-4 h-11 text-md',
-        size === 'big' && 'text-lg px-5 h-12',
-        leftIcon && (size === 'normal' ? 'pl-[14px]' : 'pl-[18px]'),
-        rightIcon && (size === 'normal' ? 'pr-[14px]' : 'pr-[18px]'),
-        // Type
-        (type === 'primary' || !type) && 'bg-ac_blue text-white hover:bg-opacity-90',
-        type === 'default' && 'border-[1px] border-br_light_gray text-t_dark hover:bg-br_light_gray',
-        // Special
-        disabled && 'bg-primary cursor:default pointer-events-none text-t_light_gray_3',
-        danger && 'text-ac_red border-ac_red hover:bg-ac_red hover:text-white',
-      ])}
-      onClick={!disabled && onClick}
-    ></button> */
-}
