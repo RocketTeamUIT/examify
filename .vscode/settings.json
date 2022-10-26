@@ -1,0 +1,14 @@
+{
+  // File này được tạo ra để ghi đè cấu hình settings, không ảnh hưởng đến project khác.
+
+  // Tự động format code khi lưu
+  "editor.formatOnSave": true,
+
+  // Sử dụng Prettier làm tiêu chuẩn format
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Bỏ warning tailwind rule với đuôi mở rộng là .css (src/index.css)
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}

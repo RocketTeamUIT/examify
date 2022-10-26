@@ -2,16 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Apply font-size for text-body */
+@layer components {
+  .text-body-sm {
+    @apply text-h6;
+  }
+
+  .text-body-md {
+    @apply text-h5;
+  }
+
+  .text-body-lg {
+    @apply text-h4;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
+  /* Scrollbar vertical */
+  overflow-y: overlay;
+
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Scrollbar */
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

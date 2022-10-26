@@ -1,0 +1,23 @@
+const routes = {
+  // Phần chung
+  home: '/',
+  signin: '/signin',
+  signup: '/signup',
+  forgetPassword: '/forget-password',
+
+  // Course
+  course: '/courses',
+  courseDetail: '/courses/detail', // Để tạm
+  courseListChapter: '/courses/detail/list-chapter', // Để tạm
+  courseLearn: '/courses/detail/list-chapter/video', // Để tạm
+  courseText: '/courses/detail/list-chapter/text', // Để tạm
+
+  // Exam
+  exam: '/exams',
+  // Flashcard
+  flashcard: '/flashcards',
+  // Contest
+  contest: '/contest',
+};
+
+export default routes;
