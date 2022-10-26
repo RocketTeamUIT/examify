@@ -5,14 +5,22 @@ import classnames from 'classnames';
 - leftIcon: show left icon
 - rightIcon: show right icon // You should not pass both leftIcon and rightIcon
 - type: button type
+    - primary
+    - default
+    - danger
 - size: button size
+    - normal
+    - large
 - shape: button shape
+    - circle
+    - rectangle
 - disabled: disable button, it no longer can be clicked
 - unbold: unbold button text
 - onClick: onClick event
 - width: specify width of button
 - height: specify height of button
-- border-radius: button border radius
+- rounded: button border radius
+    - [topLeft, topRight, bottomRight, bottomLeft]
 - dark: dark mode
 */
 
@@ -21,18 +29,30 @@ const SIZE = ['normal', 'large'];
 const SHAPE = ['rectangle', 'circle'];
 
 const Button = (props) => {
-  const { children, leftIcon, rightIcon, type, size, shape, onClick, disabled, unbold, width, height, dark } = props;
+  const { children, leftIcon, rightIcon, type, size, shape, onClick, disabled, unbold, width, height, dark, rounded } =
+    props;
 
   // Check validity of props
   const checkType = disabled ? '' : TYPES.includes(type) ? type : TYPES[0];
   const checkSize = SIZE.includes(size) ? size : SIZE[0];
   const checkShape = SHAPE.includes(shape) ? shape : SHAPE[0];
 
+  // Get children based on shape
+  const getChildren = () => {
+    if (checkShape === 'circle' && (leftIcon || rightIcon)) return null;
+
+    return (
+      <span className={classnames([unbold ? 'font-normal' : 'font-bold'])}>
+        {checkShape === 'circle' && !leftIcon && !rightIcon ? children[0].toUpperCase() : children}
+      </span>
+    );
+  };
+
   return (
     <button
       className={classnames(
         // General
-        'rounded-md transition duration-300 flex items-center justify-center gap-2',
+        'transition duration-300 flex items-center justify-center gap-2',
 
         // Type
         {
@@ -45,15 +65,16 @@ const Button = (props) => {
 
         // Size
         {
-          'text-md px-4': checkSize === 'normal',
-          'text-lg px-5': checkSize === 'large',
+          'text-md': checkSize === 'normal',
+          'text-lg': checkSize === 'large',
           'h-11': checkSize === 'normal' && !height,
           'h-12': checkSize === 'large' && !height,
         },
 
         // Shape
         {
-          '': checkShape === 'rectangle',
+          'rounded-md px-4': checkShape === 'rectangle',
+          'rounded-full aspect-square': checkShape === 'circle',
         },
 
         // Special
@@ -63,10 +84,14 @@ const Button = (props) => {
       style={{
         width: width,
         height: height,
+        borderTopLeftRadius: rounded[0],
+        borderTopRightRadius: rounded[1],
+        borderBottomRightRadius: rounded[2],
+        borderBottomLeftRadius: rounded[3],
       }}
     >
       {leftIcon}
-      <span className={classnames([unbold ? 'font-normal' : 'font-bold'])}>{children}</span>
+      {getChildren()}
       {rightIcon}
     </button>
   );
