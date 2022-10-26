@@ -3,8 +3,8 @@ import { BiUser } from 'react-icons/bi';
 
 function Header() {
   return (
-    <div className="h-screen flex justify-center items-center" onClick={() => alert('Hello')}>
-      <Button size="normal" type="default" rightIcon={<BiUser />}>
+    <div className="h-screen flex justify-center items-center">
+      <Button size="normal" type="default">
         Button Text
       </Button>
     </div>
