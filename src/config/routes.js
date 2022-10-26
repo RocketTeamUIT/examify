@@ -1,5 +1,5 @@
 const routes = {
-  // Phần chung
+  // General
   home: '/',
   signin: '/signin',
   signup: '/signup',
