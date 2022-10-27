@@ -48,3 +48,15 @@ html *::-webkit-scrollbar-track {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.tag-overlay::before {
+  content: '';
+  background-color: var(--bg);
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
