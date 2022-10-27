@@ -28,10 +28,21 @@ const TYPES = ['primary', 'default', 'danger', 'disabled'];
 const SIZE = ['normal', 'large'];
 const SHAPE = ['rectangle', 'circle'];
 
-const Button = (props) => {
-  const { children, leftIcon, rightIcon, type, size, shape, onClick, disabled, unbold, width, height, dark, rounded } =
-    props;
-
+const Button = ({
+  children,
+  leftIcon,
+  rightIcon,
+  type,
+  size,
+  shape,
+  onClick,
+  disabled,
+  unbold,
+  width,
+  height,
+  dark,
+  rounded,
+}) => {
   // Check validity of props
   const checkType = disabled ? '' : TYPES.includes(type) ? type : TYPES[0];
   const checkSize = SIZE.includes(size) ? size : SIZE[0];
