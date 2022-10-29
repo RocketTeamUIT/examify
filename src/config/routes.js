@@ -18,6 +18,9 @@ const routes = {
   flashcard: '/flashcards',
   // Contest
   contest: '/contest',
+
+  //test
+  tuanBig: '/tuan-big-test',
 };
 
 export default routes;
