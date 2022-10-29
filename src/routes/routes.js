@@ -8,6 +8,7 @@ import Home from '../pages/Home';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import ForgetPassword from '../pages/ForgetPassword';
+import TuanBigTest from '../pages/TuanBigTest';
 
 // Course
 import { Course, CourseDetail, CourseLearn, CourseListChapter, CourseText } from '../features/course/components';
@@ -31,6 +32,9 @@ const publicRouters = [
 
   // Exam
   { path: config.routes.exam, component: Exam },
+
+  // Test
+  { path: config.routes.tuanBig, component: TuanBigTest },
 ];
 
 // Private routes
