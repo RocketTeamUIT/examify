@@ -61,6 +61,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.tip-overlay::before,
 .tag-overlay::before {
   content: '';
   background-color: var(--bg);
