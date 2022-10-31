@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Input = ({
   type = 'text',
@@ -72,10 +73,10 @@ const Input = ({
     >
       {leftIcon && <div>{leftIcon}</div>}
       <input
+        className="outline-none bg-transparent text-t_dark flex-1"
         ref={ref}
         disabled={disabled}
         value={value}
-        className="outline-none bg-transparent text-t_dark"
         type={currentType}
         onChange={onChange ?? undefined}
         onBlur={onBlur ?? undefined}
@@ -98,6 +99,22 @@ const Input = ({
   );
 };
 
-// Input.PropType
+Input.propTypes = {
+  type: PropTypes.string,
+  size: PropTypes.string,
+  status: PropTypes.string,
+  outlined: PropTypes.bool,
+  disabled: PropTypes.bool,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  leftIcon: PropTypes.element,
+  rightIcon: PropTypes.element,
+  rounded: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  visibilityToggle: PropTypes.bool,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+};
 
 export default Input;
