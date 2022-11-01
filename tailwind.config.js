@@ -47,13 +47,15 @@ module.exports = {
 
         // Background
         bg_light_gray: '#F5F7F9',
+        bg_light_gray_2: '#F2F1F3',
         bg_white: '#FFFFFF',
         bg_black: '#131417',
         bg_dark_gray: '#27292B',
         bg_primary: '#F5F5F5',
 
         // Border
-        br_gray: '#90909033',
+        br_gray: '#5f5f5f',
+        bg_gray_2: '#F5F5F5',
         br_light_gray: '#D2D0D5',
 
         // Actions
