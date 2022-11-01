@@ -5,6 +5,28 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
+/* Props
+- type: specify input type
+- size: button size
+    - normal
+    - large
+- status: status of this input (you should use state here)
+    - error
+    - warning
+- outlined: whether input is outlined instead of filled
+- disabled: whether input is disabled
+- width: specify width
+- height: specify height
+- leftIcon: specify left icon
+- rightIcon: specify right icon. This prop conflict with leftIcon and visibilityToggle
+- rounded: border radius of input
+- value: value of input. You must use state here
+- onChange: callback when user input
+- visibilityToggle: whether to display Show/Hide password toggle (prop type must be 'password'). This one conflict with rightIcon
+- onBlur: callback when blur input 
+- onFocus: callback when focus input
+*/
+
 const Input = ({
   type = 'text',
   size = 'normal',
@@ -15,21 +37,13 @@ const Input = ({
   height,
   leftIcon,
   rightIcon,
-  rounded,
+  rounded = [],
   value,
   onChange,
   visibilityToggle,
   onBlur,
   onFocus,
 }) => {
-  let checkRounded;
-  // Check validity of rounded
-  if (rounded === undefined) {
-    checkRounded = [];
-  } else {
-    checkRounded = [...rounded, ...Array(4 - rounded.length).fill(0)];
-  }
-
   const [showPassword, setShowPassword] = useState(false);
   const [currentType, setCurrentType] = useState(type);
   const ref = useRef();
@@ -39,6 +53,7 @@ const Input = ({
   };
 
   return (
+    // Wrapper
     <div
       className={classnames(
         'flex items-center gap-2 px-4 h-11 text-md bg-bg_light_gray_2 rounded-lg focus-within:outline outline-2 outline-ac_blue',
@@ -64,14 +79,16 @@ const Input = ({
       style={{
         width: width,
         height: height,
-        borderTopLeftRadius: checkRounded[0],
-        borderTopRightRadius: checkRounded[1],
-        borderBottomRightRadius: checkRounded[2],
-        borderBottomLeftRadius: checkRounded[3],
+        borderTopLeftRadius: rounded[0],
+        borderTopRightRadius: rounded[1],
+        borderBottomRightRadius: rounded[2],
+        borderBottomLeftRadius: rounded[3],
       }}
       onClick={handleWrapperClick}
     >
       {leftIcon && <div>{leftIcon}</div>}
+
+      {/* Real input */}
       <input
         className="outline-none bg-transparent text-t_dark flex-1"
         ref={ref}
@@ -80,7 +97,7 @@ const Input = ({
         type={currentType}
         onChange={onChange ?? undefined}
         onBlur={onBlur ?? undefined}
-        onFocus={onFocus ?? onFocus}
+        onFocus={onFocus ?? undefined}
       />
 
       {/* Show/Hide password */}
