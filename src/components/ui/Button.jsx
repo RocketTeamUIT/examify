@@ -30,7 +30,7 @@ const SIZE = ['normal', 'large'];
 const SHAPE = ['rectangle', 'circle'];
 
 const Button = (
-  { children, leftIcon, rightIcon, type, size, shape, onClick, disabled, unbold, width, height, dark, rounded },
+  { children, leftIcon, rightIcon, type, size, shape, onClick, disabled, unbold, width, height, dark, rounded = [] },
   ref,
 ) => {
   // Check validity of props
