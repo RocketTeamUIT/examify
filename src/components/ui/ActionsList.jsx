@@ -64,7 +64,7 @@ ActionItem.propTypes = {
   onAction: PropTypes.func,
 };
 
-ActionsList.propTypes = {
+ActionsList.defaultProps = {
   actionsList: [],
   onSelectItem: () => {},
   onChangeItem: () => {},
