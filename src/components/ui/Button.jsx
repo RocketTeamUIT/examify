@@ -41,7 +41,7 @@ const Button = ({
   width,
   height,
   dark,
-  rounded,
+  rounded = [],
 }) => {
   // Check validity of props
   const checkType = disabled ? '' : TYPES.includes(type) ? type : TYPES[0];
