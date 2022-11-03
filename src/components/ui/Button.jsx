@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import { forwardRef } from 'react';
 
 /* Props 
 - leftIcon: show left icon
@@ -28,21 +29,10 @@ const TYPES = ['primary', 'default', 'danger', 'disabled'];
 const SIZE = ['normal', 'large'];
 const SHAPE = ['rectangle', 'circle'];
 
-const Button = ({
-  children,
-  leftIcon,
-  rightIcon,
-  type,
-  size,
-  shape,
-  onClick,
-  disabled,
-  unbold,
-  width,
-  height,
-  dark,
-  rounded = [],
-}) => {
+const Button = (
+  { children, leftIcon, rightIcon, type, size, shape, onClick, disabled, unbold, width, height, dark, rounded = [] },
+  ref,
+) => {
   // Check validity of props
   const checkType = disabled ? '' : TYPES.includes(type) ? type : TYPES[0];
   const checkSize = SIZE.includes(size) ? size : SIZE[0];
@@ -100,6 +90,7 @@ const Button = ({
         borderBottomRightRadius: rounded[2],
         borderBottomLeftRadius: rounded[3],
       }}
+      ref={ref}
     >
       {leftIcon}
       {getChildren()}
@@ -108,4 +99,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default forwardRef(Button);
