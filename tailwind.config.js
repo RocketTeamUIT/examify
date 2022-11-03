@@ -55,8 +55,9 @@ module.exports = {
         bg_primary: '#F5F5F5',
 
         // Border
-        br_gray: '#5f5f5f',
-        bg_gray_2: '#F5F5F5',
+        br_gray: '#90909033',
+        br_gray_2: '#5f5f5f',
+        br_gray_3: '#F5F5F5',
         br_light_gray: '#D2D0D5',
 
         // Actions
