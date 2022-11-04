@@ -1,4 +1,6 @@
 import { AiOutlineExclamationCircle } from 'react-icons/ai';
+import { memo } from 'react';
+import PropTypes from 'prop-types';
 
 /* Props
 - color: tip color. By default, background-opacity is set to 0.2
@@ -22,14 +24,21 @@ const Tip = ({ children, color }) => {
   const checkColor = COLORS[color] === undefined ? color : COLORS[color];
 
   return (
-    <div
-      className={`py-3 px-4 rounded-lg flex items-center relative overflow-hidden tip-overlay`}
-      style={{ '--bg': checkColor }}
-    >
-      <AiOutlineExclamationCircle className="text-[20px] mr-2 flex-shrink-0" style={{ color: checkColor }} />
-      <span style={{ color: checkColor }}>{children}</span>
+    <div className="flex flex-col items-start">
+      <div
+        className={`py-3 px-4 rounded-lg flex items-center relative overflow-hidden tip-overlay`}
+        style={{ '--bg': checkColor }}
+      >
+        <AiOutlineExclamationCircle className="text-[20px] mr-2 flex-shrink-0" style={{ color: checkColor }} />
+        <span style={{ color: checkColor }}>{children}</span>
+      </div>
     </div>
   );
 };
 
-export default Tip;
+Tip.propTypes = {
+  children: PropTypes.string,
+  color: PropTypes.string,
+};
+
+export default memo(Tip);
