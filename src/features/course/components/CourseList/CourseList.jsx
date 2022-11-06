@@ -1,25 +1,31 @@
+// import component:
 import { Tip } from '../../../../components/ui';
 import SubNav from './SubNav';
 import CourseItem from './CourseItem';
+// import image:
 import bannerImg from '../../../../assets/images/courseBanner.png';
+// import Hook:
 import { useCallback } from 'react';
-// data:
+// import data:
 import { coursesPro, coursesBasic, courseGeneral, courseAdvance } from '../data';
 
 function CourseList() {
-  // Handle redirect to Course Detail here
+  // todo: Handle redirect to Course Detail
   const handleClickCourse = useCallback((course) => {
     console.log(course.id);
   }, []);
 
   return (
     <div>
+      {/* Banner */}
       <div className="px-3 py-5 md:px-8 lg:px-[100px]">
         <img className="w-full object-cover" src={bannerImg} alt="examify" />
       </div>
-      {/* Sub Navigation */}
+
+      {/* Sub Navigation component*/}
       <SubNav />
-      {/* Content Page */}
+
+      {/* Main content CourseList Page */}
       <div className="mx-3 md:mx-8 lg:mx-[100px]">
         {/* Course Description */}
         <h3 className="text-body-lg font-semibold mt-10">Tham gia Khóa học tại Examify</h3>
@@ -32,7 +38,7 @@ function CourseList() {
           <Tip color="green">Chú ý: Tích lũy cho mình thật nhiều điểm số để mở khóa các khóa học .</Tip>
         </div>
 
-        {/* Pro Course */}
+        {/* List Pro Course */}
         {coursesPro?.length > 0 && (
           <>
             <div className="flex items-end mt-10">
@@ -47,7 +53,8 @@ function CourseList() {
             </div>
           </>
         )}
-        {/* Basic Course */}
+
+        {/* List Basic Course */}
         {coursesBasic?.length > 0 && (
           <>
             <div className="flex items-end mt-10">
@@ -61,7 +68,8 @@ function CourseList() {
             </div>
           </>
         )}
-        {/* General Course */}
+
+        {/* List General Course */}
         {courseGeneral?.length > 0 && (
           <>
             <div className="flex items-end mt-10">
@@ -75,7 +83,8 @@ function CourseList() {
             </div>
           </>
         )}
-        {/* Advance Course */}
+
+        {/* List Advance Course */}
         {courseAdvance?.length > 0 && (
           <>
             <div className="flex items-end mt-10">
