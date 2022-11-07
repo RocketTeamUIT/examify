@@ -120,14 +120,109 @@ export const joinCourse = [
 ];
 
 // Fake data for Course Detail Page:
-export const course = {
+export const courseDetail = {
   id: 1,
   name: 'Trọn bộ 3 khoá học thực hành tiếng Anh online - Practical English [Tặng khoá TED Talks]',
+  img: courseBasicImg,
+  charges: true,
+  level: 'basic',
   participants: '1094',
   pointComplete: '1534',
+  pointUnlock: '3.044',
   price: '1350000',
   qntRating: '895',
   avgRating: 4,
-  img: courseBasicImg,
-  isJoin: true,
+  //
+  totalChapter: 26,
+  totalLesson: 98,
+  totalVideoTime: {
+    hour: '34',
+    minutes: '56',
+  },
+
+  // achieves field in courseDetail:
+  achieves: [
+    {
+      id: 1,
+      content: 'Nẵm vững các chủ điểm ngữ pháp cơ bản',
+    },
+    {
+      id: 2,
+      content: 'Nẵm vững các chủ điểm ngữ pháp cơ bản',
+    },
+    {
+      id: 3,
+      content: 'Nẵm vững các chủ điểm ngữ pháp cơ bản',
+    },
+    {
+      id: 4,
+      content: 'Nẵm vững các chủ điểm ngữ pháp cơ bản',
+    },
+    {
+      id: 5,
+      content: 'Nẵm vững các chủ điểm ngữ pháp cơ bản',
+    },
+    {
+      id: 6,
+      content: 'Nẵm vững các chủ điểm ngữ pháp cơ bản',
+    },
+  ],
+
+  // authors field in courseDetail:
+  authors: [
+    {
+      id: 1,
+      content:
+        'Ths.Trương Nguyễn Kiều Dung,  Macalester College, USA. TOEFL 114, IELTS 8.0, SAT 2280, GRE Verbal 165/170 ',
+    },
+    {
+      id: 2,
+      content: 'Ts.Mạc Quang Huy,  FTU. IELTS 8.0 (Listening 8.5, Reading 8.5)',
+    },
+    {
+      id: 3,
+      content: 'Nhóm sinh viên Trường Đại Học Công Nghệ Thông Tin - ĐH.Quốc Gia tp.HCM',
+    },
+  ],
+
+  // targetUser field in courseDetail:
+  targetUsers: [
+    {
+      id: 1,
+      content: 'Dành cho các bạn từ band 4.0 trở lên target 7.0+ IELTS Reading',
+    },
+    {
+      id: 2,
+      content: 'Sinh viên có nhu cầu ôn luyện ILETS với base 5.0 ILETS',
+    },
+    {
+      id: 3,
+      content: 'Muốn ôn luyện ILETS cấp tốc trong 3 tháng',
+    },
+  ],
+
+  // Skill field in courseDetail:
+  skills: [
+    {
+      id: 1,
+      content: 'LISTENING',
+    },
+    {
+      id: 2,
+      content: 'READING',
+    },
+  ],
+
+  // other field in courseDetail:
+  other: [
+    {
+      id: 1,
+      content: '8 giờ học video bài giảng và 60 clip chữa đề chi tiết bộ Cam 7-17',
+    },
+    {
+      id: 2,
+      content:
+        'Nắm trọn 4000 từ vựng có xác suất 99% sẽ xuất hiện trong phần thi IELTS Reading và Listening, tổng hợp từ bộ Cam 7-17',
+    },
+  ],
 };
