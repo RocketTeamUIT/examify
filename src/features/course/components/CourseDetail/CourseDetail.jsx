@@ -1,5 +1,5 @@
 function CourseDetail() {
-  return <div>This is Course Detail</div>;
+  return <div className="">This is course detail</div>;
 }
 
 export default CourseDetail;
