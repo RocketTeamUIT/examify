@@ -118,3 +118,16 @@ export const joinCourse = [
     courseId: '6',
   },
 ];
+
+// Fake data for Course Detail Page:
+export const course = {
+  id: 1,
+  name: 'Trọn bộ 3 khoá học thực hành tiếng Anh online - Practical English [Tặng khoá TED Talks]',
+  participants: '1094',
+  pointComplete: '1534',
+  price: '1350000',
+  qntRating: '895',
+  avgRating: 4,
+  img: courseBasicImg,
+  isJoin: true,
+};
