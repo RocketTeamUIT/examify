@@ -1,5 +1,6 @@
 // Component:
 import Tag from '../../../../components/ui/Tag';
+import SubNav from '../SubNav';
 // Icon:
 import { AiFillStar, AiOutlineTeam } from 'react-icons/ai';
 // Image:
@@ -21,7 +22,8 @@ function CourseDetail() {
     <div className="mb-20">
       <div className="relative">
         <img className="w-full object-cover" src={bannerImg} alt="examify" />
-        {/* <SubNav /> */}
+        {/* SubNav component */}
+        <SubNav />
 
         {/* Course demo infomation */}
         <div className="mx-3 mt-3 py-3 border-2 border-br_gray rounded-md md:mx-16 md:mt-8 md:p-6 lg:border-none lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-5/6">

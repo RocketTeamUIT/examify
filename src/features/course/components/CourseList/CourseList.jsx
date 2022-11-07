@@ -1,6 +1,6 @@
 // import component:
 import { Tip } from '../../../../components/ui';
-import SubNav from './SubNav';
+import SubNav from '../SubNav';
 import CourseItem from './CourseItem';
 // import image:
 import bannerImg from '../../../../assets/images/courseBanner.png';
