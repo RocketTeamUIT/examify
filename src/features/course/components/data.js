@@ -226,3 +226,63 @@ export const courseDetail = {
     },
   ],
 };
+
+// chapter of the course
+export const chapters = [
+  {
+    id: 1,
+    name: 'Properties and descriptions of people',
+    totalUnit: 12,
+    units: [
+      {
+        id: 1,
+        name: 'and descriptions of people',
+        totalLesson: 3,
+        lessons: [
+          {
+            id: 1,
+            name: 'descriptions of people',
+            type: 'video',
+            time: '20:12',
+          },
+          {
+            id: 2,
+            name: 'descriptions of people',
+            type: 'text',
+            time: '20:12',
+          },
+          {
+            id: 3,
+            name: 'descriptions of people',
+            type: 'flashcard',
+            time: '20:12',
+          },
+        ],
+      },
+      {
+        id: 2,
+        name: 'and descriptions of people',
+        totalLesson: 3,
+        lessons: [],
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Properties and descriptions of people',
+    totalUnit: 7,
+    units: [],
+  },
+  {
+    id: 3,
+    name: 'Properties and descriptions of people',
+    totalUnit: 17,
+    units: [],
+  },
+  {
+    id: 4,
+    name: 'Properties and descriptions of people',
+    totalUnit: 4,
+    units: [],
+  },
+];

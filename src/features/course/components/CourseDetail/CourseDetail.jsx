@@ -1,15 +1,18 @@
 // import Classname:
 import classNames from 'classnames';
+// import hook:
+import { useState } from 'react';
 // import Component:
 import Tag from '../../../../components/ui/Tag';
 import SubNav from '../SubNav';
+import Chapter from './Chapter';
 // import Icon:
 import { AiFillStar, AiOutlineTeam } from 'react-icons/ai';
 import { TiTick } from 'react-icons/ti';
 // import Image:
 import bannerImg from '../../../../assets/images/courseDetailBanner.png';
 // import Data:
-import { courseDetail } from '../data';
+import { courseDetail, chapters } from '../data';
 
 // Declare TickItem component:
 const TickItem = ({ children }) => (
@@ -22,6 +25,8 @@ const TickItem = ({ children }) => (
 );
 
 function CourseDetail() {
+  const [openAll, setOpenAll] = useState(false);
+
   // Fill color for Star rating icon:
   const fillStar = (avgRate, num) => {
     return Math.round(avgRate) < num ? (
@@ -182,6 +187,36 @@ function CourseDetail() {
           </div>
 
           {/* Couse Content */}
+          <div className="mt-10 md:mt-20">
+            <h3 className="text-body-lg text-center font-medium mb-4 md:mb-8 lg:text-left">Nội dung khóa học</h3>
+            <div className="md:flex md:justify-between mb-2 md:mb-4">
+              <p className="text-body-sm">
+                <b>{courseDetail.totalChapter}</b> chương .{' '}
+                <span className="hidden md:inline-block">
+                  <b>{courseDetail.totalLesson}</b> bài học .{' '}
+                </span>
+                thời lượng{' '}
+                <b>
+                  {courseDetail.totalVideoTime.hour} giờ {courseDetail.totalVideoTime.minutes} phút
+                </b>
+              </p>
+
+              {/* Button expand course content */}
+              <span
+                className="text-primary text-body-sm font-semibold cursor-pointer"
+                onClick={() => setOpenAll(!openAll)}
+              >
+                {openAll ? 'Thu gọn' : 'Mở rộng tất cả'}
+              </span>
+            </div>
+
+            {/* List chapter of the course */}
+            <div className="grid gap-2">
+              {chapters.map((chapter) => (
+                <Chapter key={chapter.id} chapter={chapter} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
