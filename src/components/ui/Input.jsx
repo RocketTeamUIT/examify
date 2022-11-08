@@ -56,7 +56,7 @@ const Input = ({
     // Wrapper
     <div
       className={classnames(
-        'flex items-center gap-2 px-4 h-11 text-md bg-bg_light_gray_2 rounded-lg focus-within:outline outline-2 outline-ac_blue',
+        'flex items-center gap-2 px-4 h-11 text-md bg-bg_light_gray_2 rounded-lg focus-within:outline outline-2 outline-ac_blue w-fit',
 
         // Size
         size === 'large' && 'h-12 text-lg',
