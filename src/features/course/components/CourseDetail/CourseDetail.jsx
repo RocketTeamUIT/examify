@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Tag from '../../../../components/ui/Tag';
 import SubNav from '../SubNav';
 import Chapter from './Chapter';
+import ModalRegisterCourse from './ModalRegisterCourse';
 // import Icon:
 import { AiFillStar, AiOutlineTeam } from 'react-icons/ai';
 import { TiTick } from 'react-icons/ti';
@@ -88,7 +89,11 @@ function CourseDetail() {
 
       <div className="mx-6  md:mx-16 lg:flex lg:flex-row-reverse lg:gap-5 lg:mx-[100px]">
         {/* ModalRegisterCourse component */}
-        <div className="lg:w-4/12 lg:relative">{/* <ModalRegisterCourse course={course} /> */}</div>
+        <div className="lg:w-4/12 lg:relative">
+          <div className="mt-10 min-h-[400px] md:w-1/2 md:mx-auto lg:w-full lg:sticky top-5">
+            <ModalRegisterCourse course={courseDetail} />
+          </div>
+        </div>
 
         {/* Main content CourseDetail Page */}
         <div className="lg:w-8/12">
