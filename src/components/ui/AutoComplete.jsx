@@ -2,21 +2,43 @@ import React, { useEffect } from 'react';
 import Input from './Input';
 import { useSpring, animated } from 'react-spring';
 import { useRef } from 'react';
+import PropTypes from 'prop-types';
+
+/* Props
+- children: implement your recommendation list here
+- size: input size
+    - normal
+    - large
+- status: status of this input (you should use state here)
+    - error
+    - warning
+- outlined: whether input is outlined instead of filled
+- disabled: whether input is disabled
+- width: specify width
+- height: specify height
+- maxWidth: specify maxWidth
+- leftIcon: specify left icon
+- rightIcon: specify right icon. This prop conflict with leftIcon and visibilityToggle
+- rounded: border radius of input
+- value: value of input. You must use state here
+- onChange: callback when user input
+- placeholder: specify placeholder
+*/
 
 const AutoComplete = ({
-  value,
-  onChange,
+  children,
+  size,
   status,
   outlined,
   disabled,
-  size,
   width,
   height,
   maxWidth,
-  rounded,
-  children,
   leftIcon,
   rightIcon,
+  rounded,
+  value,
+  onChange,
   placeholder,
 }) => {
   const config = { tension: 300, friction: 15, clamp: false };
@@ -31,6 +53,7 @@ const AutoComplete = ({
 
   useEffect(() => {}, []);
 
+  // Handle hide/show popover and animate it using react-spring
   const showPopover = () => {
     setSpring.start({
       opacity: 1,
@@ -107,6 +130,23 @@ const AutoComplete = ({
       </animated.div>
     </div>
   );
+};
+
+AutoComplete.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  status: PropTypes.string,
+  outlined: PropTypes.bool,
+  disabled: PropTypes.bool,
+  size: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  maxWidth: PropTypes.string,
+  rounded: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  leftIcon: PropTypes.element,
+  rightIcon: PropTypes.element,
+  placeholder: PropTypes.string,
 };
 
 export default AutoComplete;
