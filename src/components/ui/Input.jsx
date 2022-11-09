@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { forwardRef } from 'react';
 
 /* Props
 - type: specify input type
@@ -46,17 +47,17 @@ const Input = ({
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [currentType, setCurrentType] = useState(type);
-  const ref = useRef();
+  const inputRef = useRef();
 
   const handleWrapperClick = () => {
-    ref.current.focus();
+    inputRef.current.focus();
   };
 
   return (
     // Wrapper
     <div
       className={classnames(
-        'flex items-center gap-2 px-4 h-11 text-md bg-bg_light_gray_2 rounded-lg focus-within:outline outline-2 outline-ac_blue w-fit',
+        'flex items-center gap-2 px-4 h-11 text-md rounded-lg focus-within:outline outline-2 outline-ac_blue w-fit',
 
         // Size
         size === 'large' && 'h-12 text-lg',
@@ -68,7 +69,7 @@ const Input = ({
         },
 
         // Appearance
-        outlined && 'bg-transparent border-br_light_gray border-[1px]',
+        !outlined ? 'bg-bg_light_gray_2' : 'bg-transparent border-br_light_gray border-[1px]',
 
         // Cursor
         type === 'text' && !disabled && 'cursor-text',
@@ -91,7 +92,7 @@ const Input = ({
       {/* Real input */}
       <input
         className="outline-none bg-transparent text-t_dark flex-1"
-        ref={ref}
+        ref={inputRef}
         disabled={disabled}
         value={value}
         type={currentType}
@@ -101,6 +102,7 @@ const Input = ({
       />
 
       {/* Show/Hide password */}
+
       {visibilityToggle && (
         <button
           onClick={() => {
