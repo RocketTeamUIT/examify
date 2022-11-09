@@ -37,12 +37,6 @@ const Button = (
   const checkType = disabled ? '' : TYPES.includes(type) ? type : TYPES[0];
   const checkSize = SIZE.includes(size) ? size : SIZE[0];
   const checkShape = SHAPE.includes(shape) ? shape : SHAPE[0];
-  let checkRounded = [];
-  if (rounded === undefined) {
-    rounded = [];
-  } else {
-    checkRounded = rounded.concat(Array(4 - rounded.length).fill(0));
-  }
 
   // Get children based on shape
   const getChildren = () => {
@@ -91,10 +85,10 @@ const Button = (
       style={{
         width: width,
         height: height,
-        borderTopLeftRadius: checkRounded[0],
-        borderTopRightRadius: checkRounded[1],
-        borderBottomRightRadius: checkRounded[2],
-        borderBottomLeftRadius: checkRounded[3],
+        borderTopLeftRadius: rounded[0],
+        borderTopRightRadius: rounded[1],
+        borderBottomRightRadius: rounded[2],
+        borderBottomLeftRadius: rounded[3],
       }}
       ref={ref}
     >

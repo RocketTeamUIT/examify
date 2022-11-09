@@ -19,7 +19,7 @@ const Header = () => {
           ['Flashcard', '/flashcard'],
           ['Thi đấu', '/contest'],
         ].map(([title, path], index) => (
-          <li className="text-t_dark">
+          <li key={index} className="text-t_dark">
             <Link to={path}>{title}</Link>
           </li>
         ))}
