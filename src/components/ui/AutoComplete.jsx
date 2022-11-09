@@ -1,93 +1,104 @@
 import React, { useEffect } from 'react';
 import Input from './Input';
-import { BiSearch } from 'react-icons/bi';
-import Tippy from '@tippyjs/react/headless';
 import { useSpring, animated } from 'react-spring';
 import { useRef } from 'react';
 
-const AutoComplete = ({ value, setValue, outlined, width, height }) => {
+const AutoComplete = ({
+  value,
+  onChange,
+  status,
+  outlined,
+  disabled,
+  size,
+  width,
+  height,
+  rounded,
+  children,
+  leftIcon,
+  rightIcon,
+  placeholder,
+}) => {
   const config = { tension: 300, friction: 15, clamp: false };
   const initialStyles = {
     opacity: 0,
-    transform: 'scale(0.5)',
+    pointerEvents: 'none',
+    top: '20px',
   };
   const [props, setSpring] = useSpring(() => initialStyles);
-  const tippyRef = useRef();
+  const popoverRef = useRef();
   const wrapperRef = useRef();
-  let tippy = null;
 
-  // Animation using react-spring
-  const onMount = () => {
+  useEffect(() => {}, []);
+
+  const showPopover = () => {
     setSpring.start({
       opacity: 1,
-      transform: 'scale(1)',
-      onRest: () => {},
+      pointerEvents: 'auto',
+      top: wrapperRef.current.offsetHeight + 8 + 'px',
       config,
     });
   };
 
-  const onHide = ({ unmount }) => {
+  const hidePopover = () => {
     setSpring.start({
       ...initialStyles,
-      onRest: unmount,
       config: { ...config, clamp: true },
     });
   };
 
-  // Manually trigger tippy
-  const showTippy = () => {
-    tippy && tippy.show();
-  };
-
-  // Hide tippy when click outside tippy
+  // Hide popover when click outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
-        tippyRef.current &&
+        popoverRef.current &&
         wrapperRef.current &&
-        !tippyRef.current.contains(e.target) &&
+        !popoverRef.current.contains(e.target) &&
         !wrapperRef.current.contains(e.target)
       ) {
-        tippy && tippy.hide();
+        hidePopover();
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [tippyRef]);
+  }, [popoverRef]);
 
   return (
-    <Tippy
-      trigger="manual"
-      animation
-      hideOnClick={false}
-      onMount={onMount}
-      onHide={onHide}
-      onCreate={(instance) => (tippy = instance)}
-      render={(attrs) => (
-        <animated.div ref={tippyRef} style={props} className="bg-black text-white p-2 rounded-md" {...attrs}>
-          <ul>
-            <li>f</li>
-            <li>ff</li>
-            <li>fff a ajfkawjfkjwkefjkawjfekjkjwkjfk awjefkajwefkjwkfekfe</li>
-          </ul>
-        </animated.div>
-      )}
-    >
-      <div className="w-fit" ref={wrapperRef}>
+    <div className="w-fit relative">
+      <div
+        className="w-fit"
+        style={{
+          width,
+        }}
+        ref={wrapperRef}
+      >
         <Input
-          leftIcon={<BiSearch className="w-5 h-5" />}
+          leftIcon={leftIcon}
+          rightIcon={rightIcon}
           type="text"
+          status={status}
           outlined={outlined}
+          disabled={disabled}
+          size={size}
           width={width}
           height={height}
-          onFocus={showTippy}
+          rounded={rounded}
+          onFocus={showPopover}
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={onChange}
+          placeholder={placeholder}
         />
       </div>
-    </Tippy>
+
+      <animated.div
+        ref={popoverRef}
+        style={props}
+        className="bg-white p-4 rounded-lg absolute w-full shadow-medium text-t_dark"
+      >
+        {children}
+      </animated.div>
+    </div>
   );
 };
 

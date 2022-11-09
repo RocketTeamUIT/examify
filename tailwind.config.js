@@ -49,6 +49,7 @@ module.exports = {
         // Background
         bg_light_gray: '#F5F7F9',
         bg_light_gray_2: '#F2F1F3',
+        bg_light_gray_3: '#ECF0F4',
         bg_white: '#FFFFFF',
         bg_black: '#131417',
         bg_dark_gray: '#27292B',
@@ -71,6 +72,9 @@ module.exports = {
         ac_dark_blue: '#001C7F',
         ac_lighter_blue: '#208AFF',
         ac_lighter_green: '#1FCF9B',
+      },
+      boxShadow: {
+        medium: '0 0 16px -4px rgba(0,0,0,0.3)',
       },
     },
   },
