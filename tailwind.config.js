@@ -33,6 +33,9 @@ module.exports = {
       bold: 700,
     },
     extend: {
+      boxShadow: {
+        sd_primary: '0px 4px 20px 0px rgba(0, 0, 0, 0.2)',
+      },
       colors: {
         // Primary
         primary: '#0E46C7',
