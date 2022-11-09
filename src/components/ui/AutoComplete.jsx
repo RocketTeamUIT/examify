@@ -12,6 +12,7 @@ const AutoComplete = ({
   size,
   width,
   height,
+  maxWidth,
   rounded,
   children,
   leftIcon,
@@ -65,7 +66,13 @@ const AutoComplete = ({
   }, [popoverRef]);
 
   return (
-    <div className="w-fit relative">
+    <div
+      className="w-fit relative"
+      style={{
+        width,
+        maxWidth,
+      }}
+    >
       <div
         className="w-fit"
         style={{
@@ -94,7 +101,7 @@ const AutoComplete = ({
       <animated.div
         ref={popoverRef}
         style={props}
-        className="bg-white p-4 rounded-lg absolute w-full shadow-medium text-t_dark"
+        className="bg-white p-4 rounded-lg absolute w-full shadow-sd_medium text-t_dark"
       >
         {children}
       </animated.div>

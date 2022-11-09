@@ -31,6 +31,7 @@ const Input = ({
   type = 'text',
   size = 'normal',
   status,
+  placeholder,
   outlined,
   disabled,
   width,
@@ -91,6 +92,7 @@ const Input = ({
       {/* Real input */}
       <input
         className="outline-none bg-transparent text-t_dark flex-1"
+        placeholder={placeholder}
         ref={inputRef}
         disabled={disabled}
         value={value}
