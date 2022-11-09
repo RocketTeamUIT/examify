@@ -9,11 +9,15 @@ import Chapter from './Chapter';
 import ModalRegisterCourse from './ModalRegisterCourse';
 // import Icon:
 import { AiFillStar, AiOutlineTeam } from 'react-icons/ai';
+import { BiBookmarks, BiBookOpen } from 'react-icons/bi';
 import { TiTick } from 'react-icons/ti';
+import { FaRegLightbulb } from 'react-icons/fa';
 // import Image:
 import bannerImg from '../../../../assets/images/courseDetailBanner.png';
 // import Data:
 import { courseDetail, chapters } from '../data';
+// import hard data:
+import { qualityUs } from '../../../../data/constants';
 
 // Declare TickItem component:
 const TickItem = ({ children }) => (
@@ -23,6 +27,20 @@ const TickItem = ({ children }) => (
     </div>
     <p>{children}</p>
   </li>
+);
+
+// Declare QualityItem component:
+const QualityItem = ({ children, icon }) => (
+  <div className="border-2 border-primary rounded-lg pb-3 pt-6 px-5 relative flex items-center">
+    <p>{children}</p>
+    <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-white">
+      <div className="relative w-[40px] h-[40px] before:block before:w-[40px] before:h-[40px] before:rounded-full before:bg-primary before:opacity-50">
+        <div className="text-primary text-[24px] absolute bottom-0 -translate-y-1/3  right-0 -translate-x-1/3">
+          {icon}
+        </div>
+      </div>
+    </div>
+  </div>
 );
 
 function CourseDetail() {
@@ -222,6 +240,18 @@ function CourseDetail() {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Quality Us */}
+      <div className="hidden md:block mt-20 mx-16">
+        <h3 className="text-body-lg text-center font-medium mb-10">Chất lượng của chúng tôi</h3>
+        {/* List quality about us */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {qualityUs[0] && <QualityItem icon={<FaRegLightbulb />}>{qualityUs[0]}</QualityItem>}
+          {qualityUs[1] && <QualityItem icon={<AiOutlineTeam />}>{qualityUs[1]}</QualityItem>}
+          {qualityUs[2] && <QualityItem icon={<BiBookOpen />}>{qualityUs[2]}</QualityItem>}
+          {qualityUs[3] && <QualityItem icon={<BiBookmarks />}>{qualityUs[3]}</QualityItem>}
         </div>
       </div>
     </div>
