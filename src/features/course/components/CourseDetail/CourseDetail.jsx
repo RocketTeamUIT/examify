@@ -63,7 +63,7 @@ function CourseDetail() {
         <SubNav />
 
         {/* Course demo infomation */}
-        <div className="mx-6 mt-6 p-3 border-2 border-br_gray rounded-md md:mx-16 md:mt-8 md:p-6 lg:border-none lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-5/6">
+        <div className="mx-6 mt-6 p-3 border-2 border-br_gray rounded-md md:mx-16 md:mt-8 md:p-6 lg:border-none lg:absolute lg:top-0 lg:w-7/12">
           {/* Course name */}
           <h3 className="text-body-md text-center font-medium lg:text-white lg:text-h1 lg:text-left ">
             {courseDetail.name}
@@ -108,7 +108,7 @@ function CourseDetail() {
       <div className="mx-6  md:mx-16 lg:flex lg:flex-row-reverse lg:gap-5 lg:mx-[100px]">
         {/* ModalRegisterCourse component */}
         <div className="lg:w-4/12 lg:relative">
-          <div className="mt-10 min-h-[400px] md:w-1/2 md:mx-auto lg:w-full lg:sticky top-5">
+          <div className="mt-10 min-h-[400px] md:w-1/2 md:mx-auto lg:w-full lg:sticky top-5 lg:mt-[-400px] xl:mt-[-500px]">
             <ModalRegisterCourse course={courseDetail} />
           </div>
         </div>
