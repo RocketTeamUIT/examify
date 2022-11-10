@@ -51,7 +51,7 @@ const Header = () => {
   };
 
   return (
-    <div className="h-[60px] bg-white shadow-sd_primary flex md:gap-6 xl:gap-14 items-center justify-between lg:justify-start px-5 z-20 sticky top-0">
+    <div className="h-[60px] bg-white shadow-sd_primary flex md:gap-6 xl:gap-14 items-center justify-between lg:justify-start px-3 z-20 sticky top-0">
       {/* Mobile menu toggle */}
       <button
         className="flex lg:hidden items-center justify-center w-11 h-11 hover:bg-bg_light_gray_3 transition rounded-lg -ml-2"
@@ -116,9 +116,9 @@ const Header = () => {
         )}
         onClick={handleToggleMenu}
       >
-        <div className="bg-white pt-4 rounded-bl-lg rounded-br-lg" onClick={(e) => e.stopPropagation()}>
+        <div className="bg-white pt-4 rounded-bl-lg rounded-br-lg px-3" onClick={(e) => e.stopPropagation()}>
           {/* Search Bar */}
-          <div className="mx-5">
+          <div>
             <AutoComplete
               value={search}
               onChange={handleChange}
@@ -140,7 +140,7 @@ const Header = () => {
             </AutoComplete>
           </div>
 
-          <ul className="text-md px-5 py-4">
+          <ul className="text-md py-4">
             {NAVIGATION_LIST.map(([title, path], index) => (
               <li key={index} className="text-t_dark">
                 <Link className="block p-3 hover:bg-bg_light_gray_3 transition rounded-md cursor-pointer" to={path}>
