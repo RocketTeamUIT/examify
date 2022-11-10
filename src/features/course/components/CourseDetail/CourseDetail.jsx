@@ -236,7 +236,7 @@ function CourseDetail() {
             {/* List chapter of the course */}
             <div className="grid gap-2">
               {chapters.map((chapter) => (
-                <Chapter key={chapter.id} chapter={chapter} />
+                <Chapter key={chapter.id} chapter={chapter} openAll={openAll} />
               ))}
             </div>
           </div>

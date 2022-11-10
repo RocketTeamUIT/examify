@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import Lesson from './Lesson';
 
-function Unit({ unit }) {
-  const [isOpen, setOpen] = useState(false);
+function Unit({ unit, openAll }) {
+  const [isOpen, setOpen] = useState(openAll);
+
+  // this is called when the user clicks openAll:
+  useEffect(() => {
+    setOpen(openAll);
+  }, [openAll]);
 
   return (
     <>
