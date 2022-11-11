@@ -8,7 +8,7 @@ function Footer() {
 
   return (
     <div className="bg-bg_dark_gray pt-12 pb-9 text-white flex justify-center">
-      <div className="max-w-primary px-3 md:px-8 lg:px-[100px] flex-1">
+      <div className="max-w-primary px-6 md:px-8 lg:px-[100px] flex-1">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16">
           {/* Examify */}
           <div>
