@@ -25,7 +25,7 @@ import { forwardRef } from 'react';
 - dark: dark mode
 */
 
-const TYPES = ['primary', 'default', 'danger', 'disabled'];
+const TYPES = ['primary', 'default', 'danger', 'disabled', 'text'];
 const SIZE = ['normal', 'large'];
 const SHAPE = ['rectangle', 'circle'];
 
@@ -95,6 +95,8 @@ const Button = (
 
         // Special
         disabled && 'cursor:default pointer-events-none text-t_light_gray_3 bg-bg_primary',
+
+        checkType === 'text' && 'hover:underline',
 
         className,
       )}
