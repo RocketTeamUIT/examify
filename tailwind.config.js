@@ -33,6 +33,13 @@ module.exports = {
       bold: 700,
     },
     extend: {
+      boxShadow: {
+        sd_primary: '0px 4px 20px 0px rgba(0, 0, 0, 0.2)',
+        sd_medium: '0 0 16px -4px rgba(0,0,0,0.3)',
+      },
+      maxWidth: {
+        primary: '1440px',
+      },
       colors: {
         // Primary
         primary: '#0E46C7',
@@ -49,6 +56,7 @@ module.exports = {
         // Background
         bg_light_gray: '#F5F7F9',
         bg_light_gray_2: '#F2F1F3',
+        bg_light_gray_3: '#ECF0F4',
         bg_white: '#FFFFFF',
         bg_black: '#131417',
         bg_dark_gray: '#27292B',

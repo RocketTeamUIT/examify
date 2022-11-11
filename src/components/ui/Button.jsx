@@ -30,7 +30,22 @@ const SIZE = ['normal', 'large'];
 const SHAPE = ['rectangle', 'circle'];
 
 const Button = (
-  { children, leftIcon, rightIcon, type, size, shape, onClick, disabled, unbold, width, height, dark, rounded = [] },
+  {
+    children,
+    className,
+    leftIcon,
+    rightIcon,
+    type,
+    size,
+    shape,
+    onClick,
+    disabled,
+    unbold,
+    width,
+    height,
+    dark,
+    rounded = [],
+  },
   ref,
 ) => {
   // Check validity of props
@@ -80,6 +95,8 @@ const Button = (
 
         // Special
         disabled && 'cursor:default pointer-events-none text-t_light_gray_3 bg-bg_primary',
+
+        className,
       )}
       onClick={!disabled ? onClick : undefined}
       style={{
