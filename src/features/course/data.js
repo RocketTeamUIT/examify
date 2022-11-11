@@ -1,5 +1,5 @@
-import courseProImg from '../../../assets/images/coursePro.png';
-import courseBasicImg from '../../../assets/images/courseBasic.png';
+import courseProImg from '../../assets/images/coursePro.png';
+import courseBasicImg from '../../assets/images/courseBasic.png';
 
 // Current user
 export const currentUser = {

@@ -3,7 +3,7 @@ import { AiOutlineTeam, AiOutlineLaptop } from 'react-icons/ai';
 import { BiBookOpen } from 'react-icons/bi';
 import { MdSlowMotionVideo } from 'react-icons/md';
 
-import Button from '../../../../components/ui/Button';
+import Button from '../../../components/ui/Button';
 import { joinCourse } from '../data';
 
 function ModalRegisterCourse({ course }) {

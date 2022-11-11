@@ -9,9 +9,9 @@ import classNames from 'classnames';
 import { useSpring, animated } from 'react-spring';
 
 const NAVIGATION_LIST = [
-  ['Khoá học', '/course'],
-  ['Đề thi', '/exam'],
-  ['Flashcard', '/flashcard'],
+  ['Khoá học', '/courses'],
+  ['Đề thi', '/exams'],
+  ['Flashcard', '/flashcards'],
   ['Thi đấu', '/contest'],
 ];
 

@@ -1,22 +1,22 @@
 // import Component:
-import Tag from '../../../../components/ui/Tag';
-import SubNav from '../SubNav';
+import Tag from '../../../components/ui/Tag';
+import SubNav from '../../../components/ui/SubNav';
 import AchieveList from './AchieveList';
 import CourseContent from './CourseContent';
 import ModalRegisterCourse from './ModalRegisterCourse';
 import CourseInfo from './CourseInfo';
 import QualityItem from './QualityItem';
-import { RatingStar } from '../../../../components/ui';
+import { RatingStar } from '../../../components/ui';
 // import Icon:
 import { AiOutlineTeam } from 'react-icons/ai';
 import { BiBookmarks, BiBookOpen } from 'react-icons/bi';
 import { FaRegLightbulb } from 'react-icons/fa';
 // import Image:
-import bannerImg from '../../../../assets/images/courseDetailBanner.png';
+import bannerImg from '../../../assets/images/courseDetailBanner.png';
 // import Data:
 import { courseDetail } from '../data';
 // import hard data:
-import { qualityUs } from '../../../../data/constants';
+import { qualityUs } from '../../../data/constants';
 
 function CourseDetail() {
   return (

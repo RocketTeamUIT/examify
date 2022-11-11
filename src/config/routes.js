@@ -6,7 +6,7 @@ const routes = {
   forgetPassword: '/forget-password',
 
   // Course
-  courseList: '/courseList',
+  courseList: '/courses',
   courseDetail: '/courses/detail', // Để tạm
   courseListChapter: '/courses/detail/list-chapter', // Để tạm
   courseLearn: '/courses/detail/list-chapter/video', // Để tạm

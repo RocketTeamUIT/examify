@@ -1,9 +1,9 @@
 // import component:
-import { Tip } from '../../../../components/ui';
-import SubNav from '../SubNav';
+import { Tip } from '../../../components/ui';
+import SubNav from '../../../components/ui/SubNav';
 import CourseListItem from './CourseListItem';
 // import image:
-import bannerImg from '../../../../assets/images/courseBanner.png';
+import bannerImg from '../../../assets/images/courseBanner.png';
 // import Hook:
 import { useCallback } from 'react';
 // import data:
