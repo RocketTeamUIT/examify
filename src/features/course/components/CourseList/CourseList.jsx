@@ -1,7 +1,7 @@
 // import component:
 import { Tip } from '../../../../components/ui';
 import SubNav from '../SubNav';
-import CourseItem from './CourseItem';
+import CourseListItem from './CourseListItem';
 // import image:
 import bannerImg from '../../../../assets/images/courseBanner.png';
 // import Hook:
@@ -26,7 +26,7 @@ function CourseList() {
       <SubNav />
 
       {/* Main content CourseList Page */}
-      <div className="mx-3 md:mx-8 lg:mx-[100px]">
+      <div className="mx-6 md:mx-8 lg:mx-[100px]">
         {/* Course Description */}
         <h3 className="text-body-lg font-semibold mt-10">Tham gia Khóa học tại Examify</h3>
         <p className="mt-4 text-body-md text-t_dark">
@@ -40,63 +40,35 @@ function CourseList() {
 
         {/* List Pro Course */}
         {coursesPro?.length > 0 && (
-          <>
-            <div className="flex items-end mt-10">
-              <h3 className="text-body-lg font-semibold mr-3">Khóa học Pro:</h3>
-              <div className="bg-blue-700 rounded-md px-2 py-1 text-white">New</div>
-            </div>
-            {/* List Course */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-10">
-              {coursesPro?.map((course) => (
-                <CourseItem key={course?.id} course={course} onClick={handleClickCourse} />
-              ))}
-            </div>
-          </>
+          <CourseListItem
+            listName="Khóa học Pro:"
+            listCourse={coursesPro}
+            handleClickCourse={handleClickCourse}
+            isNew={true}
+          />
         )}
 
         {/* List Basic Course */}
         {coursesBasic?.length > 0 && (
-          <>
-            <div className="flex items-end mt-10">
-              <h3 className="text-body-lg font-semibold mr-3">Khóa học cơ bản:</h3>
-            </div>
-            {/* List Course */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-10">
-              {coursesBasic?.map((course) => (
-                <CourseItem key={course?.id} course={course} onClick={handleClickCourse} />
-              ))}
-            </div>
-          </>
+          <CourseListItem listName="Khóa học cơ bản:" listCourse={coursesBasic} handleClickCourse={handleClickCourse} />
         )}
 
         {/* List General Course */}
         {courseGeneral?.length > 0 && (
-          <>
-            <div className="flex items-end mt-10">
-              <h3 className="text-body-lg font-semibold mr-3">Khóa học phổ thông:</h3>
-            </div>
-            {/* List Course */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-10">
-              {coursesPro?.map((course) => (
-                <CourseItem key={course?.id} course={course} onClick={handleClickCourse} />
-              ))}
-            </div>
-          </>
+          <CourseListItem
+            listName="Khóa học phổ thông:"
+            listCourse={courseGeneral}
+            handleClickCourse={handleClickCourse}
+          />
         )}
 
         {/* List Advance Course */}
         {courseAdvance?.length > 0 && (
-          <>
-            <div className="flex items-end mt-10">
-              <h3 className="text-body-lg font-semibold mr-3">Khóa học nâng cao:</h3>
-            </div>
-            {/* List Course */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-10">
-              {coursesPro?.map((course) => (
-                <CourseItem key={course?.id} course={course} onClick={handleClickCourse} />
-              ))}
-            </div>
-          </>
+          <CourseListItem
+            listName="Khóa học nâng  cao:"
+            listCourse={courseAdvance}
+            handleClickCourse={handleClickCourse}
+          />
         )}
       </div>
     </div>

@@ -49,7 +49,7 @@ function CourseItem({ course, onClick }) {
         <img className="w-full" src={course.img} alt="name" />
       </div>
 
-      <div className="px-1 pb-4">
+      <div className="px-4 md:px-1 pb-4">
         {/* Course name */}
         <h3 className="text-body-md font-medium mt-4 cursor-pointer" onClick={() => onClick(course)}>
           {course.name}
@@ -86,17 +86,17 @@ function CourseItem({ course, onClick }) {
 
           {/* Check User joined course */}
           {checkJoinCourse(listCourseUserJoin, String(course.id)) ? (
-            <div className="flex flex-shrink-0 justify-end ml-5">
+            <div className="mt-5 md:mt-0 flex flex-shrink-0 justify-end ml-5">
               <Tag color="green">đã tham gia</Tag>
             </div>
           ) : // Check the Course using Paid method or Points to unlock
           course.charges ? (
-            <div className="mt-4 md:mt-0 flex items-center justify-end gap-1 text-[#EF3737] text-body-md font-semibold">
+            <div className="mt-5 md:mt-0 flex items-center justify-end gap-1 text-[#EF3737] text-body-md font-semibold">
               <BiLock className="text-[20px]" />
               <p>{course.price}đ</p>
             </div>
           ) : (
-            <div className="mt-4 md:mt-0 flex items-center justify-end gap-0.5 text-primary text-body-md font-semibold">
+            <div className="mt-5 md:mt-0 flex items-center justify-end gap-0.5 text-primary text-body-md font-semibold">
               <BiLock className="text-[20px]" />
               <p>{course.pointUnlock} điểm</p>
             </div>
