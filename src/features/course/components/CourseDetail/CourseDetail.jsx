@@ -6,8 +6,9 @@ import CourseContent from './CourseContent';
 import ModalRegisterCourse from './ModalRegisterCourse';
 import CourseInfo from './CourseInfo';
 import QualityItem from './QualityItem';
+import { RatingStar } from '../../../../components/ui';
 // import Icon:
-import { AiFillStar, AiOutlineTeam } from 'react-icons/ai';
+import { AiOutlineTeam } from 'react-icons/ai';
 import { BiBookmarks, BiBookOpen } from 'react-icons/bi';
 import { FaRegLightbulb } from 'react-icons/fa';
 // import Image:
@@ -18,15 +19,6 @@ import { courseDetail } from '../data';
 import { qualityUs } from '../../../../data/constants';
 
 function CourseDetail() {
-  // Fill color for Star rating icon:
-  const fillStar = (avgRate, num) => {
-    return Math.round(avgRate) < num ? (
-      <AiFillStar className="text-t_light_gray_3" />
-    ) : (
-      <AiFillStar className="text-ac_yellow" />
-    );
-  };
-
   return (
     <div className="mb-20">
       <div className="relative">
@@ -44,13 +36,7 @@ function CourseDetail() {
           <div className="mt-3 lg:flex lg:items-start lg:gap-5 lg:mt-6">
             <div className="flex items-center justify-center gap-1 lg:flex-col lg:items-start lg:gap-3 lg:justify-start">
               {/* Star average rating */}
-              <div className="flex">
-                {fillStar(courseDetail.avgRating, 1)}
-                {fillStar(courseDetail.avgRating, 2)}
-                {fillStar(courseDetail.avgRating, 3)}
-                {fillStar(courseDetail.avgRating, 4)}
-                {fillStar(courseDetail.avgRating, 5)}
-              </div>
+              <RatingStar avg={courseDetail.avgRating} />
 
               {/* Number of rating */}
               <p className="text-body-sm lg:text-white lg:text-body-md">({courseDetail.qntRating} đánh giá)</p>
