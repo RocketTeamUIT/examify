@@ -19,6 +19,7 @@
     "react-spinner": "^0.2.7",
     "react-spring": "^9.5.5",
     "redux": "^4.2.0",
+    "swiper": "^8.4.4",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
