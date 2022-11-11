@@ -11,7 +11,7 @@ import ForgetPassword from '../pages/ForgetPassword';
 import TuanBigTest from '../pages/TuanBigTest';
 
 // Course
-import { Course, CourseDetail, CourseLearn, CourseListChapter, CourseText } from '../features/course/components';
+import { CourseList, CourseDetail, CourseLearn, CourseListChapter, CourseText } from '../features/course/components';
 
 // Exam
 import { Exam } from '../features/exam/components';
@@ -24,7 +24,7 @@ const publicRouters = [
   { path: config.routes.forgetPassword, component: ForgetPassword, layout: AuthLayout },
 
   // Course
-  { path: config.routes.course, component: Course },
+  { path: config.routes.courseList, component: CourseList },
   { path: config.routes.courseDetail, component: CourseDetail },
   { path: config.routes.courseListChapter, component: CourseLearn },
   { path: config.routes.courseLearn, component: CourseListChapter },
