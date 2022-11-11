@@ -1,6 +1,6 @@
 // import component:
-import { Tag } from '../../../../components/ui';
-import { RatingStar } from '../../../../components/ui';
+import { Tag } from '../../../components/ui';
+import { RatingStar } from '../../../components/ui';
 // import icon:
 import { AiOutlineTeam } from 'react-icons/ai';
 import { FaCrown } from 'react-icons/fa';

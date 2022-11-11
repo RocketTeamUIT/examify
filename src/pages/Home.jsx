@@ -4,8 +4,8 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 // import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { coursesPro } from '../features/course/components/data';
-import CourseListItem from '../features/course/components/CourseList/CourseListItem';
+import { coursesPro } from '../features/course/data';
+import CourseListItem from '../features/course/CourseList/CourseListItem';
 
 const Home = () => {
   return (

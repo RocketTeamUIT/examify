@@ -11,7 +11,7 @@ import ForgetPassword from '../pages/ForgetPassword';
 import TuanBigTest from '../pages/TuanBigTest';
 
 // Course
-import { CourseList, CourseDetail, CourseLearn, CourseListChapter, CourseText } from '../features/course/components';
+import { CourseList, CourseDetail, CourseLearn, CourseListChapter, CourseText } from '../features/course';
 
 // Exam
 import { Exam } from '../features/exam/components';
