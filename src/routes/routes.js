@@ -11,7 +11,14 @@ import ForgetPassword from '../pages/ForgetPassword';
 import TuanBigTest from '../pages/TuanBigTest';
 
 // Course
-import { CourseList, CourseDetail, CourseLearn, CourseListChapter, CourseText } from '../features/course';
+import {
+  CourseList,
+  CourseDetail,
+  CourseLearn,
+  CourseListChapter,
+  CourseText,
+  CourseDetailLessonVideo,
+} from '../features/course';
 
 // Exam
 import { Exam } from '../features/exam/components';
@@ -35,6 +42,8 @@ const publicRouters = [
 
   // Test
   { path: config.routes.tuanBig, component: TuanBigTest },
+
+  { path: '/tuan-nho', component: CourseDetailLessonVideo },
 ];
 
 // Private routes
