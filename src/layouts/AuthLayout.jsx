@@ -6,7 +6,7 @@ function AuthLayout({ children }) {
   return (
     // Wrapper
     <div>
-      <Header />
+      {/* <Header /> */}
       {children}
       {/* <Footer /> */}
     </div>

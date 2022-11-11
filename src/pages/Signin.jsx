@@ -1,5 +1,5 @@
 import logo from '../assets/circle_logo.png';
-import { AiOutlineGoogle } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
 import { Input, Button } from '../components/ui';
 import { Link } from 'react-router-dom';
 import { BiUser, BiLockAlt } from 'react-icons/bi';
@@ -7,9 +7,9 @@ import { BiUser, BiLockAlt } from 'react-icons/bi';
 function Signin() {
   return (
     // Layout
-    <div className="mx-6 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-5">
+    <div className=" mx-6 sm:mx-[100px] grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-5">
       {/* Modal */}
-      <div className="col-span-4 md:px-6 md:col-start-2 lg:col-start-5 bg-white md:border md:border-br_gray md:mt-5 py-4 rounded-lg">
+      <div className="min-w-[280px] col-span-4 md:px-6 md:col-start-2 lg:col-start-5 bg-white md:border md:border-br_gray md:mt-5 py-4 rounded-lg">
         {/* Header */}
         <div className="flex flex-col items-center">
           <div className="w-20">
@@ -18,12 +18,12 @@ function Signin() {
             </Link>
           </div>
           <div className="text-center">
-            <h1 className="text-h4 font-bold text-primary mt-3">Mừng trở lại</h1>
+            <h1 className="text-h4 font-bold text-primary mt-2">Mừng trở lại</h1>
             <p className="text-h6 text-t_gray">Hãy điền thông tin của bạn!</p>
           </div>
         </div>
         {/* Form */}
-        <form className="mt-8">
+        <form className="mt-5">
           <label className="text-h6 font-medium text-t_dark">
             Username
             <Input rightIcon={<BiUser />} />
@@ -46,13 +46,13 @@ function Signin() {
             </span>
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8">
             <Button width="100%">Đăng nhập</Button>
           </div>
         </form>
         {/* Sign in with google */}
-        <div className="mt-4">
-          <Button leftIcon={<AiOutlineGoogle />} type="default" width="100%">
+        <div className="mt-3">
+          <Button leftIcon={<FcGoogle size={24} />} type="default" width="100%">
             Đăng nhập bằng Google
           </Button>
         </div>
