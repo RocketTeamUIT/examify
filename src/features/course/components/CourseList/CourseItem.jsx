@@ -1,7 +1,8 @@
 // import component:
 import { Tag } from '../../../../components/ui';
+import { RatingStar } from '../../../../components/ui';
 // import icon:
-import { AiOutlineTeam, AiFillStar } from 'react-icons/ai';
+import { AiOutlineTeam } from 'react-icons/ai';
 import { FaCrown } from 'react-icons/fa';
 import { BiLock } from 'react-icons/bi';
 // import hook:
@@ -20,15 +21,6 @@ function CourseItem({ course, onClick }) {
       }, []),
     );
   }, []);
-
-  // Fill color for Star rating icon:
-  const fillStar = (avgRate, num) => {
-    return Math.round(avgRate) < num ? (
-      <AiFillStar className="text-t_light_gray_3" />
-    ) : (
-      <AiFillStar className="text-ac_yellow" />
-    );
-  };
 
   // Check if the Course is on the list Course user joined:
   const checkJoinCourse = (joinList = [], courseId) => {
@@ -49,7 +41,7 @@ function CourseItem({ course, onClick }) {
         <img className="w-full" src={course.img} alt="name" />
       </div>
 
-      <div className="px-1 pb-4">
+      <div className="px-4 md:px-1 pb-4">
         {/* Course name */}
         <h3 className="text-body-md font-medium mt-4 cursor-pointer" onClick={() => onClick(course)}>
           {course.name}
@@ -58,13 +50,7 @@ function CourseItem({ course, onClick }) {
         <div className="mt-2 md:flex md justify-between md:mt-4">
           <div className="flex items-center gap-1 md:flex-col md:items-start">
             {/* Average rating info */}
-            <div className="flex">
-              {fillStar(course.avgRating, 1)}
-              {fillStar(course.avgRating, 2)}
-              {fillStar(course.avgRating, 3)}
-              {fillStar(course.avgRating, 4)}
-              {fillStar(course.avgRating, 5)}
-            </div>
+            <RatingStar avg={course.avgRating} />
             {/* Rating quantity info  */}
             <p>({course.qntRating} đánh giá)</p>
           </div>
@@ -86,17 +72,17 @@ function CourseItem({ course, onClick }) {
 
           {/* Check User joined course */}
           {checkJoinCourse(listCourseUserJoin, String(course.id)) ? (
-            <div className="flex flex-shrink-0 justify-end ml-5">
+            <div className="mt-5 md:mt-0 flex flex-shrink-0 justify-end ml-5">
               <Tag color="green">đã tham gia</Tag>
             </div>
           ) : // Check the Course using Paid method or Points to unlock
           course.charges ? (
-            <div className="mt-4 md:mt-0 flex items-center justify-end gap-1 text-[#EF3737] text-body-md font-semibold">
+            <div className="mt-5 md:mt-0 flex items-center justify-end gap-1 text-[#EF3737] text-body-md font-semibold">
               <BiLock className="text-[20px]" />
               <p>{course.price}đ</p>
             </div>
           ) : (
-            <div className="mt-4 md:mt-0 flex items-center justify-end gap-0.5 text-primary text-body-md font-semibold">
+            <div className="mt-5 md:mt-0 flex items-center justify-end gap-0.5 text-primary text-body-md font-semibold">
               <BiLock className="text-[20px]" />
               <p>{course.pointUnlock} điểm</p>
             </div>

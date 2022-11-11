@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { AiOutlineTeam, AiOutlineLaptop } from 'react-icons/ai';
 import { BiBookOpen } from 'react-icons/bi';
 import { MdSlowMotionVideo } from 'react-icons/md';
@@ -8,9 +8,10 @@ import { joinCourse } from '../data';
 
 function ModalRegisterCourse({ course }) {
   const [joined, setJoined] = useState(false);
-  var listCourseUserJoin = [];
 
   useEffect(() => {
+    let listCourseUserJoin = [];
+
     // get list course user joined:
     listCourseUserJoin = joinCourse.reduce((acc, curr) => {
       return acc.concat(curr.courseId);
@@ -18,6 +19,7 @@ function ModalRegisterCourse({ course }) {
 
     // user joined or have not joined:
     setJoined(checkUserJoinedCourse(listCourseUserJoin));
+    // eslint-disable-next-line
   }, []);
 
   // check course in list course user joined:
@@ -95,4 +97,4 @@ function ModalRegisterCourse({ course }) {
   );
 }
 
-export default ModalRegisterCourse;
+export default memo(ModalRegisterCourse);
