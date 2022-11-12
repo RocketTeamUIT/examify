@@ -74,8 +74,8 @@ const Button = (
         {
           'bg-ac_blue text-white hover:bg-opacity-90': checkType === 'primary',
           'border-[1px] border-br_light_gray hover:bg-br_light_gray': checkType === 'default',
-          'text-t_dark': checkType === 'default' && !dark,
-          'text-white': checkType === 'default' && dark,
+          'text-t_dark': ['default', 'text'].indexOf(checkType) !== -1 && !dark,
+          'text-white': ['default', 'text'].indexOf(checkType) !== -1 && dark,
           'text-ac_red border-[1px] border-ac_red hover:bg-ac_red hover:text-white': checkType === 'danger',
         },
 

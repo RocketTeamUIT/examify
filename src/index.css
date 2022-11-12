@@ -73,3 +73,7 @@ code {
   bottom: 0;
   pointer-events: none;
 }
+
+.progress-wrapper {
+  background: conic-gradient(#333 var(--degree), #f2f1f3 0deg);
+}
