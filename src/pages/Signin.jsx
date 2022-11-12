@@ -22,7 +22,9 @@ function Signin() {
     // Get email, password
     const { email, password } = data;
 
-    console.log(data);
+    console.log(email, password);
+
+    // Call API at here
   };
 
   return (
@@ -49,11 +51,13 @@ function Signin() {
             Email
             <Input rightIcon={<BiUser />} label="email" register={register} />
           </label>
+          <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
 
           <label className="text-h6 mt-4 block font-medium text-t_dark">
             Password
             <Input rightIcon={<BiLockAlt />} type="password" label="password" register={register} />
           </label>
+          <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
 
           {/* actions */}
           <div className="flex justify-between mt-3">
@@ -71,12 +75,14 @@ function Signin() {
             <Button width="100%">Đăng nhập</Button>
           </div>
         </form>
+
         {/* Sign in with google */}
         <div className="mt-3">
           <Button leftIcon={<FcGoogle size={24} />} type="default" width="100%">
             Đăng nhập bằng Google
           </Button>
         </div>
+
         {/* Footer */}
         <p className="text-sm text-center text-t_gray mt-5">
           Bạn chưa có tài khoản?{' '}
