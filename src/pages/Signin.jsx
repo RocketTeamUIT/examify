@@ -1,10 +1,30 @@
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 import logo from '../assets/circle_logo.png';
 import { FcGoogle } from 'react-icons/fc';
 import { Input, Button } from '../components/ui';
 import { Link } from 'react-router-dom';
 import { BiUser, BiLockAlt } from 'react-icons/bi';
 
+import { signinScheme } from '../validations/signin';
+
 function Signin() {
+  // Get some APIs to manage form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(signinScheme) });
+
+  // Handle data that get from form
+  const handleDataForm = (data) => {
+    // Get email, password
+    const { email, password } = data;
+
+    console.log(data);
+  };
+
   return (
     // Layout
     <div className=" mx-6 sm:mx-[100px] grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-5">
@@ -22,16 +42,17 @@ function Signin() {
             <p className="text-h6 text-t_gray">Hãy điền thông tin của bạn!</p>
           </div>
         </div>
+
         {/* Form */}
-        <form className="mt-5">
+        <form className="mt-5" onSubmit={handleSubmit(handleDataForm)}>
           <label className="text-h6 font-medium text-t_dark">
-            Username
-            <Input rightIcon={<BiUser />} />
+            Email
+            <Input rightIcon={<BiUser />} label="email" register={register} />
           </label>
 
           <label className="text-h6 mt-4 block font-medium text-t_dark">
             Password
-            <Input rightIcon={<BiLockAlt />} type="password" />
+            <Input rightIcon={<BiLockAlt />} type="password" label="password" register={register} />
           </label>
 
           {/* actions */}

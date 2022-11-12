@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useState } from 'react';
+import { useState, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 
 /* Props
@@ -25,6 +25,8 @@ import PropTypes from 'prop-types';
 - visibilityToggle: whether to display Show/Hide password toggle (prop type must be 'password'). This one conflict with rightIcon
 - onBlur: callback when blur input 
 - onFocus: callback when focus input
+- label: represents an input value
+- register: passed from parent component to manage input tag (react-hook-form)
 */
 
 const Input = ({
@@ -43,14 +45,22 @@ const Input = ({
   visibilityToggle,
   onBlur,
   onFocus,
+  label,
+  register = () => {},
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [currentType, setCurrentType] = useState(type);
-  const ref = useRef();
+  const inputRef = useRef();
 
   const handleWrapperClick = () => {
-    ref.current.focus();
+    inputRef.current.focus();
   };
+
+  // Get ref from register
+  const { ref } = register(label);
+
+  // Merge inner ref to external ref
+  useImperativeHandle(ref, () => inputRef.current);
 
   return (
     // Wrapper
@@ -91,13 +101,14 @@ const Input = ({
       {/* Real input */}
       <input
         className="outline-none bg-transparent text-t_dark flex-1"
-        ref={ref}
         disabled={disabled}
         value={value}
         type={currentType}
         onChange={onChange ?? undefined}
         onBlur={onBlur ?? undefined}
         onFocus={onFocus ?? undefined}
+        {...register(label)}
+        ref={inputRef}
       />
 
       {/* Show/Hide password */}
