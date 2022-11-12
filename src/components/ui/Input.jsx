@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useState, useImperativeHandle } from 'react';
+import { useState, useImperativeHandle, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 /* Props
@@ -29,103 +29,104 @@ import PropTypes from 'prop-types';
 - register: passed from parent component to manage input tag (react-hook-form)
 */
 
-const Input = ({
-  type = 'text',
-  size = 'normal',
-  status,
-  outlined,
-  disabled,
-  width,
-  height,
-  leftIcon,
-  rightIcon,
-  rounded = [],
-  value,
-  onChange,
-  visibilityToggle,
-  onBlur,
-  onFocus,
-  label,
-  register = () => {},
-}) => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [currentType, setCurrentType] = useState(type);
-  const inputRef = useRef();
+const Input = forwardRef(
+  (
+    {
+      type = 'text',
+      size = 'normal',
+      status,
+      outlined,
+      disabled,
+      width,
+      height,
+      leftIcon,
+      rightIcon,
+      rounded = [],
+      value,
+      onChange,
+      visibilityToggle,
+      onBlur,
+      onFocus,
+      name,
+    },
+    ref,
+  ) => {
+    const [showPassword, setShowPassword] = useState(false);
+    const [currentType, setCurrentType] = useState(type);
+    const inputRef = useRef();
 
-  const handleWrapperClick = () => {
-    inputRef.current.focus();
-  };
+    const handleWrapperClick = () => {
+      inputRef.current.focus();
+    };
 
-  // Get ref from register
-  const { ref } = register(label);
+    // Merge inner ref to external ref
+    useImperativeHandle(ref, () => inputRef.current);
 
-  // Merge inner ref to external ref
-  useImperativeHandle(ref, () => inputRef.current);
+    return (
+      // Wrapper
+      <div
+        className={classnames(
+          'flex items-center gap-2 px-4 h-11 text-md bg-bg_light_gray_2 rounded-lg focus-within:outline outline-2 outline-ac_blue',
 
-  return (
-    // Wrapper
-    <div
-      className={classnames(
-        'flex items-center gap-2 px-4 h-11 text-md bg-bg_light_gray_2 rounded-lg focus-within:outline outline-2 outline-ac_blue',
+          // Size
+          size === 'large' && 'h-12 text-lg',
 
-        // Size
-        size === 'large' && 'h-12 text-lg',
+          // Status
+          !disabled && {
+            'border-[2px] border-ac_red': status === 'error',
+            'border-[2px] border-ac_yellow': status === 'warning',
+          },
 
-        // Status
-        !disabled && {
-          'border-[2px] border-ac_red': status === 'error',
-          'border-[2px] border-ac_yellow': status === 'warning',
-        },
+          // Appearance
+          outlined && 'bg-transparent border-br_light_gray border-[1px]',
 
-        // Appearance
-        outlined && 'bg-transparent border-br_light_gray border-[1px]',
+          // Cursor
+          type === 'text' && !disabled && 'cursor-text',
 
-        // Cursor
-        type === 'text' && !disabled && 'cursor-text',
+          // Disabled
+          disabled && 'bg-bg_gray_2 border-br_light_gray border-[1px]',
+        )}
+        style={{
+          width: width,
+          height: height,
+          borderTopLeftRadius: rounded[0],
+          borderTopRightRadius: rounded[1],
+          borderBottomRightRadius: rounded[2],
+          borderBottomLeftRadius: rounded[3],
+        }}
+        onClick={handleWrapperClick}
+      >
+        {leftIcon && <div>{leftIcon}</div>}
 
-        // Disabled
-        disabled && 'bg-bg_gray_2 border-br_light_gray border-[1px]',
-      )}
-      style={{
-        width: width,
-        height: height,
-        borderTopLeftRadius: rounded[0],
-        borderTopRightRadius: rounded[1],
-        borderBottomRightRadius: rounded[2],
-        borderBottomLeftRadius: rounded[3],
-      }}
-      onClick={handleWrapperClick}
-    >
-      {leftIcon && <div>{leftIcon}</div>}
+        {/* Real input */}
+        <input
+          className="outline-none bg-transparent text-t_dark flex-1"
+          disabled={disabled}
+          value={value}
+          type={currentType}
+          onChange={onChange ?? undefined}
+          onBlur={onBlur ?? undefined}
+          onFocus={onFocus ?? undefined}
+          name={name ?? undefined}
+          ref={inputRef}
+        />
 
-      {/* Real input */}
-      <input
-        className="outline-none bg-transparent text-t_dark flex-1"
-        disabled={disabled}
-        value={value}
-        type={currentType}
-        onChange={onChange ?? undefined}
-        onBlur={onBlur ?? undefined}
-        onFocus={onFocus ?? undefined}
-        {...register(label)}
-        ref={inputRef}
-      />
-
-      {/* Show/Hide password */}
-      {visibilityToggle && (
-        <button
-          onClick={() => {
-            setShowPassword(!showPassword);
-            setCurrentType(currentType === 'password' ? 'text' : 'password');
-          }}
-        >
-          {!showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-        </button>
-      )}
-      {!leftIcon && !visibilityToggle && rightIcon && <div>{rightIcon}</div>}
-    </div>
-  );
-};
+        {/* Show/Hide password */}
+        {visibilityToggle && (
+          <button
+            onClick={() => {
+              setShowPassword(!showPassword);
+              setCurrentType(currentType === 'password' ? 'text' : 'password');
+            }}
+          >
+            {!showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+          </button>
+        )}
+        {!leftIcon && !visibilityToggle && rightIcon && <div>{rightIcon}</div>}
+      </div>
+    );
+  },
+);
 
 Input.propTypes = {
   type: PropTypes.string,
@@ -144,5 +145,7 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
 };
+
+Input.displayName = 'Input';
 
 export default Input;

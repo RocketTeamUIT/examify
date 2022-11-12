@@ -17,6 +17,9 @@ function Signin() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(signinScheme) });
 
+  const { name: emailLabel, onChange: emailOnChange, onBlur: emailOnBlur, ref: emailRef } = register('email');
+  const { name: pwLabel, onChange: pwOnChange, onBlur: pwOnBlur, ref: pwRef } = register('password');
+
   // Handle data that get from form
   const handleDataForm = (data) => {
     // Get email, password
@@ -49,13 +52,26 @@ function Signin() {
         <form className="mt-5" onSubmit={handleSubmit(handleDataForm)}>
           <label className="text-h6 font-medium text-t_dark">
             Email
-            <Input rightIcon={<BiUser />} label="email" register={register} />
+            <Input
+              rightIcon={<BiUser />}
+              ref={emailRef}
+              name={emailLabel}
+              onChange={emailOnChange}
+              onBlur={emailOnBlur}
+            />
           </label>
           <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
 
           <label className="text-h6 mt-4 block font-medium text-t_dark">
             Password
-            <Input rightIcon={<BiLockAlt />} type="password" label="password" register={register} />
+            <Input
+              rightIcon={<BiLockAlt />}
+              type="password"
+              ref={pwRef}
+              name={pwLabel}
+              onChange={pwOnChange}
+              onBlur={pwOnBlur}
+            />
           </label>
           <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
 
