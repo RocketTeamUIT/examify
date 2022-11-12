@@ -26,8 +26,8 @@ const publicRouters = [
   // Course
   { path: config.routes.courseList, component: CourseList },
   { path: config.routes.courseDetail, component: CourseDetail },
-  { path: config.routes.courseListChapter, component: CourseLearn },
-  { path: config.routes.courseLearn, component: CourseListChapter },
+  { path: config.routes.courseListChapter, component: CourseListChapter },
+  { path: config.routes.courseLearn, component: CourseLearn },
   { path: config.routes.courseText, component: CourseText },
 
   // Exam
