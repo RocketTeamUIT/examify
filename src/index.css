@@ -75,5 +75,10 @@ code {
 }
 
 .progress-wrapper {
-  background: conic-gradient(#333 var(--degree), #f2f1f3 0deg);
+  background: conic-gradient(var(--border-color) var(--degree), #f2f1f3 0deg);
+}
+
+.overflow-y-overlay {
+  overflow-y: overlay;
+  z-index: 0;
 }

@@ -1,7 +1,7 @@
 import config from '../config';
 
 // Layouts
-import { AuthLayout } from '../layouts';
+import { AuthLayout, FocusLayout } from '../layouts';
 
 // Page
 import Home from '../pages/Home';
@@ -43,7 +43,7 @@ const publicRouters = [
   // Test
   { path: config.routes.tuanBig, component: TuanBigTest },
 
-  { path: '/tuan-nho', component: CourseDetailLessonVideo },
+  { path: '/tuan-nho', component: CourseDetailLessonVideo, layout: FocusLayout },
 ];
 
 // Private routes

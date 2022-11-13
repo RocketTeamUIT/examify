@@ -3,6 +3,8 @@ import classnames from 'classnames';
 import { forwardRef } from 'react';
 
 /* Props 
+- classnames: classnames for button
+- color: specify the color
 - leftIcon: show left icon
 - rightIcon: show right icon // You should not pass both leftIcon and rightIcon
 - type: button type
@@ -25,7 +27,7 @@ import { forwardRef } from 'react';
 - dark: dark mode
 */
 
-const TYPES = ['primary', 'default', 'danger', 'disabled', 'text'];
+const TYPES = ['primary', 'default', 'danger', 'disabled', 'text', 'plain'];
 const SIZE = ['normal', 'large'];
 const SHAPE = ['rectangle', 'circle'];
 
@@ -33,6 +35,7 @@ const Button = (
   {
     children,
     className,
+    color,
     leftIcon,
     rightIcon,
     type,
@@ -77,6 +80,7 @@ const Button = (
           'text-t_dark': ['default', 'text'].indexOf(checkType) !== -1 && !dark,
           'text-white': ['default', 'text'].indexOf(checkType) !== -1 && dark,
           'text-ac_red border-[1px] border-ac_red hover:bg-ac_red hover:text-white': checkType === 'danger',
+          'bg-white hover:bg-gray-100': checkType === 'plain',
         },
 
         // Size
@@ -94,9 +98,8 @@ const Button = (
         },
 
         // Special
-        disabled && 'cursor:default pointer-events-none text-t_light_gray_3 bg-bg_primary',
-
-        checkType === 'text' && 'hover:underline',
+        disabled && 'cursor:default pointer-events-none text-t_light_gray_3',
+        disabled && type !== 'text' && 'bg-bg_primary',
 
         className,
       )}
@@ -108,6 +111,7 @@ const Button = (
         borderTopRightRadius: rounded[1],
         borderBottomRightRadius: rounded[2],
         borderBottomLeftRadius: rounded[3],
+        color: color,
       }}
       ref={ref}
     >
