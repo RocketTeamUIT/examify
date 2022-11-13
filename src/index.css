@@ -73,3 +73,12 @@ code {
   bottom: 0;
   pointer-events: none;
 }
+
+.progress-wrapper {
+  background: conic-gradient(var(--border-color) var(--degree), #f2f1f3 0deg);
+}
+
+.overflow-y-overlay {
+  overflow-y: overlay;
+  z-index: 0;
+}
