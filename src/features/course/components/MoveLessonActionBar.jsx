@@ -2,10 +2,14 @@ import React from 'react';
 import { Button } from '../../../components/ui';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { IoMenu } from 'react-icons/io5';
+import PropTypes from 'prop-types';
 
+/*  props
+    - toggle: callback to toggle menu when clicked
+*/
 const MoveLessonActionBar = ({ toggle }) => {
   return (
-    <div className="fixed bottom-0 w-full bg-t_light_gray h-[60px] flex items-center justify-start md:justify-center gap-6">
+    <div className="fixed bottom-0 w-full bg-t_light_gray h-[60px] flex items-center justify-start md:justify-center gap-3 md:gap-6">
       {/* Button: Previous Lesson */}
       <Button type="text" disabled height="60px" leftIcon={<MdKeyboardArrowLeft className="w-[30px] h-[30px]" />}>
         BÀI TRƯỚC
@@ -36,6 +40,10 @@ const MoveLessonActionBar = ({ toggle }) => {
       ></Button>
     </div>
   );
+};
+
+MoveLessonActionBar.propTypes = {
+  toggle: PropTypes.func.isRequired,
 };
 
 export default MoveLessonActionBar;

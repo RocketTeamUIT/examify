@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Breadcrumb } from '../../../components/ui';
 import CourseTrack from './CourseTrack';
 import MoveLessonActionBar from './MoveLessonActionBar';
+import PropTypes from 'prop-types';
 
 // You should use this in every detail page in feature course
 const DetailContainer = ({ children }) => {
@@ -17,7 +18,7 @@ const DetailContainer = ({ children }) => {
       {/* Main content */}
       <div className="flex-1 h-[calc(100%-60px)] overflow-y-overlay">
         {/* Breadcrumb */}
-        <div className="px-6 md:px-8 lg:px-[100px] h-[60px] flex items-center">
+        <div className="px-6 md:px-8 lg:px-16 xl:px-[100px] h-[60px] flex items-center">
           <Breadcrumb hierarchy={['IELTS Fundamentals', 'Past tenses', 'Hiện tại']} />
         </div>
 
@@ -47,6 +48,10 @@ const DetailContainer = ({ children }) => {
       <MoveLessonActionBar toggle={toggleTrack} />
     </div>
   );
+};
+
+DetailContainer.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
 
 export default DetailContainer;

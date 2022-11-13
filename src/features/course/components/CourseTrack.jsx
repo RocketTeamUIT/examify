@@ -67,9 +67,9 @@ const CourseTrack = () => {
       </div>
 
       {/* Track body */}
-      <div className="px-6 border-b-2 border-x-2 border-t_light_gray overflow-auto h-[calc(100%-120px)] rounded-b-[4px] flex flex-col">
+      <div className="border-b-2 border-x-2 border-t_light_gray rounded-b-[4px] flex flex-col overflow-auto h-[calc(100%-120px)]">
         {/* Title */}
-        <h4 className="text-h4 font-semibold py-5">IELTS Fundamentals</h4>
+        <h4 className="text-h4 font-semibold py-5 px-6">IELTS Fundamentals</h4>
 
         {/* Lesson List */}
         <ul>
@@ -77,7 +77,7 @@ const CourseTrack = () => {
             <li
               key={i}
               className={classNames(
-                'h-[60px] -mx-6 pl-11 text-lg text-t_dark border-t border-b border-bg_light_gray flex items-center hover:bg-bg_light_gray cursor-pointer transition relative',
+                'h-[60px] pl-11 text-lg text-t_dark border-t border-b border-bg_light_gray flex items-center hover:bg-bg_light_gray cursor-pointer transition relative',
                 index === i && 'bg-bg_light_gray',
               )}
               onClick={() => setIndex(i)}
@@ -111,7 +111,7 @@ const CourseTrack = () => {
         </ul>
 
         {/* Course Track Progress Bar */}
-        <div className="flex flex-col">
+        <div className="flex flex-col px-6">
           <h5 className="font-semibold text-h5 mt-5">Tiến độ hoàn thành khoá học</h5>
 
           {/* Progress bar */}
@@ -135,7 +135,7 @@ const CourseTrack = () => {
         {/* Button: Return back to courses */}
         <Link
           to="/courses"
-          className="text-lg text-t_gray px-11 -mx-6 gap-3 mt-auto h-[60px] flex items-center border-t border-[#ccc] cursor-pointer hover:bg-bg_light_gray transition flex-shrink-0"
+          className="text-lg text-t_gray px-11 gap-3 mt-auto h-[60px] flex items-center border-t border-[#ccc] cursor-pointer hover:bg-bg_light_gray transition flex-shrink-0"
         >
           <HiArrowNarrowLeft className="h-6 w-6" />
           Quay lại khoá học

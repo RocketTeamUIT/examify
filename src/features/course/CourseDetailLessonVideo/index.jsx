@@ -8,7 +8,7 @@ const CourseDetailLessonVideo = () => {
   return (
     <DetailContainer>
       {/* Video */}
-      <div className="px-6 md:px-8 lg:px-[100px] bg-black">
+      <div className="px-6 md:px-8 lg:px-16 xl:px-[100px] bg-black">
         <iframe
           title="Lesson's Video"
           className="w-full aspect-video"
