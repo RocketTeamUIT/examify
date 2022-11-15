@@ -8,6 +8,7 @@ import Home from '../pages/Home';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import ForgetPassword from '../pages/ForgetPassword';
+import ChangePassword from '../pages/ChangePassword';
 import TuanBigTest from '../pages/TuanBigTest';
 
 // Course
@@ -22,6 +23,7 @@ const publicRouters = [
   { path: config.routes.signin, component: Signin, layout: AuthLayout },
   { path: config.routes.signup, component: Signup, layout: AuthLayout },
   { path: config.routes.forgetPassword, component: ForgetPassword, layout: AuthLayout },
+  { path: config.routes.changePassword, component: ChangePassword, layout: AuthLayout },
 
   // Course
   { path: config.routes.course, component: Course },
