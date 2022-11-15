@@ -12,7 +12,7 @@ function ForgetPassword() {
       {/* Modal */}
       <div className="h-fit min-w-[280px] flex my-6 max-h-[700px] col-span-4 md:col-span-6 lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3 rounded-3xl md:border border-br_gray overflow-hidden items-center">
         {/* image */}
-        <img src={authImg} alt="Auth image" className="w-1/2 h-full object-cover hidden md:block" />
+        <img src={authImg} alt="Auth" className="w-1/2 h-full object-cover hidden md:block" />
         {/* content */}
         <div className="h-full w-full md:w-1/2 py-4 px-1 md:px-5 lg:px-10 flex flex-col justify-between">
           {/* header */}
@@ -25,8 +25,7 @@ function ForgetPassword() {
             <div className="text-center">
               <h1 className="text-h3 font-bold text-primary mt-2">Quên mật khẩu?</h1>
               <p className="text-sm text-t_gray">
-                Chúng tôi sẽ gửi một liên kết để đặt lại mật khẩu. Vui lòng nhập email bạn dùng để
-                đăng ký tài khoản
+                Chúng tôi sẽ gửi một liên kết để đặt lại mật khẩu. Vui lòng nhập email bạn dùng để đăng ký tài khoản
               </p>
             </div>
           </div>
@@ -41,7 +40,9 @@ function ForgetPassword() {
               </label>
 
               <div className="mt-8">
-                <Button width="100%"><Link to="/change-password">Đặt lại mật khẩu</Link></Button>
+                <Button width="100%">
+                  <Link to="/change-password">Đặt lại mật khẩu</Link>
+                </Button>
               </div>
             </form>
 

@@ -11,7 +11,7 @@ function Signup() {
       {/* Modal */}
       <div className="min-w-[280px] h-[680px] flex my-6 col-span-4 md:col-span-6 lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3 rounded-3xl md:border border-br_gray overflow-hidden items-center">
         {/* image */}
-        <img src={authImg} alt="Auth image" className="w-1/2 h-full object-cover hidden md:block" />
+        <img src={authImg} alt="Auth" className="w-1/2 h-full object-cover hidden md:block" />
         {/* content */}
         <div className="h-full w-full md:w-1/2 py-4 px-1 md:px-5 lg:px-10 flex flex-col justify-between">
           {/* header */}
