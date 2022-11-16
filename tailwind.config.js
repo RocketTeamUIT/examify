@@ -17,10 +17,12 @@ module.exports = {
       lg: ['16px', '20px'],
     },
     screens: {
-      sm: '320px', // Mobile
-      md: '768px', // Tablet
-      lg: '1024px', // Desktop
-      xl: '1440px', // Big Desktop
+      // None-prefix // Mobile < 576px
+      sm: '576px', // Mobile >= 576px
+      md: '768px', // Tablet >= 768px
+      lg: '992px', // Big Tablet || Small Desktop >= 992px
+      xl: '1200px', // Medium Desktop >= 1200px
+      xxl: '1440px', // Large Desktop >= 1440px
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
