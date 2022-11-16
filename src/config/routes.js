@@ -7,7 +7,7 @@ const routes = {
   changePassword: '/change-password',
 
   // Course
-  course: '/courses',
+  courseList: '/courses',
   courseDetail: '/courses/detail', // Để tạm
   courseListChapter: '/courses/detail/list-chapter', // Để tạm
   courseLearn: '/courses/detail/list-chapter/video', // Để tạm

@@ -77,7 +77,7 @@ const Input = forwardRef(
           },
 
           // Appearance
-          outlined && 'bg-transparent border-br_light_gray border-[1px]',
+          !outlined ? 'bg-bg_light_gray_2' : 'bg-transparent border-br_light_gray border-[1px]',
 
           // Cursor
           type === 'text' && !disabled && 'cursor-text',
