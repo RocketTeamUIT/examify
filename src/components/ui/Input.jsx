@@ -25,8 +25,7 @@ import PropTypes from 'prop-types';
 - visibilityToggle: whether to display Show/Hide password toggle (prop type must be 'password'). This one conflict with rightIcon
 - onBlur: callback when blur input 
 - onFocus: callback when focus input
-- label: represents an input value
-- register: passed from parent component to manage input tag (react-hook-form)
+- name: represents an input value
 */
 
 const Input = forwardRef(
