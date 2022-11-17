@@ -53,6 +53,7 @@ const Input = forwardRef(
       name,
       placeholder,
       style,
+      label,
     },
     ref,
   ) => {
@@ -147,7 +148,7 @@ const Input = forwardRef(
               fontSize: inputRef.current?.value && '12px',
             }}
           >
-            {name}
+            {label}
           </label>
         )}
       </div>

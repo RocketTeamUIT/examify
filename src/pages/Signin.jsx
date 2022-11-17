@@ -1,13 +1,12 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { signinScheme } from '../validations/signin';
 
 import logo from '../assets/circle_logo.png';
 import { FcGoogle } from 'react-icons/fc';
 import { Input, Button } from '../components/ui';
 import { Link } from 'react-router-dom';
 import { BiUser, BiLockAlt } from 'react-icons/bi';
-
-import { signinScheme } from '../validations/signin';
 
 function Signin() {
   // Get some APIs to manage form
@@ -50,30 +49,34 @@ function Signin() {
 
         {/* Form */}
         <form className="mt-5" onSubmit={handleSubmit(handleDataForm)}>
-          <label className="text-h6 font-medium text-t_dark">
-            Email
+          <div className="mt-10">
             <Input
+              label="Email"
               rightIcon={<BiUser />}
               ref={emailRef}
               name={emailLabel}
               onChange={emailOnChange}
               onBlur={emailOnBlur}
+              fancyOutlined
+              status={errors.email?.message ? 'error' : ''}
             />
-          </label>
-          <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
+            <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
+          </div>
 
-          <label className="text-h6 mt-4 block font-medium text-t_dark">
-            Password
+          <div className="mt-6">
             <Input
+              label="Mật khẩu"
               rightIcon={<BiLockAlt />}
               type="password"
               ref={pwRef}
               name={pwLabel}
               onChange={pwOnChange}
               onBlur={pwOnBlur}
+              fancyOutlined
+              status={errors.password?.message ? 'error' : ''}
             />
-          </label>
-          <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+            <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+          </div>
 
           {/* actions */}
           <div className="flex justify-between mt-3">
