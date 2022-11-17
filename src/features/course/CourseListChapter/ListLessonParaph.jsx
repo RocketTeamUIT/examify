@@ -4,7 +4,7 @@ import { MdSlowMotionVideo as VideoIcon } from 'react-icons/md';
 
 const LESSON_TYPE = ['video', 'text', 'flashcard'];
 
-function Lessons({ listLesson }) {
+function ListLessonParaph({ listLesson }) {
   const lessonVideo = () => (
     <>
       <VideoIcon className="text-t_gray" />
@@ -45,4 +45,4 @@ function Lessons({ listLesson }) {
   );
 }
 
-export default Lessons;
+export default ListLessonParaph;

@@ -1,5 +1,5 @@
 import { SubNav, Breadcrumb, Tip } from '../../../components/ui';
-import Units from './Units';
+import ListUnitParaph from './ListUnitParaph';
 import Wrapper from './Wrapper';
 import Progress from './Progress';
 import UnitBox from './UnitBox';
@@ -118,7 +118,7 @@ function CourseListChapter() {
                 <div className="flex flex-col gap-4 p-5">
                   <p>Bạn chưa hoàn thành các bài học này!</p>
                   {/* Unit component */}
-                  <Units listUnit={listUnit} />
+                  <ListUnitParaph listUnit={listUnit} />
                 </div>
               </Wrapper>
             </div>
