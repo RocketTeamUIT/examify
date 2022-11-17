@@ -6,7 +6,7 @@ const Test = () => {
   return (
     <div className="h-screen flex">
       <div className="m-auto">
-        <Input rightIcon={<AiOutlineArrowDown />} width="100px" />
+        <Input rightIcon={<AiOutlineArrowDown />} name="Name" fancyOutlined />
       </div>
     </div>
   );
