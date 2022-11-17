@@ -37,7 +37,7 @@ const publicRouters = [
   { path: config.routes.courseList, component: CourseList },
   { path: config.routes.courseDetail, component: CourseDetail },
   { path: config.routes.courseLearn, component: CourseLearn },
-  { path: config.routes.courseListChapter, component: CourseListChapter },
+  { path: config.routes.courseListChapter, component: CourseListChapter, layout: FocusLayout },
   { path: config.routes.courseText, component: CourseText },
   { path: config.routes.courseVideo, component: CourseDetailLessonVideo, layout: FocusLayout },
 

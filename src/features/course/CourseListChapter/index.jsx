@@ -1,4 +1,5 @@
 import { SubNav, Breadcrumb, Tip } from '../../../components/ui';
+import CourseTrack from '../components/CourseTrack';
 import ListUnitParaph from './ListUnitParaph';
 import Wrapper from './Wrapper';
 import Progress from './Progress';
@@ -223,7 +224,11 @@ function CourseListChapter() {
             </div>
           </div>
         </div>
-        <div className="w-4/12"></div>
+        <div className="w-4/12">
+          <div className="sticky top-0 right-0">
+            <CourseTrack />
+          </div>
+        </div>
       </div>
     </div>
   );
