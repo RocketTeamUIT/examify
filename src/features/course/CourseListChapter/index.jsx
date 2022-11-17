@@ -67,16 +67,70 @@ const listChapter = [
     id: 1,
     name: '[Grammar] Tenses Chapter 1',
     status: 'completed',
+    totalUnit: 4,
+    userCompleted: 3,
+    listUnit: [
+      {
+        id: 1,
+        name: '[Grammar] Tenses - Present tenses: present simple',
+        totalLesson: 4,
+        userCompleted: 4,
+      },
+      {
+        id: 2,
+        name: '[Grammar] Tenses - Present tenses: present simple',
+        totalLesson: 3,
+        userCompleted: 3,
+      },
+      {
+        id: 3,
+        name: '[Grammar] Tenses - Present tenses: present simple',
+        totalLesson: 3,
+        userCompleted: 2,
+      },
+      {
+        id: 4,
+        name: '[Grammar] Tenses - Present tenses: present simple',
+        totalLesson: 4,
+        userCompleted: 0,
+      },
+    ],
   },
   {
     id: 2,
     name: '[Grammar] Tenses Chapter 2',
     status: 'inCompleted',
+    totalUnit: 2,
+    userCompleted: 0,
+    listUnit: [
+      {
+        id: 1,
+        name: '[Grammar] Tenses - Present tenses: present simple',
+        totalLesson: 7,
+        userCompleted: 2,
+      },
+      {
+        id: 2,
+        name: '[Grammar] Tenses - Present tenses: present simple',
+        totalLesson: 3,
+        userCompleted: 0,
+      },
+    ],
   },
   {
     id: 3,
     name: '[Grammar] Tenses Chapter 3',
     status: 'inProgress',
+    totalUnit: 4,
+    userCompleted: 4,
+    listUnit: [
+      {
+        id: 1,
+        name: '[Grammar] Tenses - Present tenses: present simple',
+        totalLesson: 4,
+        userCompleted: 0,
+      },
+    ],
   },
 ];
 
@@ -133,27 +187,39 @@ function CourseListChapter() {
           <div className="mt-20">
             <h3 className="text-body-lg font-semibold mb-8">Danh sách các chương học:</h3>
             <div className="flex flex-col gap-10">
-              {listChapter.map((chapter) => (
-                <Wrapper key={chapter.id} status={chapter.status}>
-                  {/* Header */}
-                  <div className=" flex items-center justify-between bg-bg_light_gray px-5 py-2 shadow-[0_0_10px_0_rgba(0,0,0,0.3)]">
-                    <h4 className="font-medium">[Grammar] Tenses Chapter 1</h4>
-                    <div className="flex items-center gap-3">
-                      <Progress />
-                      <p>
-                        <b>4/4</b> bài học
-                      </p>
-                    </div>
-                  </div>
+              {listChapter.map((chapter) => {
+                let chapterPercent = Math.floor((chapter.userCompleted / chapter.totalUnit) * 100);
 
-                  {/* List Unit */}
-                  <div className="flex flex-col gap-4 px-5 py-2">
-                    {listUnit.map((unit) => (
-                      <UnitBox key={unit.id} />
-                    ))}
-                  </div>
-                </Wrapper>
-              ))}
+                return (
+                  // Wrapper component
+                  <Wrapper key={chapter.id} status={chapter.status}>
+                    {/* Header */}
+                    <div className=" flex items-center justify-between bg-bg_light_gray px-5 py-2 shadow-[0_0_10px_0_rgba(0,0,0,0.3)]">
+                      <h4 className="font-medium">[Grammar] Tenses Chapter 1</h4>
+                      <div className="flex items-center gap-3">
+                        {/* Progress component */}
+                        <Progress progress={chapterPercent} />
+                        <p>
+                          <b>
+                            {chapter.userCompleted}/{chapter.totalUnit}
+                          </b>
+                          bài học
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* List Unit */}
+                    <div className="flex flex-col gap-4 px-5 py-2">
+                      {chapter.listUnit.map((unit) => {
+                        // percent complete Unit
+                        let percent = Math.floor((unit.userCompleted / unit.totalLesson) * 100);
+                        // Unii component
+                        return <UnitBox key={unit.id} progress={percent} />;
+                      })}
+                    </div>
+                  </Wrapper>
+                );
+              })}
             </div>
           </div>
         </div>
