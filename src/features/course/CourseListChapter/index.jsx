@@ -66,7 +66,7 @@ const listChapter = [
   {
     id: 1,
     name: '[Grammar] Tenses Chapter 1',
-    status: 'completed',
+    status: 'inProgress',
     totalUnit: 4,
     userCompleted: 3,
     listUnit: [
@@ -107,7 +107,7 @@ const listChapter = [
         id: 1,
         name: '[Grammar] Tenses - Present tenses: present simple',
         totalLesson: 7,
-        userCompleted: 2,
+        userCompleted: 0,
       },
       {
         id: 2,
@@ -120,7 +120,7 @@ const listChapter = [
   {
     id: 3,
     name: '[Grammar] Tenses Chapter 3',
-    status: 'inProgress',
+    status: 'completed',
     totalUnit: 4,
     userCompleted: 4,
     listUnit: [
@@ -128,7 +128,7 @@ const listChapter = [
         id: 1,
         name: '[Grammar] Tenses - Present tenses: present simple',
         totalLesson: 4,
-        userCompleted: 0,
+        userCompleted: 4,
       },
     ],
   },

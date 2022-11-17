@@ -13,7 +13,7 @@ function Progress({ progress }) {
       })}
     >
       <span
-        className={classNames('text-[12px] font-semibold m-auto', {
+        className={classNames('text-[12px] font-bold m-auto', {
           // Completed
           'text-ac_green': progress === 100,
           // inProgress

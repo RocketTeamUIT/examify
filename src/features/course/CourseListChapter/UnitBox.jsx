@@ -1,15 +1,16 @@
 import { AiOutlineCheck as CheckIcon, AiFillLock as LockIcon } from 'react-icons/ai';
+import { BiPencil as PenIcon } from 'react-icons/bi';
 
 function UnitBox({ progress }) {
   const completedItem = () => (
-    <div className="w-[24px] h-[24px] rounded-full bg-green-100 border-[1px] border-ac_green flex">
-      <CheckIcon className="text-ac_green text-[14px] m-auto" />
+    <div className="w-[20px] h-[20px] rounded-full bg-green-100 border-[1px] border-ac_green flex">
+      <CheckIcon className="text-ac_green text-[12px] m-auto" />
     </div>
   );
 
-  const inProgressItem = (percent) => (
-    <div className="w-[24px] h-[24px] rounded-full bg-blue-100 border-[1px] border-ac_blue flex">
-      <span className="text-[10px] text-ac_blue m-auto font-bold">{percent}%</span>
+  const inProgressItem = () => (
+    <div className="w-[20px] h-[20px] rounded-full bg-yellow-100 border-[1px] border-ac_orange flex">
+      <PenIcon className="text-ac_orange text-[12px] m-auto" />
     </div>
   );
 
@@ -26,7 +27,7 @@ function UnitBox({ progress }) {
           <span className="text-t_gray">2 bài giảng</span>
           {progress === 0 && lockItem()}
           {progress === 100 && completedItem()}
-          {progress > 0 && progress < 100 && inProgressItem(progress)}
+          {progress > 0 && progress < 100 && inProgressItem()}
         </div>
       </div>
     </a>
