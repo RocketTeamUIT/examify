@@ -7,6 +7,7 @@ import { AuthLayout, FocusLayout } from '../layouts';
 import Home from '../pages/Home';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
+import Test from '../pages/Test';
 import ForgetPassword from '../pages/ForgetPassword';
 import ChangePassword from '../pages/ChangePassword';
 import TuanBigTest from '../pages/TuanBigTest';
@@ -35,9 +36,10 @@ const publicRouters = [
   // Course
   { path: config.routes.courseList, component: CourseList },
   { path: config.routes.courseDetail, component: CourseDetail },
-  { path: config.routes.courseListChapter, component: CourseLearn },
-  { path: config.routes.courseLearn, component: CourseListChapter },
+  { path: config.routes.courseLearn, component: CourseLearn },
+  { path: config.routes.courseListChapter, component: CourseListChapter },
   { path: config.routes.courseText, component: CourseText },
+  { path: config.routes.courseVideo, component: CourseDetailLessonVideo, layout: FocusLayout },
 
   // Exam
   { path: config.routes.exam, component: Exam },
@@ -45,7 +47,7 @@ const publicRouters = [
   // Test
   { path: config.routes.tuanBig, component: TuanBigTest },
 
-  { path: '/tuan-nho', component: CourseDetailLessonVideo, layout: FocusLayout },
+  { path: 'test', component: Test },
 ];
 
 // Private routes

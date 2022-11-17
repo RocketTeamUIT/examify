@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 - size: button size
     - normal
     - large
-- status: status of this input (you should use state here)
+- status: status of this input (you should use state here). This change border color
     - error
     - warning
 - outlined: whether input is outlined instead of filled
@@ -99,7 +99,7 @@ const Input = forwardRef(
 
         {/* Real input */}
         <input
-          className="outline-none bg-transparent text-t_dark flex-1"
+          className="outline-none bg-transparent text-t_dark flex-1 max-w-full overflow-hidden"
           disabled={disabled}
           value={value}
           type={currentType}
@@ -121,7 +121,7 @@ const Input = forwardRef(
             {!showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
           </button>
         )}
-        {!leftIcon && !visibilityToggle && rightIcon && <div>{rightIcon}</div>}
+        {!leftIcon && !visibilityToggle && rightIcon && <div className="flex-shrink-0">{rightIcon}</div>}
       </div>
     );
   },
