@@ -48,57 +48,77 @@ function Signup() {
 
         {/* Form */}
         <form className="mt-3" onSubmit={handleSubmit(handleDataForm)}>
-          <label className="text-h6 font-medium text-t_dark">
-            Email*
+          <div className="mt-10">
             <Input
+              label="Email*"
               rightIcon={<BiUser />}
               ref={emailRef}
               name={emailLabel}
               onChange={emailOnChange}
               onBlur={emailOnBlur}
+              fancyOutlined
+              status={errors.email?.message ? 'error' : ''}
             />
-          </label>
-          <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
+            <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
+          </div>
 
-          <label className="col-span-3 text-h6 font-medium text-t_dark">
-            Họ và tên đệm*
-            <Input ref={fnRef} name={fnLabel} onChange={fnOnChange} onBlur={fnOnBlur} />
-          </label>
-          <p className="text-ac_red text-sm mt-1">{errors.firstname?.message}</p>
-
-          <label className="col-span-2 text-h6 font-medium text-t_dark">
-            Tên*
-            <Input ref={lnRef} name={lnLabel} onChange={lnOnChange} onBlur={lnOnBlur} />
-          </label>
-          <p className="text-ac_red text-sm mt-1">{errors.lastname?.message}</p>
-
-          <label className="text-h6 font-medium text-t_dark block mt-2">
-            Mật khẩu*
+          <div className="mt-6">
             <Input
+              label="Họ và tên đệm*"
+              ref={fnRef}
+              name={fnLabel}
+              onChange={fnOnChange}
+              onBlur={fnOnBlur}
+              fancyOutlined
+              status={errors.firstname?.message ? 'error' : ''}
+            />
+            <p className="text-ac_red text-sm mt-1">{errors.firstname?.message}</p>
+          </div>
+
+          <div className="mt-6">
+            <Input
+              label="Tên*"
+              ref={lnRef}
+              name={lnLabel}
+              onChange={lnOnChange}
+              onBlur={lnOnBlur}
+              fancyOutlined
+              status={errors.lastname?.message ? 'error' : ''}
+            />
+            <p className="text-ac_red text-sm mt-1">{errors.lastname?.message}</p>
+          </div>
+
+          <div className="mt-6">
+            <Input
+              label="Mật khẩu*"
               type="password"
               rightIcon={<BiLockAlt />}
               ref={pwRef}
               name={pwLabel}
               onChange={pwOnChange}
               onBlur={pwOnBlur}
+              fancyOutlined
+              status={errors.password?.message ? 'error' : ''}
             />
-          </label>
-          <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+            <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+          </div>
 
-          <label className="text-h6 font-medium text-t_dark block mt-2">
-            Xác nhận mật khẩu*
+          <div className="mt-6">
             <Input
+              label="Xác nhận mật khẩu*"
               type="password"
               rightIcon={<BiLockAlt />}
               ref={cpwRef}
               name={cpwLabel}
               onChange={cpwOnChange}
               onBlur={cpwOnBlur}
+              fancyOutlined
+              status={errors.passwordConfirmation?.message ? 'error' : ''}
             />
-          </label>
-          <p className="text-ac_red text-sm mt-1">{errors.passwordConfirmation?.message}</p>
+            <p className="text-ac_red text-sm mt-1">{errors.passwordConfirmation?.message}</p>
+          </div>
 
-          <div className="mt-5">
+          <div className="mt-10">
             <Button width="100%">Đăng ký ngay</Button>
           </div>
         </form>

@@ -53,6 +53,7 @@ const Input = forwardRef(
       name,
       placeholder,
       style,
+      label,
     },
     ref,
   ) => {
@@ -164,7 +165,7 @@ const Input = forwardRef(
               fontSize: stickyLabel && '12px',
             }}
           >
-            {name}
+            {label}
           </label>
         )}
       </div>
