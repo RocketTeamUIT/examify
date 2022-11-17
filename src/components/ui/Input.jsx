@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useState } from 'react';
+import { useState, useImperativeHandle, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 /* Props
@@ -10,10 +10,12 @@ import PropTypes from 'prop-types';
 - size: button size
     - normal
     - large
-- status: status of this input (you should use state here)
+- status: status of this input (you should use state here). This change border color
     - error
     - warning
 - outlined: whether input is outlined instead of filled
+- fancyOutlined: whether input is a material outlined input (has a label instead of placeholder) 
+- fancyBackgroundColor: specify background color of above label (because the label's background color is not transparent)
 - disabled: whether input is disabled
 - width: specify width
 - height: specify height
@@ -25,104 +27,158 @@ import PropTypes from 'prop-types';
 - visibilityToggle: whether to display Show/Hide password toggle (prop type must be 'password'). This one conflict with rightIcon
 - onBlur: callback when blur input 
 - onFocus: callback when focus input
+- name: represents an input value
 */
 
-const Input = ({
-  type = 'text',
-  size = 'normal',
-  status,
-  placeholder,
-  outlined,
-  disabled,
-  width,
-  height,
-  leftIcon,
-  rightIcon,
-  rounded = [],
-  value,
-  onChange,
-  visibilityToggle,
-  onBlur,
-  onFocus,
-}) => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [currentType, setCurrentType] = useState(type);
-  const inputRef = useRef();
+const Input = forwardRef(
+  (
+    {
+      type = 'text',
+      size = 'normal',
+      status,
+      fancyOutlined,
+      fancyBackgroundColor = '#fff',
+      outlined,
+      disabled,
+      width,
+      height,
+      leftIcon,
+      rightIcon,
+      rounded = [],
+      value,
+      onChange,
+      visibilityToggle,
+      onBlur,
+      onFocus,
+      name,
+      placeholder,
+      style,
+      label,
+    },
+    ref,
+  ) => {
+    const [showPassword, setShowPassword] = useState(false);
+    const [currentType, setCurrentType] = useState(type);
+    const [stickyLabel, setStickyLabel] = useState(false);
+    const inputRef = useRef();
 
-  const handleWrapperClick = () => {
-    inputRef.current.focus();
-  };
+    const handleWrapperClick = () => {
+      inputRef.current.focus();
+    };
 
-  return (
-    // Wrapper
-    <div
-      className={classnames(
-        'flex items-center gap-2 px-4 h-11 text-md rounded-lg focus-within:outline outline-2 outline-ac_blue w-fit',
+    // Merge inner ref to external ref
+    useImperativeHandle(ref, () => inputRef.current);
 
-        // Size
-        size === 'large' && 'h-12 text-lg',
+    const handleChange = (e) => {
+      if (onChange) {
+        onChange(e);
+      }
 
-        // Status
-        !disabled && {
-          'border-[2px] border-ac_red': status === 'error',
-          'border-[2px] border-ac_yellow': status === 'warning',
-        },
+      // Non-empty input
+      if (e.target.value && !stickyLabel) {
+        setStickyLabel(true);
+      }
 
-        // Appearance
-        !outlined ? 'bg-bg_light_gray_2' : 'bg-transparent border-br_light_gray border-[1px]',
+      // Empty input
+      if (!e.target.value && stickyLabel) {
+        setStickyLabel(false);
+      }
+    };
 
-        // Cursor
-        type === 'text' && !disabled && 'cursor-text',
+    return (
+      // Container
+      <div
+        className={classnames(
+          'flex items-center gap-2 px-4 h-11 text-md rounded-lg focus-within:outline focus-within:outline-2 outline-ac_blue relative',
 
-        // Disabled
-        disabled && 'bg-bg_light_gray_2 border-br_light_gray border-[1px]',
-      )}
-      style={{
-        width: width,
-        height: height,
-        borderTopLeftRadius: rounded[0],
-        borderTopRightRadius: rounded[1],
-        borderBottomRightRadius: rounded[2],
-        borderBottomLeftRadius: rounded[3],
-      }}
-      onClick={handleWrapperClick}
-    >
-      {leftIcon && <div>{leftIcon}</div>}
+          // Size
+          size === 'large' && 'h-12 text-lg',
 
-      {/* Real input */}
-      <input
-        className="outline-none bg-transparent text-t_dark flex-1"
-        placeholder={placeholder}
-        ref={inputRef}
-        disabled={disabled}
-        value={value}
-        type={currentType}
-        onChange={onChange ?? undefined}
-        onBlur={onBlur ?? undefined}
-        onFocus={onFocus ?? undefined}
-      />
+          // Status
+          !disabled && {
+            'outline-1 outline': status,
+            'outline-ac_red': status === 'error',
+            'outline-ac_yellow': status === 'warning',
+          },
 
-      {/* Show/Hide password */}
+          // Appearance
+          {
+            'bg-bg_light_gray_2': !outlined && !fancyOutlined,
+            'bg-transparent border-br_light_gray border-[1px]': outlined || fancyOutlined,
+          },
 
-      {visibilityToggle && (
-        <button
-          onClick={() => {
-            setShowPassword(!showPassword);
-            setCurrentType(currentType === 'password' ? 'text' : 'password');
+          // Cursor
+          type === 'text' && !disabled && 'cursor-text',
+
+          // Disabled
+          disabled && 'bg-bg_gray_2 border-br_light_gray border-[1px]',
+        )}
+        style={{
+          width: width,
+          height: height,
+          borderTopLeftRadius: rounded[0],
+          borderTopRightRadius: rounded[1],
+          borderBottomRightRadius: rounded[2],
+          borderBottomLeftRadius: rounded[3],
+        }}
+        onClick={handleWrapperClick}
+      >
+        {leftIcon && <div>{leftIcon}</div>}
+
+        {/* Real input */}
+        <input
+          className="outline-none bg-transparent text-t_dark flex-1 max-w-full overflow-hidden peer"
+          disabled={disabled}
+          value={value}
+          type={currentType}
+          onChange={handleChange}
+          onBlur={onBlur ?? undefined}
+          onFocus={onFocus ?? undefined}
+          name={name ?? undefined}
+          ref={inputRef}
+          placeholder={fancyOutlined ? undefined : placeholder}
+          style={{
+            ...style,
           }}
-        >
-          {!showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-        </button>
-      )}
-      {!leftIcon && !visibilityToggle && rightIcon && <div>{rightIcon}</div>}
-    </div>
-  );
-};
+        />
+
+        {/* Show/Hide password */}
+        {visibilityToggle && (
+          <button
+            onClick={() => {
+              setShowPassword(!showPassword);
+              setCurrentType(currentType === 'password' ? 'text' : 'password');
+            }}
+          >
+            {!showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+          </button>
+        )}
+        {!leftIcon && !visibilityToggle && rightIcon && <div className="flex-shrink-0">{rightIcon}</div>}
+
+        {/* Label */}
+        {fancyOutlined && (
+          <label
+            className="absolute px-1 -mx-1 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
+            style={{
+              backgroundColor: fancyBackgroundColor,
+              top: stickyLabel && '0',
+              fontSize: stickyLabel && '12px',
+            }}
+          >
+            {label}
+          </label>
+        )}
+      </div>
+    );
+  },
+);
 
 Input.propTypes = {
   type: PropTypes.string,
   size: PropTypes.string,
   status: PropTypes.string,
+  fancyOutlined: PropTypes.bool,
+  fancyBackgroundColor: PropTypes.string,
   outlined: PropTypes.bool,
   disabled: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -135,6 +191,10 @@ Input.propTypes = {
   visibilityToggle: PropTypes.bool,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  placeholder: PropTypes.string,
+  style: PropTypes.object,
 };
+
+Input.displayName = 'Input';
 
 export default Input;

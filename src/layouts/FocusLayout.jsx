@@ -1,20 +1,18 @@
 import PropTypes from 'prop-types';
 import Header from './components/Header';
-import Footer from './components/Footer';
 
-function AuthLayout({ children }) {
+function FocusLayout({ children }) {
   return (
     // Wrapper
     <div>
-      {/* <Header /> */}
+      <Header />
       {children}
-      {/* <Footer /> */}
     </div>
   );
 }
 
-AuthLayout.propTypes = {
+FocusLayout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default AuthLayout;
+export default FocusLayout;
