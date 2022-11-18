@@ -137,7 +137,7 @@ const listChapter = [
 
 function CourseListChapter() {
   return (
-    <div className="min-h-[2000px]">
+    <div>
       {/* Banner Course */}
       <div className="w-full h-40 bg-gradient-to-r from-[#6DD5ED] to-[#2193B0] flex">
         <h1 className="my-auto ml-[100px] text-h2 font-bold text-t_dark">Course</h1>
@@ -146,22 +146,22 @@ function CourseListChapter() {
       {/* SubNav component */}
       <SubNav />
 
-      <div className="flex">
-        <div className="w-8/12 mx-[100px]">
+      <div className="lg:flex">
+        <div className="lg:w-8/12 mx-6 md:mx-20 lg:mx-[100px]">
           {/* Breadcrub component */}
-          <div className="pt-8">
+          <div className="hidden md:block pt-8">
             <Breadcrumb hierarchy={['IELTS Fundaments', 'Hiện tại']} />
           </div>
 
           {/* Content Page */}
-          <div className="mt-20">
+          <div className="mt-10 md:mt-20">
             {/* Course Name */}
-            <h3 className="text-center text-h3 font-semibold">
+            <h3 className="text-body-lg text-center md:text-h3 font-semibold">
               Trọn bộ 3 khoá học thực hành tiếng Anh online - Practical English [Tặng khoá TED Talks]
             </h3>
 
             {/* In this week */}
-            <p className="mt-10">
+            <p className="text-body-sm md:text-body-md mt-10">
               <b className="text-primary">Tuần này bạn đã học: </b>
               <b>8</b> bài học <b>video</b>,<b> 6</b> bài học <b>lý thuyết</b> và
               <b> 2</b> bài học <b>flashcard</b>.
@@ -170,8 +170,8 @@ function CourseListChapter() {
             <div className="mt-10">
               {/* Lesson InCompleted */}
               <Wrapper status="inProgress">
-                <div className="flex flex-col gap-4 p-5">
-                  <p>Bạn chưa hoàn thành các bài học này!</p>
+                <div className="flex flex-col gap-6 p-5">
+                  <p className="text-body-sm md:text-body-md">Bạn chưa hoàn thành các bài học này!</p>
                   {/* Unit component */}
                   <ListUnitParaph listUnit={listUnit} />
                 </div>
@@ -186,7 +186,9 @@ function CourseListChapter() {
 
           {/* List Chapter */}
           <div className="mt-20">
-            <h3 className="text-body-lg font-semibold mb-8">Danh sách các chương học:</h3>
+            <h3 className="text-body-md text-center font-semibold mb-8 md:text-body-lg md:text-left">
+              Danh sách các chương học
+            </h3>
             <div className="flex flex-col gap-10">
               {listChapter.map((chapter) => {
                 let chapterPercent = Math.floor((chapter.userCompleted / chapter.totalUnit) * 100);
@@ -197,7 +199,7 @@ function CourseListChapter() {
                     {/* Header */}
                     <div className=" flex items-center justify-between bg-bg_light_gray px-5 py-2 shadow-[0_0_10px_0_rgba(0,0,0,0.3)]">
                       <h4 className="font-medium">[Grammar] Tenses Chapter 1</h4>
-                      <div className="flex items-center gap-3">
+                      <div className="hidden md:flex items-center gap-3">
                         {/* Progress component */}
                         <Progress progress={chapterPercent} />
                         <p>
@@ -224,7 +226,7 @@ function CourseListChapter() {
             </div>
           </div>
         </div>
-        <div className="w-4/12">
+        <div className="hidden lg:block lg:w-4/12">
           <div className="sticky top-0 right-0">
             <CourseTrack />
           </div>

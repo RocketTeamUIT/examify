@@ -3,7 +3,7 @@ import classNames from 'classnames';
 function Progress({ progress }) {
   return (
     <div
-      className={classNames('w-[40px] h-[40px] rounded-full border-2 flex', {
+      className={classNames('w-[30px] h-[30px] rounded-full border-2 flex flex-shrink-0', {
         // Completed
         'border-ac_green': progress === 100,
         // inProgress
@@ -13,7 +13,7 @@ function Progress({ progress }) {
       })}
     >
       <span
-        className={classNames('text-[12px] font-bold m-auto', {
+        className={classNames('text-[10px] font-bold m-auto', {
           // Completed
           'text-ac_green': progress === 100,
           // inProgress
