@@ -1,5 +1,5 @@
 import { SubNav, Breadcrumb, Tip } from '../../../components/ui';
-import CourseTrack from '../components/CourseTrack';
+import SideBar from './SideBar';
 import ListUnitParaph from './ListUnitParaph';
 import Wrapper from './Wrapper';
 import Progress from './Progress';
@@ -147,7 +147,7 @@ function CourseListChapter() {
       <SubNav />
 
       <div className="lg:flex">
-        <div className="lg:w-8/12 mx-6 md:mx-20 lg:mx-[100px]">
+        <div className="lg:flex-1 mx-6 md:mx-20 lg:mx-[100px]">
           {/* Breadcrub component */}
           <div className="hidden md:block pt-8">
             <Breadcrumb hierarchy={['IELTS Fundaments', 'Hiện tại']} />
@@ -226,9 +226,9 @@ function CourseListChapter() {
             </div>
           </div>
         </div>
-        <div className="hidden lg:block lg:w-4/12">
-          <div className="sticky top-0 right-0">
-            <CourseTrack />
+        <div className="hidden lg:block lg:w-[390px] flex-shrink-0">
+          <div className="fixed top-[60px] bottom-0 right-0">
+            <SideBar />
           </div>
         </div>
       </div>
