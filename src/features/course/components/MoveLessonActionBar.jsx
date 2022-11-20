@@ -4,6 +4,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { IoMenu } from 'react-icons/io5';
 import PropTypes from 'prop-types';
 
+// This is the bottom bar which has 'Previous' button and 'Next' button to change the current lesson
 /*  props
     - toggle: callback to toggle menu when clicked
 */
