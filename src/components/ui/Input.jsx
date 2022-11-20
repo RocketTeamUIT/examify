@@ -10,10 +10,12 @@ import PropTypes from 'prop-types';
 - size: button size
     - normal
     - large
-- status: status of this input (you should use state here)
+- status: status of this input (you should use state here). This change border color
     - error
     - warning
 - outlined: whether input is outlined instead of filled
+- fancyOutlined: whether input is a material outlined input (has a label instead of placeholder) 
+- fancyBackgroundColor: specify background color of above label (because the label's background color is not transparent)
 - disabled: whether input is disabled
 - width: specify width
 - height: specify height
@@ -34,6 +36,8 @@ const Input = forwardRef(
       type = 'text',
       size = 'normal',
       status,
+      fancyOutlined,
+      fancyBackgroundColor = '#fff',
       outlined,
       disabled,
       width,
@@ -47,6 +51,9 @@ const Input = forwardRef(
       onBlur,
       onFocus,
       name,
+      placeholder,
+      style,
+      label,
     },
     ref,
   ) => {
@@ -62,22 +69,26 @@ const Input = forwardRef(
     useImperativeHandle(ref, () => inputRef.current);
 
     return (
-      // Wrapper
+      // Container
       <div
         className={classnames(
-          'flex items-center gap-2 px-4 h-11 text-md bg-bg_light_gray_2 rounded-lg focus-within:outline outline-2 outline-ac_blue',
+          'flex items-center gap-2 px-4 h-11 text-md rounded-lg focus-within:outline focus-within:outline-2 outline-ac_blue relative',
 
           // Size
           size === 'large' && 'h-12 text-lg',
 
           // Status
           !disabled && {
-            'border-[2px] border-ac_red': status === 'error',
-            'border-[2px] border-ac_yellow': status === 'warning',
+            'outline-1 outline': status,
+            'outline-ac_red': status === 'error',
+            'outline-ac_yellow': status === 'warning',
           },
 
           // Appearance
-          !outlined ? 'bg-bg_light_gray_2' : 'bg-transparent border-br_light_gray border-[1px]',
+          {
+            'bg-bg_light_gray_2': !outlined && !fancyOutlined,
+            'bg-transparent border-br_light_gray border-[1px]': outlined || fancyOutlined,
+          },
 
           // Cursor
           type === 'text' && !disabled && 'cursor-text',
@@ -99,7 +110,7 @@ const Input = forwardRef(
 
         {/* Real input */}
         <input
-          className="outline-none bg-transparent text-t_dark flex-1"
+          className="outline-none bg-transparent text-t_dark flex-1 max-w-full overflow-hidden peer"
           disabled={disabled}
           value={value}
           type={currentType}
@@ -108,6 +119,10 @@ const Input = forwardRef(
           onFocus={onFocus ?? undefined}
           name={name ?? undefined}
           ref={inputRef}
+          placeholder={fancyOutlined ? undefined : placeholder}
+          style={{
+            ...style,
+          }}
         />
 
         {/* Show/Hide password */}
@@ -121,7 +136,21 @@ const Input = forwardRef(
             {!showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
           </button>
         )}
-        {!leftIcon && !visibilityToggle && rightIcon && <div>{rightIcon}</div>}
+        {!leftIcon && !visibilityToggle && rightIcon && <div className="flex-shrink-0">{rightIcon}</div>}
+
+        {/* Label */}
+        {fancyOutlined && (
+          <label
+            className="absolute px-1 -mx-1 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
+            style={{
+              backgroundColor: fancyBackgroundColor,
+              top: inputRef.current?.value && '0',
+              fontSize: inputRef.current?.value && '12px',
+            }}
+          >
+            {label}
+          </label>
+        )}
       </div>
     );
   },
@@ -131,6 +160,8 @@ Input.propTypes = {
   type: PropTypes.string,
   size: PropTypes.string,
   status: PropTypes.string,
+  fancyOutlined: PropTypes.bool,
+  fancyBackgroundColor: PropTypes.string,
   outlined: PropTypes.bool,
   disabled: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -143,6 +174,8 @@ Input.propTypes = {
   visibilityToggle: PropTypes.bool,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  placeholder: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Input.displayName = 'Input';
