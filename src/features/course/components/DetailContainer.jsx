@@ -37,7 +37,7 @@ const DetailContainer = ({ children }) => {
       {/* Course Track */}
       <div
         className={classNames(
-          'flex-shrink-0 w-full md:w-1/2 lg:max-w-[400px] h-full absolute lg:static bottom-0 top-0 lg:opacity-100 lg:pointer-events-auto transition',
+          'flex-shrink-0 w-full md:w-1/2 lg:max-w-[400px] h-full absolute lg:static right-0 bottom-0 top-0 lg:opacity-100 lg:pointer-events-auto transition',
           !showTrack && 'opacity-0 pointer-events-none',
         )}
       >
