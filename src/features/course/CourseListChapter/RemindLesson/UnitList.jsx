@@ -1,6 +1,6 @@
-import ListLessonParaph from './ListLessonParaph';
+import LessonList from './LessonList';
 
-function ListUnitParaph({ listUnit }) {
+function Unitlist({ listUnit }) {
   return (
     <>
       {listUnit.map((unit) => {
@@ -13,7 +13,7 @@ function ListUnitParaph({ listUnit }) {
               </a>
             </p>
             <ul className="ml-4 md:ml-8 mt-2 flex flex-col gap-2 md:gap-4">
-              <ListLessonParaph listLesson={unit.listLesson} />
+              <LessonList listLesson={unit.listLesson} />
             </ul>
           </div>
         );
@@ -22,4 +22,4 @@ function ListUnitParaph({ listUnit }) {
   );
 }
 
-export default ListUnitParaph;
+export default Unitlist;

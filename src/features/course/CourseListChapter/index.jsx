@@ -1,9 +1,7 @@
 import { SubNav, Breadcrumb, Tip } from '../../../components/ui';
-import SideBar from './SideBar';
-import ListUnitParaph from './ListUnitParaph';
-import Wrapper from './Wrapper';
-import Progress from './Progress';
-import UnitBox from './UnitBox';
+import ChapterList from './ChapterList';
+import RemindLesson from './RemindLesson';
+import CourseTrack from '../components/CourseTrack';
 
 // This data is a list of units that the User has not completed
 const listUnit = [
@@ -146,21 +144,19 @@ function CourseListChapter() {
       {/* SubNav component */}
       <SubNav />
 
-      <div className="lg:flex">
+      {/* Main content Page */}
+      <div className="lg:flex mb-20">
         <div className="lg:flex-1 mx-6 md:mx-20 lg:mx-[100px]">
           {/* Breadcrub component */}
           <div className="hidden md:block pt-8">
             <Breadcrumb hierarchy={['IELTS Fundaments', 'Hiện tại']} />
           </div>
 
-          {/* Content Page */}
           <div className="mt-10 md:mt-20">
-            {/* Course Name */}
             <h3 className="text-body-lg text-center md:text-h3 font-semibold">
               Trọn bộ 3 khoá học thực hành tiếng Anh online - Practical English [Tặng khoá TED Talks]
             </h3>
 
-            {/* In this week */}
             <p className="text-body-sm md:text-body-md mt-10">
               <b className="text-primary">Tuần này bạn đã học: </b>
               <b>8</b> bài học <b>video</b>,<b> 6</b> bài học <b>lý thuyết</b> và
@@ -168,17 +164,10 @@ function CourseListChapter() {
             </p>
 
             <div className="mt-10">
-              {/* Lesson InCompleted */}
-              <Wrapper status="inProgress">
-                <div className="flex flex-col gap-6 p-5">
-                  <p className="text-body-sm md:text-body-md">Bạn chưa hoàn thành các bài học này!</p>
-                  {/* Unit component */}
-                  <ListUnitParaph listUnit={listUnit} />
-                </div>
-              </Wrapper>
+              {/* Remind Lesson incompleted */}
+              <RemindLesson listUnit={listUnit} />
             </div>
 
-            {/* Tip component*/}
             <div className="mt-5">
               <Tip color="green">Tips: Thường xuyên ôn tập lại bài đã học để nắm chắc kiến thức bạn nhé!</Tip>
             </div>
@@ -189,46 +178,14 @@ function CourseListChapter() {
             <h3 className="text-body-md text-center font-semibold mb-8 md:text-body-lg md:text-left">
               Danh sách các chương học
             </h3>
-            <div className="flex flex-col gap-10">
-              {listChapter.map((chapter) => {
-                let chapterPercent = Math.floor((chapter.userCompleted / chapter.totalUnit) * 100);
-
-                return (
-                  // Wrapper component
-                  <Wrapper key={chapter.id} status={chapter.status}>
-                    {/* Header */}
-                    <div className=" flex items-center justify-between bg-bg_light_gray px-5 py-2 shadow-[0_0_10px_0_rgba(0,0,0,0.3)]">
-                      <h4 className="font-medium">[Grammar] Tenses Chapter 1</h4>
-                      <div className="hidden md:flex items-center gap-3">
-                        {/* Progress component */}
-                        <Progress progress={chapterPercent} />
-                        <p>
-                          <b>
-                            {chapter.userCompleted}/{chapter.totalUnit}
-                          </b>
-                          bài học
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* List Unit */}
-                    <div className="flex flex-col gap-4 px-5 py-2">
-                      {chapter.listUnit.map((unit) => {
-                        // percent complete Unit
-                        let percent = Math.floor((unit.userCompleted / unit.totalLesson) * 100);
-                        // Unii component
-                        return <UnitBox key={unit.id} progress={percent} />;
-                      })}
-                    </div>
-                  </Wrapper>
-                );
-              })}
-            </div>
+            <ChapterList listChapter={listChapter} />
           </div>
         </div>
+
+        {/* Sidebar */}
         <div className="hidden lg:block lg:w-[390px] flex-shrink-0">
           <div className="fixed top-[60px] bottom-0 right-0">
-            <SideBar />
+            <CourseTrack />
           </div>
         </div>
       </div>
