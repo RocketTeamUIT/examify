@@ -11,6 +11,7 @@ import Test from '../pages/Test';
 import ForgetPassword from '../pages/ForgetPassword';
 import ChangePassword from '../pages/ChangePassword';
 import TuanBigTest from '../pages/TuanBigTest';
+import UserProfile from '../pages/UserProfile';
 
 // Course
 import {
@@ -32,6 +33,7 @@ const publicRouters = [
   { path: config.routes.signup, component: Signup, layout: AuthLayout },
   { path: config.routes.forgetPassword, component: ForgetPassword, layout: AuthLayout },
   { path: config.routes.changePassword, component: ChangePassword, layout: AuthLayout },
+  { path: config.routes.userProfile, component: UserProfile },
 
   // Course
   { path: config.routes.courseList, component: CourseList },

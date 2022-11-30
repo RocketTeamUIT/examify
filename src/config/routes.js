@@ -5,6 +5,7 @@ const routes = {
   signup: '/signup',
   forgetPassword: '/forget-password',
   changePassword: '/change-password',
+  userProfile: '/user-profile',
 
   // Course
   courseList: '/courses',
