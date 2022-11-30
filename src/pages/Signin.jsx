@@ -31,9 +31,9 @@ function Signin() {
   };
 
   return (
-    <div className=" mx-6 sm:mx-[100px] grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-5">
+    <div className="h-screen mx-6 sm:mx-[100px] grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-5">
       {/* Modal */}
-      <div className="min-w-[280px] col-span-4 md:px-6 md:col-start-2 lg:col-start-5 bg-white md:border md:border-br_gray md:my-5 py-4 rounded-lg">
+      <div className="min-w-[280px] col-span-4 md:px-6 md:col-start-2 lg:col-start-5 bg-white md:border md:border-br_gray my-auto py-4 rounded-lg">
         {/* Greeting */}
         <div className="flex flex-col items-center">
           <div className="w-20">
