@@ -30,9 +30,9 @@ function Signup() {
   };
 
   return (
-    <div className="mx-6 sm:mx-[100px] lg:mx-[20px] xl:mx-[100px] grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-5">
+    <div className="h-screen mx-6 sm:mx-[100px] lg:mx-[20px] xl:mx-[100px] grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-5">
       {/* Modal */}
-      <div className="col-span-4 md:px-5 md:col-start-2 lg:col-start-5 bg-white md:border md:border-br_gray md:my-5 py-4 rounded-lg">
+      <div className="col-span-4 md:px-5 md:col-start-2 lg:col-start-5 bg-white md:border md:border-br_gray my-auto py-4 rounded-lg">
         {/* Greeting */}
         <div className="flex flex-col items-center">
           <div className="w-20">
@@ -50,7 +50,7 @@ function Signup() {
         <form className="mt-3" onSubmit={handleSubmit(handleDataForm)}>
           <div className="mt-10">
             <Input
-              label="Email*"
+              label="Email"
               rightIcon={<BiUser />}
               ref={emailRef}
               name={emailLabel}
@@ -64,7 +64,7 @@ function Signup() {
 
           <div className="mt-6">
             <Input
-              label="Họ và tên đệm*"
+              label="Họ và tên đệm"
               ref={fnRef}
               name={fnLabel}
               onChange={fnOnChange}
@@ -77,7 +77,7 @@ function Signup() {
 
           <div className="mt-6">
             <Input
-              label="Tên*"
+              label="Tên"
               ref={lnRef}
               name={lnLabel}
               onChange={lnOnChange}
@@ -90,7 +90,7 @@ function Signup() {
 
           <div className="mt-6">
             <Input
-              label="Mật khẩu*"
+              label="Mật khẩu"
               type="password"
               rightIcon={<BiLockAlt />}
               ref={pwRef}
@@ -105,7 +105,7 @@ function Signup() {
 
           <div className="mt-6">
             <Input
-              label="Xác nhận mật khẩu*"
+              label="Xác nhận mật khẩu"
               type="password"
               rightIcon={<BiLockAlt />}
               ref={cpwRef}
