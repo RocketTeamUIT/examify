@@ -96,8 +96,12 @@ function UserProfile() {
               </div>
               {/* Full name */}
               <div className="mt-8 hidden md:flex gap-5">
-                <Input label="Họ và tên đệm" value="Phan" fancyOutlined width="60%" />
-                <Input label="Tên" value="Tú" fancyOutlined width="40%" />
+                <div className="w-[60%] min-w-0">
+                  <Input label="Họ và tên đệm" value="Phan" fancyOutlined />
+                </div>
+                <div className="w-[40%] min-w-0">
+                  <Input label="Tên" value="Tú" fancyOutlined />
+                </div>
               </div>
               <div className="mt-8 flex flex-col md:hidden gap-y-8">
                 <Input label="Họ và tên đệm" value="Phan" fancyOutlined />
@@ -105,17 +109,20 @@ function UserProfile() {
               </div>
               {/* Date of birth */}
               <div className="mt-8 hidden md:flex gap-5">
-                <Input label="Ngày sinh" type="date" placeholder="dd/MM/yyyy" fancyOutlined width="50%" />
+                <Input label="Ngày sinh" type="date" fancyOutlined width="50%" />
                 <Input label="Số điện thoại" fancyOutlined width="50%" />
               </div>
               <div className="mt-8 flex flex-col md:hidden gap-y-8">
-                <Input label="Ngày sinh" type="date" placeholder="dd/MM/yyyy" fancyOutlined />
+                <Input label="Ngày sinh" type="date" fancyOutlined />
                 <Input label="Số điện thoại" fancyOutlined />
               </div>
               {/* Description */}
-              <div className="mt-8">
-                <Input label="Mô tả" placeholder="Nhập mô tả" fancyOutlined height="100px" />
-              </div>
+              <label className="mt-8">
+                <textarea
+                  placeholder="Nhập mô tả"
+                  className="w-full border border-br_light_gray rounded-md px-4 pt-4 text-lg text-t_dark"
+                />
+              </label>
               <span className="w-full border-t-[0.5px] border-br_gray my-10" />
               <Button width="fit-content">Cập nhật</Button>
             </form>
