@@ -59,7 +59,7 @@ const Input = forwardRef(
   ) => {
     const [showPassword, setShowPassword] = useState(false);
     const [currentType, setCurrentType] = useState(type);
-    const [stickyLabel, setStickyLabel] = useState(false);
+    const [stickyLabel, setStickyLabel] = useState(value);
     const inputRef = useRef();
 
     const handleWrapperClick = () => {

@@ -100,12 +100,16 @@ const Header = () => {
 
       {/* Buttons */}
       <div className="gap-4 flex">
-        <Button type="default" width="112px" className="md:block hidden">
-          Đăng nhập
-        </Button>
-        <Button type="primary" width="112px">
-          Đăng ký
-        </Button>
+        <Link to="/signin">
+          <Button type="default" width="112px" className="md:block hidden">
+            Đăng nhập
+          </Button>
+        </Link>
+        <Link to="/signup">
+          <Button type="primary" width="112px">
+            Đăng ký
+          </Button>
+        </Link>
       </div>
 
       {/* Mobile menu */}
