@@ -59,6 +59,7 @@ const Input = forwardRef(
   ) => {
     const [showPassword, setShowPassword] = useState(false);
     const [currentType, setCurrentType] = useState(type);
+    const [stickyLabel, setStickyLabel] = useState(false);
     const inputRef = useRef();
 
     const handleWrapperClick = () => {
@@ -67,6 +68,22 @@ const Input = forwardRef(
 
     // Merge inner ref to external ref
     useImperativeHandle(ref, () => inputRef.current);
+
+    const handleChange = (e) => {
+      if (onChange) {
+        onChange(e);
+      }
+
+      // Non-empty input
+      if (e.target.value && !stickyLabel) {
+        setStickyLabel(true);
+      }
+
+      // Empty input
+      if (!e.target.value && stickyLabel) {
+        setStickyLabel(false);
+      }
+    };
 
     return (
       // Container
@@ -114,7 +131,7 @@ const Input = forwardRef(
           disabled={disabled}
           value={value}
           type={currentType}
-          onChange={onChange ?? undefined}
+          onChange={handleChange}
           onBlur={onBlur ?? undefined}
           onFocus={onFocus ?? undefined}
           name={name ?? undefined}
@@ -144,8 +161,8 @@ const Input = forwardRef(
             className="absolute px-1 -mx-1 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
             style={{
               backgroundColor: fancyBackgroundColor,
-              top: inputRef.current?.value && '0',
-              fontSize: inputRef.current?.value && '12px',
+              top: stickyLabel && '0',
+              fontSize: stickyLabel && '12px',
             }}
           >
             {label}
