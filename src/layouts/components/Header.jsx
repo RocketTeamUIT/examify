@@ -51,7 +51,7 @@ const Header = () => {
   };
 
   return (
-    <div className="h-[60px] bg-white shadow-sd_primary flex md:gap-6 xl:gap-14 items-center justify-between lg:justify-start px-6 z-20 sticky top-0">
+    <div className="h-[60px] bg-white shadow-sd_primary flex md:gap-4 xl:gap-14 items-center justify-between lg:justify-start px-6 z-20 sticky top-0">
       {/* Mobile menu toggle */}
       <button
         className="flex lg:hidden items-center justify-center w-11 h-11 hover:bg-bg_light_gray_3 transition rounded-lg -ml-2"
