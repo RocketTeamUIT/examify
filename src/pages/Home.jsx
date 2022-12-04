@@ -6,10 +6,13 @@ import 'swiper/css/pagination';
 // import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { coursesPro } from '../features/course/data';
 import CourseListItem from '../features/course/CourseList/CourseListItem';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="bg-white flex justify-center">
+    <div className="bg-white flex justify-center" onClick={() => navigate('/test')}>
       <div className="max-w-primary flex-1 px-6 md:px-8 lg:px-[100px] py-11 overflow-auto">
         {/* Carousel */}
         <div>
