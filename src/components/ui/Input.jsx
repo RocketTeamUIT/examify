@@ -145,6 +145,7 @@ const Input = forwardRef(
         {/* Show/Hide password */}
         {visibilityToggle && (
           <button
+            type="button"
             onClick={() => {
               setShowPassword(!showPassword);
               setCurrentType(currentType === 'password' ? 'text' : 'password');

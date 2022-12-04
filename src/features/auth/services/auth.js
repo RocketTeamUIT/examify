@@ -28,6 +28,7 @@ export const logOutService = (accessToken) => {
     headers: {
       Authorization: 'Bearer ' + accessToken,
     },
+    withCredentials: true,
   });
 };
 
