@@ -13,6 +13,7 @@ const initialState = {
   user: {},
   accessToken: '',
   isLoading: false,
+  error: '',
 };
 
 export const signUp = createAsyncThunk(
@@ -22,7 +23,7 @@ export const signUp = createAsyncThunk(
       await signUpService(email, firstname, lastname, password, passwordConfirmation);
       return 'Sign up successfully';
     } catch (err) {
-      return thunkAPI.rejectWithValue(String(err));
+      return thunkAPI.rejectWithValue(err?.response?.status);
     }
   },
 );
@@ -30,9 +31,10 @@ export const signUp = createAsyncThunk(
 export const signIn = createAsyncThunk('auth/signIn', async ({ email, password }, thunkAPI) => {
   try {
     const response = await signInService(email, password);
+    console.log('Sign in successfully');
     return response.data;
   } catch (err) {
-    return thunkAPI.rejectWithValue(String(err));
+    return thunkAPI.rejectWithValue(err?.response?.status);
   }
 });
 
@@ -40,16 +42,17 @@ export const logOut = createAsyncThunk('auth/logOut', async (accessToken, thunkA
   try {
     await logOutService(accessToken);
   } catch (err) {
-    return thunkAPI.rejectWithValue(String(err));
+    return thunkAPI.rejectWithValue(err?.response?.status);
   }
 });
 
 export const getUserInfo = createAsyncThunk('auth/getUserInfo', async (axiosPrivate, thunkAPI) => {
   try {
     const response = await getUserInfoService(axiosPrivate);
+    console.log('Get user info successfully');
     return response.data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(String(error));
+    return thunkAPI.rejectWithValue(error?.response?.status);
   }
 });
 
@@ -60,7 +63,7 @@ export const updateUserInfo = createAsyncThunk(
       await updateUserInfoService(axiosPrivate, firstName, lastName, dateOfBirth, phoneNumber, description);
       return 'Update user info successfully';
     } catch (error) {
-      return thunkAPI.rejectWithValue(String(error));
+      return thunkAPI.rejectWithValue(error?.response?.status);
     }
   },
 );
@@ -72,7 +75,7 @@ export const changePassword = createAsyncThunk(
       await changePasswordService(axiosPrivate, oldPassword, newPassword);
       return 'Change password successfully';
     } catch (error) {
-      return thunkAPI.rejectWithValue(String(error));
+      return thunkAPI.rejectWithValue(error?.response?.status);
     }
   },
 );
@@ -82,7 +85,7 @@ export const changeAvatar = createAsyncThunk('auth/changeAvatar', async ({ axios
     await changeAvatarService(axiosPrivate, newImageUrl);
     return 'Change avatar successfully';
   } catch (error) {
-    return thunkAPI.rejectWithValue(String(error));
+    return thunkAPI.rejectWithValue(error?.response?.status);
   }
 });
 
@@ -96,6 +99,9 @@ const authSlice = createSlice({
     finish: (state) => {
       state.isLoading = false;
     },
+    setAccessToken: (state, action) => {
+      state.accessToken = action.payload;
+    },
   },
   extraReducers: (builder) => {
     // Sign in
@@ -103,6 +109,7 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.user = action.payload.user;
       state.accessToken = action.payload.accessToken;
+      state.error = '';
     });
 
     // Logout
@@ -110,6 +117,7 @@ const authSlice = createSlice({
       state.user = {};
       state.accessToken = '';
       state.isLoading = false;
+      state.error = '';
     });
 
     // Get user info
@@ -119,6 +127,7 @@ const authSlice = createSlice({
         ...state.user,
         ...action.payload.data,
       };
+      state.error = '';
     });
 
     const pendingList = [
@@ -148,13 +157,16 @@ const authSlice = createSlice({
 
     builder.addMatcher(isAnyOf(...pendingList), (state) => {
       state.isLoading = true;
+      state.error = '';
     });
     builder.addMatcher(isAnyOf(...emptyFulfilledList), (state, action) => {
       state.isLoading = false;
+      state.error = '';
       console.log(action.payload);
     });
     builder.addMatcher(isAnyOf(...rejectedList), (state, action) => {
       state.isLoading = false;
+      state.error = action.payload;
       console.log(action.payload);
     });
   },
@@ -162,5 +174,5 @@ const authSlice = createSlice({
 
 export default authSlice.reducer;
 
-const { pending, finish } = authSlice.actions;
-export { pending, finish };
+const { pending, finish, setAccessToken } = authSlice.actions;
+export { pending, finish, setAccessToken };

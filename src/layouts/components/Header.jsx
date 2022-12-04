@@ -7,6 +7,8 @@ import { AutoComplete, Button } from '../../components/ui';
 import { useState } from 'react';
 import classNames from 'classnames';
 import { useSpring, animated } from 'react-spring';
+import { useSelector } from 'react-redux';
+import Avatar from './Avatar';
 
 const NAVIGATION_LIST = [
   ['Khoá học', '/courses'],
@@ -25,6 +27,7 @@ const Header = () => {
   };
   let showMenu = false;
   const [props, setSpring] = useSpring(() => initialStyles);
+  const { user } = useSelector((store) => store.auth);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -100,16 +103,22 @@ const Header = () => {
 
       {/* Buttons */}
       <div className="gap-4 flex">
-        <Link to="/signin">
-          <Button type="default" width="112px" className="md:block hidden">
-            Đăng nhập
-          </Button>
-        </Link>
-        <Link to="/signup">
-          <Button type="primary" width="112px">
-            Đăng ký
-          </Button>
-        </Link>
+        {user.firstName ? (
+          <Avatar avt={user.avt} lastName={user.lastName} firstName={user.firstName} email={user.email} />
+        ) : (
+          <>
+            <Link to="/signin">
+              <Button type="default" width="112px" className="md:block hidden">
+                Đăng nhập
+              </Button>
+            </Link>
+            <Link to="/signup">
+              <Button type="primary" width="112px">
+                Đăng ký
+              </Button>
+            </Link>
+          </>
+        )}
       </div>
 
       {/* Mobile menu */}

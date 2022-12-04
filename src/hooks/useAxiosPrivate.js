@@ -1,12 +1,14 @@
 import { basePrivate } from '../lib/base';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshTokenService } from '../features/auth/services/auth';
 import { useNavigate } from 'react-router-dom';
+import { setAccessToken } from '../features/auth/authSlice';
 
-const useAxiosPrivate = () => {
+const useAxiosPrivate = (stayOnError) => {
   const { accessToken } = useSelector((store) => store.auth);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const requestInterceptor = basePrivate.interceptors.request.use(
@@ -30,6 +32,7 @@ const useAxiosPrivate = () => {
           prevRequest.sent = true;
           try {
             const newAccessToken = (await refreshTokenService()).data.accessToken;
+            dispatch(setAccessToken(newAccessToken));
             prevRequest.headers.Authorization = `Bearer ${newAccessToken}`;
             return basePrivate({
               ...prevRequest,
@@ -38,7 +41,7 @@ const useAxiosPrivate = () => {
               },
             });
           } catch (error) {
-            navigate('/signin');
+            if (!stayOnError) navigate('/signin');
           }
         }
 

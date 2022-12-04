@@ -3,31 +3,65 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { signinScheme } from '../validations/signin';
 
 import logo from '../assets/circle_logo.png';
-import { FcGoogle } from 'react-icons/fc';
+// import { FcGoogle } from 'react-icons/fc';
 import { Input, Button } from '../components/ui';
-import { Link } from 'react-router-dom';
-import { BiUser, BiLockAlt } from 'react-icons/bi';
+import { Link, useNavigate } from 'react-router-dom';
+import { BiUser } from 'react-icons/bi';
+import { useDispatch } from 'react-redux';
+import { getUserInfo, signIn } from '../features/auth/authSlice';
+import useAxiosPrivate from '../hooks/useAxiosPrivate';
+import { toast } from 'react-toastify';
 
 function Signin() {
   // Get some APIs to manage form
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm({ resolver: yupResolver(signinScheme) });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const axiosPrivate = useAxiosPrivate();
 
   // Get props from register form
   const { name: emailLabel, onChange: emailOnChange, onBlur: emailOnBlur, ref: emailRef } = register('email');
   const { name: pwLabel, onChange: pwOnChange, onBlur: pwOnBlur, ref: pwRef } = register('password');
 
   // Handle data that get from form
-  const handleDataForm = (data) => {
+  const handleDataForm = async (data) => {
     // Get email, password
     const { email, password } = data;
 
-    console.log(email, password);
-
-    // Call API at here
+    // Handle login
+    const result = await dispatch(
+      signIn({
+        email,
+        password,
+      }),
+    );
+    if (result.type === 'auth/signIn/fulfilled') {
+      // Navigate if success
+      await dispatch(getUserInfo(axiosPrivate));
+      navigate('/');
+    } else {
+      // Handle error
+      setError('email', { message: ' ' });
+      if (result.payload === 401 || result.payload === 404) {
+        setError('password', { message: 'Sai email hoặc mật khẩu' });
+      } else {
+        toast.error('Lỗi gì đó đã xảy ra!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+      }
+    }
   };
 
   return (
@@ -66,7 +100,7 @@ function Signin() {
           <div className="mt-6">
             <Input
               label="Mật khẩu"
-              rightIcon={<BiLockAlt />}
+              visibilityToggle
               type="password"
               ref={pwRef}
               name={pwLabel}
@@ -81,8 +115,10 @@ function Signin() {
           {/* actions */}
           <div className="flex justify-between mt-3">
             <div className="flex">
-              <input type="checkbox" />
-              <span className="text-h6 ml-2 text-t_light_gray_2">Remember me</span>
+              <input type="checkbox" id="remember-me" />
+              <label htmlFor="remember-me" className="text-h6 ml-2 text-t_light_gray_2">
+                Ghi nhớ tôi
+              </label>
             </div>
 
             <span className="text-h6 text-ac_purple">
@@ -96,11 +132,11 @@ function Signin() {
         </form>
 
         {/* Sign in with google */}
-        <div className="mt-3">
+        {/* <div className="mt-3">
           <Button leftIcon={<FcGoogle size={24} />} type="default" width="100%">
             Đăng nhập bằng Google
           </Button>
-        </div>
+        </div> */}
 
         {/* Direct sign up page */}
         <p className="text-sm text-center text-t_gray mt-5">
