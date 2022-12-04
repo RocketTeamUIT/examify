@@ -7,6 +7,7 @@ const App = () => {
   return (
     <Router>
       {/* App */}
+
       <div className="bg-bg_white">
         <Routes>
           {publicRouters.map((route, index) => {
