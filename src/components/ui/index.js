@@ -7,3 +7,4 @@ export { default as Tip } from './Tip';
 export { default as Input } from './Input';
 export { default as AutoComplete } from './AutoComplete';
 export { default as RatingStar } from './RatingStar';
+export { default as Filter } from './Filter';

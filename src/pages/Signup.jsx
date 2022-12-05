@@ -1,6 +1,6 @@
 import logo from '../assets/circle_logo.png';
 import { Link } from 'react-router-dom';
-import { BiUser, BiLockAlt } from 'react-icons/bi';
+import { MdAlternateEmail } from 'react-icons/md';
 import { Input, Button } from '../components/ui';
 
 import { signupScheme } from '../validations/signup';
@@ -51,7 +51,7 @@ function Signup() {
           <div className="mt-10">
             <Input
               label="Email"
-              rightIcon={<BiUser />}
+              rightIcon={<MdAlternateEmail />}
               ref={emailRef}
               name={emailLabel}
               onChange={emailOnChange}
@@ -92,12 +92,12 @@ function Signup() {
             <Input
               label="Mật khẩu"
               type="password"
-              rightIcon={<BiLockAlt />}
               ref={pwRef}
               name={pwLabel}
               onChange={pwOnChange}
               onBlur={pwOnBlur}
               fancyOutlined
+              visibilityToggle
               status={errors.password?.message ? 'error' : ''}
             />
             <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
@@ -107,12 +107,12 @@ function Signup() {
             <Input
               label="Xác nhận mật khẩu"
               type="password"
-              rightIcon={<BiLockAlt />}
               ref={cpwRef}
               name={cpwLabel}
               onChange={cpwOnChange}
               onBlur={cpwOnBlur}
               fancyOutlined
+              visibilityToggle
               status={errors.passwordConfirmation?.message ? 'error' : ''}
             />
             <p className="text-ac_red text-sm mt-1">{errors.passwordConfirmation?.message}</p>
