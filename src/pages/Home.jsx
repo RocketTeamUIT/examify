@@ -5,64 +5,62 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { coursesPro } from '../features/course/data';
 import CourseListItem from '../features/course/CourseList/CourseListItem';
+import Container from '../layouts/components/Container';
 
 const Home = () => {
   return (
-    <div className="bg-white flex justify-center">
-      <div className="max-w-primary flex-1 px-6 md:px-8 lg:px-[100px] py-11 overflow-auto">
-        {/* Carousel */}
-        <Swiper
-          className="max-w-full"
-          pagination={{
-            clickable: true,
-            renderBullet: (_, className) =>
-              '<span class="' + className + '" style="width: 12px; height: 12px; margin-right: 8px;"></span>',
-          }}
-          modules={[Pagination]}
-        >
-          <SwiperSlide>
-            <img
-              src={require('../assets/banner1.jpg')}
-              className="aspect-[5/2] w-full object-cover rounded-lg"
-              alt="Banner 1"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={require('../assets/banner2.png')}
-              className="aspect-[5/2] w-full object-cover rounded-lg"
-              alt="Banner 1"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={require('../assets/banner3.jpg')}
-              className="aspect-[5/2] w-full object-cover rounded-lg"
-              alt="Banner 1"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src={require('../assets/banner4.png')}
-              className="aspect-[5/2] w-full object-cover rounded-lg"
-              alt="Banner 1"
-            />
-          </SwiperSlide>
+    <Container className="py-11">
+      {/* Carousel */}
+      <Swiper
+        className="max-w-full"
+        pagination={{
+          clickable: true,
+          renderBullet: (_, className) =>
+            '<span class="' + className + '" style="width: 12px; height: 12px; margin-right: 8px;"></span>',
+        }}
+        modules={[Pagination]}
+      >
+        <SwiperSlide>
+          <img
+            src={require('../assets/banner1.jpg')}
+            className="aspect-[5/2] w-full object-cover rounded-lg"
+            alt="Banner 1"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src={require('../assets/banner2.png')}
+            className="aspect-[5/2] w-full object-cover rounded-lg"
+            alt="Banner 1"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src={require('../assets/banner3.jpg')}
+            className="aspect-[5/2] w-full object-cover rounded-lg"
+            alt="Banner 1"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src={require('../assets/banner4.png')}
+            className="aspect-[5/2] w-full object-cover rounded-lg"
+            alt="Banner 1"
+          />
+        </SwiperSlide>
+        <div className="h-11"></div>
+      </Swiper>
 
-          <div className="h-11"></div>
-        </Swiper>
-
-        {/* Popular courses */}
-        <div className="mt-20">
-          {coursesPro?.length > 0 && <CourseListItem listName="Khóa học nổi bật" listCourse={coursesPro} />}
-        </div>
-
-        {/* Latest exams */}
-        <div className="mt-20">
-          {coursesPro?.length > 0 && <CourseListItem listName="Đề thi mới nhất" listCourse={coursesPro} />}
-        </div>
+      {/* Popular courses */}
+      <div className="mt-20">
+        {coursesPro?.length > 0 && <CourseListItem listName="Khóa học nổi bật" listCourse={coursesPro} />}
       </div>
-    </div>
+
+      {/* Latest exams */}
+      <div className="mt-20">
+        {coursesPro?.length > 0 && <CourseListItem listName="Đề thi mới nhất" listCourse={coursesPro} />}
+      </div>
+    </Container>
   );
 };
 

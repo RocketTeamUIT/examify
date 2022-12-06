@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRouters } from './routes';
 import { DefaultLayout } from './layouts';
@@ -9,6 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const { isLoading } = useSelector((store) => store.auth);
+
+  useEffect(() => {
+    document.documentElement.classList.add('dark');
+  }, []);
+
   return (
     <Router>
       <SuspenseLayout isLoading={isLoading}>
@@ -41,7 +46,16 @@ const App = () => {
             })}
           </Routes>
         </div>
-        <ToastContainer />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick={true}
+          pauseOnHover={true}
+          draggable={true}
+          progress={undefined}
+          theme="light"
+        />
       </SuspenseLayout>
     </Router>
   );

@@ -10,4 +10,8 @@ export const basePrivate = axios.create({
   withCredentials: true,
 });
 
+export const mockServer = axios.create({
+  baseURL: 'https://edc94c14-7a7e-4af1-b906-9eccbf9ac193.mock.pstmn.io',
+});
+
 export default base;
