@@ -9,10 +9,7 @@ function Lesson({ lesson }) {
   };
 
   return (
-    <div
-      className="w-full flex items-center h-[60px] bg-white rounded-md shadow-md cursor-pointer"
-      onClick={handleClick}
-    >
+    <div className="flex items-center h-[60px] bg-white rounded-md shadow-md cursor-pointer ml-8" onClick={handleClick}>
       <div className="flex-shrink-0 px-1 md:px-2">
         {lesson.type === 'video' && <MdSlowMotionVideo className="text-t_gray" />}
         {lesson.type === 'text' && <AiFillFileText className="text-t_gray" />}

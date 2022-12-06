@@ -9,7 +9,7 @@ const routes = {
 
   // Course
   courseList: '/courses',
-  courseDetail: '/courses/detail', // Để tạm
+  courseDetail: '/courses/:courseId/detail', // Để tạm
   courseListChapter: '/courses/detail/list-chapter', // Để tạm
   courseLearn: '/courses/detail/list-chapter/learn', // Để tạm
   courseText: '/courses/detail/list-chapter/text', // Để tạm

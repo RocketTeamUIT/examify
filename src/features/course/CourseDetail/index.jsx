@@ -6,7 +6,7 @@ import CourseContent from './CourseContent';
 import ModalRegisterCourse from './ModalRegisterCourse';
 import CourseInfo from './CourseInfo';
 import QualityItem from './QualityItem';
-import { RatingStar } from '../../../components/ui';
+import { CommentList, RatingStar } from '../../../components/ui';
 // import Icon:
 import { AiOutlineTeam } from 'react-icons/ai';
 import { BiBookmarks, BiBookOpen } from 'react-icons/bi';
@@ -17,82 +17,108 @@ import bannerImg from '../../../assets/images/courseDetailBanner.png';
 import { courseDetail } from '../data';
 // import hard data:
 import { qualityUs } from '../../../data/constants';
+import Container from '../../../layouts/components/Container';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { getCommentsService } from '../services/course';
+import { useParams } from 'react-router-dom';
 
 function CourseDetail() {
+  const [comments, setComments] = useState([]);
+  const { courseId } = useParams();
+
+  const getComments = async (id) => {
+    try {
+      const response = await getCommentsService(id);
+      setComments(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getComments(courseId);
+  }, []);
+
   return (
     <div className="mb-20">
       <div className="relative">
         <img className="w-full object-cover" src={bannerImg} alt="examify" />
-        {/* SubNav component */}
-        <SubNav />
 
         {/* Course demo infomation */}
-        <div className="mx-6 mt-6 p-3 border-2 border-br_gray rounded-md md:mx-16 md:mt-8 md:p-6 lg:border-none lg:absolute lg:top-0 lg:w-7/12">
-          {/* Course name */}
-          <h3 className="text-body-md text-center font-medium lg:text-white lg:text-h1 lg:text-left ">
-            {courseDetail.name}
-          </h3>
+        <Container>
+          <div className="my-6 md:my-4 py-16 border-2 border-br_gray rounded-md lg:border-none lg:absolute lg:top-0 lg:w-1/2">
+            {/* Course name */}
+            <h3 className="text-body-md text-center font-medium lg:text-white lg:text-h1 lg:text-left">
+              {courseDetail.name}
+            </h3>
 
-          <div className="mt-3 lg:flex lg:items-start lg:gap-5 lg:mt-6">
-            <div className="flex items-center justify-center gap-1 lg:flex-col lg:items-start lg:gap-3 lg:justify-start">
-              {/* Star average rating */}
-              <RatingStar avg={courseDetail.avgRating} />
+            <div className="mt-3 lg:flex lg:items-start lg:gap-5 lg:mt-6">
+              <div className="flex items-center justify-center gap-1 lg:flex-col lg:items-start lg:gap-3 lg:justify-start">
+                {/* Star average rating */}
+                <RatingStar avg={courseDetail.avgRating} />
 
-              {/* Number of rating */}
-              <p className="text-body-sm lg:text-white lg:text-body-md">({courseDetail.qntRating} đánh giá)</p>
+                {/* Number of rating */}
+                <p className="text-body-sm lg:text-white lg:text-body-md">({courseDetail.qntRating} đánh giá)</p>
+              </div>
+
+              {/* Tag component */}
+              <div className="flex flex-col items-center mt-3">
+                <Tag color="blue">Học mọi lúc mọi nơi với Examify</Tag>
+              </div>
             </div>
 
-            {/* Tag component */}
-            <div className="flex flex-col items-center mt-3">
-              <Tag color="blue">Học mọi lúc mọi nơi với Examify</Tag>
+            {/* Number of participants */}
+            <div className="flex items-center mt-3 justify-center lg:justify-start lg:mt-6">
+              <AiOutlineTeam className="text-[24px] mr-1 lg:text-white" />
+              <p className="text-t_gray text-body-sm lg:text-body-md">
+                <b className="text-black lg:text-white">{courseDetail.participants}</b> người tham gia
+              </p>
             </div>
-          </div>
 
-          {/* Number of participants */}
-          <div className="flex items-center mt-3 justify-center lg:justify-start lg:mt-6">
-            <AiOutlineTeam className="text-[24px] mr-1 lg:text-white" />
-            <p className="text-t_gray text-body-sm lg:text-body-md">
-              <b className="text-black lg:text-white">{courseDetail.participants}</b> người tham gia
+            {/* Point reward */}
+            <p className="text-t_gray mt-3 text-body-sm text-center lg:text-left lg:text-body-md lg:mt-6">
+              <b className="text-[#EF3737]">{courseDetail.pointComplete}</b> điểm khi hoàn thành
             </p>
           </div>
-
-          {/* Point reward */}
-          <p className="text-t_gray mt-3 text-body-sm text-center lg:text-left lg:text-body-md lg:mt-6">
-            <b className="text-[#EF3737]">{courseDetail.pointComplete}</b> điểm khi hoàn thành
-          </p>
-        </div>
+        </Container>
       </div>
+
+      {/* SubNav component */}
+      <SubNav />
 
       {/* Main content Page */}
-      <div className="mx-6  md:mx-16 lg:flex lg:flex-row-reverse lg:gap-5 lg:mx-[100px]">
-        <div className="lg:w-4/12 lg:relative">
-          {/* ModalRegisterCourse component */}
-          <div className="mt-10 min-h-[400px] md:w-1/2 md:mx-auto lg:w-full lg:sticky top-5 lg:mt-[-400px] xl:mt-[-500px]">
-            <ModalRegisterCourse course={courseDetail} />
+      <Container overflowVisible>
+        <div className="lg:flex lg:flex-row-reverse lg:gap-5">
+          <div className="lg:w-4/12 lg:relative">
+            {/* ModalRegisterCourse component */}
+            <div className="mt-10 min-h-[400px] md:w-1/2 md:mx-auto lg:w-full lg:sticky top-[72px] lg:mt-[-400px] xl:mt-[-500px]">
+              <ModalRegisterCourse course={courseDetail} />
+            </div>
+          </div>
+
+          {/* Content CourseDetail Page */}
+          <div className="lg:w-8/12">
+            {/* Achieve list component */}
+            <div className="mt-10 md:shadow-lg md:p-4 md:rounded-lg lg:p-8">
+              <AchieveList achieveList={courseDetail?.achieves} />
+            </div>
+
+            {/* Course infomation component */}
+            <div className="mt-10 md:bg-bg_light_gray md:p-4 md:rounded-lg lg:p-8">
+              <CourseInfo course={courseDetail} />
+            </div>
+
+            {/* Couse Content component*/}
+            <div className="mt-10 md:mt-20">
+              <CourseContent course={courseDetail} />
+            </div>
           </div>
         </div>
-
-        {/* Content CourseDetail Page */}
-        <div className="lg:w-8/12">
-          {/* Achieve list component */}
-          <div className="mt-10 md:shadow-lg md:p-4 md:rounded-lg lg:p-8">
-            <AchieveList achieveList={courseDetail?.achieves} />
-          </div>
-
-          {/* Course infomation component */}
-          <div className="mt-10 md:bg-bg_light_gray md:p-4 md:rounded-lg lg:p-8">
-            <CourseInfo course={courseDetail} />
-          </div>
-
-          {/* Couse Content component*/}
-          <div className="mt-10 md:mt-20">
-            <CourseContent course={courseDetail} />
-          </div>
-        </div>
-      </div>
+      </Container>
 
       {/* Quality Us */}
-      <div className="hidden md:block mt-20 mx-16">
+      <Container className="mt-20 md:flex hidden">
         <h3 className="text-body-lg text-center font-medium mb-10">Chất lượng của chúng tôi</h3>
         {/* List quality about us */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -101,7 +127,11 @@ function CourseDetail() {
           {qualityUs[2] && <QualityItem icon={<BiBookOpen />}>{qualityUs[2]}</QualityItem>}
           {qualityUs[3] && <QualityItem icon={<BiBookmarks />}>{qualityUs[3]}</QualityItem>}
         </div>
-      </div>
+      </Container>
+
+      <Container className="mt-[100px]" overflowVisible>
+        <CommentList reloadComments={() => getComments(courseId)} comments={comments} colSpan="span 7 / span 7" />
+      </Container>
     </div>
   );
 }

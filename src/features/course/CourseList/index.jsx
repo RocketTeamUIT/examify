@@ -8,6 +8,7 @@ import bannerImg from '../../../assets/images/courseBanner.png';
 import { useCallback } from 'react';
 // import data:
 import { coursesPro, coursesBasic, courseGeneral, courseAdvance } from '../data';
+import Container from '../../../layouts/components/Container';
 
 function CourseList() {
   // todo: Handle redirect to Course Detail
@@ -16,17 +17,17 @@ function CourseList() {
   }, []);
 
   return (
-    <div>
+    <div className="mb-10">
       {/* Banner */}
-      <div className="px-3 py-5 md:px-8 lg:px-[100px]">
+      <Container className="py-5">
         <img className="w-full object-cover" src={bannerImg} alt="examify" />
-      </div>
+      </Container>
 
       {/* Sub Navigation component*/}
       <SubNav />
 
       {/* Main content CourseList Page */}
-      <div className="mx-6 md:mx-8 lg:mx-[100px]">
+      <Container>
         {/* Course Description */}
         <h3 className="text-body-lg font-semibold mt-10">Tham gia Khóa học tại Examify</h3>
         <p className="mt-4 text-body-md text-t_dark">
@@ -70,7 +71,7 @@ function CourseList() {
             handleClickCourse={handleClickCourse}
           />
         )}
-      </div>
+      </Container>
     </div>
   );
 }

@@ -14,10 +14,8 @@ const Avatar = ({ avt, lastName, firstName, email }) => {
   const ref = useRef();
   const triggerElRef = useRef();
 
-  useClickOutside(ref, (e) => {
-    if (triggerElRef.current && !triggerElRef.current.contains(e.target)) {
-      hide();
-    }
+  useClickOutside(ref, triggerElRef, (e) => {
+    hide();
   });
   const Divider = () => <div className="border-t-[0.5px] border-br_light_gray my-3"></div>;
 
