@@ -20,7 +20,6 @@ function UserProfile() {
   const { name: fnLabel, onChange: fnOnChange, onBlur: fnOnBlur, ref: fnRef } = register('firstname');
   const { name: lnLabel, onChange: lnOnChange, onBlur: lnOnBlur, ref: lnRef } = register('lastname');
   const { name: pnName, onChange: pnOnChange, onBlur: pnOnBlur, ref: pnRef } = register('phoneNumber');
-  const { name: dobName, onChange: dobOnChange, onBlur: dobOnBlur, ref: dobRef } = register('dateOfBirth');
 
   const handleDataForm = (data) => {
     console.log(data);
@@ -191,15 +190,7 @@ function UserProfile() {
               {/* Date of birth */}
               <div className="mt-8 hidden md:flex gap-5">
                 <div className="w-1/2">
-                  <Input
-                    label="Ngày sinh"
-                    type="date"
-                    name={dobName}
-                    onChange={dobOnChange}
-                    onBlur={dobOnBlur}
-                    ref={dobRef}
-                    fancyOutlined
-                  />
+                  <Input label="Ngày sinh" type="date" {...register('dobOfBirth')} fancyOutlined />
                   <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
                 </div>
 
@@ -218,15 +209,7 @@ function UserProfile() {
 
               <div className="mt-8 flex flex-col md:hidden gap-y-8">
                 <div>
-                  <Input
-                    label="Ngày sinh"
-                    type="date"
-                    name={dobName}
-                    onChange={dobOnChange}
-                    onBlur={dobOnBlur}
-                    ref={dobRef}
-                    fancyOutlined
-                  />
+                  <Input label="Ngày sinh" type="date" {...register('dobOfBirth')} fancyOutlined />
                   <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
                 </div>
 
@@ -243,9 +226,9 @@ function UserProfile() {
                 </div>
               </div>
               {/* Description */}
-              <div className="flex items-center w-full relative mt-8 border rounded-lg border-br_light_gray focus-within:outline focus-within:outline-2 outline-ac_blue">
+              <div className="flex items-center w-full text-md relative mt-8 border rounded-lg border-br_light_gray focus-within:outline focus-within:outline-2 outline-ac_blue">
                 <textarea
-                  className="w-full px-4 pt-4 text-lg text-t_dark outline-none rounded-lg mb-1 mr-1"
+                  className="w-full px-4 pt-4 text-t_dark outline-none rounded-lg mb-1 mr-1 peer"
                   onChange={handleChange}
                 />
 
