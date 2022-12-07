@@ -6,7 +6,7 @@ import logo from '../assets/circle_logo.png';
 // import { FcGoogle } from 'react-icons/fc';
 import { Input, Button } from '../components/ui';
 import { Link, useNavigate } from 'react-router-dom';
-import { BiUser } from 'react-icons/bi';
+import { MdAlternateEmail } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { getUserInfo, signIn } from '../features/auth/authSlice';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
@@ -86,7 +86,7 @@ function Signin() {
           <div className="mt-10">
             <Input
               label="Email"
-              rightIcon={<BiUser />}
+              rightIcon={<MdAlternateEmail />}
               ref={emailRef}
               name={emailLabel}
               onChange={emailOnChange}
@@ -100,13 +100,13 @@ function Signin() {
           <div className="mt-6">
             <Input
               label="Mật khẩu"
-              visibilityToggle
               type="password"
               ref={pwRef}
               name={pwLabel}
               onChange={pwOnChange}
               onBlur={pwOnBlur}
               fancyOutlined
+              visibilityToggle
               status={errors.password?.message ? 'error' : ''}
             />
             <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>

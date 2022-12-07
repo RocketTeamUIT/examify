@@ -1,6 +1,6 @@
 import logo from '../assets/circle_logo.png';
 import { Link, useNavigate } from 'react-router-dom';
-import { BiUser } from 'react-icons/bi';
+import { MdAlternateEmail } from 'react-icons/md';
 import { Input, Button } from '../components/ui';
 import { signUp } from '../features/auth/authSlice';
 import { signupScheme } from '../validations/signup';
@@ -86,7 +86,7 @@ function Signup() {
           <div className="mt-10">
             <Input
               label="Email"
-              rightIcon={<BiUser />}
+              rightIcon={<MdAlternateEmail />}
               ref={emailRef}
               name={emailLabel}
               onChange={emailOnChange}
@@ -148,6 +148,7 @@ function Signup() {
               onChange={cpwOnChange}
               onBlur={cpwOnBlur}
               fancyOutlined
+              visibilityToggle
               status={errors.passwordConfirmation?.message ? 'error' : ''}
             />
             <p className="text-ac_red text-sm mt-1">{errors.passwordConfirmation?.message}</p>

@@ -9,11 +9,12 @@ import { useCallback } from 'react';
 // import data:
 import { coursesPro, coursesBasic, courseGeneral, courseAdvance } from '../data';
 import Container from '../../../layouts/components/Container';
+import { useNavigate } from 'react-router-dom';
 
 function CourseList() {
-  // todo: Handle redirect to Course Detail
+  const navigate = useNavigate();
   const handleClickCourse = useCallback((course) => {
-    console.log(course.id);
+    navigate(`/courses/${course.id}/detail`);
   }, []);
 
   return (
