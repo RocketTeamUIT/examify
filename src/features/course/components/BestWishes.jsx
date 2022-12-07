@@ -14,9 +14,9 @@ const BestWishes = () => {
       </p>
       <p className="mt-5">
         Đội ngũ Examify luôn bên cạnh để hỗ trợ bạn, liên hệ{' '}
-        <Link to="/contact" className="underline text-primary font-semibold">
+        <a href="https://www.fb.com/hdatdragon2849" className="underline text-primary font-semibold">
           Examify contact
-        </Link>{' '}
+        </a>{' '}
         để được hỗ trợ mọi lúc.
       </p>
     </div>

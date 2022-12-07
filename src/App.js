@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRouters } from './routes';
 import { DefaultLayout } from './layouts';
@@ -9,10 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const { isLoading } = useSelector((store) => store.auth);
-
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
 
   return (
     <Router>
