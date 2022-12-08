@@ -1,7 +1,14 @@
 import { memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CourseItem from './CourseItem';
 
-function CourseListItem({ grid, listName, listCourse, isNew = false, handleClickCourse = () => {} }) {
+function CourseListItem({ grid, listName, listCourse, isNew = false }) {
+  const navigate = useNavigate();
+
+  const handleClickCourse = (course) => {
+    navigate(`/courses/${course.id}/detail`);
+  };
+
   return (
     <>
       <div className="flex items-end mt-10">

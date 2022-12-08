@@ -37,8 +37,8 @@ function CourseItem({ course, onClick, grid }) {
         </div>
       )}
 
-      {/* Course Image */}
       <div className={classNames(grid && 'lg:flex gap-10')}>
+        {/* Course Image */}
         <div
           className={classNames('cursor-pointer shadow-lg overflow-hidden rounded-lg', grid && 'lg:max-w-[216px]')}
           onClick={() => onClick(course)}

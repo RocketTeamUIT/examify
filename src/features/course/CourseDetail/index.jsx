@@ -43,7 +43,7 @@ function CourseDetail() {
   return (
     <div className="mb-20">
       <div className="relative">
-        <img className="w-full object-cover" src={bannerImg} alt="examify" />
+        <img className="w-full object-cover md:min-h-[500px]" src={bannerImg} alt="examify" />
 
         {/* Course demo infomation */}
         <Container>
@@ -85,8 +85,28 @@ function CourseDetail() {
       </div>
 
       {/* SubNav component */}
-      <div className="sticky top-[60px]">
-        <SubNav />
+      <div className="sticky top-[60px] z-10">
+        <SubNav
+          scroll
+          navList={[
+            {
+              name: 'Mục tiêu',
+              path: '#course-achieve',
+            },
+            {
+              name: 'Thông tin',
+              path: '#course-info',
+            },
+            {
+              name: 'Nội dung',
+              path: '#course-content',
+            },
+            {
+              name: 'Đánh giá',
+              path: '#course-comment',
+            },
+          ]}
+        />
       </div>
 
       {/* Main content Page */}
@@ -94,7 +114,7 @@ function CourseDetail() {
         <div className="lg:flex lg:flex-row-reverse lg:gap-5">
           <div className="lg:w-4/12 lg:relative">
             {/* ModalRegisterCourse component */}
-            <div className="mt-10 min-h-[400px] md:w-1/2 md:mx-auto lg:w-full lg:sticky top-[72px] lg:mt-[-400px] xl:mt-[-500px]">
+            <div className="mt-10 min-h-[400px] md:w-1/2 md:mx-auto lg:w-full z-10 lg:sticky top-[72px] lg:mt-[-400px] xl:mt-[-500px]">
               <ModalRegisterCourse course={courseDetail} />
             </div>
           </div>
@@ -102,17 +122,17 @@ function CourseDetail() {
           {/* Content CourseDetail Page */}
           <div className="lg:w-8/12">
             {/* Achieve list component */}
-            <div className="mt-10 md:shadow-lg md:p-4 md:rounded-lg lg:p-8">
+            <div className="mt-10 md:shadow-lg md:p-4 md:rounded-lg lg:p-8" id="course-achieve">
               <AchieveList achieveList={courseDetail?.achieves} />
             </div>
 
             {/* Course infomation component */}
-            <div className="mt-10 md:bg-bg_light_gray md:p-4 md:rounded-lg lg:p-8">
+            <div className="mt-10 md:bg-bg_light_gray md:p-4 md:rounded-lg lg:p-8" id="course-info">
               <CourseInfo course={courseDetail} />
             </div>
 
             {/* Couse Content component*/}
-            <div className="mt-10 md:mt-20">
+            <div className="mt-10 md:mt-20" id="course-content">
               <CourseContent course={courseDetail} />
             </div>
           </div>
@@ -131,8 +151,8 @@ function CourseDetail() {
         </div>
       </Container>
 
-      <Container className="mt-[100px]" overflowVisible>
-        <CommentList reloadComments={() => getComments(courseId)} comments={comments} colSpan="span 7 / span 7" />
+      <Container className="mt-[100px]" overflowVisible id="course-comment">
+        <CommentList reloadComments={() => getComments(courseId)} comments={comments} colSpan={7} />
       </Container>
     </div>
   );

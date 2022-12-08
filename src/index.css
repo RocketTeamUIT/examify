@@ -82,3 +82,7 @@ code {
   overflow-y: overlay;
   z-index: 0;
 }
+
+* {
+  scroll-behavior: smooth;
+}

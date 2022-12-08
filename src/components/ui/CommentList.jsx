@@ -3,6 +3,7 @@ import Pagination from './Pagination';
 import Comment from './Comment';
 import Tag from './Tag';
 import CommentEditor from './CommentEditor';
+import classNames from 'classnames';
 
 // comments: comment list
 // reloadComments: function to call getCommentsService again after sent comment successfully
@@ -10,12 +11,17 @@ import CommentEditor from './CommentEditor';
 const CommentList = ({ comments, reloadComments, colSpan }) => {
   const Divider = () => <div className="border-t br_light_gray w-full mt-[6px] mb-[14px]" />;
 
+  const getColSpan = (span) => {
+    return `lg:col-span-${span} col-span-full`;
+  };
+
   return (
     <div className="grid grid-cols-12">
       <div
-        style={{
-          gridColumn: colSpan || 'span 12 / span 12',
-        }}
+        className={classNames(getColSpan(colSpan))}
+        // style={{
+        //   gridColumn: colSpan || 'span 1 / span -1',
+        // }}
       >
         {/* Header */}
         <h2 className="font-semibold text-h3 relative w-fit mb-8">
