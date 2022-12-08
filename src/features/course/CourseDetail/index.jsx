@@ -85,7 +85,9 @@ function CourseDetail() {
       </div>
 
       {/* SubNav component */}
-      <SubNav />
+      <div className="sticky top-[60px]">
+        <SubNav />
+      </div>
 
       {/* Main content Page */}
       <Container overflowVisible>

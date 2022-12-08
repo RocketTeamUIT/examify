@@ -5,7 +5,7 @@ import { signinScheme } from '../validations/signin';
 import logo from '../assets/circle_logo.png';
 // import { FcGoogle } from 'react-icons/fc';
 import { Input, Button } from '../components/ui';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MdAlternateEmail } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { getUserInfo, signIn } from '../features/auth/authSlice';
@@ -23,6 +23,8 @@ function Signin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const axiosPrivate = useAxiosPrivate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   // Get props from register form
   const { name: emailLabel, onChange: emailOnChange, onBlur: emailOnBlur, ref: emailRef } = register('email');
@@ -43,7 +45,7 @@ function Signin() {
     if (result.type === 'auth/signIn/fulfilled') {
       // Navigate if success
       await dispatch(getUserInfo(axiosPrivate));
-      navigate('/');
+      navigate(from, { replace: true });
     } else {
       // Handle error
       setError('email', { message: ' ' });

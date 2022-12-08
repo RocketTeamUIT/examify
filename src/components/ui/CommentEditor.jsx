@@ -6,7 +6,7 @@ import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import { sendCommentService } from '../../features/course/services/course';
 import { useSelector } from 'react-redux';
 import isEmptyObject from '../../utils/isEmptyObject';
-import { useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 /*
@@ -18,8 +18,9 @@ const CommentEditor = ({ hide, respondId, reloadComments }) => {
   const [content, setContent] = useState('');
   const [isLoading, setLoading] = useState(false);
   const { user } = useSelector((store) => store.auth);
-  const axiosPrivate = useAxiosPrivate();
+  const axiosPrivate = useAxiosPrivate(true);
   const { courseId } = useParams();
+  const location = useLocation();
 
   const handleSubmit = async () => {
     if (isEmptyObject(user)) {
@@ -40,6 +41,24 @@ const CommentEditor = ({ hide, respondId, reloadComments }) => {
       setLoading(false);
     }
   };
+
+  if (isEmptyObject(user))
+    return (
+      <div className="text-center italic text-md">
+        Bạn cần{' '}
+        <Link
+          to="/signin"
+          state={{
+            from: location,
+          }}
+          replace={true}
+          className="underline text-ac_blue"
+        >
+          đăng nhập
+        </Link>{' '}
+        để bình luận{' '}
+      </div>
+    );
 
   return (
     <div className="flex gap-4 pb-[10px]">

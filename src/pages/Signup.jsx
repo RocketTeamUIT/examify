@@ -148,7 +148,6 @@ function Signup() {
               onChange={cpwOnChange}
               onBlur={cpwOnBlur}
               fancyOutlined
-              visibilityToggle
               status={errors.passwordConfirmation?.message ? 'error' : ''}
             />
             <p className="text-ac_red text-sm mt-1">{errors.passwordConfirmation?.message}</p>

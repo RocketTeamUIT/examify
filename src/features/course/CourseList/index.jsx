@@ -5,17 +5,22 @@ import CourseListItem from './CourseListItem';
 // import image:
 import bannerImg from '../../../assets/images/courseBanner.png';
 // import Hook:
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 // import data:
 import { coursesPro, coursesBasic, courseGeneral, courseAdvance } from '../data';
 import Container from '../../../layouts/components/Container';
 import { useNavigate } from 'react-router-dom';
+import { Filter } from '../../../components/ui';
 
 function CourseList() {
   const navigate = useNavigate();
   const handleClickCourse = useCallback((course) => {
     navigate(`/courses/${course.id}/detail`);
   }, []);
+  const [grid, setGrid] = useState(false);
+  const toggleGrid = () => {
+    setGrid((grid) => !grid);
+  };
 
   return (
     <div className="mb-10">
@@ -23,9 +28,12 @@ function CourseList() {
       <Container className="py-5">
         <img className="w-full object-cover" src={bannerImg} alt="examify" />
       </Container>
-
       {/* Sub Navigation component*/}
       <SubNav />
+
+      <Container className="mt-4">
+        <Filter grid={grid} toggleGrid={toggleGrid} />
+      </Container>
 
       {/* Main content CourseList Page */}
       <Container>
@@ -43,6 +51,7 @@ function CourseList() {
         {/* List Pro Course */}
         {coursesPro?.length > 0 && (
           <CourseListItem
+            grid={grid}
             listName="Khóa học Pro:"
             listCourse={coursesPro}
             handleClickCourse={handleClickCourse}
@@ -52,12 +61,18 @@ function CourseList() {
 
         {/* List Basic Course */}
         {coursesBasic?.length > 0 && (
-          <CourseListItem listName="Khóa học cơ bản:" listCourse={coursesBasic} handleClickCourse={handleClickCourse} />
+          <CourseListItem
+            grid={grid}
+            listName="Khóa học cơ bản:"
+            listCourse={coursesBasic}
+            handleClickCourse={handleClickCourse}
+          />
         )}
 
         {/* List General Course */}
         {courseGeneral?.length > 0 && (
           <CourseListItem
+            grid={grid}
             listName="Khóa học phổ thông:"
             listCourse={courseGeneral}
             handleClickCourse={handleClickCourse}
@@ -67,6 +82,7 @@ function CourseList() {
         {/* List Advance Course */}
         {courseAdvance?.length > 0 && (
           <CourseListItem
+            grid={grid}
             listName="Khóa học nâng  cao:"
             listCourse={courseAdvance}
             handleClickCourse={handleClickCourse}
