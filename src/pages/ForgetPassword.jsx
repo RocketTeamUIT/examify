@@ -2,7 +2,7 @@ import authImg from '../assets/auth-page-img.png';
 import logo from '../assets/circle_logo.png';
 import { FcGoogle } from 'react-icons/fc';
 import { Input, Button } from '../components/ui';
-import { BiUser } from 'react-icons/bi';
+import { MdAlternateEmail } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 import { forgetPasswordScheme } from '../validations/forgetPassword';
@@ -55,17 +55,19 @@ function ForgetPassword() {
           <div className="h-3/5 flex flex-col justify-between mt-4">
             {/* Form */}
             <form onSubmit={handleSubmit(handleDataForm)}>
-              <label className="text-h6 font-medium text-t_dark">
-                Email*
+              <div>
                 <Input
-                  rightIcon={<BiUser />}
+                  label="Email"
+                  rightIcon={<MdAlternateEmail />}
                   ref={emailRef}
                   name={emailLabel}
                   onChange={emailOnChange}
                   onBlur={emailOnBlur}
+                  fancyOutlined
+                  status={errors.email?.message ? 'error' : ''}
                 />
-              </label>
-              <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
+                <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
+              </div>
 
               <div className="mt-8">
                 <Button width="100%">Đặt lại mật khẩu</Button>

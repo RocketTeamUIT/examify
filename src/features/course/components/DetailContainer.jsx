@@ -5,12 +5,42 @@ import CourseTrack from './CourseTrack';
 import MoveLessonActionBar from './MoveLessonActionBar';
 import PropTypes from 'prop-types';
 
+const tempLessons = [
+  { title: 'Lorem Ipsum', type: 'Video', unlock: true },
+  { title: 'Lorem Ipsum', type: 'Lý thuyết', unlock: true },
+  { title: 'Lorem Ipsum', type: 'Flashcard' },
+  { title: 'Lorem Ipsum', type: 'Video' },
+  { title: 'Lorem Ipsum', type: 'Lý thuyết' },
+  { title: 'Lorem Ipsum', type: 'Flashcard' },
+  { title: 'Lorem Ipsum', type: 'Video' },
+  { title: 'Lorem Ipsum', type: 'Lý thuyết' },
+  { title: 'Lorem Ipsum', type: 'Flashcard' },
+];
+
 // You should use this in every detail page in feature course
 const DetailContainer = ({ children }) => {
   const [showTrack, setShowTrack] = useState(false);
-
+  const [index, setIndex] = useState(0);
+  const handleClick = (index) => {
+    if (tempLessons[index].unlock) setIndex(index);
+  };
   const toggleTrack = () => {
     setShowTrack(!showTrack);
+  };
+
+  const isPreviousDisable = () => {
+    return index === 0;
+  };
+  const isNextDisable = () => {
+    return index === tempLessons.length - 1 || !tempLessons[index + 1]?.unlock;
+  };
+
+  const handleMove = (value) => {
+    const newValue = index + value;
+    if (newValue > tempLessons.length - 1 || newValue < 0) {
+      return;
+    }
+    handleClick(newValue);
   };
 
   return (
@@ -41,11 +71,16 @@ const DetailContainer = ({ children }) => {
           !showTrack && 'opacity-0 pointer-events-none',
         )}
       >
-        <CourseTrack />
+        <CourseTrack lessons={tempLessons} handleClick={handleClick} index={index} setIndex={setIndex} />
       </div>
 
       {/* Move Lesson Action Bar */}
-      <MoveLessonActionBar toggle={toggleTrack} />
+      <MoveLessonActionBar
+        isNextDisable={isNextDisable}
+        isPreviousDisable={isPreviousDisable}
+        toggle={toggleTrack}
+        onMove={handleMove}
+      />
     </div>
   );
 };

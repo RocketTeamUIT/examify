@@ -12,14 +12,15 @@ const DetailHeader = ({ sec }) => {
   const min = Math.floor(sec / 60);
   const remainSec = sec - min * 60;
   const [isShowing, setShowing] = useState(false);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, watch } = useForm();
+  const note = watch('note');
 
   const onSubmit = (data) => {};
 
   return (
-    <div className="md:flex items-center justify-between">
+    <div className="xl:flex items-center justify-between">
       {/* Title & time*/}
-      <div className="mb-6 md:mb-0">
+      <div className="mb-6 xl:mb-0">
         <h4 className="font-semibold text-h4 text-t_dark">Lý thuyết về bất động từ</h4>
         <p className="text-light text-sm mt-2 text-t_dark">Cập nhật tháng 10 năm 2022</p>
       </div>
@@ -42,7 +43,7 @@ const DetailHeader = ({ sec }) => {
           <label className="font-semibold text-md mb-2 mt-8 block">Mô tả</label>
           <TextArea {...register('note')} />
 
-          <Button width="100%" className="mt-7">
+          <Button width="100%" className="mt-7" disabled={!note}>
             <span className="text-md">Thêm</span>
           </Button>
         </form>

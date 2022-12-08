@@ -91,7 +91,9 @@ const Comment = ({ comment, isReply, reloadComments }) => {
       </div>
 
       {showEditor && (
-        <CommentEditor reloadComments={reloadComments} respondId={respondId} hide={() => setShowEditor(false)} />
+        <div className="mt-2">
+          <CommentEditor reloadComments={reloadComments} respondId={respondId} hide={() => setShowEditor(false)} />
+        </div>
       )}
     </>
   );

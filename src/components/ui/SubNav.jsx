@@ -6,14 +6,44 @@ import { memo } from 'react';
 import Container from '../../layouts/components/Container';
 import { Link } from 'react-router-dom';
 import useClickOutside from '../../hooks/useClickOutside';
+import classNames from 'classnames';
+import { useEffect } from 'react';
 
-function SubNav() {
+/* HOW TO USE
+  - scroll: specify if this scrolls instead of navigating
+  - navList: path specify the scroll element id, or the path to navigate to
+  eg1: scroll
+    scroll = true
+    navList = [
+      {name: 'abc', path='#scroll-id'}
+    ]
+  eg2: navigate
+    scroll = false
+    navList = [
+      {name: 'abc', path='/course'}
+    ]
+*/
+function SubNav({ navList, scroll }) {
   const [isShowNav, setShowNav] = useState(false);
+  const [curr, setCurr] = useState(0);
   const ref = useRef();
   const triggerRef = useRef();
+
   useClickOutside(ref, triggerRef, () => {
     setShowNav(false);
   });
+
+  useEffect(() => {});
+
+  const handleClick = (_, nav, index) => {
+    nav.onClick && nav.onClick();
+    setCurr(index);
+    if (scroll) {
+      window.scrollTo({
+        top: document.querySelector(nav.path).offsetTop - 130,
+      });
+    }
+  };
 
   return (
     <Container className="shadow-sd_primary relative" overflowVisible>
@@ -26,24 +56,48 @@ function SubNav() {
             ref={ref}
             className={`${
               isShowNav ? 'flex' : 'hidden'
-            } flex-col gap-2 absolute bg-white text-body-sm p-3 z-10 left-0 top-8 shadow-sd_primary rounded-md`}
+            } flex-col  absolute bg-white text-body-sm px-4 py-2 z-10 left-0 top-8 shadow-sd_primary rounded-md min-w-[200px]`}
           >
-            <Link to="/courses" className="text-primary">
-              Khám phá
-            </Link>
-            <Link to="/">Khóa học của tôi</Link>
+            {(navList || []).map((nav, index) => (
+              <Link
+                className={classNames(curr === index && 'text-primary', '-mx-2 px-2 py-2')}
+                to={nav.path ?? '#'}
+                onClick={(e) => handleClick(e, nav, index)}
+                key={index}
+              >
+                {nav.name}
+              </Link>
+            ))}
           </div>
         </div>
+
         <div className="hidden md:flex h-full gap-5 items-center sticky top-0 left-0 right-0">
-          <Link
-            to="/courses"
-            className="h-full flex items-center relative before:absolute before:bottom-0 before:w-full before:h-[6px] before:rounded-sm before:bg-primary"
-          >
-            <p className="text-primary">Khám phá</p>
-          </Link>
-          <Link to="/">
-            <p>Khóa học của bạn</p>
-          </Link>
+          {(navList || []).map((nav, index) =>
+            scroll ? (
+              <button
+                className={classNames(
+                  curr === index &&
+                    'h-full flex items-center relative before:absolute before:bottom-0 before:w-full before:h-[6px] before:rounded-sm before:bg-primary',
+                )}
+                onClick={(e) => handleClick(e, nav, index)}
+                key={index}
+              >
+                {nav.name}
+              </button>
+            ) : (
+              <Link
+                className={classNames(
+                  curr === index &&
+                    'h-full flex items-center relative before:absolute before:bottom-0 before:w-full before:h-[6px] before:rounded-sm before:bg-primary',
+                )}
+                to={nav.path ?? '#'}
+                onClick={(e) => handleClick(e, nav, index)}
+                key={index}
+              >
+                {nav.name}
+              </Link>
+            ),
+          )}
         </div>
       </div>
     </Container>

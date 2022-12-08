@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useState, useImperativeHandle, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import './InputStyle.css';
 
 /* Props
 - type: specify input type

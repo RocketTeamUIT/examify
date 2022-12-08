@@ -3,17 +3,25 @@ import React from 'react';
 import { useEffect } from 'react';
 import { Watch } from 'react-loader-spinner';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { getUserInfo } from '../features/auth/authSlice';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 
 // Show pending animation while loading content/api
 const SuspenseLayout = ({ isLoading, children }) => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const axiosPrivate = useAxiosPrivate(true);
 
   useEffect(() => {
     dispatch(getUserInfo(axiosPrivate));
   }, []);
+
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   return (
     <>

@@ -5,16 +5,25 @@ import CourseListItem from './CourseListItem';
 // import image:
 import bannerImg from '../../../assets/images/courseBanner.png';
 // import Hook:
-import { useCallback } from 'react';
+import { useState } from 'react';
 // import data:
 import { coursesPro, coursesBasic, courseGeneral, courseAdvance } from '../data';
 import Container from '../../../layouts/components/Container';
+import { Filter } from '../../../components/ui';
+import { useEffect } from 'react';
 
 function CourseList() {
-  // todo: Handle redirect to Course Detail
-  const handleClickCourse = useCallback((course) => {
-    console.log(course.id);
+  const [grid, setGrid] = useState(false);
+
+  useEffect(() => {
+    setGrid(localStorage.getItem('course-grid') === 'true' || false);
   }, []);
+
+  const toggleGrid = () => {
+    console.log(grid);
+    localStorage.setItem('course-grid', !grid);
+    setGrid((grid) => !grid);
+  };
 
   return (
     <div className="mb-10">
@@ -22,9 +31,23 @@ function CourseList() {
       <Container className="py-5">
         <img className="w-full object-cover" src={bannerImg} alt="examify" />
       </Container>
-
       {/* Sub Navigation component*/}
-      <SubNav />
+      <SubNav
+        navList={[
+          {
+            name: 'Khám phá',
+            path: '/courses',
+          },
+          {
+            name: 'Khoá học của tôi',
+            path: '/my-courses',
+          },
+        ]}
+      />
+
+      <Container className="mt-4">
+        <Filter grid={grid} toggleGrid={toggleGrid} />
+      </Container>
 
       {/* Main content CourseList Page */}
       <Container>
@@ -41,35 +64,22 @@ function CourseList() {
 
         {/* List Pro Course */}
         {coursesPro?.length > 0 && (
-          <CourseListItem
-            listName="Khóa học Pro:"
-            listCourse={coursesPro}
-            handleClickCourse={handleClickCourse}
-            isNew={true}
-          />
+          <CourseListItem grid={grid} listName="Khóa học Pro:" listCourse={coursesPro} isNew={true} />
         )}
 
         {/* List Basic Course */}
         {coursesBasic?.length > 0 && (
-          <CourseListItem listName="Khóa học cơ bản:" listCourse={coursesBasic} handleClickCourse={handleClickCourse} />
+          <CourseListItem grid={grid} listName="Khóa học cơ bản:" listCourse={coursesBasic} />
         )}
 
         {/* List General Course */}
         {courseGeneral?.length > 0 && (
-          <CourseListItem
-            listName="Khóa học phổ thông:"
-            listCourse={courseGeneral}
-            handleClickCourse={handleClickCourse}
-          />
+          <CourseListItem grid={grid} listName="Khóa học phổ thông:" listCourse={courseGeneral} />
         )}
 
         {/* List Advance Course */}
         {courseAdvance?.length > 0 && (
-          <CourseListItem
-            listName="Khóa học nâng  cao:"
-            listCourse={courseAdvance}
-            handleClickCourse={handleClickCourse}
-          />
+          <CourseListItem grid={grid} listName="Khóa học nâng  cao:" listCourse={courseAdvance} />
         )}
       </Container>
     </div>

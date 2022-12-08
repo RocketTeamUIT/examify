@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 import Button from './Button';
@@ -6,8 +6,9 @@ import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import { sendCommentService } from '../../features/course/services/course';
 import { useSelector } from 'react-redux';
 import isEmptyObject from '../../utils/isEmptyObject';
-import { useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import classNames from 'classnames';
 
 /*
   hide: function to hide this comment editor
@@ -18,8 +19,9 @@ const CommentEditor = ({ hide, respondId, reloadComments }) => {
   const [content, setContent] = useState('');
   const [isLoading, setLoading] = useState(false);
   const { user } = useSelector((store) => store.auth);
-  const axiosPrivate = useAxiosPrivate();
+  const axiosPrivate = useAxiosPrivate(true);
   const { courseId } = useParams();
+  const location = useLocation();
 
   const handleSubmit = async () => {
     if (isEmptyObject(user)) {
@@ -41,10 +43,28 @@ const CommentEditor = ({ hide, respondId, reloadComments }) => {
     }
   };
 
+  if (isEmptyObject(user))
+    return (
+      <div className="text-center italic text-md">
+        Bạn cần{' '}
+        <Link
+          to="/signin"
+          state={{
+            from: location,
+          }}
+          replace={true}
+          className="underline text-ac_blue"
+        >
+          đăng nhập
+        </Link>{' '}
+        để bình luận{' '}
+      </div>
+    );
+
   return (
-    <div className="flex gap-4 pb-[10px]">
+    <div className={classNames('flex gap-4 pb-[10px]', respondId && 'ml-12')}>
       <img src={user.avt} className="h-8 w-8 rounded-full" alt="owner's avatar" />
-      <div className="p-3 flex flex-col items-center rounded-md border border-ac_blue flex-1 shadow-primary shadow-sd_xs">
+      <div className="p-3 flex flex-col items-center rounded-md border border-br_gray transition focus-within:shadow-primary focus-within:border-ac_blue flex-1 shadow-sd_xs">
         <ReactTextareaAutosize
           value={content}
           onChange={(e) => setContent(e.target.value)}
