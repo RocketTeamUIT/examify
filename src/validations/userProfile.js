@@ -4,7 +4,7 @@ export const userProfileScheme = yup.object().shape({
   firstname: yup.string().required('Họ và tên đệm không được để trống'),
   lastname: yup.string().required('Tên không được để trống'),
   phoneNumber: yup.string().matches(/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/, 'Số điện thoại không hợp lệ'),
-  dateOfBirth: yup.date().max(new Date(), 'Không thể chọn trong tương lai'),
+  dateOfBirth: yup.date().nullable().notRequired().max(new Date(), 'Không thể chọn trong tương lai'),
   password: yup
     .string()
     .trim()
