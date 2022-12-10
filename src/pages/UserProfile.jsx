@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 function UserProfile() {
-  const [email, setEmail] = useState('tudoi@gmail.com');
+  const [email, setEmail] = useState('tudepzai@gmail.com');
   const [stickyLabel, setStickyLabel] = useState(false);
 
   const {
@@ -19,6 +19,7 @@ function UserProfile() {
 
   const { name: fnLabel, onChange: fnOnChange, onBlur: fnOnBlur, ref: fnRef } = register('firstname');
   const { name: lnLabel, onChange: lnOnChange, onBlur: lnOnBlur, ref: lnRef } = register('lastname');
+  const { name: dobLabel, onChange: dobOnChange, onBlur: dobOnBlur, ref: dobRef } = register('dateOfBirth');
   const { name: pnName, onChange: pnOnChange, onBlur: pnOnBlur, ref: pnRef } = register('phoneNumber');
 
   const handleDataForm = (data) => {
@@ -190,7 +191,15 @@ function UserProfile() {
               {/* Date of birth */}
               <div className="mt-8 hidden md:flex gap-5">
                 <div className="w-1/2">
-                  <Input label="Ngày sinh" type="date" {...register('dobOfBirth')} fancyOutlined />
+                  <Input
+                    label="Ngày sinh"
+                    type="date"
+                    name={dobLabel}
+                    onChange={dobOnChange}
+                    onBlur={dobOnBlur}
+                    ref={dobRef}
+                    fancyOutlined
+                  />
                   <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
                 </div>
 
@@ -209,7 +218,15 @@ function UserProfile() {
 
               <div className="mt-8 flex flex-col md:hidden gap-y-8">
                 <div>
-                  <Input label="Ngày sinh" type="date" {...register('dobOfBirth')} fancyOutlined />
+                  <Input
+                    label="Ngày sinh"
+                    type="date"
+                    name={dobLabel}
+                    onChange={dobOnChange}
+                    onBlur={dobOnBlur}
+                    ref={dobRef}
+                    fancyOutlined
+                  />
                   <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
                 </div>
 
