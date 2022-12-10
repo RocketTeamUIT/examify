@@ -2,13 +2,15 @@ import { basePrivate } from '../lib/base';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshTokenService } from '../features/auth/services/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { setAccessToken } from '../features/auth/authSlice';
+import * as PropTypes from 'prop-types';
 
 const useAxiosPrivate = (stayOnError) => {
   const { accessToken } = useSelector((store) => store.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     const requestInterceptor = basePrivate.interceptors.request.use(
@@ -27,6 +29,7 @@ const useAxiosPrivate = (stayOnError) => {
       (response) => response,
       async (error) => {
         const prevRequest = error?.config;
+        console.log('🚀 ~ file: useAxiosPrivate.js:48 ~ stayOnError', stayOnError);
 
         if (error?.response?.status === 401 && !prevRequest.sent) {
           prevRequest.sent = true;
@@ -41,7 +44,14 @@ const useAxiosPrivate = (stayOnError) => {
               },
             });
           } catch (error) {
-            if (!stayOnError) navigate('/signin');
+            console.log('🚀 ~ file: useAxiosPrivate.js:45 ~ error', error);
+            if (!stayOnError)
+              navigate('/signin', {
+                state: {
+                  from: location,
+                },
+                replace: true,
+              });
           }
         }
 
@@ -56,6 +66,10 @@ const useAxiosPrivate = (stayOnError) => {
   }, [accessToken]);
 
   return basePrivate;
+};
+
+useAxiosPrivate.propTypes = {
+  stayOnError: PropTypes.bool,
 };
 
 export default useAxiosPrivate;

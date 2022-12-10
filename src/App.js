@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const { isLoading } = useSelector((store) => store.auth);
+
   return (
     <Router>
       <SuspenseLayout isLoading={isLoading}>
@@ -41,7 +42,16 @@ const App = () => {
             })}
           </Routes>
         </div>
-        <ToastContainer />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick={true}
+          pauseOnHover={true}
+          draggable={true}
+          progress={undefined}
+          theme="light"
+        />
       </SuspenseLayout>
     </Router>
   );
