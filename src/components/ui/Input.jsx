@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useState, useImperativeHandle, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import './InputStyle.css';
 
 /* Props
 - type: specify input type
@@ -59,7 +60,7 @@ const Input = forwardRef(
   ) => {
     const [showPassword, setShowPassword] = useState(false);
     const [currentType, setCurrentType] = useState(type);
-    const [stickyLabel, setStickyLabel] = useState(false);
+    const [stickyLabel, setStickyLabel] = useState(value);
     const inputRef = useRef();
 
     const handleWrapperClick = () => {
@@ -145,6 +146,7 @@ const Input = forwardRef(
         {/* Show/Hide password */}
         {visibilityToggle && (
           <button
+            type="button"
             onClick={() => {
               setShowPassword(!showPassword);
               setCurrentType(currentType === 'password' ? 'text' : 'password');

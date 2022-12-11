@@ -10,5 +10,8 @@
   // Bỏ warning tailwind rule với đuôi mở rộng là .css (src/index.css)
   "files.associations": {
     "*.css": "tailwindcss"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

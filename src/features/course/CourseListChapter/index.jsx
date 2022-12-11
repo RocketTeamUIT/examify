@@ -185,7 +185,7 @@ function CourseListChapter() {
         {/* Sidebar */}
         <div className="hidden lg:block lg:w-[390px] flex-shrink-0">
           <div className="fixed top-[60px] bottom-0 right-0">
-            <CourseTrack />
+            <CourseTrack lessons={['']} />
           </div>
         </div>
       </div>

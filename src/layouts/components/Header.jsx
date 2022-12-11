@@ -7,6 +7,8 @@ import { AutoComplete, Button } from '../../components/ui';
 import { useState } from 'react';
 import classNames from 'classnames';
 import { useSpring, animated } from 'react-spring';
+import { useSelector } from 'react-redux';
+import Avatar from './Avatar';
 
 const NAVIGATION_LIST = [
   ['Khoá học', '/courses'],
@@ -25,6 +27,7 @@ const Header = () => {
   };
   let showMenu = false;
   const [props, setSpring] = useSpring(() => initialStyles);
+  const { user } = useSelector((store) => store.auth);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -51,7 +54,7 @@ const Header = () => {
   };
 
   return (
-    <div className="h-[60px] bg-white shadow-sd_primary flex md:gap-6 xl:gap-14 items-center justify-between lg:justify-start px-6 z-20 sticky top-0">
+    <div className="h-[60px] bg-white shadow-sd_primary flex md:gap-4 xl:gap-14 items-center justify-between lg:justify-start px-6 z-20 sticky top-0">
       {/* Mobile menu toggle */}
       <button
         className="flex lg:hidden items-center justify-center w-11 h-11 hover:bg-bg_light_gray_3 transition rounded-lg -ml-2"
@@ -100,12 +103,22 @@ const Header = () => {
 
       {/* Buttons */}
       <div className="gap-4 flex">
-        <Button type="default" width="112px" className="md:block hidden">
-          Đăng nhập
-        </Button>
-        <Button type="primary" width="112px">
-          Đăng ký
-        </Button>
+        {user.firstName ? (
+          <Avatar avt={user.avt} lastName={user.lastName} firstName={user.firstName} email={user.email} />
+        ) : (
+          <>
+            <Link to="/signin">
+              <Button type="default" width="112px" className="md:block hidden">
+                Đăng nhập
+              </Button>
+            </Link>
+            <Link to="/signup">
+              <Button type="primary" width="112px">
+                Đăng ký
+              </Button>
+            </Link>
+          </>
+        )}
       </div>
 
       {/* Mobile menu */}
