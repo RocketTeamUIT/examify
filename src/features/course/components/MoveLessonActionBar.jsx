@@ -8,20 +8,33 @@ import PropTypes from 'prop-types';
 /*  props
     - toggle: callback to toggle menu when clicked
 */
-const MoveLessonActionBar = ({ toggle }) => {
+const MoveLessonActionBar = ({ toggle, onMove, isPreviousDisable, isNextDisable }) => {
   return (
     <div className="fixed bottom-0 w-full bg-t_light_gray h-[60px] flex items-center justify-start md:justify-center gap-3 md:gap-6">
       {/* Button: Previous Lesson */}
-      <Button type="text" disabled height="60px" leftIcon={<MdKeyboardArrowLeft className="w-[30px] h-[30px]" />}>
+      <Button
+        type="text"
+        disabled={isPreviousDisable()}
+        onClick={() => {
+          onMove(-1);
+        }}
+        height="60px"
+        color={!isPreviousDisable() && '#0E46C7'}
+        leftIcon={<MdKeyboardArrowLeft className="w-[30px] h-[30px]" />}
+      >
         BÀI TRƯỚC
       </Button>
 
       {/* Button: Next Lesson */}
       <Button
+        onClick={() => {
+          onMove(1);
+        }}
+        disabled={isNextDisable()}
         type="text"
         height="60px"
         rightIcon={<MdKeyboardArrowRight className="w-[30px] h-[30px]" />}
-        color="#0E46C7"
+        color={!isNextDisable() && '#0E46C7'}
       >
         BÀI TIẾP THEO
       </Button>
