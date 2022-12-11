@@ -85,6 +85,16 @@ module.exports = {
         ac_lighter_green: '#1FCF9B',
       },
     },
+    keyframes: {
+      flip: {
+        from: {
+          transformm: 'rotateY(0deg)',
+        },
+        to: {
+          transform: 'rotateY(360deg)',
+        },
+      },
+    },
   },
   plugins: [],
 };
