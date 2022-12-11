@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useState, useImperativeHandle, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import './InputStyle.css';
 
 /* Props
 - type: specify input type
@@ -163,8 +162,8 @@ const Input = forwardRef(
             className="absolute px-1 -mx-1 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
             style={{
               backgroundColor: fancyBackgroundColor,
-              top: stickyLabel && '0',
-              fontSize: stickyLabel && '12px',
+              top: (stickyLabel || type === 'date') && '0',
+              fontSize: (stickyLabel || type === 'date') && '12px',
             }}
           >
             {label}
