@@ -1,7 +1,7 @@
 import config from '../config';
 
 // Layouts
-import { AuthLayout, FocusLayout, NoRecommendLayout } from '../layouts';
+import { AuthLayout, ExamDetailLayout, FocusLayout, NoRecommendLayout } from '../layouts';
 
 // Page
 import Home from '../pages/Home';
@@ -24,7 +24,7 @@ import {
 } from '../features/course';
 
 // Exam
-import { Exam } from '../features/exam/components';
+import { Exam } from '../features/exam/';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
@@ -44,7 +44,15 @@ const publicRouters = [
   { path: config.routes.courseVideo, component: CourseDetailLessonVideo, layout: FocusLayout },
 
   // Exam
-  { path: config.routes.exam, component: Exam },
+  { path: config.routes.exam, component: Exam, layout: NoRecommendLayout },
+  [
+    { path: config.routes.examDetail, component: Exam },
+    { path: config.routes.examAnswer, component: Exam },
+  ],
+  { path: config.routes.examAnswerDetail, component: Exam, layout: NoRecommendLayout },
+  { path: config.routes.examTake, component: Exam, layout: NoRecommendLayout },
+  { path: config.routes.examHistory, component: Exam, layout: NoRecommendLayout },
+  { path: config.routes.examResult, component: Exam, layout: NoRecommendLayout },
 
   // Test
   { path: config.routes.tuanBig, component: TuanBigTest },

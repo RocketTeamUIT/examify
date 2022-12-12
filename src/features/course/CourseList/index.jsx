@@ -20,7 +20,6 @@ function CourseList() {
   }, []);
 
   const toggleGrid = () => {
-    console.log(grid);
     localStorage.setItem('course-grid', !grid);
     setGrid((grid) => !grid);
   };

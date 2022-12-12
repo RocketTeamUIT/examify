@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRouters } from './routes';
-import { DefaultLayout } from './layouts';
+import { DefaultLayout, ExamDetailLayout } from './layouts';
 import { useSelector } from 'react-redux';
 import SuspenseLayout from './layouts/SuspenseLayout';
 import { ToastContainer } from 'react-toastify';
@@ -17,6 +17,18 @@ const App = () => {
         <div className="bg-bg_white">
           <Routes>
             {publicRouters.map((route, index) => {
+              // Check if nested route
+              if (Array.isArray(route)) {
+                return (
+                  <Route key={index} element={<ExamDetailLayout />}>
+                    {route.map((subRoute, i) => {
+                      const Page = subRoute.component;
+                      return <Route key={i} path={subRoute.path} element={<Page />} />;
+                    })}
+                  </Route>
+                );
+              }
+
               let Layout;
               const Page = route.component;
 

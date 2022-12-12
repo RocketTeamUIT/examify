@@ -9,14 +9,21 @@ const routes = {
 
   // Course
   courseList: '/courses',
-  courseDetail: '/courses/:courseId/detail',
-  courseListChapter: '/courses/:courseId/detail/list-chapter',
-  courseLearn: '/courses/:courseId/detail/list-chapter/learn', // Để tạm
-  courseText: '/courses/:courseId/detail/list-chapter/text', // Để tạm
-  courseVideo: '/courses/:courseId/detail/list-chapter/video', // Để tạm
+  courseDetail: '/courses/:courseId',
+  courseListChapter: '/courses/:courseId/list-chapter',
+  courseLearn: '/courses/:courseId/list-chapter/learn', // Để tạm
+  courseText: '/courses/:courseId/list-chapter/text', // Để tạm
+  courseVideo: '/courses/:courseId/list-chapter/video', // Để tạm
 
   // Exam
   exam: '/exams',
+  examDetail: '/exams/:examId',
+  examAnswer: '/exams/:examId/answer',
+  examAnswerDetail: '/exams/:examId/detail',
+  examTake: '/exams/:examId/take',
+  examHistory: '/exams/history',
+  examResult: '/exams/:examId/result',
+
   // Flashcard
   flashcard: '/flashcards',
   // Contest

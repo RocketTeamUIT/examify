@@ -23,7 +23,7 @@ import { useEffect } from 'react';
       {name: 'abc', path='/course'}
     ]
 */
-function SubNav({ navList, scroll }) {
+function SubNav({ navList, scroll, gap }) {
   const [isShowNav, setShowNav] = useState(false);
   const [curr, setCurr] = useState(0);
   const ref = useRef();
@@ -71,7 +71,12 @@ function SubNav({ navList, scroll }) {
           </div>
         </div>
 
-        <div className="hidden md:flex h-full gap-5 items-center sticky top-0 left-0 right-0">
+        <div
+          className="hidden md:flex h-full gap-5 items-center sticky top-0 left-0 right-0"
+          style={{
+            gap: gap,
+          }}
+        >
           {(navList || []).map((nav, index) =>
             scroll ? (
               <button

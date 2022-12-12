@@ -12,3 +12,4 @@ export { default as Comment } from './Comment';
 export { default as Pagination } from './Pagination';
 export { default as TextArea } from './TextArea';
 export { default as Filter } from './Filter';
+export { default as GradientBanner } from './GradientBanner';
