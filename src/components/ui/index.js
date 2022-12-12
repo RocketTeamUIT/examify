@@ -7,6 +7,7 @@ export { default as Tip } from './Tip';
 export { default as Input } from './Input';
 export { default as AutoComplete } from './AutoComplete';
 export { default as RatingStar } from './RatingStar';
+export { default as SubNav } from './SubNav';
 export { default as CommentList } from './CommentList';
 export { default as Comment } from './Comment';
 export { default as Pagination } from './Pagination';
