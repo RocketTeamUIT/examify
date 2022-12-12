@@ -17,7 +17,6 @@ import UserProfile from '../pages/UserProfile';
 import {
   CourseList,
   CourseDetail,
-  CourseLearn,
   CourseListChapter,
   CourseDetailLessonVideo,
   CourseDetailLessonText,
@@ -38,7 +37,6 @@ const publicRouters = [
   // Course
   { path: config.routes.courseList, component: CourseList, layout: NoRecommendLayout },
   { path: config.routes.courseDetail, component: CourseDetail, layout: NoRecommendLayout },
-  { path: config.routes.courseLearn, component: CourseLearn, layout: NoRecommendLayout },
   { path: config.routes.courseListChapter, component: CourseListChapter, layout: NoRecommendLayout },
   { path: config.routes.courseText, component: CourseDetailLessonText, layout: FocusLayout },
   { path: config.routes.courseVideo, component: CourseDetailLessonVideo, layout: FocusLayout },
