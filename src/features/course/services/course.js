@@ -1,4 +1,5 @@
 import { mockServer } from '../../../lib/base';
+import base from '../../../lib/base';
 
 export const getCommentsService = (id) => {
   return mockServer.get('/comments', {
@@ -6,6 +7,10 @@ export const getCommentsService = (id) => {
       course_id: id,
     },
   });
+};
+
+export const getAllCoursesService = () => {
+  return base.get('/courses');
 };
 
 export const sendCommentService = (axiosPrivate, course_id, content, respond_id) => {

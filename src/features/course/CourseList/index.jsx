@@ -1,22 +1,65 @@
-// import component:
+import { useState, useEffect } from 'react';
+
 import { Tip } from '../../../components/ui';
 import SubNav from '../../../components/ui/SubNav';
 import CourseListItem from './CourseListItem';
-// import image:
-import bannerImg from '../../../assets/images/courseBanner.png';
-// import Hook:
-import { useState } from 'react';
-// import data:
-import { coursesPro, coursesBasic, courseGeneral, courseAdvance } from '../data';
 import Container from '../../../layouts/components/Container';
 import { Filter } from '../../../components/ui';
-import { useEffect } from 'react';
+import bannerImg from '../../../assets/images/courseBanner.png';
+import { getAllCoursesService } from '../services/course';
+
+const NAV_LIST = [
+  {
+    name: 'Khám phá',
+    path: '/courses',
+  },
+  {
+    name: 'Khoá học của tôi',
+    path: '/my-courses',
+  },
+];
 
 function CourseList() {
   const [grid, setGrid] = useState(false);
+  const [chargeCourse, setChargeCourse] = useState([]);
+  const [basicCourse, setBasicCourse] = useState([]);
+  const [generalCourse, setGeneralCourse] = useState([]);
+  const [advanceCourse, setAdvanceCourse] = useState([]);
 
   useEffect(() => {
     setGrid(localStorage.getItem('course-grid') === 'true' || false);
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const courseList = (await getAllCoursesService()).data.data;
+
+      const chargeCourseList = [];
+      const basicCourseList = [];
+      const generalCourseList = [];
+      const advanceCourseList = [];
+
+      courseList.forEach((item) => {
+        if (item.charges === true) {
+          chargeCourseList.push(item);
+        }
+        if (item.level === 'basic') {
+          basicCourseList.push(item);
+        }
+        if (item.level === 'general') {
+          generalCourseList.push(item);
+        }
+        if (item.level === 'advance') {
+          advanceCourseList.push(item);
+        }
+      });
+
+      setChargeCourse(chargeCourseList);
+      setBasicCourse(basicCourseList);
+      setGeneralCourse(generalCourseList);
+      setAdvanceCourse(advanceCourseList);
+    }
+    fetchData();
   }, []);
 
   const toggleGrid = () => {
@@ -31,19 +74,9 @@ function CourseList() {
       <Container className="py-5">
         <img className="w-full object-cover" src={bannerImg} alt="examify" />
       </Container>
+
       {/* Sub Navigation component*/}
-      <SubNav
-        navList={[
-          {
-            name: 'Khám phá',
-            path: '/courses',
-          },
-          {
-            name: 'Khoá học của tôi',
-            path: '/my-courses',
-          },
-        ]}
-      />
+      <SubNav navList={NAV_LIST} />
 
       <Container className="mt-4">
         <Filter grid={grid} toggleGrid={toggleGrid} />
@@ -63,23 +96,21 @@ function CourseList() {
         </div>
 
         {/* List Pro Course */}
-        {coursesPro?.length > 0 && (
-          <CourseListItem grid={grid} listName="Khóa học Pro:" listCourse={coursesPro} isNew={true} />
+        {chargeCourse?.length > 0 && (
+          <CourseListItem grid={grid} listName="Khóa học Pro:" listCourse={chargeCourse} isNew={true} />
         )}
 
         {/* List Basic Course */}
-        {coursesBasic?.length > 0 && (
-          <CourseListItem grid={grid} listName="Khóa học cơ bản:" listCourse={coursesBasic} />
-        )}
+        {basicCourse?.length > 0 && <CourseListItem grid={grid} listName="Khóa học cơ bản:" listCourse={basicCourse} />}
 
         {/* List General Course */}
-        {courseGeneral?.length > 0 && (
-          <CourseListItem grid={grid} listName="Khóa học phổ thông:" listCourse={courseGeneral} />
+        {generalCourse?.length > 0 && (
+          <CourseListItem grid={grid} listName="Khóa học phổ thông:" listCourse={generalCourse} />
         )}
 
         {/* List Advance Course */}
-        {courseAdvance?.length > 0 && (
-          <CourseListItem grid={grid} listName="Khóa học nâng  cao:" listCourse={courseAdvance} />
+        {advanceCourse?.length > 0 && (
+          <CourseListItem grid={grid} listName="Khóa học nâng cao:" listCourse={advanceCourse} />
         )}
       </Container>
     </div>
