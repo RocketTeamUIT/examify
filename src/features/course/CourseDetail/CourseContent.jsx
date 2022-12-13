@@ -1,24 +1,33 @@
+import { useState, useEffect, memo } from 'react';
+
 import Chapter from './Chapter';
-// import hook:
-import { useState, memo } from 'react';
-// import data:
-import { chapters } from '../data';
+import { convertTimeHours, convertTimeMinutes } from '../../../utils/formatCurrency';
+import { getCourseDetailService } from '../services/course';
 
 function CourseContent({ course }) {
   const [openAll, setOpenAll] = useState(false);
+  const [chapterList, setChapterList] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const chapters = (await getCourseDetailService(course.id)).data.data.chapterList;
+      setChapterList(chapters);
+    }
+    fetchData();
+  }, []);
 
   return (
     <>
       <h3 className="text-body-lg text-center font-medium mb-4 md:mb-8 lg:text-left">Nội dung khóa học</h3>
       <div className="md:flex md:justify-between mb-2 md:mb-4">
         <p className="text-body-sm">
-          <b>{course.totalChapter}</b> chương .{' '}
+          <b>{course.totalChapter}</b> chương |{' '}
           <span className="hidden md:inline-block">
-            <b>{course.totalLesson}</b> bài học .{' '}
-          </span>
-          thời lượng{' '}
+            <b>{course.totalLesson}</b> bài học |{' '}
+          </span>{' '}
+          Thời lượng{' '}
           <b>
-            {course.totalVideoTime.hour} giờ {course.totalVideoTime.minutes} phút
+            {convertTimeHours(course.totalVideoTime)} giờ {convertTimeMinutes(course.totalVideoTime)} phút
           </b>
         </p>
 
@@ -30,7 +39,7 @@ function CourseContent({ course }) {
 
       {/* List chapter of the course */}
       <div className="grid gap-2">
-        {chapters.map((chapter) => (
+        {chapterList.map((chapter) => (
           <Chapter key={chapter.id} chapter={chapter} openAll={openAll} />
         ))}
       </div>

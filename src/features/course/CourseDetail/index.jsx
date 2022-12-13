@@ -4,7 +4,6 @@ import SubNav from '../../../components/ui/SubNav';
 import AchieveList from './AchieveList';
 import CourseContent from './CourseContent';
 import ModalRegisterCourse from './ModalRegisterCourse';
-import CourseInfo from './CourseInfo';
 import QualityItem from './QualityItem';
 import { RatingStar } from '../../../components/ui';
 import { CommentList } from '../../comments';
@@ -35,6 +34,7 @@ function CourseDetail() {
   const { courseId } = useParams();
   const { user } = useSelector((store) => store.auth);
   const axiosPrivate = useAxiosPrivate();
+  const currentCourse = {};
 
   const getComments = async (id, type, page) => {
     try {
@@ -68,16 +68,16 @@ function CourseDetail() {
           <div className="my-6 md:my-4 py-16 border-2 border-br_gray rounded-md lg:border-none lg:absolute lg:top-0 lg:w-1/2">
             {/* Course name */}
             <h3 className="text-body-md text-center font-medium lg:text-white lg:text-h1 lg:text-left">
-              {courseDetail.name}
+              {currentCourse.name}
             </h3>
 
             <div className="mt-3 lg:flex lg:items-start lg:gap-5 lg:mt-6">
               <div className="flex items-center justify-center gap-1 lg:flex-col lg:items-start lg:gap-3 lg:justify-start">
                 {/* Star average rating */}
-                <RatingStar avg={courseDetail.avgRating} />
+                <RatingStar avg={currentCourse.avgRating} />
 
                 {/* Number of rating */}
-                <p className="text-body-sm lg:text-white lg:text-body-md">({courseDetail.qntRating} đánh giá)</p>
+                <p className="text-body-sm lg:text-white lg:text-body-md">({currentCourse.quantityRating} đánh giá)</p>
               </div>
 
               {/* Tag component */}
@@ -90,13 +90,13 @@ function CourseDetail() {
             <div className="flex items-center mt-3 justify-center lg:justify-start lg:mt-6">
               <AiOutlineTeam className="text-[24px] mr-1 lg:text-white" />
               <p className="text-t_gray text-body-sm lg:text-body-md">
-                <b className="text-black lg:text-white">{courseDetail.participants}</b> người tham gia
+                <b className="text-black lg:text-white">{currentCourse.participants}</b> người tham gia
               </p>
             </div>
 
             {/* Point reward */}
             <p className="text-t_gray mt-3 text-body-sm text-center lg:text-left lg:text-body-md lg:mt-6">
-              <b className="text-[#EF3737]">{courseDetail.pointComplete}</b> điểm khi hoàn thành
+              <b className="text-[#EF3737]">{currentCourse.pointReward}</b> điểm khi hoàn thành
             </p>
           </div>
         </Container>
@@ -133,7 +133,7 @@ function CourseDetail() {
           <div className="lg:w-4/12 lg:relative">
             {/* ModalRegisterCourse component */}
             <div className="mt-10 min-h-[400px] md:w-1/2 md:mx-auto lg:w-full z-10 lg:sticky top-[72px] lg:mt-[-400px] xl:mt-[-500px]">
-              <ModalRegisterCourse course={courseDetail} />
+              <ModalRegisterCourse course={currentCourse} />
             </div>
           </div>
 
@@ -144,14 +144,14 @@ function CourseDetail() {
               <AchieveList achieveList={courseDetail?.achieves} />
             </div>
 
-            {/* Course infomation component */}
+            {/* Course information component */}
             <div className="mt-10 md:bg-bg_light_gray md:p-4 md:rounded-lg lg:p-8" id="course-info">
-              <CourseInfo course={courseDetail} />
+              <p>{currentCourse.description}</p>
             </div>
 
             {/* Couse Content component*/}
             <div className="mt-10 md:mt-20" id="course-content">
-              <CourseContent course={courseDetail} />
+              <CourseContent course={currentCourse} />
             </div>
           </div>
         </div>
