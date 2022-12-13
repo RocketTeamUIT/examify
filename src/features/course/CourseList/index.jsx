@@ -11,13 +11,27 @@ import { coursesPro, coursesBasic, courseGeneral, courseAdvance } from '../data'
 import Container from '../../../layouts/components/Container';
 import { Filter } from '../../../components/ui';
 import { useEffect } from 'react';
+import { getAllCoursesService } from '../services/course';
+import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 
 function CourseList() {
   const [grid, setGrid] = useState(false);
+  const [courses, setCourses] = useState([]);
+  const axiosPrivate = useAxiosPrivate();
 
   useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await getAllCoursesService(axiosPrivate);
+        setCourses(response.data.data);
+      } catch (error) {
+        console.log('🚀 ~ file: index.jsx:27 ~ fetchCourses ~ error', error);
+      }
+    };
+    fetchCourses();
+
     setGrid(localStorage.getItem('course-grid') === 'true' || false);
-  }, []);
+  }, [axiosPrivate]);
 
   const toggleGrid = () => {
     console.log(grid);

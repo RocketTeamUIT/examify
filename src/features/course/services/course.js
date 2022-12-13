@@ -1,7 +1,7 @@
 import base from '../../../lib/base';
 
-export const getAllCoursesService = () => {
-  return base.get('/courses');
+export const getAllCoursesService = (axiosPrivate) => {
+  return axiosPrivate.get('/courses');
 };
 
 export const getDetailCourseService = (id) => {
