@@ -6,7 +6,8 @@ import CourseContent from './CourseContent';
 import ModalRegisterCourse from './ModalRegisterCourse';
 import CourseInfo from './CourseInfo';
 import QualityItem from './QualityItem';
-import { CommentList, RatingStar } from '../../../components/ui';
+import { RatingStar } from '../../../components/ui';
+import { CommentList } from '../../comments';
 // import Icon:
 import { AiOutlineTeam } from 'react-icons/ai';
 import { BiBookmarks, BiBookOpen } from 'react-icons/bi';
@@ -20,32 +21,49 @@ import { qualityUs } from '../../../data/constants';
 import Container from '../../../layouts/components/Container';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { getCommentsService } from '../services/course';
+import { getCommentsService } from '../../comments/services/comment';
 import { useParams } from 'react-router-dom';
+import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
+import { useSelector } from 'react-redux';
 
 function CourseDetail() {
   const [comments, setComments] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
+  const [type, setType] = useState('latest');
+  const [loading, setLoading] = useState(false);
+  const [selectedPage, setSelectedPage] = useState(0);
   const { courseId } = useParams();
+  const { user } = useSelector((store) => store.auth);
+  const axiosPrivate = useAxiosPrivate();
 
-  const getComments = async (id) => {
+  const getComments = async (id, type, page) => {
     try {
-      const response = await getCommentsService(id);
-      setComments(response.data);
+      setLoading(true);
+      const response = await getCommentsService(axiosPrivate, id, type, page);
+      setComments(response.data.data.commentList);
+      const totalComment = response.data.data.totalComment;
+      if (totalComment > 0) {
+        setTotalPages(Math.ceil(totalComment / 10));
+      } else {
+        setTotalPages(0);
+      }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    getComments(courseId);
-  }, []);
+    getComments(courseId, type, selectedPage + 1);
+  }, [selectedPage, type, user]);
 
   return (
     <div className="mb-20">
       <div className="relative">
         <img className="w-full object-cover md:min-h-[500px]" src={bannerImg} alt="examify" />
 
-        {/* Course demo infomation */}
+        {/* Course demo information */}
         <Container>
           <div className="my-6 md:my-4 py-16 border-2 border-br_gray rounded-md lg:border-none lg:absolute lg:top-0 lg:w-1/2">
             {/* Course name */}
@@ -102,7 +120,7 @@ function CourseDetail() {
               path: '#course-content',
             },
             {
-              name: 'Đánh giá',
+              name: 'Bình luận',
               path: '#course-comment',
             },
           ]}
@@ -152,7 +170,15 @@ function CourseDetail() {
       </Container>
 
       <Container className="mt-[100px]" overflowVisible id="course-comment">
-        <CommentList reloadComments={() => getComments(courseId)} comments={comments} colSpan={7} />
+        <CommentList
+          setType={setType}
+          totalPages={totalPages}
+          selected={selectedPage}
+          setSelected={setSelectedPage}
+          reloadComments={() => getComments(courseId, type, selectedPage)}
+          comments={comments}
+          loading={loading}
+        />
       </Container>
     </div>
   );

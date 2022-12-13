@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
-import Button from './Button';
+import { Button } from '../../components/ui';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
-import { sendCommentService } from '../../features/course/services/course';
+import { sendCommentService } from './services/comment';
 import { useSelector } from 'react-redux';
 import isEmptyObject from '../../utils/isEmptyObject';
 import { Link, useLocation, useParams } from 'react-router-dom';
@@ -15,8 +15,8 @@ import classNames from 'classnames';
   respondId: specify respondId (if has)
   reloadComments: function to call getCommentsService again after sent comment successfully
 */
-const CommentEditor = ({ hide, respondId, reloadComments }) => {
-  const [content, setContent] = useState('');
+const CommentEditor = ({ hide, respondId, reloadComments, defaultContent, handleSubmitParent, isEdit }) => {
+  const [content, setContent] = useState(defaultContent ?? '');
   const [isLoading, setLoading] = useState(false);
   const { user } = useSelector((store) => store.auth);
   const axiosPrivate = useAxiosPrivate(true);
@@ -29,8 +29,14 @@ const CommentEditor = ({ hide, respondId, reloadComments }) => {
     }
 
     setLoading(true);
+    if (isEdit && handleSubmitParent) {
+      handleSubmitParent(content.trim());
+      setLoading(false);
+      return;
+    }
+
     try {
-      await sendCommentService(axiosPrivate, courseId, content, respondId);
+      await sendCommentService(axiosPrivate, courseId, content.trim(), respondId);
       await reloadComments();
       toast.success('Gửi bình luận thành công');
       setContent('');
@@ -78,7 +84,7 @@ const CommentEditor = ({ hide, respondId, reloadComments }) => {
               Đóng
             </button>
           )}
-          <Button className="h-8" onClick={handleSubmit} disabled={!content || isLoading}>
+          <Button className="h-8" onClick={handleSubmit} disabled={!content.trim() || isLoading}>
             Gửi đi
           </Button>
         </div>
