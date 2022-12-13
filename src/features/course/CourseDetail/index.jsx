@@ -18,9 +18,10 @@ import { courseDetail } from '../data';
 import { qualityUs } from '../../../data/constants';
 import Container from '../../../layouts/components/Container';
 import { useState, useEffect } from 'react';
-import { getCommentsService } from '../services/course';
+import { getCommentsService, getCourseDetailService } from '../services/course';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 
 const NAV_LIST = [
   {
@@ -43,9 +44,13 @@ const NAV_LIST = [
 
 function CourseDetail() {
   const [comments, setComments] = useState([]);
+  const [currentCourse, setCurrentCourse] = useState({});
   const { courseId } = useParams();
-  const courseList = useSelector((store) => store.course.courseList);
-  const currentCourse = courseList.find((item) => item.id === Number(courseId));
+  const axiosPrivate = useAxiosPrivate();
+  // const courseList = useSelector((store) => store.course.courseList);
+  // const currentUser = useSelector((store) => store.auth.user);
+
+  // const currentCourse = courseList.find((item) => item.id === Number(courseId));
 
   const getComments = async (id) => {
     try {
@@ -58,6 +63,17 @@ function CourseDetail() {
 
   useEffect(() => {
     getComments(courseId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const course = (await getCourseDetailService(courseId, axiosPrivate)).data.data;
+      console.log(course);
+      setCurrentCourse(course);
+    }
+
+    fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

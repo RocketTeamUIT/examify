@@ -9,12 +9,19 @@ export const getCommentsService = (id) => {
   });
 };
 
-export const getAllCoursesService = () => {
-  return base.get('/courses');
+export const getAllCoursesService = (axiosPrivate) => {
+  if (axiosPrivate === undefined) return base.get('/courses');
+  return axiosPrivate.get('/courses');
 };
 
-export const getCourseDetail = (courseId) => {
-  return base.get(`/courses/${courseId}`, {
+export const getCourseDetailService = (courseId, axiosPrivate) => {
+  if (axiosPrivate === undefined)
+    return base.get(`/courses/${courseId}`, {
+      params: {
+        depth: 4,
+      },
+    });
+  return axiosPrivate.get(`/courses/${courseId}`, {
     params: {
       depth: 4,
     },

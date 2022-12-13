@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Tip } from '../../../components/ui';
 import SubNav from '../../../components/ui/SubNav';
@@ -8,6 +8,7 @@ import Container from '../../../layouts/components/Container';
 import { Filter } from '../../../components/ui';
 import bannerImg from '../../../assets/images/courseBanner.png';
 import { getAllCourses } from '../courseSlice';
+import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 
 const NAV_LIST = [
   {
@@ -27,6 +28,8 @@ function CourseList() {
   const [generalCourse, setGeneralCourse] = useState([]);
   const [advanceCourse, setAdvanceCourse] = useState([]);
   const dispatch = useDispatch();
+  const axiosPrivate = useAxiosPrivate();
+  const currentUser = useSelector((store) => store.auth.user);
 
   useEffect(() => {
     setGrid(localStorage.getItem('course-grid') === 'true' || false);
@@ -34,7 +37,17 @@ function CourseList() {
 
   useEffect(() => {
     async function fetchData() {
-      const courseList = (await dispatch(getAllCourses({ userId: 1 }))).payload.data;
+      let courseList;
+      if (
+        // Check user login
+        currentUser &&
+        Object.keys(currentUser).length === 0 &&
+        Object.getPrototypeOf(currentUser) === Object.prototype
+      ) {
+        courseList = (await dispatch(getAllCourses())).payload.data;
+      } else {
+        courseList = (await dispatch(getAllCourses(axiosPrivate))).payload.data;
+      }
 
       const chargeCourseList = [];
       const basicCourseList = [];

@@ -2,7 +2,7 @@ import { useState, useEffect, memo } from 'react';
 
 import Chapter from './Chapter';
 import { convertTimeHours, convertTimeMinutes } from '../../../utils/formatCurrency';
-import { getCourseDetail } from '../services/course';
+import { getCourseDetailService } from '../services/course';
 
 function CourseContent({ course }) {
   const [openAll, setOpenAll] = useState(false);
@@ -10,12 +10,11 @@ function CourseContent({ course }) {
 
   useEffect(() => {
     async function fetchData() {
-      const chapters = (await getCourseDetail(course.id)).data.data.chapterList;
-      console.log(chapters);
+      const chapters = (await getCourseDetailService(course.id)).data.data.chapterList;
       setChapterList(chapters);
     }
     fetchData();
-  }, [course.id]);
+  }, []);
 
   return (
     <>

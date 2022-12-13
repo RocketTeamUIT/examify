@@ -7,9 +7,9 @@ const initialState = {
   error: '',
 };
 
-export const getAllCourses = createAsyncThunk('course/getAllCourses', async ({ userId }, thunkAPI) => {
+export const getAllCourses = createAsyncThunk('course/getAllCourses', async (axiosPrivate, thunkAPI) => {
   try {
-    const response = await getAllCoursesService();
+    const response = await getAllCoursesService(axiosPrivate);
     return response.data;
   } catch (err) {
     return thunkAPI.rejectWithValue(err?.response?.status);
