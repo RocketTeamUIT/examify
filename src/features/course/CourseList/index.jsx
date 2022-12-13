@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Tip } from '../../../components/ui';
 import SubNav from '../../../components/ui/SubNav';
@@ -6,7 +7,7 @@ import CourseListItem from './CourseListItem';
 import Container from '../../../layouts/components/Container';
 import { Filter } from '../../../components/ui';
 import bannerImg from '../../../assets/images/courseBanner.png';
-import { getAllCoursesService } from '../services/course';
+import { getAllCourses } from '../courseSlice';
 
 const NAV_LIST = [
   {
@@ -25,6 +26,7 @@ function CourseList() {
   const [basicCourse, setBasicCourse] = useState([]);
   const [generalCourse, setGeneralCourse] = useState([]);
   const [advanceCourse, setAdvanceCourse] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setGrid(localStorage.getItem('course-grid') === 'true' || false);
@@ -32,7 +34,7 @@ function CourseList() {
 
   useEffect(() => {
     async function fetchData() {
-      const courseList = (await getAllCoursesService()).data.data;
+      const courseList = (await dispatch(getAllCourses({ userId: 1 }))).payload.data;
 
       const chargeCourseList = [];
       const basicCourseList = [];
@@ -60,6 +62,7 @@ function CourseList() {
       setAdvanceCourse(advanceCourseList);
     }
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleGrid = () => {

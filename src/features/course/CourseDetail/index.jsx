@@ -4,7 +4,6 @@ import SubNav from '../../../components/ui/SubNav';
 import AchieveList from './AchieveList';
 import CourseContent from './CourseContent';
 import ModalRegisterCourse from './ModalRegisterCourse';
-import CourseInfo from './CourseInfo';
 import QualityItem from './QualityItem';
 import { CommentList, RatingStar } from '../../../components/ui';
 // import Icon:
@@ -18,14 +17,35 @@ import { courseDetail } from '../data';
 // import hard data:
 import { qualityUs } from '../../../data/constants';
 import Container from '../../../layouts/components/Container';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getCommentsService } from '../services/course';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+const NAV_LIST = [
+  {
+    name: 'Mục tiêu',
+    path: '#course-achieve',
+  },
+  {
+    name: 'Thông tin',
+    path: '#course-info',
+  },
+  {
+    name: 'Nội dung',
+    path: '#course-content',
+  },
+  {
+    name: 'Đánh giá',
+    path: '#course-comment',
+  },
+];
 
 function CourseDetail() {
   const [comments, setComments] = useState([]);
   const { courseId } = useParams();
+  const courseList = useSelector((store) => store.course.courseList);
+  const currentCourse = courseList.find((item) => item.id === Number(courseId));
 
   const getComments = async (id) => {
     try {
@@ -38,6 +58,7 @@ function CourseDetail() {
 
   useEffect(() => {
     getComments(courseId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -50,16 +71,16 @@ function CourseDetail() {
           <div className="my-6 md:my-4 py-16 border-2 border-br_gray rounded-md lg:border-none lg:absolute lg:top-0 lg:w-1/2">
             {/* Course name */}
             <h3 className="text-body-md text-center font-medium lg:text-white lg:text-h1 lg:text-left">
-              {courseDetail.name}
+              {currentCourse.name}
             </h3>
 
             <div className="mt-3 lg:flex lg:items-start lg:gap-5 lg:mt-6">
               <div className="flex items-center justify-center gap-1 lg:flex-col lg:items-start lg:gap-3 lg:justify-start">
                 {/* Star average rating */}
-                <RatingStar avg={courseDetail.avgRating} />
+                <RatingStar avg={currentCourse.avgRating} />
 
                 {/* Number of rating */}
-                <p className="text-body-sm lg:text-white lg:text-body-md">({courseDetail.qntRating} đánh giá)</p>
+                <p className="text-body-sm lg:text-white lg:text-body-md">({currentCourse.quantityRating} đánh giá)</p>
               </div>
 
               {/* Tag component */}
@@ -72,13 +93,13 @@ function CourseDetail() {
             <div className="flex items-center mt-3 justify-center lg:justify-start lg:mt-6">
               <AiOutlineTeam className="text-[24px] mr-1 lg:text-white" />
               <p className="text-t_gray text-body-sm lg:text-body-md">
-                <b className="text-black lg:text-white">{courseDetail.participants}</b> người tham gia
+                <b className="text-black lg:text-white">{currentCourse.participants}</b> người tham gia
               </p>
             </div>
 
             {/* Point reward */}
             <p className="text-t_gray mt-3 text-body-sm text-center lg:text-left lg:text-body-md lg:mt-6">
-              <b className="text-[#EF3737]">{courseDetail.pointComplete}</b> điểm khi hoàn thành
+              <b className="text-[#EF3737]">{currentCourse.pointReward}</b> điểm khi hoàn thành
             </p>
           </div>
         </Container>
@@ -86,27 +107,7 @@ function CourseDetail() {
 
       {/* SubNav component */}
       <div className="sticky top-[60px] z-10">
-        <SubNav
-          scroll
-          navList={[
-            {
-              name: 'Mục tiêu',
-              path: '#course-achieve',
-            },
-            {
-              name: 'Thông tin',
-              path: '#course-info',
-            },
-            {
-              name: 'Nội dung',
-              path: '#course-content',
-            },
-            {
-              name: 'Đánh giá',
-              path: '#course-comment',
-            },
-          ]}
-        />
+        <SubNav scroll navList={NAV_LIST} />
       </div>
 
       {/* Main content Page */}
@@ -115,7 +116,7 @@ function CourseDetail() {
           <div className="lg:w-4/12 lg:relative">
             {/* ModalRegisterCourse component */}
             <div className="mt-10 min-h-[400px] md:w-1/2 md:mx-auto lg:w-full z-10 lg:sticky top-[72px] lg:mt-[-400px] xl:mt-[-500px]">
-              <ModalRegisterCourse course={courseDetail} />
+              <ModalRegisterCourse course={currentCourse} />
             </div>
           </div>
 
@@ -126,14 +127,14 @@ function CourseDetail() {
               <AchieveList achieveList={courseDetail?.achieves} />
             </div>
 
-            {/* Course infomation component */}
+            {/* Course information component */}
             <div className="mt-10 md:bg-bg_light_gray md:p-4 md:rounded-lg lg:p-8" id="course-info">
-              <CourseInfo course={courseDetail} />
+              <p>{currentCourse.description}</p>
             </div>
 
             {/* Couse Content component*/}
             <div className="mt-10 md:mt-20" id="course-content">
-              <CourseContent course={courseDetail} />
+              <CourseContent course={currentCourse} />
             </div>
           </div>
         </div>

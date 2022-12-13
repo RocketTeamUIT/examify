@@ -13,6 +13,14 @@ export const getAllCoursesService = () => {
   return base.get('/courses');
 };
 
+export const getCourseDetail = (courseId) => {
+  return base.get(`/courses/${courseId}`, {
+    params: {
+      depth: 4,
+    },
+  });
+};
+
 export const sendCommentService = (axiosPrivate, course_id, content, respond_id) => {
   return mockServer.post(
     '/comments',
