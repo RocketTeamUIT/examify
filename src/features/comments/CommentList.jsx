@@ -50,9 +50,8 @@ const CommentList = ({ comments, totalPages, setType, reloadComments, colSpan, s
             </Dropdown>
           </div>
         </div>
-
+        {/* Create new comment */}
         <CommentEditor reloadComments={reloadComments} />
-
         <Divider />
 
         {!loading && (

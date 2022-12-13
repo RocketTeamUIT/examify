@@ -177,6 +177,7 @@ const Comment = ({ comment, isReply, reloadComments }) => {
         ))}
       </div>
 
+      {/* Reply other comment */}
       {showEditor && (
         <div className="mt-2">
           <CommentEditor reloadComments={reloadComments} respondId={commentId} hide={() => setShowEditor(false)} />
