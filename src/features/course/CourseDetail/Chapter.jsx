@@ -25,7 +25,9 @@ function Chapter({ chapter, openAll }) {
         <h3 className="text-body-sm md:text-body-md px-2 flex-1">{chapter.name}</h3>
         <p className="flex-shrink-0 text-body-sm px-1 md:mr-3">{chapter.totalLesson} bài học</p>
       </div>
-      {isOpen ? chapter.unitList.map((unit) => <Unit key={unit.id} unit={unit} openAll={openAll} />) : ''}
+      {isOpen
+        ? chapter.unitList.map((unit) => <Unit chapterId={chapter.id} key={unit.id} unit={unit} openAll={openAll} />)
+        : ''}
     </>
   );
 }

@@ -13,14 +13,16 @@ export const printPrice = (price) => {
 };
 
 export const convertTimeHours = (time) => {
+  if (!time) return 0;
   let hours = Math.floor(Number(time) / 3600);
 
   return hours;
 };
 
 export const convertTimeMinutes = (time) => {
+  if (!time) return 0;
   let hours = Math.floor(Number(time) / 3600);
-  let mininutes = Math.round((Number(time) - hours * 3600) / 60);
+  let minutes = Math.round((Number(time) - hours * 3600) / 60);
 
-  return mininutes;
+  return minutes;
 };

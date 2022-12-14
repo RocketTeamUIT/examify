@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { AiOutlineTeam, AiOutlineLaptop } from 'react-icons/ai';
 import { BiBookOpen } from 'react-icons/bi';
 import { MdSlowMotionVideo } from 'react-icons/md';
-
 import Button from '../../../components/ui/Button';
 import { printPrice, convertTimeHours, convertTimeMinutes } from '../../../utils/formatCurrency';
 
@@ -10,7 +9,7 @@ function ModalRegisterCourse({ course }) {
   return (
     <div className="bg-white border-br_gray border-2 rounded-md lg:border-none lg:shadow-xl overflow-hidden">
       {/* Course image */}
-      <img className="w-full object-cover" src={course.image} alt={course.name} />
+      <img className="w-full object-cover aspect-[3/2]" src={course.image} alt={course.name} />
       <div className="px-5 py-4">
         {/* course voucher */}
         <h3 className="font-medium text-body-sm pt-4 md:text-body-md xl:text-body-lg">
@@ -20,13 +19,14 @@ function ModalRegisterCourse({ course }) {
         {/* course price */}
         <div className="flex justify-between items-center mt-3">
           {course.charges ? (
-            <p className="font-semibold text-lg xl:text-body-lg text-ac_red">{printPrice(course.price)}đ</p>
+            <>
+              <p className="font-semibold text-lg xl:text-body-lg text-ac_red">{printPrice(course.price)}đ</p>
+              <p className="text-body-sm text-ac_green font-medium">giảm 73%</p>
+              <p className="text-body-sm line-through text-t_gray">660.000đ</p>
+            </>
           ) : (
             <p className="font-semibold text-body-lg text-ac_blue">{course.pointToUnlock} điểm</p>
           )}
-
-          <p className="text-body-sm text-ac_green font-medium">giảm 73%</p>
-          <p className="text-body-sm line-through text-t_gray">660.000đ</p>
         </div>
 
         {/* Button Register*/}
@@ -49,7 +49,7 @@ function ModalRegisterCourse({ course }) {
           <div className="flex items-center gap-2">
             <BiBookOpen className="text-[20px] text-primary" />
             <p className="text-body-sm">
-              <b>{course.totalChapter}</b> chủ đề, <b>{course.totalLesson}</b> bài học
+              <b>{course.totalChapter}</b> chương, <b>{course.totalLesson}</b> bài học
             </p>
           </div>
 

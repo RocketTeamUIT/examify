@@ -11,8 +11,7 @@ const routes = {
   courseList: '/courses',
   courseDetail: '/courses/:courseId/detail',
   courseListChapter: '/courses/:courseId/detail/list-chapter',
-  courseText: '/courses/:courseId/detail/list-chapter/text', // Để tạm
-  courseVideo: '/courses/:courseId/detail/list-chapter/video', // Để tạm
+  courseLesson: '/courses/:courseId/detail/list-chapter/:chapterId/lesson/:lessonId', // Để tạm
 
   // Exam
   exam: '/exams',

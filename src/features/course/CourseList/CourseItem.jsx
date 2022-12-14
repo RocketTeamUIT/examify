@@ -3,7 +3,6 @@ import { printPrice } from '../../../utils/formatCurrency';
 import { RiTeamLine } from 'react-icons/ri';
 import { FaCrown } from 'react-icons/fa';
 import { ImCoinDollar } from 'react-icons/im';
-
 import { Tag } from '../../../components/ui';
 import { RatingStar } from '../../../components/ui';
 import classNames from 'classnames';
@@ -24,7 +23,7 @@ function CourseItem({ course, onClick, grid }) {
           className={classNames('cursor-pointer shadow-lg overflow-hidden rounded-lg', grid && 'lg:max-w-[216px]')}
           onClick={() => onClick(course)}
         >
-          <img className="w-full h-full object-cover" src={course.image} alt="name" />
+          <img className="w-full h-full object-cover aspect-[5/4]" src={course.image} alt="name" />
         </div>
 
         <div className="px-4 md:px-1 pb-4  flex-1">

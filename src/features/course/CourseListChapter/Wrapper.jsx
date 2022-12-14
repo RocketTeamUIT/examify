@@ -9,9 +9,9 @@ function Wrapper({ children, status }) {
     <div className="relative">
       {/* Tag component */}
       <div className="absolute top-0 -translate-y-1/2 bg-white left-1/2 -translate-x-1/2 md:left-10 md:translate-x-0">
-        {checkStatus === 'inCompleted' && <Tag color="gray">Chưa tham gia</Tag>}
-        {checkStatus === 'inProgress' && <Tag color="blue">Chưa hoàn thành</Tag>}
-        {checkStatus === 'completed' && <Tag color="green">Đã hoàn thành</Tag>}
+        {!checkStatus && <Tag color="blue">Chưa tham gia</Tag>}
+        {checkStatus === 1 && <Tag color="green">Chưa hoàn thành</Tag>}
+        {checkStatus === 2 && <Tag color="green">Đã hoàn thành</Tag>}
       </div>
       <div className="border-2 border-br_light_gray rounded-xl overflow-hidden">{children}</div>
     </div>

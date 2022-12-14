@@ -5,24 +5,12 @@ import CourseTrack from './CourseTrack';
 import MoveLessonActionBar from './MoveLessonActionBar';
 import PropTypes from 'prop-types';
 
-const tempLessons = [
-  { title: 'Lorem Ipsum', type: 'Video', unlock: true },
-  { title: 'Lorem Ipsum', type: 'Lý thuyết', unlock: true },
-  { title: 'Lorem Ipsum', type: 'Flashcard' },
-  { title: 'Lorem Ipsum', type: 'Video' },
-  { title: 'Lorem Ipsum', type: 'Lý thuyết' },
-  { title: 'Lorem Ipsum', type: 'Flashcard' },
-  { title: 'Lorem Ipsum', type: 'Video' },
-  { title: 'Lorem Ipsum', type: 'Lý thuyết' },
-  { title: 'Lorem Ipsum', type: 'Flashcard' },
-];
-
 // You should use this in every detail page in feature course
-const DetailContainer = ({ children }) => {
+const DetailContainer = ({ children, learnedLesson, totalLesson, name, unitList = [], hierarchy }) => {
   const [showTrack, setShowTrack] = useState(false);
   const [index, setIndex] = useState(0);
   const handleClick = (index) => {
-    if (tempLessons[index].unlock) setIndex(index);
+    setIndex(index);
   };
   const toggleTrack = () => {
     setShowTrack(!showTrack);
@@ -32,12 +20,12 @@ const DetailContainer = ({ children }) => {
     return index === 0;
   };
   const isNextDisable = () => {
-    return index === tempLessons.length - 1 || !tempLessons[index + 1]?.unlock;
+    return index === unitList.length - 1;
   };
 
   const handleMove = (value) => {
     const newValue = index + value;
-    if (newValue > tempLessons.length - 1 || newValue < 0) {
+    if (newValue > unitList.length - 1 || newValue < 0) {
       return;
     }
     handleClick(newValue);
@@ -49,7 +37,7 @@ const DetailContainer = ({ children }) => {
       <div className="flex-1 h-[calc(100%-60px)] overflow-y-overlay">
         {/* Breadcrumb */}
         <div className="px-6 md:px-8 lg:px-16 xl:px-[100px] h-[60px] flex items-center">
-          <Breadcrumb hierarchy={['IELTS Fundamentals', 'Past tenses', 'Hiện tại']} />
+          <Breadcrumb hierarchy={hierarchy || []} />
         </div>
 
         {children}
@@ -71,7 +59,13 @@ const DetailContainer = ({ children }) => {
           !showTrack && 'opacity-0 pointer-events-none',
         )}
       >
-        <CourseTrack lessons={tempLessons} handleClick={handleClick} index={index} setIndex={setIndex} />
+        <CourseTrack
+          handleClick={handleClick}
+          learnedLesson={learnedLesson}
+          totalLesson={totalLesson}
+          unitList={unitList}
+          name={name}
+        />
       </div>
 
       {/* Move Lesson Action Bar */}

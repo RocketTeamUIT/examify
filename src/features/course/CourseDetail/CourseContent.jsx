@@ -1,20 +1,11 @@
-import { useState, useEffect, memo } from 'react';
+import { useState, memo } from 'react';
 
 import Chapter from './Chapter';
 import { convertTimeHours, convertTimeMinutes } from '../../../utils/formatCurrency';
-import { getCourseDetailService } from '../services/course';
 
 function CourseContent({ course }) {
   const [openAll, setOpenAll] = useState(false);
-  const [chapterList, setChapterList] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const chapters = (await getCourseDetailService(course.id)).data.data.chapterList;
-      setChapterList(chapters);
-    }
-    fetchData();
-  }, []);
+  const chapterList = course.chapterList || [];
 
   return (
     <>
