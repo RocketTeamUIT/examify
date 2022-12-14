@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import useAxiosPrivate from '../../../../hooks/useAxiosPrivate';
-import { getAllCoursesService } from '../../services/course';
+import useAxiosPrivate from './useAxiosPrivate';
+import { getAllCoursesService } from '../features/course/services/course';
 
 const useFetchCourse = () => {
   const axiosPrivate = useAxiosPrivate(true);

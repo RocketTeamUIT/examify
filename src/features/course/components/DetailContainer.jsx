@@ -4,31 +4,68 @@ import { Breadcrumb } from '../../../components/ui';
 import CourseTrack from './CourseTrack';
 import MoveLessonActionBar from './MoveLessonActionBar';
 import PropTypes from 'prop-types';
+import { useMemo } from 'react';
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // You should use this in every detail page in feature course
-const DetailContainer = ({ children, learnedLesson, totalLesson, name, unitList = [], hierarchy }) => {
+const DetailContainer = ({
+  children,
+  learnedLesson,
+  totalLesson,
+  name,
+  chapterList,
+  hierarchy,
+  // isNextChapterAvailable,
+}) => {
+  const { courseId, lessonId } = useParams();
   const [showTrack, setShowTrack] = useState(false);
   const [index, setIndex] = useState(0);
-  const handleClick = (index) => {
-    setIndex(index);
-  };
+  const navigate = useNavigate();
+
+  const linearLessonList = useMemo(() => {
+    let lessonList = [];
+    chapterList.forEach((chapter) => {
+      (chapter.unitList || []).forEach((unit) => {
+        (unit.lessonList || []).forEach((lesson) => {
+          lessonList.push({
+            chapterId: chapter.id,
+            lessonId: lesson.id,
+          });
+        });
+      });
+    });
+    return lessonList;
+  }, [chapterList]);
+
+  useEffect(() => {
+    linearLessonList.forEach((lesson, index) => {
+      if (lesson.lessonId === Number(lessonId)) {
+        setIndex(index);
+      }
+    });
+  }, [linearLessonList, lessonId]);
+
   const toggleTrack = () => {
-    setShowTrack(!showTrack);
+    setShowTrack((prev) => !prev);
   };
 
   const isPreviousDisable = () => {
     return index === 0;
   };
+
   const isNextDisable = () => {
-    return index === unitList.length - 1;
+    if (index + 1 <= linearLessonList.length - 1) return false;
+    // if (isNextChapterAvailable()) return false;
+    return true;
   };
 
   const handleMove = (value) => {
-    const newValue = index + value;
-    if (newValue > unitList.length - 1 || newValue < 0) {
-      return;
-    }
-    handleClick(newValue);
+    const newIndex = index + value;
+    if (newIndex > linearLessonList.length - 1 || newIndex < 0) return;
+    navigate(
+      `/courses/${courseId}/detail/list-chapter/${linearLessonList[newIndex].chapterId}/lesson/${linearLessonList[newIndex].lessonId}`,
+    );
   };
 
   return (
@@ -39,7 +76,6 @@ const DetailContainer = ({ children, learnedLesson, totalLesson, name, unitList 
         <div className="px-6 md:px-8 lg:px-16 xl:px-[100px] h-[60px] flex items-center">
           <Breadcrumb hierarchy={hierarchy || []} />
         </div>
-
         {children}
       </div>
 
@@ -59,13 +95,7 @@ const DetailContainer = ({ children, learnedLesson, totalLesson, name, unitList 
           !showTrack && 'opacity-0 pointer-events-none',
         )}
       >
-        <CourseTrack
-          handleClick={handleClick}
-          learnedLesson={learnedLesson}
-          totalLesson={totalLesson}
-          unitList={unitList}
-          name={name}
-        />
+        <CourseTrack learnedLesson={learnedLesson} totalLesson={totalLesson} chapterList={chapterList} name={name} />
       </div>
 
       {/* Move Lesson Action Bar */}

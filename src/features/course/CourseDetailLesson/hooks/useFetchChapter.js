@@ -2,8 +2,14 @@ import { useEffect, useState } from 'react';
 import useAxiosPrivate from '../../../../hooks/useAxiosPrivate';
 import { getChapterService } from '../../services/course';
 
+const initialValues = {
+  id: '',
+  name: '',
+  unitList: [],
+};
+
 export default function useFetchChapter(chapterId, stayOnError = false) {
-  const [chapter, setChapter] = useState([]);
+  const [chapter, setChapter] = useState(initialValues);
   const axiosPrivate = useAxiosPrivate(stayOnError);
 
   useEffect(() => {

@@ -10,15 +10,16 @@ import LessonFlashcard from './LessonFlashcard';
 
 const CourseDetailLesson = () => {
   const { courseId, chapterId, lessonId } = useParams();
-  const { courseDetail } = useCourseDetail(courseId, false, 2);
+  const { courseDetail } = useCourseDetail(courseId, false);
   const { chapter } = useFetchChapter(chapterId, false);
   const { learnedLesson, totalLesson, name } = courseDetail;
+  // const navigate = useNavigate();
 
   const hierarchy = useMemo(() => {
     return [
-      <Link to={`/courses/${courseDetail.id}/detail`}>{courseDetail.name}</Link>,
-      <Link to={`/courses/${courseDetail.id}/detail/list-chapter`}>{chapter.name}</Link>,
-      'Hiện tại',
+      <Link to={`/courses`}>Khoá học</Link>,
+      <Link to={`/courses/${courseDetail.id}/detail/list-chapter`}>{courseDetail.name}</Link>,
+      chapter.name,
     ];
   }, [courseDetail, chapter]);
 
@@ -33,13 +34,38 @@ const CourseDetailLesson = () => {
     return foundLesson;
   }, [chapter, lessonId]);
 
+  // const getCurrentChapterIndex = () => {
+  //   if (!courseDetail.chapterList) {
+  //     return -1;
+  //   }
+
+  //   return courseDetail.chapterList.findIndex((chapter) => {
+  //     return chapter.id === Number(chapterId);
+  //   });
+  // };
+
+  // const isNextChapterAvailable = (index) => {
+  //   if (!index) index = getCurrentChapterIndex();
+  //   return index < courseDetail.chapterList?.length - 1;
+  // };
+
+  // const moveNextChapter = () => {
+  //   const currentChapterIndex = getCurrentChapterIndex();
+  //   if (isNextChapterAvailable(currentChapterIndex)) {
+  //     const newChapter = courseDetail.chapterList[currentChapterIndex + 1];
+  //     const firstNewLesson = ((newChapter.unitList || [])[0]?.lessonList || [])[0];
+  //     navigate(`/courses/${courseId}/detail/list-chapter/${newChapter.id}/lesson/${firstNewLesson.id}`);
+  //   }
+  // };
+
   return (
     <DetailContainer
       hierarchy={hierarchy}
       learnedLesson={learnedLesson}
       totalLesson={totalLesson}
+      // isNextChapterAvailable={isNextChapterAvailable}
       name={name}
-      unitList={chapter.unitList}
+      chapterList={courseDetail.chapterList}
     >
       {lesson?.type === 1 && <LessonVideo url={lesson.videoUrl} />}
       {lesson?.type === 2 && <LessonText text={lesson.text} />}

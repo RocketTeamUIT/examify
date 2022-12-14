@@ -3,11 +3,12 @@ import { Button } from '../../../components/ui';
 import { BiHelpCircle } from 'react-icons/bi';
 import { CgNotes } from 'react-icons/cg';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useMemo } from 'react';
-import CourseTrackUnit from './CourseTrackUnit';
+import CourseTrackChapter from './CourseTrackChapter';
 
-const CourseTrack = ({ unitList, learnedLesson, totalLesson, name, handleClick }) => {
+const CourseTrack = ({ learnedLesson, totalLesson, name, chapterList }) => {
+  const { courseId } = useParams();
   const learnedPercent = useMemo(() => {
     return (learnedLesson || 0) / (totalLesson || 1);
   }, [learnedLesson, totalLesson]);
@@ -51,14 +52,16 @@ const CourseTrack = ({ unitList, learnedLesson, totalLesson, name, handleClick }
       </div>
 
       {/* Track body */}
-      <div className="border-b-2 border-x-2 border-t_light_gray rounded-b-[4px] flex flex-col overflow-auto h-[calc(100%-120px)]">
-        {/* Title */}
-        <h4 className="text-h4 font-semibold py-5 px-6 border-b border-br_gray">{name}</h4>
-
+      <div
+        className="border-b-2 border-x-2 border-t_light_gray rounded-b-[4px] flex flex-col overflow-auto h-[calc(100%-120px)]"
+        id="course-track-body"
+      >
         {/* Lesson List */}
+        <h2 className="text-h4 font-bold py-5 px-5 text-primary">{name}</h2>
+
         <ul>
-          {(unitList || []).map((l, i) => (
-            <CourseTrackUnit unit={l} key={i} />
+          {(chapterList || []).map((chapter, index) => (
+            <CourseTrackChapter key={index} chapter={chapter} />
           ))}
         </ul>
 
@@ -86,7 +89,7 @@ const CourseTrack = ({ unitList, learnedLesson, totalLesson, name, handleClick }
 
         {/* Button: Return back to courses */}
         <Link
-          to="/courses"
+          to={`/courses/${courseId}/detail/list-chapter`}
           className="text-lg text-t_gray px-11 gap-3 mt-auto h-[60px] flex items-center border-t border-[#ccc] cursor-pointer hover:bg-bg_light_gray transition flex-shrink-0"
         >
           <HiArrowNarrowLeft className="h-6 w-6" />

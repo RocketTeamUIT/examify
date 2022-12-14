@@ -17,3 +17,11 @@ export const getChapterService = (axiosPrivate, chapterId, depth = 3) => {
     },
   });
 };
+
+export const searchCourseService = (axiosPrivate, searchValue) => {
+  return axiosPrivate.get(`/courses/search`, {
+    params: {
+      q: searchValue,
+    },
+  });
+};

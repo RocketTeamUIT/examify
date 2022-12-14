@@ -2,6 +2,10 @@ import Unit from './Unit';
 import Wrapper from '../Wrapper';
 
 function ChapterList({ listChapter }) {
+  const getPath = (chapterId) => (lessonId) => {
+    return `${chapterId}/lesson/${lessonId}`;
+  };
+
   return (
     <div className="flex flex-col gap-10">
       {listChapter.map((chapter) => {
@@ -21,11 +25,13 @@ function ChapterList({ listChapter }) {
 
             {/* List Unit */}
             <div className="flex flex-col gap-4 px-5 py-2 mb-5">
-              {(chapter.unitList || []).map((unit, index) => {
+              {chapter.unitList.map((unit, index) => {
                 // percent complete Unit
                 let percent = ~~((unit.userCompleted / unit.totalLesson) * 100);
                 // Unit component
-                return <Unit key={unit.id} progress={percent} unit={unit} seq={index + 1} />;
+                return (
+                  <Unit getPath={getPath(chapter.id)} key={unit.id} progress={percent} unit={unit} seq={index + 1} />
+                );
               })}
             </div>
           </Wrapper>
