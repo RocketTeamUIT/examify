@@ -1,9 +1,9 @@
 import React from 'react';
-import { DetailHeader, BestWishes, DetailContainer } from '../components';
+import { DetailHeader, BestWishes } from '../components';
 
-const CourseDetailLessonVideo = () => {
+const LessonVideo = ({ url }) => {
   return (
-    <DetailContainer>
+    <>
       {/* Video */}
       <div className="px-6 md:px-8 lg:px-16 xl:px-[100px] bg-black">
         <iframe
@@ -16,13 +16,15 @@ const CourseDetailLessonVideo = () => {
         />
       </div>
 
+      {url}
+
       {/* Text */}
       <div className="px-6 md:px-8 lg:px-[100px] mt-8 pb-16">
         <DetailHeader sec={90} />
         <BestWishes />
       </div>
-    </DetailContainer>
+    </>
   );
 };
 
-export default CourseDetailLessonVideo;
+export default LessonVideo;

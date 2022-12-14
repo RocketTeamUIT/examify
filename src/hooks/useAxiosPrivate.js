@@ -6,6 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { setAccessToken } from '../features/auth/authSlice';
 import * as PropTypes from 'prop-types';
 
+const storeSet = new Set();
+
 const useAxiosPrivate = (stayOnError) => {
   const { accessToken } = useSelector((store) => store.auth);
   const navigate = useNavigate();
@@ -33,25 +35,30 @@ const useAxiosPrivate = (stayOnError) => {
 
         if (error?.response?.status === 401 && !prevRequest.sent) {
           prevRequest.sent = true;
-          try {
-            const newAccessToken = (await refreshTokenService()).data.accessToken;
-            dispatch(setAccessToken(newAccessToken));
-            prevRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-            return basePrivate({
-              ...prevRequest,
-              headers: {
-                ...prevRequest.headers,
-              },
-            });
-          } catch (error) {
-            console.log('🚀 ~ file: useAxiosPrivate.js:45 ~ error', error);
-            if (!stayOnError)
-              navigate('/signin', {
-                state: {
-                  from: location,
+          if (!storeSet.has('refresh-sent')) {
+            storeSet.add('refresh-sent');
+            try {
+              const newAccessToken = (await refreshTokenService()).data.accessToken;
+              dispatch(setAccessToken(newAccessToken));
+              prevRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+              return basePrivate({
+                ...prevRequest,
+                headers: {
+                  ...prevRequest.headers,
                 },
-                replace: true,
               });
+            } catch (error) {
+              console.log('🚀 ~ file: useAxiosPrivate.js:45 ~ error', error);
+              if (!stayOnError)
+                navigate('/signin', {
+                  state: {
+                    from: location,
+                  },
+                  replace: true,
+                });
+            } finally {
+              storeSet.delete('refresh-sent');
+            }
           }
         }
 

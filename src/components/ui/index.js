@@ -8,8 +8,6 @@ export { default as Input } from './Input';
 export { default as AutoComplete } from './AutoComplete';
 export { default as RatingStar } from './RatingStar';
 export { default as SubNav } from './SubNav';
-export { default as CommentList } from './CommentList';
-export { default as Comment } from './Comment';
 export { default as Pagination } from './Pagination';
 export { default as TextArea } from './TextArea';
 export { default as Filter } from './Filter';

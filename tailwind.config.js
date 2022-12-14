@@ -61,6 +61,7 @@ module.exports = {
         bg_light_gray: '#F5F7F9',
         bg_light_gray_2: '#F2F1F3',
         bg_light_gray_3: '#ECF0F4',
+        bg_light_gray_4: '#F7F9FA',
         bg_white: '#FFFFFF',
         bg_black: '#131417',
         bg_dark_gray: '#27292B',

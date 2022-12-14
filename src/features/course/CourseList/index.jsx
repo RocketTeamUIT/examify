@@ -1,28 +1,44 @@
-// import component:
 import { Tip } from '../../../components/ui';
 import SubNav from '../../../components/ui/SubNav';
 import CourseListItem from './CourseListItem';
-// import image:
-import bannerImg from '../../../assets/images/courseBanner.png';
-// import Hook:
-import { useState } from 'react';
-// import data:
-import { coursesPro, coursesBasic, courseGeneral, courseAdvance } from '../data';
 import Container from '../../../layouts/components/Container';
 import { Filter } from '../../../components/ui';
-import { useEffect } from 'react';
+import bannerImg from '../../../assets/images/courseBanner.png';
+import useFetchCourse from '../../../hooks/useFetchCourse';
+import useGrid from './hooks/useGrid';
+import { useState } from 'react';
+
+const NAV_LIST = [
+  {
+    name: 'Khám phá',
+    path: '/courses',
+  },
+  {
+    name: 'Khoá học của tôi',
+    path: '/my-courses',
+  },
+];
 
 function CourseList() {
-  const [grid, setGrid] = useState(false);
+  const { grid, toggleGrid } = useGrid();
+  const { chargeCourses, basicCourses, generalCourses, advanceCourses } = useFetchCourse();
+  const [searchValue, setSearchValue] = useState('');
 
-  useEffect(() => {
-    setGrid(localStorage.getItem('course-grid') === 'true' || false);
-  }, []);
+  const filterCourses = (courses, searchValue) => {
+    const searchValueStr = String(searchValue).toLowerCase();
+    return courses.filter((course) => {
+      const { name, avgRating, participants, pointReward, pointToUnlock, price, quantityRating } = course;
+      const targetValues = [name, avgRating, participants, pointReward, pointToUnlock, price, quantityRating];
+      return targetValues.find((value) =>
+        String(value || '')
+          .toLowerCase()
+          .includes(searchValueStr),
+      );
+    });
+  };
 
-  const toggleGrid = () => {
-    console.log(grid);
-    localStorage.setItem('course-grid', !grid);
-    setGrid((grid) => !grid);
+  const handleFilterChange = (e) => {
+    setSearchValue(e.target.value);
   };
 
   return (
@@ -31,22 +47,18 @@ function CourseList() {
       <Container className="py-5">
         <img className="w-full object-cover" src={bannerImg} alt="examify" />
       </Container>
+
       {/* Sub Navigation component*/}
-      <SubNav
-        navList={[
-          {
-            name: 'Khám phá',
-            path: '/courses',
-          },
-          {
-            name: 'Khoá học của tôi',
-            path: '/my-courses',
-          },
-        ]}
-      />
+      <SubNav navList={NAV_LIST} />
 
       <Container className="mt-4">
-        <Filter grid={grid} toggleGrid={toggleGrid} />
+        <Filter
+          value={searchValue}
+          handleChange={handleFilterChange}
+          placeholder="Tìm khoá học theo tên"
+          grid={grid}
+          toggleGrid={toggleGrid}
+        />
       </Container>
 
       {/* Main content CourseList Page */}
@@ -63,23 +75,40 @@ function CourseList() {
         </div>
 
         {/* List Pro Course */}
-        {coursesPro?.length > 0 && (
-          <CourseListItem grid={grid} listName="Khóa học Pro:" listCourse={coursesPro} isNew={true} />
+        {chargeCourses?.length > 0 && (
+          <CourseListItem
+            grid={grid}
+            listName="Khóa học Pro:"
+            listCourse={filterCourses(chargeCourses, searchValue)}
+            isNew={true}
+          />
         )}
 
         {/* List Basic Course */}
-        {coursesBasic?.length > 0 && (
-          <CourseListItem grid={grid} listName="Khóa học cơ bản:" listCourse={coursesBasic} />
+        {basicCourses?.length > 0 && (
+          <CourseListItem
+            grid={grid}
+            listName="Khóa học cơ bản:"
+            listCourse={filterCourses(basicCourses, searchValue)}
+          />
         )}
 
         {/* List General Course */}
-        {courseGeneral?.length > 0 && (
-          <CourseListItem grid={grid} listName="Khóa học phổ thông:" listCourse={courseGeneral} />
+        {generalCourses?.length > 0 && (
+          <CourseListItem
+            grid={grid}
+            listName="Khóa học phổ thông:"
+            listCourse={filterCourses(generalCourses, searchValue)}
+          />
         )}
 
         {/* List Advance Course */}
-        {courseAdvance?.length > 0 && (
-          <CourseListItem grid={grid} listName="Khóa học nâng  cao:" listCourse={courseAdvance} />
+        {advanceCourses?.length > 0 && (
+          <CourseListItem
+            grid={grid}
+            listName="Khóa học nâng cao:"
+            listCourse={filterCourses(advanceCourses, searchValue)}
+          />
         )}
       </Container>
     </div>

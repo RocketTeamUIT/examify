@@ -1,28 +1,27 @@
-import { mockServer } from '../../../lib/base';
+export const getAllCoursesService = (axiosPrivate) => {
+  return axiosPrivate.get('/courses');
+};
 
-export const getCommentsService = (id) => {
-  return mockServer.get('/comments', {
+export const getCourseDetailService = (axiosPrivate, courseId, depth = 4) => {
+  return axiosPrivate.get(`/courses/${courseId}`, {
     params: {
-      course_id: id,
+      depth,
     },
   });
 };
 
-export const sendCommentService = (axiosPrivate, course_id, content, respond_id) => {
-  return mockServer.post(
-    '/comments',
-    {
-      content,
-      respond_id,
+export const getChapterService = (axiosPrivate, chapterId, depth = 3) => {
+  return axiosPrivate.get(`/chapters/${chapterId}`, {
+    params: {
+      depth,
     },
-    {
-      params: {
-        course_id,
-      },
-      headers: {
-        // Todo: remove this line when use axiosPrivate
-        'x-mock-match-request-body': 'false',
-      },
+  });
+};
+
+export const searchCourseService = (axiosPrivate, searchValue) => {
+  return axiosPrivate.get(`/courses/search`, {
+    params: {
+      q: searchValue,
     },
-  );
+  });
 };

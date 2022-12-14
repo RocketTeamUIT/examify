@@ -14,17 +14,11 @@ import TuanBigTest from '../pages/TuanBigTest';
 import UserProfile from '../pages/UserProfile';
 
 // Course
-import {
-  CourseList,
-  CourseDetail,
-  CourseLearn,
-  CourseListChapter,
-  CourseDetailLessonVideo,
-  CourseDetailLessonText,
-} from '../features/course';
+import { CourseList, CourseDetail, CourseListChapter } from '../features/course';
 
 // Exam
 import { Exam } from '../features/exam/components';
+import CourseDetailLesson from '../features/course/CourseDetailLesson';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
@@ -38,10 +32,8 @@ const publicRouters = [
   // Course
   { path: config.routes.courseList, component: CourseList, layout: NoRecommendLayout },
   { path: config.routes.courseDetail, component: CourseDetail, layout: NoRecommendLayout },
-  { path: config.routes.courseLearn, component: CourseLearn, layout: NoRecommendLayout },
   { path: config.routes.courseListChapter, component: CourseListChapter, layout: NoRecommendLayout },
-  { path: config.routes.courseText, component: CourseDetailLessonText, layout: FocusLayout },
-  { path: config.routes.courseVideo, component: CourseDetailLessonVideo, layout: FocusLayout },
+  { path: config.routes.courseLesson, component: CourseDetailLesson, layout: FocusLayout },
 
   // Exam
   { path: config.routes.exam, component: Exam },

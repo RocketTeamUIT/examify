@@ -59,6 +59,7 @@ const Dropdown = ({ dark, type, context, children, actionsList }) => {
           rounded={[]}
           height={32}
           rightIcon={<HiChevronDown />}
+          width="100%"
         >
           <span className="font-medium">
             <span>{context ? `${context}:  ` : ''}</span>

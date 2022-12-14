@@ -6,8 +6,11 @@ import 'swiper/css/pagination';
 import { coursesPro } from '../features/course/data';
 import CourseListItem from '../features/course/CourseList/CourseListItem';
 import Container from '../layouts/components/Container';
+import useFetchCourse from '../hooks/useFetchCourse';
 
 const Home = () => {
+  const { advanceCourses } = useFetchCourse();
+
   return (
     <Container className="py-11">
       {/* Carousel */}
@@ -53,7 +56,9 @@ const Home = () => {
 
       {/* Popular courses */}
       <div className="mt-20">
-        {coursesPro?.length > 0 && <CourseListItem listName="Khóa học nổi bật" listCourse={coursesPro} />}
+        {coursesPro?.length > 0 && (
+          <CourseListItem listName="Khóa học nổi bật" listCourse={advanceCourses.slice(0, 4)} />
+        )}
       </div>
 
       {/* Latest exams */}
