@@ -1,14 +1,21 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Input, Button } from '../components/ui';
 import { MdAlternateEmail } from 'react-icons/md';
 import { userProfileScheme } from '../validations/userProfile';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useSelector } from 'react-redux';
 
 function Profile() {
-  const [email, setEmail] = useState('tudepzai@gmail.com');
+  const { user } = useSelector((store) => store.auth);
   const [stickyLabel, setStickyLabel] = useState(false);
+  const [email, setEmail] = useState('email');
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
+  const [dateOfBirth, setDateOfBirth] = useState(user.dateOfBirth);
+  const [phoneNumber, setphoneNumber] = useState(user.phoneNumber);
+  const [description, setDescription] = useState(user.description);
 
   const {
     register,
@@ -16,13 +23,25 @@ function Profile() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(userProfileScheme) });
 
+  useEffect(() => {
+    if (user) {
+      setEmail(user.email);
+      setFirstName(user.firstName);
+      setLastName(user.lastName);
+      setDateOfBirth(user.dateOfBirth);
+      setphoneNumber(user.phoneNumber);
+      setDescription(user.description);
+    }
+  }, [user]);
+
   const { name: fnLabel, onChange: fnOnChange, onBlur: fnOnBlur, ref: fnRef } = register('firstname');
   const { name: lnLabel, onChange: lnOnChange, onBlur: lnOnBlur, ref: lnRef } = register('lastname');
   const { name: dobLabel, onChange: dobOnChange, onBlur: dobOnBlur, ref: dobRef } = register('dateOfBirth');
   const { name: pnName, onChange: pnOnChange, onBlur: pnOnBlur, ref: pnRef } = register('phoneNumber');
 
   const handleDataForm = (data) => {
-    console.log(data);
+    //console.log(data);
+    const { email, password } = data;
   };
 
   const handleChange = (e) => {
@@ -33,7 +52,10 @@ function Profile() {
     if (!e.target.value && stickyLabel) {
       setStickyLabel(false);
     }
+
+    setDescription(e.target.value);
   };
+
   return (
     <div className="flex flex-col justify-between">
       <form className="flex flex-col md:px-5 lg:px-10 py-8" onSubmit={handleSubmit(handleDataForm)}>
@@ -43,9 +65,8 @@ function Profile() {
             disabled
             label="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
             type="text"
-            rightIcon={<MdAlternateEmail />}
+            rightIcon={<MdAlternateEmail fill="#A9A7AC" />}
             fancyOutlined
           />
         </div>
@@ -56,7 +77,13 @@ function Profile() {
               label="Họ và tên đệm"
               ref={fnRef}
               name={fnLabel}
-              onChange={fnOnChange}
+              value={firstName}
+              onChange={
+                (fnOnChange,
+                (e) => {
+                  setFirstName(e.target.value);
+                })
+              }
               onBlur={fnOnBlur}
               fancyOutlined
               status={errors.firstname?.message ? 'error' : ''}
@@ -69,7 +96,13 @@ function Profile() {
               label="Tên"
               ref={lnRef}
               name={lnLabel}
-              onChange={lnOnChange}
+              value={lastName}
+              onChange={
+                (lnOnChange,
+                (e) => {
+                  setLastName(e.target.value);
+                })
+              }
               onBlur={lnOnBlur}
               fancyOutlined
               status={errors.lastname?.message ? 'error' : ''}
@@ -83,8 +116,14 @@ function Profile() {
               label="Họ và tên đệm"
               ref={fnRef}
               name={fnLabel}
-              onChange={fnOnChange}
+              onChange={
+                (fnOnChange,
+                (e) => {
+                  setFirstName(e.target.value);
+                })
+              }
               onBlur={fnOnBlur}
+              value={firstName}
               fancyOutlined
               status={errors.firstname?.message ? 'error' : ''}
             />
@@ -95,8 +134,14 @@ function Profile() {
               label="Tên"
               ref={lnRef}
               name={lnLabel}
-              onChange={lnOnChange}
+              onChange={
+                (lnOnChange,
+                (e) => {
+                  setLastName(e.target.value);
+                })
+              }
               onBlur={lnOnBlur}
+              value={lastName}
               fancyOutlined
               status={errors.lastname?.message ? 'error' : ''}
             />
@@ -110,9 +155,15 @@ function Profile() {
               label="Ngày sinh"
               type="date"
               name={dobLabel}
-              onChange={dobOnChange}
+              onChange={
+                (dobOnChange,
+                (e) => {
+                  setDateOfBirth(e.target.value);
+                })
+              }
               onBlur={dobOnBlur}
               ref={dobRef}
+              value={dateOfBirth}
               fancyOutlined
             />
             <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
@@ -122,9 +173,15 @@ function Profile() {
             <Input
               label="Số điện thoại"
               name={pnName}
-              onChange={pnOnChange}
+              onChange={
+                (pnOnChange,
+                (e) => {
+                  setphoneNumber(e.target.value);
+                })
+              }
               onBlur={pnOnBlur}
               ref={pnRef}
+              value={phoneNumber}
               fancyOutlined
             />
             <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
@@ -137,9 +194,15 @@ function Profile() {
               label="Ngày sinh"
               type="date"
               name={dobLabel}
-              onChange={dobOnChange}
+              onChange={
+                (dobOnChange,
+                (e) => {
+                  setDateOfBirth(e.target.value);
+                })
+              }
               onBlur={dobOnBlur}
               ref={dobRef}
+              value={dateOfBirth}
               fancyOutlined
             />
             <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
@@ -149,9 +212,15 @@ function Profile() {
             <Input
               label="Số điện thoại"
               name={pnName}
-              onChange={pnOnChange}
+              onChange={
+                (pnOnChange,
+                (e) => {
+                  setphoneNumber(e.target.value);
+                })
+              }
               onBlur={pnOnBlur}
               ref={pnRef}
+              value={phoneNumber}
               fancyOutlined
             />
             <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
@@ -162,6 +231,7 @@ function Profile() {
           <textarea
             className="w-full px-4 pt-4 text-t_dark outline-none rounded-lg mb-1 mr-1 peer"
             onChange={handleChange}
+            value={description}
           />
 
           {/* Label */}

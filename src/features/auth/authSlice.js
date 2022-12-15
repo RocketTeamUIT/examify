@@ -89,6 +89,7 @@ export const changeAvatar = createAsyncThunk('auth/changeAvatar', async ({ axios
   }
 });
 
+//Các reducers để update lại state trong store
 const authSlice = createSlice({
   name: 'auth',
   initialState,

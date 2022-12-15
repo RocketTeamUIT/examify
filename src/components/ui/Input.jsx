@@ -111,7 +111,7 @@ const Input = forwardRef(
           type === 'text' && !disabled && 'cursor-text',
 
           // Disabled
-          disabled && 'bg-bg_gray_2 border-br_light_gray border-[1px]',
+          disabled && 'bg-bg_light_gray_2 border-br_light_gray border-[1px]',
         )}
         style={{
           width: width,
