@@ -1,7 +1,7 @@
 import config from '../config';
 
 // Layouts
-import { AuthLayout, FocusLayout, NoRecommendLayout } from '../layouts';
+import { AuthLayout, FocusLayout } from '../layouts';
 
 // Page
 import Home from '../pages/Home';
@@ -30,10 +30,16 @@ const publicRouters = [
   { path: config.routes.userProfile, component: UserProfile },
 
   // Course
-  { path: config.routes.courseList, component: CourseList, layout: NoRecommendLayout },
-  { path: config.routes.courseDetail, component: CourseDetail, layout: NoRecommendLayout },
-  { path: config.routes.courseListChapter, component: CourseListChapter, layout: NoRecommendLayout },
-  { path: config.routes.courseLesson, component: CourseDetailLesson, layout: FocusLayout },
+  { path: config.routes.courseList, component: CourseList, layout: FocusLayout },
+  { path: config.routes.courseDetail, component: CourseDetail, layout: FocusLayout },
+  { path: config.routes.courseListChapter, component: CourseListChapter, layout: FocusLayout, requireLogin: true },
+  {
+    path: config.routes.courseLesson,
+    component: CourseDetailLesson,
+    layout: FocusLayout,
+    noFooter: true,
+    requireLogin: true,
+  },
 
   // Exam
   { path: config.routes.exam, component: Exam },

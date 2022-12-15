@@ -28,7 +28,9 @@ const useAxiosPrivate = (stayOnError) => {
     );
 
     const responseIntercept = basePrivate.interceptors.response.use(
-      (response) => response,
+      (response) => {
+        return response;
+      },
       async (error) => {
         const prevRequest = error?.config;
         console.log('🚀 ~ file: useAxiosPrivate.js:48 ~ stayOnError', stayOnError);

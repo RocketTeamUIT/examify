@@ -33,7 +33,7 @@ const App = () => {
                   key={index}
                   path={route.path}
                   element={
-                    <Layout>
+                    <Layout requireLogin={route.requireLogin} excludeFooter={route.excludeFooter}>
                       <Page />
                     </Layout>
                   }
