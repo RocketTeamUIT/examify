@@ -49,13 +49,14 @@ const useAxiosPrivate = (stayOnError) => {
               });
             } catch (error) {
               console.log('🚀 ~ file: useAxiosPrivate.js:45 ~ error', error);
-              if (!stayOnError)
+              if (!stayOnError) {
                 navigate('/signin', {
                   state: {
                     from: location,
                   },
                   replace: true,
                 });
+              }
             } finally {
               storeSet.delete('refresh-sent');
             }
