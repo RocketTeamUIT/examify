@@ -37,7 +37,7 @@ const publicRouters = [
     path: config.routes.courseLesson,
     component: CourseDetailLesson,
     layout: FocusLayout,
-    noFooter: true,
+    excludeFooter: true,
     requireLogin: true,
   },
 

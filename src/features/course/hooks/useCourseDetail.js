@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 import { getCourseDetailService } from '../services/course';
 
@@ -22,16 +23,16 @@ const initialValues = {
 
 const useCourseDetail = (courseId, stayOnError = true, depth = 4) => {
   const [courseDetail, setCourseDetail] = useState(initialValues);
-  const axiosPrivate = useAxiosPrivate(stayOnError);
+  const { accessToken } = useSelector((store) => store.auth);
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await getCourseDetailService(axiosPrivate, courseId, depth);
+      const response = await getCourseDetailService(accessToken, courseId, depth);
       setCourseDetail(response.data.data);
     } catch (error) {
       console.log('🚀 ~ file: useCourseDetail.js:15 ~ fetchData ~ error', error);
     }
-  }, [axiosPrivate, courseId, depth]);
+  }, [accessToken, courseId, depth]);
 
   useEffect(() => {
     fetchData();

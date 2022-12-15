@@ -31,12 +31,20 @@ function FocusLayout({ children, excludeFooter, requireLogin }) {
       </div>
     );
 
+  if (excludeFooter)
+    return (
+      <div>
+        <Header />
+        {children}
+      </div>
+    );
+
   return (
     // Wrapper
     <div>
       <Header />
       {children}
-      {!excludeFooter && <Footer />}
+      <Footer />
     </div>
   );
 }
