@@ -7,14 +7,13 @@ import useClickOutside from '../../hooks/useClickOutside';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 
 const Avatar = ({ avt, lastName, firstName, email }) => {
-  const { accessToken } = useSelector((store) => store.auth);
   const [visible, setVisible] = useState(false);
   const toggle = () => setVisible(!visible);
   const hide = () => setVisible(false);
   const dispatch = useDispatch();
   const ref = useRef();
   const triggerElRef = useRef();
-  const axiosPrivate = useAxiosPrivate();
+  const axiosPrivate = useAxiosPrivate(true);
 
   useClickOutside(ref, triggerElRef, (e) => {
     hide();

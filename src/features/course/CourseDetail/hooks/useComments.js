@@ -4,7 +4,7 @@ import useAxiosPrivate from '../../../../hooks/useAxiosPrivate';
 import { getCommentsService } from '../../../comments/services/comment';
 
 const useComments = (courseId) => {
-  const axiosPrivate = useAxiosPrivate();
+  const axiosPrivate = useAxiosPrivate(true);
   const [comments, setComments] = useState([]);
   const [totalComments, setTotalComments] = useState(0);
   const [type, setType] = useState('latest');

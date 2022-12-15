@@ -29,7 +29,7 @@ const initialStyles = {
 const Header = () => {
   const [search, setSearch] = useState('');
   const [options, setOptions] = useState([]);
-  const axiosPrivate = useAxiosPrivate();
+  const axiosPrivate = useAxiosPrivate(true);
   let showMenu = false;
   const [props, setSpring] = useSpring(() => initialStyles);
   const { user } = useSelector((store) => store.auth);
