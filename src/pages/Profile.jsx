@@ -25,8 +25,6 @@ function Profile() {
     console.log(data);
   };
 
-  console.log(values);
-
   useEffect(() => {
     if (!isEmptyObject(user)) {
       setValue('email', user.email);
