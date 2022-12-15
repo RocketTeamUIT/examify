@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classnames from 'classnames';
 import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
@@ -54,6 +54,7 @@ const Input = forwardRef(
       placeholder,
       style,
       label,
+      alternativeValue,
     },
     ref,
   ) => {
@@ -84,6 +85,15 @@ const Input = forwardRef(
         setStickyLabel(false);
       }
     };
+
+    useEffect(() => {
+      if ((value || alternativeValue) && !stickyLabel) {
+        setStickyLabel(true);
+      }
+      if (!value && !alternativeValue && stickyLabel && !inputRef.current?.value) {
+        setStickyLabel(false);
+      }
+    }, [value, alternativeValue, stickyLabel]);
 
     return (
       // Container

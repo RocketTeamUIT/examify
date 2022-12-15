@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Input, Button } from '../components/ui';
+import { Input, Button, TextArea } from '../components/ui';
 import { MdAlternateEmail } from 'react-icons/md';
 import { userProfileScheme } from '../validations/userProfile';
 import { useForm } from 'react-hook-form';
@@ -10,7 +10,6 @@ import isEmptyObject from '../utils/isEmptyObject';
 
 function Profile() {
   const { user } = useSelector((store) => store.auth);
-  const [stickyLabel, setStickyLabel] = useState(false);
 
   const {
     register,
@@ -20,9 +19,13 @@ function Profile() {
     setValue,
   } = useForm({ resolver: yupResolver(userProfileScheme) });
 
+  const values = watch();
+
   const handleDataForm = (data) => {
     console.log(data);
   };
+
+  console.log(values);
 
   useEffect(() => {
     if (!isEmptyObject(user)) {
@@ -33,7 +36,7 @@ function Profile() {
       setValue('dateOfBirth', user.dateOfBirth);
       setValue('description', user.description);
     }
-  }, [user]);
+  }, [user, setValue]);
 
   return (
     <div className="flex flex-col justify-between">
@@ -42,6 +45,7 @@ function Profile() {
         <div>
           <Input
             disabled
+            alternativeValue={values.email}
             {...register('email')}
             rightIcon={<MdAlternateEmail fill="#A9A7AC" />}
             fancyOutlined
@@ -53,6 +57,7 @@ function Profile() {
           <div className="w-[60%] min-w-0">
             <Input
               label="Họ và tên đệm"
+              alternativeValue={values.firstName}
               {...register('firstName')}
               fancyOutlined
               status={errors.firstname?.message ? 'error' : ''}
@@ -63,6 +68,7 @@ function Profile() {
           <div className="w-[40%] min-w-0">
             <Input
               label="Tên"
+              alternativeValue={values.lastName}
               {...register('lastName')}
               fancyOutlined
               status={errors.lastname?.message ? 'error' : ''}
@@ -74,6 +80,7 @@ function Profile() {
           <div>
             <Input
               label="Họ và tên đệm"
+              alternativeValue={values.firstName}
               {...register('firstName')}
               fancyOutlined
               status={errors.firstname?.message ? 'error' : ''}
@@ -83,6 +90,7 @@ function Profile() {
           <div>
             <Input
               label="Tên"
+              alternativeValue={values.lastName}
               {...register('lastName')}
               fancyOutlined
               status={errors.lastname?.message ? 'error' : ''}
@@ -93,46 +101,52 @@ function Profile() {
         {/* Date of birth */}
         <div className="mt-8 hidden md:flex gap-5">
           <div className="w-1/2">
-            <Input label="Ngày sinh" type="date" {...register('dateOfBirth')} fancyOutlined />
+            <Input
+              label="Ngày sinh"
+              type="date"
+              alternativeValue={values.dateOfBirth}
+              {...register('dateOfBirth')}
+              fancyOutlined
+            />
             <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
           </div>
 
           <div className="w-1/2">
-            <Input label="Số điện thoại" {...register('phoneNumber')} fancyOutlined />
+            <Input
+              label="Số điện thoại"
+              alternativeValue={values.phoneNumber}
+              {...register('phoneNumber')}
+              fancyOutlined
+            />
             <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
           </div>
         </div>
 
         <div className="mt-8 flex flex-col md:hidden gap-y-8">
           <div>
-            <Input label="Ngày sinh" type="date" {...register('dateOfBirth')} fancyOutlined />
+            <Input
+              label="Ngày sinh"
+              type="date"
+              alternativeValue={values.dateOfBirth}
+              {...register('dateOfBirth')}
+              fancyOutlined
+            />
             <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
           </div>
 
           <div>
-            <Input label="Số điện thoại" {...register('phoneNumber')} fancyOutlined />
+            <Input
+              label="Số điện thoại"
+              alternativeValue={values.phoneNumber}
+              {...register('phoneNumber')}
+              fancyOutlined
+            />
             <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
           </div>
         </div>
         {/* Description */}
-        <div className="flex items-center w-full text-md relative mt-8 border rounded-lg border-br_light_gray focus-within:outline focus-within:outline-2 outline-ac_blue">
-          <textarea
-            className="w-full px-4 pt-4 text-t_dark outline-none rounded-lg mb-1 mr-1 peer"
-            {...register('description')}
-          />
-
-          {/* Label */}
-          <label
-            className="absolute px-1 mx-3 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
-            style={{
-              backgroundColor: '#fff',
-              top: stickyLabel && '0',
-              fontSize: stickyLabel && '12px',
-            }}
-          >
-            Mô tả
-          </label>
-        </div>
+        <div className="mt-7"></div>
+        <TextArea label="Mô tả" fancyOutlined alternativeValue={values.description} {...register('description')} />
         <span className="w-full border-t-[0.5px] border-br_gray my-10" />
         <Button width="fit-content">Cập nhật</Button>
       </form>
