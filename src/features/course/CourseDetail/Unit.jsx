@@ -13,7 +13,7 @@ function Unit({ unit, openAll }) {
   return (
     <>
       <div
-        className="w-full h-[60px] flex items-center bg-bg_light_gray rounded-md cursor-pointer"
+        className="h-[60px] flex items-center bg-bg_light_gray rounded-md cursor-pointer ml-4"
         onClick={() => setOpen(!isOpen)}
       >
         <div className="flex-shrink-0 px-1 md:px-2">{isOpen ? <BsChevronUp /> : <BsChevronDown />}</div>

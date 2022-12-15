@@ -1,7 +1,7 @@
 import config from '../config';
 
 // Layouts
-import { AuthLayout, FocusLayout } from '../layouts';
+import { AuthLayout, FocusLayout, NoRecommendLayout } from '../layouts';
 
 // Page
 import Home from '../pages/Home';
@@ -19,8 +19,8 @@ import {
   CourseDetail,
   CourseLearn,
   CourseListChapter,
-  CourseText,
   CourseDetailLessonVideo,
+  CourseDetailLessonText,
 } from '../features/course';
 
 // Exam
@@ -36,11 +36,11 @@ const publicRouters = [
   { path: config.routes.userProfile, component: UserProfile },
 
   // Course
-  { path: config.routes.courseList, component: CourseList },
-  { path: config.routes.courseDetail, component: CourseDetail },
-  { path: config.routes.courseLearn, component: CourseLearn },
-  { path: config.routes.courseListChapter, component: CourseListChapter },
-  { path: config.routes.courseText, component: CourseText },
+  { path: config.routes.courseList, component: CourseList, layout: NoRecommendLayout },
+  { path: config.routes.courseDetail, component: CourseDetail, layout: NoRecommendLayout },
+  { path: config.routes.courseLearn, component: CourseLearn, layout: NoRecommendLayout },
+  { path: config.routes.courseListChapter, component: CourseListChapter, layout: NoRecommendLayout },
+  { path: config.routes.courseText, component: CourseDetailLessonText, layout: FocusLayout },
   { path: config.routes.courseVideo, component: CourseDetailLessonVideo, layout: FocusLayout },
 
   // Exam

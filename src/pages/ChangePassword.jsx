@@ -1,11 +1,41 @@
-import React from 'react';
+import { React, useState } from 'react';
 import authImg from '../assets/auth-page-img.png';
 import logo from '../assets/circle_logo.png';
 import { Link } from 'react-router-dom';
-import { BiLockAlt } from 'react-icons/bi';
 import { Input, Button } from '../components/ui';
+import { changePasswordScheme } from '../validations/changePassword';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const ChangePassword = () => {
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(changePasswordScheme) });
+
+  const {
+    name: passwordLabel,
+    onChange: passwordOnChange,
+    onBlur: passwordOnBlur,
+    ref: passwordRef,
+  } = register('password');
+  const {
+    name: confirmPasswordLabel,
+    onChange: confirmPasswordOnChange,
+    onBlur: confirmPasswordOnBlur,
+    ref: confirmPasswordRef,
+  } = register('confirmPassword');
+
+  const handleDataForm = (data) => {
+    console.log(data);
+
+    // Call API at here
+  };
+
   return (
     //layout
     <div className="mx-6 h-screen sm:px-[100px] grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-5 items-center overflow-auto">
@@ -29,21 +59,49 @@ const ChangePassword = () => {
           </div>
 
           {/* body */}
-          <form className="mt-3">
-            <label className="text-h6 font-medium text-t_dark block mt-2">
-              Mật khẩu*
-              <Input rightIcon={<BiLockAlt />} />
-            </label>
+          <form className="mt-3" onSubmit={handleSubmit(handleDataForm)}>
+            <div className="mt-2">
+              <Input
+                label="Mật khẩu"
+                type="password"
+                ref={passwordRef}
+                name={passwordLabel}
+                onChange={
+                  (passwordOnChange,
+                  (e) => {
+                    setPassword(e.target.value);
+                  })
+                }
+                onBlur={passwordOnBlur}
+                fancyOutlined
+                visibilityToggle
+                status={errors.password?.message ? 'error' : ''}
+              />
+              <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+            </div>
 
-            <label className="text-h6 font-medium text-t_dark  block mt-2">
-              Xác nhận mật khẩu*
-              <Input rightIcon={<BiLockAlt />} />
-            </label>
+            <div className="mt-11">
+              <Input
+                label="Xác nhận mật khẩu"
+                type="password"
+                ref={confirmPasswordRef}
+                name={confirmPasswordLabel}
+                onChange={
+                  (confirmPasswordOnChange,
+                  (e) => {
+                    setConfirmPassword(e.target.value);
+                  })
+                }
+                onBlur={confirmPasswordOnBlur}
+                fancyOutlined
+                visibilityToggle
+                status={errors.confirmPassword?.message ? 'error' : ''}
+              />
+              <p className="text-ac_red text-sm mt-1">{errors.confirmPassword?.message}</p>
+            </div>
 
             <div className="mt-16">
-              <Button width="100%">
-                <Link to="/signin">Đặt lại mật khẩu</Link>
-              </Button>
+              <Button width="100%">Đặt lại mật khẩu</Button>
             </div>
           </form>
         </div>

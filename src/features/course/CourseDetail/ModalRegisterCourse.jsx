@@ -40,7 +40,7 @@ function ModalRegisterCourse({ course }) {
         {/* course price */}
         <div className="flex justify-between items-center mt-3">
           {course.charges ? (
-            <p className="font-semibold text-body-lg text-ac_red">{course.price}đ</p>
+            <p className="font-semibold text-lg xl:text-body-lg text-ac_red">{course.price}đ</p>
           ) : (
             <p className="font-semibold text-body-lg text-ac_blue">{course.pointUnlock} điểm</p>
           )}

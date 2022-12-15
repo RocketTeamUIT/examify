@@ -1,14 +1,57 @@
-import React from 'react';
+import { React, useState, useEffect, useRef } from 'react';
 import bannerImg from '../assets/banner1.jpg';
-import { Input, Button } from '../components/ui';
-import { BiUser } from 'react-icons/bi';
+import { AiFillCamera } from 'react-icons/ai';
+import { MuiTabs, Button } from '../components/ui';
+import Profile from './Profile';
+import ChangePassword from './ChangePasswordPanel';
+import { useSelector, useDispatch } from 'react-redux';
+import useAxiosPrivate from '../hooks/useAxiosPrivate';
+import { changeAvatar } from '../features/auth/authSlice';
 
 function UserProfile() {
+  const tempAvtUrl = 'https://kynguyenlamdep.com/wp-content/uploads/2022/06/avatar-cute-vui-nhon.jpg';
+  const { user } = useSelector((store) => store.auth);
+  const [avt, setAvt] = useState(user.avt);
+  const [banner, setBanner] = useState(user.banner);
+  const inputFile = useRef(null);
+  const dispatch = useDispatch();
+  const axiosPrivate = useAxiosPrivate();
+
+  useEffect(() => {
+    if (user) {
+      setAvt(user.avt);
+      setBanner(user.banner);
+    }
+  }, [user]);
+
+  const handleAvtChange = (e) => {
+    const image = e.target.files[0];
+    setAvt(URL.createObjectURL(image));
+    try {
+      dispatch(
+        changeAvatar({
+          axiosPrivate,
+          tempAvtUrl,
+        }),
+      );
+    } catch (error) {
+      console.error('This is error: ', error);
+    }
+  };
+
+  const handleAvtClick = (e) => {
+    inputFile.current.click();
+  };
+
   return (
     <div className="h-fit lg:mx-[50px] xl:mx-[100px] xxl:mx-[150px]">
+      <input type="file" accept="image/*" style={{ display: 'none' }} ref={inputFile} onChange={handleAvtChange} />
       {/* Banner */}
-      <div className="h-[200px] overflow-hidden lg:rounded-b-3xl">
-        <img className="object-cover" src={bannerImg} alt="User banner" />
+      <div className="h-[200px] overflow-hidden lg:rounded-b-3xl relative">
+        <Button type="default" dark leftIcon={<AiFillCamera />} className="absolute top-[26px] right-[26px] bg-black">
+          Đổi banner
+        </Button>
+        <img className="object-cover w-full" src={banner} alt="User banner" />
       </div>
       {/* Container */}
       <div className="relative h-fit md:h-[580px] -top-16 md:-top-20 md:mx-[20px] lg:mx-[50px] xl:mx-[100px] xxl:mx-[150px] flex flex-col md:flex-row md:gap-5 px-1 sm:px-10 md:px-0">
@@ -16,8 +59,20 @@ function UserProfile() {
         <div className="w-2/5 h-full bg-white overflow-hidden border border-br_gray rounded-3xl hidden md:flex flex-col items-center py-12">
           {/* header */}
           <div className="flex flex-col items-center mb-9">
-            <img className="w-20 h-20 object-cover rounded-full" src={bannerImg} alt="User avt" />
-            <h1 className="my-3 text-h3 text-t_dark font-bold">Phan Thanh Tú</h1>
+            <div className="w-20 h-20 relative overflow-hidden border border-br_gray rounded-full">
+              <Button
+                className="absolute bottom-0 w-full h-[30%] bg-black flex items-center justify-center"
+                dark
+                type="default"
+                onClick={handleAvtClick}
+              >
+                <AiFillCamera fill="#ffff" />
+              </Button>
+              <img className="w-20 h-20 object-cover" src={avt} alt="User avt" />
+            </div>
+            <p className="my-3 text-h3 text-t_dark font-bold">
+              {user.firstName} {user.lastName}
+            </p>
             <p className="text-h6 text-t_light_gray_2 font-medium">Độ kiếp</p>
           </div>
           {/* body */}
@@ -38,7 +93,7 @@ function UserProfile() {
             <span className="w-full border-t-[0.5px] border-br_gray" />
             <div className="flex flex-col w-full items-center px-10 py-5">
               <h1 className="text-h5 font-medium text-t_dark">Điểm tích lũy</h1>
-              <h1 className="text-h2 font-bold text-t_light_gray_2 mt-4">32156</h1>
+              <h1 className="text-h2 font-bold text-t_light_gray_2 mt-4">{user.accumulatedPoint}</h1>
             </div>
           </div>
         </div>
@@ -71,55 +126,24 @@ function UserProfile() {
             {/* Accumulated point */}
             <div className="flex w-full justify-between py-1">
               <h1 className="text-sm font-medium text-t_dark">Điểm tích lũy</h1>
-              <h1 className="text-sm font-bold text-t_light_gray_2">32156</h1>
+              <h1 className="text-sm font-bold text-t_light_gray_2">{user.accumulatedPoint}</h1>
             </div>
           </div>
         </div>
         {/* Account setting */}
-        <div className="md:w-3/5 h-full bg-white overflow-hidden md:border md:border-br_gray md:rounded-3xl justify-self-center px-5 md:px-0">
-          {/* SubNavigate */}
-          <div className="hidden md:block h-[50px] relative">
-            {/* Navigate item */}
-            <div className="w-fit h-full md:ml-5 lg:ml-10 relative flex items-center">
-              <h1 className="text-h6 text-primary font-semibold">Cài đặt tài khoản</h1>
-              <span className="w-full border-t-[0.5px] border-primary absolute bottom-0" />
-            </div>
-            {/* line break */}
-            <span className="w-full border-t-[0.5px] border-br_gray absolute bottom-0" />
-          </div>
-          {/* Form */}
-          <div className="flex flex-col justify-between">
-            <form className="flex flex-col md:px-5 lg:px-10 py-8">
-              {/* Email */}
-              <div>
-                <Input label="Email" value="abc@example.com" type="text" rightIcon={<BiUser />} fancyOutlined />
-              </div>
-              {/* Full name */}
-              <div className="mt-8 hidden md:flex gap-5">
-                <Input label="Họ và tên đệm" value="Phan" fancyOutlined width="60%" />
-                <Input label="Tên" value="Tú" fancyOutlined width="40%" />
-              </div>
-              <div className="mt-8 flex flex-col md:hidden gap-y-8">
-                <Input label="Họ và tên đệm" value="Phan" fancyOutlined />
-                <Input label="Tên" value="Tú" fancyOutlined />
-              </div>
-              {/* Date of birth */}
-              <div className="mt-8 hidden md:flex gap-5">
-                <Input label="Ngày sinh" type="date" placeholder="dd/MM/yyyy" fancyOutlined width="50%" />
-                <Input label="Số điện thoại" fancyOutlined width="50%" />
-              </div>
-              <div className="mt-8 flex flex-col md:hidden gap-y-8">
-                <Input label="Ngày sinh" type="date" placeholder="dd/MM/yyyy" fancyOutlined />
-                <Input label="Số điện thoại" fancyOutlined />
-              </div>
-              {/* Description */}
-              <div className="mt-8">
-                <Input label="Mô tả" placeholder="Nhập mô tả" fancyOutlined height="100px" />
-              </div>
-              <span className="w-full border-t-[0.5px] border-br_gray my-10" />
-              <Button width="fit-content">Cập nhật</Button>
-            </form>
-          </div>
+        <div className="md:w-3/5 h-full bg-white overflow-hidden border md:border-br_gray md:rounded-3xl justify-self-center mx-5 md:mx-0">
+          <MuiTabs
+            componentList={[
+              {
+                label: 'Cài đặt tài khoản',
+                data: <Profile />,
+              },
+              {
+                label: 'Đổi mật khẩu',
+                data: <ChangePassword />,
+              },
+            ]}
+          />
         </div>
       </div>
     </div>

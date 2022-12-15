@@ -1,0 +1,18 @@
+import * as yup from 'yup';
+
+export const userProfileScheme = yup.object().shape({
+  firstname: yup.string().required('Họ và tên đệm không được để trống'),
+  lastname: yup.string().required('Tên không được để trống'),
+  phoneNumber: yup.string().matches(/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/, {
+    message: 'Số điện thoại không hợp lệ',
+    excludeEmptyString: true,
+  }),
+  dateOfBirth: yup
+    .date()
+    .nullable()
+    .default(undefined)
+    .transform((curr, orig) => (orig === '' ? null : curr))
+    .max(new Date(), 'Ngày không hợp lệ')
+    .typeError('Ngày không hợp lệ')
+    .required('Vui lòng nhập trường này'),
+});

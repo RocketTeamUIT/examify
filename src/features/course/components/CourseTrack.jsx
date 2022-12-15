@@ -13,21 +13,7 @@ const temp = {
   total: 106,
 };
 
-const tempLessons = [
-  { title: 'Lorem Ipsum', type: 'Video' },
-  { title: 'Lorem Ipsum', type: 'Lý thuyết' },
-  { title: 'Lorem Ipsum', type: 'Flashcard' },
-  { title: 'Lorem Ipsum', type: 'Video' },
-  { title: 'Lorem Ipsum', type: 'Lý thuyết' },
-  { title: 'Lorem Ipsum', type: 'Flashcard' },
-  { title: 'Lorem Ipsum', type: 'Video' },
-  { title: 'Lorem Ipsum', type: 'Lý thuyết' },
-  { title: 'Lorem Ipsum', type: 'Flashcard' },
-];
-
-const CourseTrack = () => {
-  const [index, setIndex] = useState(0);
-
+const CourseTrack = ({ index, handleClick, lessons }) => {
   return (
     <div className="rounded-b-[4px] bg-white h-full">
       {/* Track header */}
@@ -73,18 +59,19 @@ const CourseTrack = () => {
 
         {/* Lesson List */}
         <ul>
-          {tempLessons.map((l, i) => (
+          {lessons.map((l, i) => (
             <li
               key={i}
               className={classNames(
-                'h-[60px] pl-11 text-lg text-t_dark border-t border-b border-bg_light_gray flex items-center hover:bg-bg_light_gray cursor-pointer transition relative',
-                index === i && 'bg-bg_light_gray',
+                'h-[60px] pl-11 text-lg text-t_dark border-t border-b border-bg_light_gray flex items-center  cursor-pointer transition relative',
+                index === i && 'bg-ac_blue bg-opacity-10',
+                !l.unlock && 'bg-bg_light_gray_2 opacity-50 cursor-default',
               )}
-              onClick={() => setIndex(i)}
+              onClick={() => handleClick(i)}
             >
               {/* Lesson type icon */}
               <div className="w-[25px] h-[25px] flex items-center justify-center rounded-lg bg-[#d9d9d9] bg-opacity-30 mr-2">
-                {i <= 1 ? (
+                {l.type === 'Video' ? (
                   <IoIosPlayCircle className="text-t_light_gray_2" />
                 ) : (
                   <AiOutlineFileText className="text-t_gray" />
@@ -97,7 +84,7 @@ const CourseTrack = () => {
 
               {/* Done/Locked lesson icon */}
               <div className="ml-auto mr-6 pl-2">
-                {i <= 1 ? (
+                {l.unlock ? (
                   <IoIosCheckmarkCircle className="w-[25px] h-[25px] text-ac_green" />
                 ) : (
                   <IoIosLock className="w-[25px] h-[25px] text-t_gray" />

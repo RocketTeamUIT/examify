@@ -59,7 +59,7 @@ const Input = forwardRef(
   ) => {
     const [showPassword, setShowPassword] = useState(false);
     const [currentType, setCurrentType] = useState(type);
-    const [stickyLabel, setStickyLabel] = useState(false);
+    const [stickyLabel, setStickyLabel] = useState(value);
     const inputRef = useRef();
 
     const handleWrapperClick = () => {
@@ -111,7 +111,7 @@ const Input = forwardRef(
           type === 'text' && !disabled && 'cursor-text',
 
           // Disabled
-          disabled && 'bg-bg_gray_2 border-br_light_gray border-[1px]',
+          disabled && 'bg-bg_light_gray_2 border-br_light_gray border-[1px]',
         )}
         style={{
           width: width,
@@ -145,6 +145,7 @@ const Input = forwardRef(
         {/* Show/Hide password */}
         {visibilityToggle && (
           <button
+            type="button"
             onClick={() => {
               setShowPassword(!showPassword);
               setCurrentType(currentType === 'password' ? 'text' : 'password');
@@ -161,8 +162,8 @@ const Input = forwardRef(
             className="absolute px-1 -mx-1 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
             style={{
               backgroundColor: fancyBackgroundColor,
-              top: stickyLabel && '0',
-              fontSize: stickyLabel && '12px',
+              top: (stickyLabel || type === 'date') && '0',
+              fontSize: (stickyLabel || type === 'date') && '12px',
             }}
           >
             {label}

@@ -39,6 +39,7 @@ module.exports = {
         sd_primary: '0px 4px 20px 0px rgba(0, 0, 0, 0.2)',
         sd_medium: '0 0 16px -4px rgba(0,0,0,0.3)',
         sd_small: '0 4px 4px 0px rgba(0,0,0,0.25)',
+        sd_xs: '0 0px 4px -1px rgba(0,0,0,0.2)',
       },
       maxWidth: {
         primary: '1440px',
@@ -82,6 +83,16 @@ module.exports = {
         ac_dark_blue: '#001C7F',
         ac_lighter_blue: '#208AFF',
         ac_lighter_green: '#1FCF9B',
+      },
+    },
+    keyframes: {
+      flip: {
+        from: {
+          transformm: 'rotateY(0deg)',
+        },
+        to: {
+          transform: 'rotateY(360deg)',
+        },
       },
     },
   },

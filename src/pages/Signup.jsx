@@ -1,19 +1,24 @@
 import logo from '../assets/circle_logo.png';
-import { Link } from 'react-router-dom';
-import { BiUser, BiLockAlt } from 'react-icons/bi';
+import { Link, useNavigate } from 'react-router-dom';
+import { MdAlternateEmail } from 'react-icons/md';
 import { Input, Button } from '../components/ui';
-
+import { signUp } from '../features/auth/authSlice';
 import { signupScheme } from '../validations/signup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 function Signup() {
   // Get some APIs to manage form
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm({ resolver: yupResolver(signupScheme) });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Get props from register form
   const { name: emailLabel, onChange: emailOnChange, onBlur: emailOnBlur, ref: emailRef } = register('email');
@@ -23,10 +28,40 @@ function Signup() {
   const { name: lnLabel, onChange: lnOnChange, onBlur: lnOnBlur, ref: lnRef } = register('lastname');
 
   // Handle data that get from form
-  const handleDataForm = (data) => {
-    console.log(data);
+  const handleDataForm = async (data) => {
+    const { email, password, passwordConfirmation, firstname, lastname } = data;
 
-    // Call API at here
+    const result = await dispatch(
+      signUp({
+        email,
+        password,
+        passwordConfirmation,
+        firstname,
+        lastname,
+      }),
+    );
+    if (result.type === 'auth/signUp/fulfilled') {
+      // Navigate if success
+      navigate('/signin');
+    } else {
+      // Conflict
+      switch (result.payload) {
+        case 409:
+          setError('email', { message: 'Email đã tồn tại' });
+          break;
+        default:
+          toast.error('Lỗi gì đó đã xảy ra!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+      }
+    }
   };
 
   return (
@@ -51,7 +86,7 @@ function Signup() {
           <div className="mt-10">
             <Input
               label="Email"
-              rightIcon={<BiUser />}
+              rightIcon={<MdAlternateEmail />}
               ref={emailRef}
               name={emailLabel}
               onChange={emailOnChange}
@@ -92,7 +127,7 @@ function Signup() {
             <Input
               label="Mật khẩu"
               type="password"
-              rightIcon={<BiLockAlt />}
+              visibilityToggle
               ref={pwRef}
               name={pwLabel}
               onChange={pwOnChange}
@@ -107,7 +142,7 @@ function Signup() {
             <Input
               label="Xác nhận mật khẩu"
               type="password"
-              rightIcon={<BiLockAlt />}
+              visibilityToggle
               ref={cpwRef}
               name={cpwLabel}
               onChange={cpwOnChange}
