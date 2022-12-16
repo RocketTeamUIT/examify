@@ -10,38 +10,44 @@ import { useSelector } from 'react-redux';
 function Profile() {
   const { user } = useSelector((store) => store.auth);
   const [stickyLabel, setStickyLabel] = useState(false);
-  const [email, setEmail] = useState('email');
-  const [firstName, setFirstName] = useState(user.firstName);
-  const [lastName, setLastName] = useState(user.lastName);
-  const [dateOfBirth, setDateOfBirth] = useState(user.dateOfBirth);
-  const [phoneNumber, setphoneNumber] = useState(user.phoneNumber);
-  const [description, setDescription] = useState(user.description);
+  // const [email, setEmail] = useState(user.email);
+  // const [firstName, setfirstName] = useState(user.firstName);
+  // const [lastName, setlastName] = useState(user.lastName);
+  // const [dateOfBirth, setDateOfBirth] = useState(user.dateOfBirth);
+  // const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
+  // const [description, setDescription] = useState(user.description);
 
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm({ resolver: yupResolver(userProfileScheme) });
+
+  const value = watch();
 
   useEffect(() => {
     if (user) {
-      setEmail(user.email);
-      setFirstName(user.firstName);
-      setLastName(user.lastName);
-      setDateOfBirth(user.dateOfBirth);
-      setphoneNumber(user.phoneNumber);
-      setDescription(user.description);
+      setValue('email', user.email);
+      setValue('firstName', user.firstName);
+      setValue('lastName', user.lastName);
+      setValue('dateOfBirth', user.dateOfBirth);
+      setValue('phoneNumber', user.phoneNumber);
+      setValue('description', user.description);
+      // setEmail(user.email);
+      // setfirstName(user.firstName);
+      // setlastName(user.lastName);
+      // setDateOfBirth(user.dateOfBirth);
+      // setPhoneNumber(user.phoneNumber);
+      // setDescription(user.description);
     }
   }, [user]);
 
-  const { name: fnLabel, onChange: fnOnChange, onBlur: fnOnBlur, ref: fnRef } = register('firstname');
-  const { name: lnLabel, onChange: lnOnChange, onBlur: lnOnBlur, ref: lnRef } = register('lastname');
-  const { name: dobLabel, onChange: dobOnChange, onBlur: dobOnBlur, ref: dobRef } = register('dateOfBirth');
-  const { name: pnName, onChange: pnOnChange, onBlur: pnOnBlur, ref: pnRef } = register('phoneNumber');
-
   const handleDataForm = (data) => {
     //console.log(data);
-    const { email, password } = data;
+    // const { email, password } = data;
+    console.log('Update successfully');
   };
 
   const handleChange = (e) => {
@@ -53,7 +59,7 @@ function Profile() {
       setStickyLabel(false);
     }
 
-    setDescription(e.target.value);
+    setValue('description', e.target.value);
   };
 
   return (
@@ -63,11 +69,11 @@ function Profile() {
         <div>
           <Input
             disabled
-            label="Email"
-            value={email}
-            type="text"
+            alternativeValue={value.email}
+            {...register('email')}
             rightIcon={<MdAlternateEmail fill="#A9A7AC" />}
             fancyOutlined
+            fancyBackgroundColor="transparent"
           />
         </div>
         {/* Full name */}
@@ -75,77 +81,49 @@ function Profile() {
           <div className="w-[60%] min-w-0">
             <Input
               label="Họ và tên đệm"
-              ref={fnRef}
-              name={fnLabel}
-              value={firstName}
-              onChange={
-                (fnOnChange,
-                (e) => {
-                  setFirstName(e.target.value);
-                })
-              }
-              onBlur={fnOnBlur}
+              alternativeValue={value.firstName}
+              {...register('firstName')}
+              onChange={(e) => setValue('firstName', e.target.value)}
               fancyOutlined
-              status={errors.firstname?.message ? 'error' : ''}
+              status={errors.firstName?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.firstname?.message}</p>
+            <p className="text-ac_red text-sm mt-1">{errors.firstName?.message}</p>
           </div>
 
           <div className="w-[40%] min-w-0">
             <Input
               label="Tên"
-              ref={lnRef}
-              name={lnLabel}
-              value={lastName}
-              onChange={
-                (lnOnChange,
-                (e) => {
-                  setLastName(e.target.value);
-                })
-              }
-              onBlur={lnOnBlur}
+              alternativeValue={value.lastName}
+              {...register('lastName')}
+              onChange={(e) => setValue('lastName', e.target.value)}
               fancyOutlined
-              status={errors.lastname?.message ? 'error' : ''}
+              status={errors.lastName?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.lastname?.message}</p>
+            <p className="text-ac_red text-sm mt-1">{errors.lastName?.message}</p>
           </div>
         </div>
         <div className="mt-8 flex flex-col md:hidden gap-y-8">
           <div>
             <Input
               label="Họ và tên đệm"
-              ref={fnRef}
-              name={fnLabel}
-              onChange={
-                (fnOnChange,
-                (e) => {
-                  setFirstName(e.target.value);
-                })
-              }
-              onBlur={fnOnBlur}
-              value={firstName}
+              alternativeValue={value.firstName}
+              {...register('firstName')}
+              onChange={(e) => setValue('firstName', e.target.value)}
               fancyOutlined
-              status={errors.firstname?.message ? 'error' : ''}
+              status={errors.firstName?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.firstname?.message}</p>
+            <p className="text-ac_red text-sm mt-1">{errors.firstName?.message}</p>
           </div>
           <div>
             <Input
               label="Tên"
-              ref={lnRef}
-              name={lnLabel}
-              onChange={
-                (lnOnChange,
-                (e) => {
-                  setLastName(e.target.value);
-                })
-              }
-              onBlur={lnOnBlur}
-              value={lastName}
+              alternativeValue={value.lastName}
+              {...register('lastName')}
+              onChange={(e) => setValue('lastName', e.target.value)}
               fancyOutlined
-              status={errors.lastname?.message ? 'error' : ''}
+              status={errors.lastName?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.lastname?.message}</p>
+            <p className="text-ac_red text-sm mt-1">{errors.lastName?.message}</p>
           </div>
         </div>
         {/* Date of birth */}
@@ -154,16 +132,9 @@ function Profile() {
             <Input
               label="Ngày sinh"
               type="date"
-              name={dobLabel}
-              onChange={
-                (dobOnChange,
-                (e) => {
-                  setDateOfBirth(e.target.value);
-                })
-              }
-              onBlur={dobOnBlur}
-              ref={dobRef}
-              value={dateOfBirth}
+              alternativeValue={value.dateOfBirth}
+              {...register('dateOfBirth')}
+              onChange={(e) => setValue('dateOfBirth', e.target.value)}
               fancyOutlined
             />
             <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
@@ -172,16 +143,9 @@ function Profile() {
           <div className="w-1/2">
             <Input
               label="Số điện thoại"
-              name={pnName}
-              onChange={
-                (pnOnChange,
-                (e) => {
-                  setphoneNumber(e.target.value);
-                })
-              }
-              onBlur={pnOnBlur}
-              ref={pnRef}
-              value={phoneNumber}
+              {...register('phoneNumber')}
+              onChange={(e) => setValue('phoneNumber', e.target.value)}
+              alternativeValue={value.phoneNumber}
               fancyOutlined
             />
             <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
@@ -193,16 +157,9 @@ function Profile() {
             <Input
               label="Ngày sinh"
               type="date"
-              name={dobLabel}
-              onChange={
-                (dobOnChange,
-                (e) => {
-                  setDateOfBirth(e.target.value);
-                })
-              }
-              onBlur={dobOnBlur}
-              ref={dobRef}
-              value={dateOfBirth}
+              alternativeValue={value.dateOfBirth}
+              {...register('dateOfBirth')}
+              onChange={(e) => setValue('dateOfBirth', e.target.value)}
               fancyOutlined
             />
             <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
@@ -211,16 +168,9 @@ function Profile() {
           <div>
             <Input
               label="Số điện thoại"
-              name={pnName}
-              onChange={
-                (pnOnChange,
-                (e) => {
-                  setphoneNumber(e.target.value);
-                })
-              }
-              onBlur={pnOnBlur}
-              ref={pnRef}
-              value={phoneNumber}
+              {...register('phoneNumber')}
+              onChange={(e) => setValue('phoneNumber', e.target.value)}
+              alternativeValue={value.phoneNumber}
               fancyOutlined
             />
             <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
@@ -231,7 +181,8 @@ function Profile() {
           <textarea
             className="w-full px-4 pt-4 text-t_dark outline-none rounded-lg mb-1 mr-1 peer"
             onChange={handleChange}
-            value={description}
+            alternativeValue={value.description}
+            {...register('description')}
           />
 
           {/* Label */}

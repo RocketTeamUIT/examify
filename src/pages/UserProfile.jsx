@@ -13,6 +13,7 @@ function UserProfile() {
   const { user } = useSelector((store) => store.auth);
   const [avt, setAvt] = useState(user.avt);
   const [banner, setBanner] = useState(user.banner);
+  const [imageType, setImageType] = useState('');
   const inputFile = useRef(null);
   const dispatch = useDispatch();
   const axiosPrivate = useAxiosPrivate();
@@ -24,31 +25,45 @@ function UserProfile() {
     }
   }, [user]);
 
-  const handleAvtChange = (e) => {
+  const handleImageChange = (e) => {
     const image = e.target.files[0];
-    setAvt(URL.createObjectURL(image));
-    try {
-      dispatch(
-        changeAvatar({
-          axiosPrivate,
-          tempAvtUrl,
-        }),
-      );
-    } catch (error) {
-      console.error('This is error: ', error);
-    }
+    if (imageType == 'avatar') setAvt(URL.createObjectURL(image));
+    else setBanner(URL.createObjectURL(image));
+    // try {
+    //   dispatch(
+    //     changeAvatar({
+    //       axiosPrivate,
+    //       tempAvtUrl,
+    //     }),
+    //   );
+    // } catch (error) {
+    //   console.error('This is error: ', error);
+    // }
   };
 
   const handleAvtClick = (e) => {
     inputFile.current.click();
+    setImageType('avatar');
+  };
+
+  const handleBannerClick = (e) => {
+    inputFile.current.click();
+    setImageType('banner');
   };
 
   return (
     <div className="h-fit lg:mx-[50px] xl:mx-[100px] xxl:mx-[150px]">
-      <input type="file" accept="image/*" style={{ display: 'none' }} ref={inputFile} onChange={handleAvtChange} />
+      <input type="file" accept="image/*" style={{ display: 'none' }} ref={inputFile} onChange={handleImageChange} />
       {/* Banner */}
       <div className="h-[200px] overflow-hidden lg:rounded-b-3xl relative">
-        <Button type="default" dark leftIcon={<AiFillCamera />} className="absolute top-[26px] right-[26px] bg-black">
+        <Button
+          className="absolute top-[26px] right-[26px] bg-black"
+          rounded={[10, 10, 10, 10]}
+          dark
+          type="default"
+          leftIcon={<AiFillCamera />}
+          onClick={handleBannerClick}
+        >
           Đổi banner
         </Button>
         <img className="object-cover w-full" src={banner} alt="User banner" />
@@ -101,7 +116,18 @@ function UserProfile() {
         <div className="md:hidden">
           {/* Avt and info */}
           <div className="flex">
-            <img className="w-32 h-32 object-cover rounded-full border-8 border-white" src={bannerImg} alt="User avt" />
+            <div className="w-32 h-32 relative overflow-hidden rounded-full border-8 border-white">
+              <Button
+                className="absolute bottom-0 w-full h-[30%] bg-black flex items-center justify-center"
+                dark
+                type="default"
+                rounded={[0, 0, 0, 0]}
+                onClick={handleAvtClick}
+              >
+                <AiFillCamera fill="#ffff" />
+              </Button>
+              <img className="w-32 h-32 object-cover " src={avt} alt="User avt" />
+            </div>
             {/* Info */}
             <div>
               <div className="h-1/2" />
