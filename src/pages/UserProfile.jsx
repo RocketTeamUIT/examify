@@ -27,18 +27,14 @@ function UserProfile() {
 
   const handleImageChange = (e) => {
     const image = e.target.files[0];
-    if (imageType == 'avatar') setAvt(URL.createObjectURL(image));
+    if (imageType === 'avatar') setAvt(URL.createObjectURL(image));
     else setBanner(URL.createObjectURL(image));
-    // try {
-    //   dispatch(
-    //     changeAvatar({
-    //       axiosPrivate,
-    //       tempAvtUrl,
-    //     }),
-    //   );
-    // } catch (error) {
-    //   console.error('This is error: ', error);
-    // }
+    dispatch(
+      changeAvatar({
+        axiosPrivate,
+        newImageUrl: tempAvtUrl,
+      }),
+    );
   };
 
   const handleAvtClick = (e) => {

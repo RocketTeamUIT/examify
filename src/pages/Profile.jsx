@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Input, Button } from '../components/ui';
+import { Input, Button, TextArea } from '../components/ui';
 import { MdAlternateEmail } from 'react-icons/md';
 import { userProfileScheme } from '../validations/userProfile';
 import { useForm } from 'react-hook-form';
@@ -164,25 +164,14 @@ function Profile() {
           </div>
         </div>
         {/* Description */}
-        <div className="flex items-center w-full text-md relative mt-8 border rounded-lg border-br_light_gray focus-within:outline focus-within:outline-2 outline-ac_blue">
-          <textarea
-            className="w-full px-4 pt-4 text-t_dark outline-none rounded-lg mb-1 mr-1 peer"
+        <div className="mt-6">
+          <TextArea
+            fancyOutlined
+            label="Mô tả"
             onChange={handleChange}
             alternativeValue={value.description}
             {...register('description')}
           />
-
-          {/* Label */}
-          <label
-            className="absolute px-1 mx-3 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
-            style={{
-              backgroundColor: '#fff',
-              top: stickyLabel && '0',
-              fontSize: stickyLabel && '12px',
-            }}
-          >
-            Mô tả
-          </label>
         </div>
         <span className="w-full border-t-[0.5px] border-br_gray my-10" />
         <Button width="fit-content">Cập nhật</Button>
