@@ -7,6 +7,7 @@ import {
   signInService,
   signUpService,
   updateUserInfoService,
+  changeBannerService,
 } from './services/auth';
 
 const initialState = {
@@ -84,6 +85,15 @@ export const changeAvatar = createAsyncThunk('auth/changeAvatar', async ({ axios
   try {
     await changeAvatarService(axiosPrivate, newImageUrl);
     return 'Change avatar successfully';
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error?.response?.status);
+  }
+});
+
+export const changeBanner = createAsyncThunk('auth/changeBanner', async ({ axiosPrivate, newImageUrl }, thunkAPI) => {
+  try {
+    await changeBannerService(axiosPrivate, newImageUrl);
+    return 'Change banner successfully';
   } catch (error) {
     return thunkAPI.rejectWithValue(error?.response?.status);
   }

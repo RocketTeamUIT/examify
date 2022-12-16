@@ -1,15 +1,21 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Input, Button } from '../components/ui';
+import { Input, Button, TextArea } from '../components/ui';
 import { MdAlternateEmail } from 'react-icons/md';
 import { userProfileScheme } from '../validations/userProfile';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateUserInfo } from '../features/auth/authSlice';
+import useAxiosPrivate from '../hooks/useAxiosPrivate';
+import { toast } from 'react-toastify';
+import moment from 'moment';
 
 function Profile() {
   const { user } = useSelector((store) => store.auth);
   const [stickyLabel, setStickyLabel] = useState(false);
+  const dispatch = useDispatch();
+  const axiosPrivate = useAxiosPrivate();
 
   const {
     register,
@@ -26,14 +32,24 @@ function Profile() {
       setValue('email', user.email);
       setValue('firstName', user.firstName);
       setValue('lastName', user.lastName);
-      setValue('dateOfBirth', user.dateOfBirth);
+      setValue('dateOfBirth', moment(user.dateOfBirth).format('YYYY-MM-DD'));
       setValue('phoneNumber', user.phoneNumber);
       setValue('description', user.description);
     }
   }, [user]);
 
   const handleDataForm = (data) => {
-    console.log('Update successfully');
+    dispatch(
+      updateUserInfo({
+        axiosPrivate,
+        firstName: value.firstName,
+        lastName: value.lastName,
+        dateOfBirth: value.dateOfBirth,
+        phoneNumber: value.phoneNumber,
+        description: value.description,
+      }),
+    );
+    toast.success('Cập nhật thành công!');
   };
 
   const handleChange = (e) => {
@@ -119,7 +135,7 @@ function Profile() {
             <Input
               label="Ngày sinh"
               type="date"
-              alternativeValue={value.dateOfBirth}
+              alternativeValue={moment(value.dateOfBirth).format('YYYY-MM-DD')}
               {...register('dateOfBirth')}
               onChange={(e) => setValue('dateOfBirth', e.target.value)}
               fancyOutlined
@@ -144,7 +160,7 @@ function Profile() {
             <Input
               label="Ngày sinh"
               type="date"
-              alternativeValue={value.dateOfBirth}
+              alternativeValue={moment(value.dateOfBirth).format('YYYY-MM-DD')}
               {...register('dateOfBirth')}
               onChange={(e) => setValue('dateOfBirth', e.target.value)}
               fancyOutlined
@@ -164,25 +180,16 @@ function Profile() {
           </div>
         </div>
         {/* Description */}
-        <div className="flex items-center w-full text-md relative mt-8 border rounded-lg border-br_light_gray focus-within:outline focus-within:outline-2 outline-ac_blue">
-          <textarea
-            className="w-full px-4 pt-4 text-t_dark outline-none rounded-lg mb-1 mr-1 peer"
+        <div className="mt-8">
+          <TextArea
+            {...register('description')}
+            label="Mô tả"
+            width="100%"
+            rounded={[8, 8, 8, 8]}
             onChange={handleChange}
             alternativeValue={value.description}
-            {...register('description')}
+            fancyOutlined
           />
-
-          {/* Label */}
-          <label
-            className="absolute px-1 mx-3 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
-            style={{
-              backgroundColor: '#fff',
-              top: stickyLabel && '0',
-              fontSize: stickyLabel && '12px',
-            }}
-          >
-            Mô tả
-          </label>
         </div>
         <span className="w-full border-t-[0.5px] border-br_gray my-10" />
         <Button width="fit-content">Cập nhật</Button>

@@ -3,31 +3,35 @@ import { Input, Button } from '../components/ui';
 import { changePasswordScheme } from '../validations/changePassword';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { changePassword } from '../features/auth/authSlice';
+import useAxiosPrivate from '../hooks/useAxiosPrivate';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 function ChangePasswordPanel() {
+  const dispatch = useDispatch();
+  const axiosPrivate = useAxiosPrivate();
+
   const {
     register,
+    watch,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({ resolver: yupResolver(changePasswordScheme) });
 
-  const {
-    name: passwordLabel,
-    onChange: passwordOnChange,
-    onBlur: passwordOnBlur,
-    ref: passwordRef,
-  } = register('password');
-  const {
-    name: confirmPasswordLabel,
-    onChange: confirmPasswordOnChange,
-    onBlur: confirmPasswordOnBlur,
-    ref: confirmPasswordRef,
-  } = register('confirmPassword');
+  const value = watch();
 
   const handleDataForm = (data) => {
-    console.log(data);
-
     // Call API at here
+    dispatch(
+      changePassword({
+        axiosPrivate,
+        oldPassword: value.oldPassword,
+        newPassword: value.password,
+      }),
+    );
+    toast.success('Đổi mật khẩu thành công!');
   };
 
   return (
@@ -35,12 +39,25 @@ function ChangePasswordPanel() {
       <form className="flex flex-col md:px-5 lg:px-10 py-8" onSubmit={handleSubmit(handleDataForm)}>
         <div className="mt-2">
           <Input
-            label="Mật khẩu"
+            label="Mật khẩu cũ"
             type="password"
-            ref={passwordRef}
-            name={passwordLabel}
-            onChange={passwordOnChange}
-            onBlur={passwordOnBlur}
+            {...register('oldPassword')}
+            alternativeValue={value.oldPassword}
+            onChange={(e) => setValue('oldPassword', e.target.value)}
+            fancyOutlined
+            visibilityToggle
+            status={errors.password?.message ? 'error' : ''}
+          />
+          <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+        </div>
+
+        <div className="mt-11">
+          <Input
+            label="Mật khẩu mới"
+            type="password"
+            {...register('password')}
+            alternativeValue={value.password}
+            onChange={(e) => setValue('password', e.target.value)}
             fancyOutlined
             visibilityToggle
             status={errors.password?.message ? 'error' : ''}
@@ -52,10 +69,9 @@ function ChangePasswordPanel() {
           <Input
             label="Xác nhận mật khẩu"
             type="password"
-            ref={confirmPasswordRef}
-            name={confirmPasswordLabel}
-            onChange={confirmPasswordOnChange}
-            onBlur={confirmPasswordOnBlur}
+            {...register('confirmPassword')}
+            alternativeValue={value.confirmPassword}
+            onChange={(e) => setValue('confirmPassword', e.target.value)}
             fancyOutlined
             visibilityToggle
             status={errors.confirmPassword?.message ? 'error' : ''}

@@ -6,10 +6,12 @@ import Profile from './Profile';
 import ChangePassword from './ChangePasswordPanel';
 import { useSelector, useDispatch } from 'react-redux';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
-import { changeAvatar } from '../features/auth/authSlice';
+import { changeAvatar, changeBanner } from '../features/auth/authSlice';
+import { toast } from 'react-toastify';
 
 function UserProfile() {
   const tempAvtUrl = 'https://kynguyenlamdep.com/wp-content/uploads/2022/06/avatar-cute-vui-nhon.jpg';
+  const tempBannerUrl = 'https://i.pinimg.com/originals/d8/39/74/d839742a057e1d111d0373fa614de906.jpg';
   const { user } = useSelector((store) => store.auth);
   const [avt, setAvt] = useState(user.avt);
   const [banner, setBanner] = useState(user.banner);
@@ -27,18 +29,25 @@ function UserProfile() {
 
   const handleImageChange = (e) => {
     const image = e.target.files[0];
-    if (imageType == 'avatar') setAvt(URL.createObjectURL(image));
-    else setBanner(URL.createObjectURL(image));
-    // try {
-    //   dispatch(
-    //     changeAvatar({
-    //       axiosPrivate,
-    //       tempAvtUrl,
-    //     }),
-    //   );
-    // } catch (error) {
-    //   console.error('This is error: ', error);
-    // }
+    if (imageType == 'avatar') {
+      setAvt(URL.createObjectURL(image));
+      dispatch(
+        changeAvatar({
+          axiosPrivate,
+          newImageUrl: tempAvtUrl,
+        }),
+      );
+      toast.success('Đổi ảnh đại diện thành công!');
+    } else {
+      setBanner(URL.createObjectURL(image));
+      dispatch(
+        changeBanner({
+          axiosPrivate,
+          newImageUrl: tempBannerUrl,
+        }),
+      );
+      toast.success('Đổi ảnh bìa thành công!');
+    }
   };
 
   const handleAvtClick = (e) => {
@@ -69,7 +78,7 @@ function UserProfile() {
         <img className="object-cover w-full" src={banner} alt="User banner" />
       </div>
       {/* Container */}
-      <div className="relative h-fit md:h-[580px] -top-16 md:-top-20 md:mx-[20px] lg:mx-[50px] xl:mx-[100px] xxl:mx-[150px] flex flex-col md:flex-row md:gap-5 px-1 sm:px-10 md:px-0">
+      <div className="relative h-fit md:h-[644px] -top-16 md:-top-20 md:mx-[20px] lg:mx-[50px] xl:mx-[100px] xxl:mx-[150px] flex flex-col md:flex-row md:gap-5 px-1 sm:px-10 md:px-0">
         {/* Profile 1*/}
         <div className="w-2/5 h-full bg-white overflow-hidden border border-br_gray rounded-3xl hidden md:flex flex-col items-center py-12">
           {/* header */}
