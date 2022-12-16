@@ -23,8 +23,17 @@ import useCourseDetail from '../hooks/useCourseDetail';
 
 function CourseDetail() {
   const { courseId } = useParams();
-  const { comments, totalComments, type, setType, loading, selectedPage, setSelectedPage, getComments } =
-    useComments(courseId);
+  const {
+    comments,
+    totalRootComments,
+    totalComments,
+    type,
+    setType,
+    loading,
+    selectedPage,
+    setSelectedPage,
+    getComments,
+  } = useComments(courseId);
   const { courseDetail } = useCourseDetail(courseId);
 
   return (
@@ -143,6 +152,7 @@ function CourseDetail() {
         <CommentList
           setType={setType}
           totalComments={totalComments}
+          totalRootComments={totalRootComments}
           selected={selectedPage}
           setSelected={setSelectedPage}
           reloadComments={() => getComments(courseId, type, selectedPage)}

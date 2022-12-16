@@ -1,72 +1,24 @@
-import { SubNav, Breadcrumb, Tip } from '../../../components/ui';
+import { Breadcrumb, Tip } from '../../../components/ui';
 import ChapterList from './ChapterList';
 import RemindLesson from './RemindLesson';
-import CourseTrack from '../components/CourseTrack';
 import { Link, useParams } from 'react-router-dom';
 import useCourseDetail from '../hooks/useCourseDetail';
 import Container from '../../../layouts/components/Container';
-
-// This data is a list of units that the User has not completed
-const listUnit = [
-  {
-    id: 1,
-    name: '[Grammar] Tenses - Present tenses: present simple; present continuous; state verbs; there is/ there are',
-    listLesson: [
-      {
-        id: 1,
-        name: 'Lý thuyết về bất động từ',
-        type: 'video',
-      },
-      {
-        id: 2,
-        name: 'Lý thuyết về bất động từ',
-        type: 'text',
-      },
-      {
-        id: 3,
-        name: 'Lý thuyết về bất động từ',
-        type: 'flashcard',
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: '[Grammar] Tenses - Present tenses: present simple; present continuous; state verbs; there is/ there are',
-    listLesson: [
-      {
-        id: 1,
-        name: 'Lý thuyết về bất động từ',
-        type: 'video',
-      },
-      {
-        id: 2,
-        name: 'Lý thuyết về bất động từ',
-        type: 'text',
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: '[Grammar] Tenses - Present tenses: present simple; present continuous; state verbs; there is/ there are',
-    listLesson: [
-      {
-        id: 1,
-        name: 'Lý thuyết về bất động từ',
-        type: 'video',
-      },
-      {
-        id: 2,
-        name: 'Lý thuyết về bất động từ',
-        type: 'text',
-      },
-    ],
-  },
-];
+import useFetchLearnedLessonsInWeek from './hooks/useFetchLearnedLessonsInWeek';
+import useFetchUncompletedUnit from './hooks/useFetchUncompletedUnit';
 
 function CourseListChapter() {
   const { courseId } = useParams();
   const { courseDetail } = useCourseDetail(courseId, false);
+  const { learnedLessons } = useFetchLearnedLessonsInWeek();
+  const { uncompletedLessons } = useFetchUncompletedUnit();
+
+  if (!courseDetail || !learnedLessons) return null;
+
   const { name, chapterList } = courseDetail;
+  const flashcardLessonQnt = Number(learnedLessons.flashcardLessonQnt);
+  const textLessonQnt = Number(learnedLessons.textLessonQnt);
+  const videoLessonQnt = Number(learnedLessons.videoLessonQnt);
 
   return (
     <div>
@@ -80,15 +32,31 @@ function CourseListChapter() {
         <div className="mt-10 md:mt-20">
           <h3 className="text-body-lg text-center md:text-h3 font-semibold">{name}</h3>
 
-          <p className="text-body-sm md:text-body-md mt-10">
+          <div className="text-body-sm md:text-body-md mt-10">
             <b className="text-primary">Tuần này bạn đã học: </b>
-            <b>8</b> bài học <b>video</b>,<b> 6</b> bài học <b>lý thuyết</b> và
-            <b> 2</b> bài học <b>flashcard</b>.
-          </p>
+            <p className="inline separate-with-comma">
+              {videoLessonQnt === 0 && textLessonQnt === 0 && flashcardLessonQnt === 0 && '0 bài'}
+              {videoLessonQnt > 0 && (
+                <>
+                  <b>{videoLessonQnt}</b> bài học video
+                </>
+              )}
+              {textLessonQnt > 0 && (
+                <>
+                  <b>{textLessonQnt}</b> bài học văn bản
+                </>
+              )}
+              {flashcardLessonQnt > 0 && (
+                <>
+                  <b>{flashcardLessonQnt}</b> bài học Flashcard
+                </>
+              )}
+            </p>
+          </div>
 
           <div className="mt-10">
             {/* Remind Lesson incompleted */}
-            <RemindLesson listUnit={listUnit} />
+            {Array.isArray(uncompletedLessons) && <RemindLesson listUnit={uncompletedLessons} />}
           </div>
 
           <div className="mt-5">

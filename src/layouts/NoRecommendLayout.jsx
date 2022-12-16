@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import Header from './components/Header';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 function NoRecommendLayout({ children }) {
   return (
-    // Wrapper
     <div>
       <Header />
       {children}

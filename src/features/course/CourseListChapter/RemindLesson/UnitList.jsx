@@ -7,13 +7,10 @@ function Unitlist({ listUnit }) {
         return (
           <div key={unit.id}>
             <p className="text-body-sm md:text-body-md">
-              <b>Tiếp tục học bài: </b>
-              <a href="#/" className="text-primary">
-                [Grammar] Tenses - Present tenses: present simple; present continuous; state verbs;
-              </a>
+              <b>Tiếp tục học chủ đề: {unit.name}</b>
             </p>
-            <ul className="ml-4 md:ml-8 mt-2 flex flex-col gap-2 md:gap-4">
-              <LessonList listLesson={unit.listLesson} />
+            <ul className="mt-2 flex flex-col">
+              <LessonList listLesson={(unit.lessonList || []).slice(0, 6)} />
             </ul>
           </div>
         );

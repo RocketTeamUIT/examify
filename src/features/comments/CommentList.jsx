@@ -8,16 +8,26 @@ import { useMemo } from 'react';
 // comments: comment list
 // reloadComments: function to call getCommentsService again after sent comment successfully
 // colSpan: number of columns to span. Eg: colSpan='span 5 / span 5'
-const CommentList = ({ comments, totalComments, setType, reloadComments, colSpan, selected, setSelected, loading }) => {
+const CommentList = ({
+  comments,
+  totalRootComments,
+  totalComments,
+  setType,
+  reloadComments,
+  colSpan,
+  selected,
+  setSelected,
+  loading,
+}) => {
   const Divider = () => <div className="border-t br_light_gray w-full mt-[6px] mb-[14px]" />;
   const getColSpan = (span) => {
     return `lg:col-span-${span} col-span-full`;
   };
 
   const totalPages = useMemo(() => {
-    if (!totalComments) return 0;
-    return Math.ceil(totalComments / 10);
-  }, [totalComments]);
+    if (!totalRootComments) return 0;
+    return Math.ceil(totalRootComments / 10);
+  }, [totalRootComments]);
 
   return (
     <div className="grid grid-cols-12">

@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 
 const CourseTrackLesson = ({ lesson, chapterId }) => {
   const { courseId, lessonId } = useParams();
-  const { name, type, done, id } = lesson;
+  const { name, type, completed, id } = lesson;
   const ref = useRef();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const CourseTrackLesson = ({ lesson, chapterId }) => {
       {name}
 
       {/* Done/Locked lesson icon */}
-      {done && (
+      {completed && (
         <div className="ml-auto mr-6 pl-2">
           <IoIosCheckmarkCircle className="w-[25px] h-[25px] text-ac_green" />
         </div>
