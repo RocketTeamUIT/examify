@@ -23,7 +23,7 @@ function Unit({ progress, unit, seq, getPath }) {
     <Link to={getPath(unit.lessonList[0].id)}>
       <div className="flex items-center justify-between h-[60px] bg-bg_light_gray shadow-md rounded-md px-4">
         <p>
-          <span className="text-body-sm md:text-body-md">{seq}. </span>
+          <span className="text-body-sm md:text-body-md">Chủ đề {seq}: </span>
           <span className="text-body-sm md:text-body-md">{unit.name}</span>
         </p>
         <div className="flex items-center gap-4">

@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 import { getCourseDetailService } from '../services/course';
 
 const initialValues = {

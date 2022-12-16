@@ -1,11 +1,43 @@
+import { useState } from 'react';
 import { memo } from 'react';
 import { AiOutlineTeam, AiOutlineLaptop } from 'react-icons/ai';
 import { BiBookOpen } from 'react-icons/bi';
 import { MdSlowMotionVideo } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Button from '../../../components/ui/Button';
+import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 import { printPrice, convertTimeHours, convertTimeMinutes } from '../../../utils/formatCurrency';
+import { enrollCourseService } from '../services/course';
+import { NOT_ENOUGH_POINTS } from '../services/messages';
 
 function ModalRegisterCourse({ course }) {
+  const [loading, setLoading] = useState(false);
+  const axiosPrivate = useAxiosPrivate(true);
+
+  if (!course) return null;
+
+  const handleEnrollCourse = async () => {
+    setLoading(true);
+    try {
+      const response = await enrollCourseService(axiosPrivate, course.id);
+      if (response.data.data?.enroll === false) {
+        let toastMessage = '';
+        if (response.data.message === NOT_ENOUGH_POINTS) toastMessage = 'Bạn không đủ điểm';
+        else toastMessage = 'Đăng ký khoá học thất bại';
+        toast.error(toastMessage);
+      } else {
+        toast.success('Đăng ký thành công');
+        window.location.reload();
+      }
+    } catch (error) {
+      toast.error('Lỗi gì đó đã xảy ra');
+      console.log('🚀 ~ file: ModalRegisterCourse.jsx:22 ~ handleEnrollCourse ~ error', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-white border-br_gray border-2 rounded-md lg:border-none lg:shadow-xl overflow-hidden">
       {/* Course image */}
@@ -31,7 +63,15 @@ function ModalRegisterCourse({ course }) {
 
         {/* Button Register*/}
         <div className="mt-4">
-          {course.isJoin ? <Button width="100%">Tiếp tục học</Button> : <Button width="100%">Đăng ký ngay</Button>}
+          {course.isJoin ? (
+            <Link to="list-chapter">
+              <Button width="100%">Tiếp tục học</Button>
+            </Link>
+          ) : (
+            <Button disabled={loading} width="100%" onClick={handleEnrollCourse}>
+              Đăng ký ngay
+            </Button>
+          )}
         </div>
 
         {/* Button Contact*/}

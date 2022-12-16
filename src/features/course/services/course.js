@@ -31,6 +31,22 @@ export const searchCourseService = (axiosPrivate, searchValue) => {
   });
 };
 
-export const enrollCourse = (axiosPrivate) => {
-  return axiosPrivate;
+export const enrollCourseService = (axiosPrivate, courseId) => {
+  return axiosPrivate.post(`/courses/${courseId}/enroll`);
+};
+
+export const getUncompletedUnitsService = (axios, courseId) => {
+  return axios.get(`courses/${courseId}/unfinished-lesson`);
+};
+
+export const getLearnedLessonInWeekService = (axios, courseId) => {
+  return axios.get(`/courses/${courseId}/learned-in-week`);
+};
+
+export const getPopularCourseService = (axios, limit = 4) => {
+  return axios.get('/courses/popular', {
+    params: {
+      limit,
+    },
+  });
 };

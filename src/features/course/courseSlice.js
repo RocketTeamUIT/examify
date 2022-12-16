@@ -1,20 +1,23 @@
 import { createSlice, createAsyncThunk, isAnyOf } from '@reduxjs/toolkit';
-import { getAllCoursesService } from './services/course';
+import { getCourseDetailService } from './services/course';
 
 const initialState = {
-  courseList: [],
+  courseDetail: {},
   isLoading: false,
   error: '',
 };
 
-export const getAllCourses = createAsyncThunk('course/getAllCourses', async (axiosPrivate, thunkAPI) => {
-  try {
-    const response = await getAllCoursesService(axiosPrivate);
-    return response.data;
-  } catch (err) {
-    return thunkAPI.rejectWithValue(err?.response?.status);
-  }
-});
+export const getCourseDetail = createAsyncThunk(
+  'course/getCourseDetail',
+  async ({ accessToken, courseId }, thunkAPI) => {
+    try {
+      const response = await getCourseDetailService(accessToken, courseId);
+      return response.data.data;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error?.message);
+    }
+  },
+);
 
 const courseSlice = createSlice({
   name: 'course',
@@ -28,25 +31,18 @@ const courseSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // Get all courses
-    builder.addCase(getAllCourses.fulfilled, (state, action) => {
+    builder.addCase(getCourseDetail.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.courseList = action.payload.data;
-      state.error = '';
+      state.error = false;
+      state.courseDetail = action.payload;
     });
 
-    const pendingList = [getAllCourses.pending];
-    const emptyFulfilledList = [getAllCourses.fulfilled];
-    const rejectedList = [getAllCourses.rejected];
+    const pendingList = [getCourseDetail.pending];
+    const rejectedList = [getCourseDetail.rejected];
 
     builder.addMatcher(isAnyOf(...pendingList), (state) => {
-      state.isLoading = true;
-      state.error = '';
-    });
-    builder.addMatcher(isAnyOf(...emptyFulfilledList), (state, action) => {
       state.isLoading = false;
-      state.error = '';
-      console.log(action.payload);
+      state.error = false;
     });
     builder.addMatcher(isAnyOf(...rejectedList), (state, action) => {
       state.isLoading = false;

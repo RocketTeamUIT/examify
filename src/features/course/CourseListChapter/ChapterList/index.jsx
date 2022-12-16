@@ -1,5 +1,6 @@
 import Unit from './Unit';
 import Wrapper from '../Wrapper';
+import countCompletedLessonsInChapter from '../../utils/countCompletedLessonsInChapter';
 
 function ChapterList({ listChapter }) {
   const getPath = (chapterId) => (lessonId) => {
@@ -8,16 +9,18 @@ function ChapterList({ listChapter }) {
 
   return (
     <div className="flex flex-col gap-10">
-      {listChapter.map((chapter) => {
+      {listChapter.map((chapter, index) => {
         return (
           // Wrapper component
           <Wrapper key={chapter.id} status={chapter.statusLearned}>
             {/* Header */}
             <div className=" flex items-center justify-between bg-bg_light_gray px-5 py-2 shadow-[0_0_10px_0_rgba(0,0,0,0.3)]">
-              <h4 className="font-medium">{chapter.name}</h4>
+              <h4 className="font-medium">
+                Chương {index + 1}: {chapter.name}
+              </h4>
               <p>
                 <b>
-                  {chapter.userCompleted}/{chapter.unitList.length}
+                  {countCompletedLessonsInChapter(chapter)}/{chapter.totalLesson}
                 </b>
                 &nbsp;bài học
               </p>

@@ -1,15 +1,26 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
-
-import Footer from './components/Footer';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import Header from './components/Header';
+import { getCourseDetail } from '../features/course/courseSlice';
 
-function FocusLayout({ children, excludeFooter, requireLogin }) {
+function FocusLayout({ children }) {
   const { accessToken } = useSelector((store) => store.auth);
   const location = useLocation();
+  const { courseId } = useParams();
+  const dispatch = useDispatch();
 
-  if (!accessToken && requireLogin)
+  useEffect(() => {
+    dispatch(
+      getCourseDetail({
+        accessToken,
+        courseId,
+      }),
+    );
+  }, [courseId, accessToken, dispatch]);
+
+  if (!accessToken)
     return (
       <div>
         <Header />
@@ -31,20 +42,11 @@ function FocusLayout({ children, excludeFooter, requireLogin }) {
       </div>
     );
 
-  if (excludeFooter)
-    return (
-      <div>
-        <Header />
-        {children}
-      </div>
-    );
-
   return (
     // Wrapper
     <div>
       <Header />
       {children}
-      <Footer />
     </div>
   );
 }

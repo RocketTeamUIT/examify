@@ -46,6 +46,7 @@ const Comment = ({ comment, isReply, reloadComments }) => {
   const axiosPrivate = useAxiosPrivate();
   const ref = useRef();
   const triggerRef = useRef();
+  const replyEditorRef = useRef();
 
   useClickOutside(ref, triggerRef, () => {
     setVisible(false);
@@ -57,6 +58,12 @@ const Comment = ({ comment, isReply, reloadComments }) => {
       return;
     }
     setShowEditor(true);
+
+    if (replyEditorRef.current) {
+      window.scrollTo({
+        top: replyEditorRef.current.offsetTop - 300,
+      });
+    }
   };
 
   const handleLike = async () => {
@@ -157,12 +164,7 @@ const Comment = ({ comment, isReply, reloadComments }) => {
               <CommentLike liked={liked} total={total} handleClick={handleLike} disabled={loading} />
               <div className="border-l h-4 border-t_gray"></div>
               {!isReply && (
-                <button
-                  className="font-medium hover:underline text-md"
-                  onClick={() => {
-                    onReply();
-                  }}
-                >
+                <button className="font-medium hover:underline text-md" onClick={onReply}>
                   Trả lời
                 </button>
               )}
@@ -179,7 +181,7 @@ const Comment = ({ comment, isReply, reloadComments }) => {
 
       {/* Reply other comment */}
       {showEditor && (
-        <div className="mt-2">
+        <div className="mt-2" ref={replyEditorRef}>
           <CommentEditor reloadComments={reloadComments} respondId={commentId} hide={() => setShowEditor(false)} />
         </div>
       )}

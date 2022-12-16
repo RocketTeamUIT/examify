@@ -19,6 +19,7 @@ import { CourseList, CourseDetail, CourseListChapter } from '../features/course'
 // Exam
 import { Exam } from '../features/exam/components';
 import CourseDetailLesson from '../features/course/CourseDetailLesson';
+import NoRecommendLayout from '../layouts/NoRecommendLayout';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
@@ -30,15 +31,13 @@ const publicRouters = [
   { path: config.routes.userProfile, component: UserProfile },
 
   // Course
-  { path: config.routes.courseList, component: CourseList, layout: FocusLayout },
-  { path: config.routes.courseDetail, component: CourseDetail, layout: FocusLayout },
-  { path: config.routes.courseListChapter, component: CourseListChapter, layout: FocusLayout, requireLogin: true },
+  { path: config.routes.courseList, component: CourseList, layout: NoRecommendLayout },
+  { path: config.routes.courseDetail, component: CourseDetail, layout: NoRecommendLayout },
+  { path: config.routes.courseListChapter, component: CourseListChapter, layout: FocusLayout },
   {
     path: config.routes.courseLesson,
     component: CourseDetailLesson,
     layout: FocusLayout,
-    excludeFooter: true,
-    requireLogin: true,
   },
 
   // Exam
