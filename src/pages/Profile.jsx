@@ -10,12 +10,6 @@ import { useSelector } from 'react-redux';
 function Profile() {
   const { user } = useSelector((store) => store.auth);
   const [stickyLabel, setStickyLabel] = useState(false);
-  // const [email, setEmail] = useState(user.email);
-  // const [firstName, setfirstName] = useState(user.firstName);
-  // const [lastName, setlastName] = useState(user.lastName);
-  // const [dateOfBirth, setDateOfBirth] = useState(user.dateOfBirth);
-  // const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
-  // const [description, setDescription] = useState(user.description);
 
   const {
     register,
@@ -35,18 +29,10 @@ function Profile() {
       setValue('dateOfBirth', user.dateOfBirth);
       setValue('phoneNumber', user.phoneNumber);
       setValue('description', user.description);
-      // setEmail(user.email);
-      // setfirstName(user.firstName);
-      // setlastName(user.lastName);
-      // setDateOfBirth(user.dateOfBirth);
-      // setPhoneNumber(user.phoneNumber);
-      // setDescription(user.description);
     }
   }, [user]);
 
   const handleDataForm = (data) => {
-    //console.log(data);
-    // const { email, password } = data;
     console.log('Update successfully');
   };
 
@@ -68,6 +54,7 @@ function Profile() {
         {/* Email */}
         <div>
           <Input
+            label="Email"
             disabled
             alternativeValue={value.email}
             {...register('email')}

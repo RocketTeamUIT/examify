@@ -118,7 +118,7 @@ function UserProfile() {
           <div className="flex">
             <div className="w-32 h-32 relative overflow-hidden rounded-full border-8 border-white">
               <Button
-                className="absolute bottom-0 w-full h-[30%] bg-black flex items-center justify-center"
+                className="absolute bottom-0 w-full h-[40%] bg-black flex items-center justify-center"
                 dark
                 type="default"
                 rounded={[0, 0, 0, 0]}
