@@ -32,25 +32,27 @@ function CourseListChapter() {
         <div className="mt-10 md:mt-20">
           <h3 className="text-body-lg text-center md:text-h3 font-semibold">{name}</h3>
 
-          <p className="text-body-sm md:text-body-md mt-10">
+          <div className="text-body-sm md:text-body-md mt-10">
             <b className="text-primary">Tuần này bạn đã học: </b>
-            {videoLessonQnt === 0 && textLessonQnt === 0 && flashcardLessonQnt === 0 && '0 bài'}
-            {videoLessonQnt > 0 && (
-              <>
-                <b>{videoLessonQnt}</b> bài học video
-              </>
-            )}
-            {textLessonQnt > 0 && (
-              <>
-                <b>{textLessonQnt}</b> bài học văn bản
-              </>
-            )}
-            {flashcardLessonQnt > 0 && (
-              <>
-                <b>{flashcardLessonQnt}</b> bài học Flashcard
-              </>
-            )}
-          </p>
+            <p className="inline separate-with-comma">
+              {videoLessonQnt === 0 && textLessonQnt === 0 && flashcardLessonQnt === 0 && '0 bài'}
+              {videoLessonQnt > 0 && (
+                <>
+                  <b>{videoLessonQnt}</b> bài học video
+                </>
+              )}
+              {textLessonQnt > 0 && (
+                <>
+                  <b>{textLessonQnt}</b> bài học văn bản
+                </>
+              )}
+              {flashcardLessonQnt > 0 && (
+                <>
+                  <b>{flashcardLessonQnt}</b> bài học Flashcard
+                </>
+              )}
+            </p>
+          </div>
 
           <div className="mt-10">
             {/* Remind Lesson incompleted */}

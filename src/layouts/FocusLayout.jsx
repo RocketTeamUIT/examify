@@ -12,12 +12,14 @@ function FocusLayout({ children }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(
-      getCourseDetail({
-        accessToken,
-        courseId,
-      }),
-    );
+    if (accessToken) {
+      dispatch(
+        getCourseDetail({
+          accessToken,
+          courseId,
+        }),
+      );
+    }
   }, [courseId, accessToken, dispatch]);
 
   if (!accessToken)

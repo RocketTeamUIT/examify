@@ -97,3 +97,7 @@ code {
 * {
   scroll-behavior: smooth;
 }
+
+.separate-with-comma > * + *::before {
+  content: ', ';
+}
