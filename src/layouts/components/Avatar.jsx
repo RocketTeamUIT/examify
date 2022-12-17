@@ -4,16 +4,17 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../features/auth/authSlice';
 import useClickOutside from '../../hooks/useClickOutside';
+import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import { Link } from 'react-router-dom';
 
 const Avatar = ({ avt, lastName, firstName, email }) => {
-  const { accessToken } = useSelector((store) => store.auth);
   const [visible, setVisible] = useState(false);
   const toggle = () => setVisible(!visible);
   const hide = () => setVisible(false);
   const dispatch = useDispatch();
   const ref = useRef();
   const triggerElRef = useRef();
+  const axiosPrivate = useAxiosPrivate(true);
 
   useClickOutside(ref, triggerElRef, (e) => {
     hide();
@@ -53,7 +54,7 @@ const Avatar = ({ avt, lastName, firstName, email }) => {
           <Divider />
           <li
             className="hover:font-semibold hover:text-t_dark cursor-pointer px-6 mt-2"
-            onClick={() => dispatch(logOut(accessToken))}
+            onClick={() => dispatch(logOut(axiosPrivate))}
           >
             Đăng xuất
           </li>

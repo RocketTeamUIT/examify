@@ -1,10 +1,15 @@
 import { AiFillFileText as TextIcon } from 'react-icons/ai';
 import { RiSimCardLine as FlashcardIcon } from 'react-icons/ri';
 import { MdSlowMotionVideo as VideoIcon } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import findChapterByLessonId from '../../utils/findChapterByLessonId';
 
-const LESSON_TYPE = ['video', 'text', 'flashcard'];
+const LESSON_TYPE = [1, 2, 3];
 
 function LessonList({ listLesson }) {
+  const { courseDetail } = useSelector((store) => store.course);
+
   const lessonVideo = () => (
     <div className="shrink-0 flex items-center gap-1">
       <VideoIcon className="text-t_gray shrink-0" />
@@ -26,6 +31,14 @@ function LessonList({ listLesson }) {
     </div>
   );
 
+  if (!courseDetail) return null;
+
+  const getLessonPath = (lessonId) => {
+    const chapterId = findChapterByLessonId(courseDetail.chapterList, lessonId);
+    if (!chapterId) return '#';
+    return `${chapterId}/lesson/${lessonId}`;
+  };
+
   return (
     <>
       {listLesson.map((lesson) => {
@@ -33,14 +46,16 @@ function LessonList({ listLesson }) {
         const checkType = LESSON_TYPE.includes(lesson.type) ? lesson.type : 'undefined';
 
         return (
-          <div key={lesson.id} className="flex flex-col md:flex-row md:items-center gap-2">
-            {checkType === 'video' && lessonVideo()}
-            {checkType === 'text' && lessonText()}
-            {checkType === 'flashcard' && lessonFlashcard()}
-            <a href="#/" className="ml-5 text-body-sm md:ml-0 md:text-body-md">
-              {lesson.name}
-            </a>
-          </div>
+          <Link
+            to={getLessonPath(lesson.id)}
+            key={lesson.id}
+            className="flex flex-col md:flex-row md:items-center gap-2 py-3 rounded-md px-4 md:px-8 hover:bg-bg_light_gray_4"
+          >
+            {checkType === 1 && lessonVideo()}
+            {checkType === 2 && lessonText()}
+            {checkType === 3 && lessonFlashcard()}
+            <div className="ml-5 text-body-sm md:ml-0 md:text-body-md">{lesson.name}</div>
+          </Link>
         );
       })}
     </>

@@ -27,6 +27,7 @@ const Tag = ({ children, color, icon }) => {
       className="px-2 py-0.5 rounded-full flex items-center justify-center relative overflow-hidden tag-overlay"
       style={{
         '--bg': checkColor,
+        '--opacity': '0.2',
       }}
     >
       <span

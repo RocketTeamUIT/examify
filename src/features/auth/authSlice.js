@@ -39,9 +39,9 @@ export const signIn = createAsyncThunk('auth/signIn', async ({ email, password }
   }
 });
 
-export const logOut = createAsyncThunk('auth/logOut', async (accessToken, thunkAPI) => {
+export const logOut = createAsyncThunk('auth/logOut', async (axiosPrivate, thunkAPI) => {
   try {
-    await logOutService(accessToken);
+    await logOutService(axiosPrivate);
   } catch (err) {
     return thunkAPI.rejectWithValue(err?.response?.status);
   }
@@ -131,6 +131,15 @@ const authSlice = createSlice({
       state.error = '';
     });
 
+    // Logout
+    builder.addCase(logOut.rejected, (state, action) => {
+      state.user = {};
+      state.accessToken = '';
+      state.isLoading = false;
+      state.error = '';
+      console.log(action.payload);
+    });
+
     // Get user info
     builder.addCase(getUserInfo.fulfilled, (state, action) => {
       state.isLoading = false;
@@ -159,7 +168,6 @@ const authSlice = createSlice({
     const rejectedList = [
       signUp.rejected,
       signIn.rejected,
-      logOut.rejected,
       getUserInfo.rejected,
       updateUserInfo.rejected,
       changePassword.rejected,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg';
 import { BiSearch } from 'react-icons/bi';
@@ -9,6 +9,9 @@ import classNames from 'classnames';
 import { useSpring, animated } from 'react-spring';
 import { useSelector } from 'react-redux';
 import Avatar from './Avatar';
+import debounce from '../../utils/debounce';
+import useAxiosPrivate from '../../hooks/useAxiosPrivate';
+import { searchCourseService } from '../../features/course/services/course';
 
 const NAVIGATION_LIST = [
   ['Khoá học', '/courses'],
@@ -17,27 +20,36 @@ const NAVIGATION_LIST = [
   ['Thi đấu', '/contest'],
 ];
 
+const initialStyles = {
+  opacity: 0,
+  pointerEvents: 'none',
+  top: '50px',
+};
+
 const Header = () => {
   const [search, setSearch] = useState('');
   const [options, setOptions] = useState([]);
-  const initialStyles = {
-    opacity: 0,
-    pointerEvents: 'none',
-    top: '50px',
-  };
+  const axiosPrivate = useAxiosPrivate(true);
   let showMenu = false;
   const [props, setSpring] = useSpring(() => initialStyles);
   const { user } = useSelector((store) => store.auth);
 
+  const fetchSearch = useMemo(
+    () =>
+      debounce(async (value) => {
+        try {
+          const response = searchCourseService(axiosPrivate, value);
+          console.log('🚀 ~ file: Header.jsx:42 ~ debounce ~ response', response);
+        } catch (error) {
+          console.log('🚀 ~ file: Header.jsx:40 ~ fetchSearch ~ error', error);
+        }
+      }, 1000),
+    [axiosPrivate],
+  );
+
   const handleChange = (e) => {
     setSearch(e.target.value);
-
-    const temp = e.target.value[0];
-    if (temp === undefined) {
-      setOptions([]);
-    } else {
-      setOptions([{ text: temp }, { text: temp + temp }, { text: temp + temp + temp }]);
-    }
+    fetchSearch(e.target.value);
   };
 
   const handleToggleMenu = () => {

@@ -22,8 +22,6 @@ function ActionsList({ actionsList, onSelectItem, onChangeItem, ...props }) {
           {data.name}
         </ActionItem>
       ))}
-      <Divider />
-      <ActionItem>Action item 4</ActionItem>
     </div>
   );
 }

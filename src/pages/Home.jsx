@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
@@ -6,8 +6,34 @@ import 'swiper/css/pagination';
 import { coursesPro } from '../features/course/data';
 import CourseListItem from '../features/course/CourseList/CourseListItem';
 import Container from '../layouts/components/Container';
+import useAxiosWithToken from '../hooks/useAxiosWithToken';
+import { getPopularCourseService } from '../features/course/services/course';
+
+const useFetchPopularCourse = () => {
+  const [courses, setCourses] = useState([]);
+  const axiosWithToken = useAxiosWithToken();
+
+  useEffect(() => {
+    const fetchPopularCourse = async () => {
+      try {
+        const response = await getPopularCourseService(axiosWithToken);
+        setCourses(response.data.data);
+      } catch (error) {
+        console.log('🚀 ~ file: Home.jsx:22 ~ useEffect ~ error', error);
+      }
+    };
+
+    fetchPopularCourse();
+  }, [axiosWithToken]);
+
+  return { courses };
+};
 
 const Home = () => {
+  const { courses } = useFetchPopularCourse();
+
+  if (!courses) return null;
+
   return (
     <Container className="py-11">
       {/* Carousel */}
@@ -53,7 +79,7 @@ const Home = () => {
 
       {/* Popular courses */}
       <div className="mt-20">
-        {coursesPro?.length > 0 && <CourseListItem listName="Khóa học nổi bật" listCourse={coursesPro} />}
+        {coursesPro?.length > 0 && <CourseListItem listName="Khóa học nổi bật" listCourse={courses} />}
       </div>
 
       {/* Latest exams */}

@@ -47,12 +47,11 @@ function Breadcrumb({ hierarchy }) {
 }
 
 BreadcrumbItem.propTypes = {
-  children: PropTypes.string.isRequired,
   isCurrent: PropTypes.bool,
 };
 
 Breadcrumb.propTypes = {
-  hierarchy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  hierarchy: PropTypes.array.isRequired,
 };
 
 export default Breadcrumb;

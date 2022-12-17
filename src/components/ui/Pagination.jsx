@@ -4,27 +4,30 @@ import { useState } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { HiDotsHorizontal } from 'react-icons/hi';
 
-const Pagination = ({ length }) => {
-  const [selected, setSelected] = useState(0);
-
+const Pagination = ({ length, selected, setSelected }) => {
   const handleMove = (value) => {
     if (selected + value < length && selected + value >= 0) setSelected(selected + value);
   };
 
   const hide = (index) => {
+    if (length <= 5) return false;
     if (index >= selected - 2 && index <= selected + 2) return false;
     return true;
   };
 
+  if (length === 0) return null;
+
   return (
     <div className="w-fit flex gap-[10px]">
       {/* Move previous */}
-      <button
-        className="hover:bg-opacity-30 transition w-9 h-8 rounded-md flex bg-primary bg-opacity-10 text-black items-center justify-center font-bold"
-        onClick={() => handleMove(-1)}
-      >
-        <BsChevronLeft />
-      </button>
+      {selected !== 0 && (
+        <button
+          className="hover:bg-opacity-30 transition w-9 h-8 rounded-md flex bg-primary bg-opacity-10 text-black items-center justify-center font-bold"
+          onClick={() => handleMove(-1)}
+        >
+          <BsChevronLeft />
+        </button>
+      )}
 
       {/* Show first page and ... */}
       {hide(0) && (
@@ -78,12 +81,14 @@ const Pagination = ({ length }) => {
       )}
 
       {/* Move next */}
-      <button
-        className="hover:bg-opacity-30 transition w-9 h-8 rounded-md flex bg-primary bg-opacity-10 text-black items-center justify-center font-bold"
-        onClick={() => handleMove(1)}
-      >
-        <BsChevronRight />
-      </button>
+      {selected !== length - 1 && (
+        <button
+          className="hover:bg-opacity-30 transition w-9 h-8 rounded-md flex bg-primary bg-opacity-10 text-black items-center justify-center font-bold"
+          onClick={() => handleMove(1)}
+        >
+          <BsChevronRight />
+        </button>
+      )}
     </div>
   );
 };

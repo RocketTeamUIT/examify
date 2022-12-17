@@ -23,13 +23,8 @@ export const signInService = (email, password) => {
   );
 };
 
-export const logOutService = (accessToken) => {
-  return base.delete('/users/logout', {
-    headers: {
-      Authorization: 'Bearer ' + accessToken,
-    },
-    withCredentials: true,
-  });
+export const logOutService = (axiosPrivate) => {
+  return axiosPrivate.delete('/users/logout');
 };
 
 export const refreshTokenService = () => {
