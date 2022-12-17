@@ -8,9 +8,7 @@ import { CreateNote } from '../../note';
 /*  props
     - sec: specify seconds to take note (time of the video). Eg: You want to take note at 1:30 of the video, pass sec=90
 */
-const DetailHeader = ({ sec }) => {
-  const min = Math.floor(sec / 60);
-  const remainSec = sec - min * 60;
+const DetailHeader = () => {
   const [isShowing, setShowing] = useState(false);
 
   const hideModal = () => {
@@ -32,7 +30,7 @@ const DetailHeader = ({ sec }) => {
         leftIcon={<BiMessageSquareAdd className="w-6 h-6" />}
         onClick={() => setShowing(true)}
       >
-        Thêm ghi chú{sec && ':'} {sec && <span className="text-primary font-semibold"> {min + ':' + remainSec}</span>}
+        Thêm ghi chú
       </Button>
 
       <CreateNote showing={isShowing} hide={hideModal} />
