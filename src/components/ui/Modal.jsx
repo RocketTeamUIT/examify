@@ -7,10 +7,11 @@ const Modal = ({ children, isShowing, hide, header, maxWidth, className, type, b
   return ReactDom.createPortal(
     <div
       className={classNames(
-        'bg-black bg-opacity-20 z-50 fixed top-0 left-0 bottom-0 right-0 flex transition-opacity duration-500',
+        'bg-black bg-opacity-20 z-50 fixed top-0 left-0 bottom-0 right-0 flex transition-all',
         !isShowing && 'pointer-events-none opacity-0',
         // Modal Type
         type === 'normal' && 'p-7',
+        type === 'right' && 'duration-500',
       )}
       onClick={hide}
     >

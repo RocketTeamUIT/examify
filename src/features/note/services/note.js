@@ -8,3 +8,13 @@ export const createNewNoteService = ({ axios, lessonId, note }) => {
     note,
   });
 };
+
+export const updateNoteService = ({ axios, id, note }) => {
+  return axios.put(`notes/update/${id}`, {
+    note,
+  });
+};
+
+export const deleteNoteService = ({ axios, id }) => {
+  return axios.delete(`notes/delete/${id}`);
+};
