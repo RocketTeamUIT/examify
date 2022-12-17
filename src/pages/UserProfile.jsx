@@ -29,7 +29,7 @@ function UserProfile() {
 
   const handleImageChange = (e) => {
     const image = e.target.files[0];
-    if (imageType == 'avatar') {
+    if (imageType === 'avatar') {
       setAvt(URL.createObjectURL(image));
       dispatch(
         changeAvatar({
@@ -97,7 +97,7 @@ function UserProfile() {
             <p className="my-3 text-h3 text-t_dark font-bold">
               {user.firstName} {user.lastName}
             </p>
-            <p className="text-h6 text-t_light_gray_2 font-medium">Độ kiếp</p>
+            <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank}</p>
           </div>
           {/* body */}
           <div className="flex flex-col items-center w-full">
@@ -141,8 +141,10 @@ function UserProfile() {
             <div>
               <div className="h-1/2" />
               <div className="h-1/2 flex flex-col pb-2 justify-around">
-                <h1 className="mt-1 text-h4 text-t_dark font-bold">Phan Thanh Tú</h1>
-                <p className="text-h6 text-t_light_gray_2 font-medium">Độ kiếp</p>
+                <p className="mt-1 text-h4 text-t_dark font-bold">
+                  {user.firstName} {user.lastName}
+                </p>
+                <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank}</p>
               </div>
             </div>
           </div>
