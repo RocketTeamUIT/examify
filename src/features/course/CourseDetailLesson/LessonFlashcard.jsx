@@ -1,5 +1,5 @@
 import React from 'react';
-import { BestWishes } from '../components';
+import { BestWishes, DetailHeader } from '../components';
 
 const LessonFlashcard = ({ flashcardSetId }) => {
   return (
@@ -8,6 +8,7 @@ const LessonFlashcard = ({ flashcardSetId }) => {
 
       {/* Text */}
       <div className="px-6 md:px-8 lg:px-[100px] mt-8 pb-16">
+        <DetailHeader />
         {flashcardSetId}
         <BestWishes />
       </div>

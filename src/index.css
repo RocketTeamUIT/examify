@@ -101,3 +101,16 @@ code {
 .separate-with-comma > * + *::before {
   content: ', ';
 }
+
+.side-slide-modal {
+  transition: left linear 0.5s, opacity linear 0.5s;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

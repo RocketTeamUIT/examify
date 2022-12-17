@@ -1,9 +1,9 @@
 import React from 'react';
 import { BiMessageSquareAdd } from 'react-icons/bi';
-import { Button, Modal, TextArea } from '../../../components/ui';
+import { Button } from '../../../components/ui';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { CreateNote } from '../../note';
 
 /*  props
     - sec: specify seconds to take note (time of the video). Eg: You want to take note at 1:30 of the video, pass sec=90
@@ -12,10 +12,10 @@ const DetailHeader = ({ sec }) => {
   const min = Math.floor(sec / 60);
   const remainSec = sec - min * 60;
   const [isShowing, setShowing] = useState(false);
-  const { register, handleSubmit, watch } = useForm();
-  const note = watch('note');
 
-  const onSubmit = (data) => {};
+  const hideModal = () => {
+    setShowing((prev) => false);
+  };
 
   return (
     <div className="xl:flex items-center justify-between">
@@ -35,19 +35,7 @@ const DetailHeader = ({ sec }) => {
         Thêm ghi chú{sec && ':'} {sec && <span className="text-primary font-semibold"> {min + ':' + remainSec}</span>}
       </Button>
 
-      <Modal header="Thêm ghi chú" isShowing={isShowing} hide={() => setShowing(false)}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {/* <label className="font-semibold text-md mb-2 block">Tiêu đề</label>
-          <Input size="large" {...register('title')} /> */}
-
-          <label className="font-semibold text-md mb-2 mt-8 block">Mô tả</label>
-          <TextArea {...register('note')} />
-
-          <Button width="100%" className="mt-7" disabled={!note}>
-            <span className="text-md">Thêm</span>
-          </Button>
-        </form>
-      </Modal>
+      <CreateNote showing={isShowing} hide={hideModal} />
     </div>
   );
 };
