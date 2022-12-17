@@ -62,3 +62,9 @@ export const changeAvatarService = (axiosPrivate, newImageUrl) => {
     newImageUrl,
   });
 };
+
+export const changeBannerService = (axiosPrivate, newImageUrl) => {
+  return axiosPrivate.put('/users/banner', {
+    newImageUrl,
+  });
+};

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../features/auth/authSlice';
 import useClickOutside from '../../hooks/useClickOutside';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
+import { Link } from 'react-router-dom';
 
 const Avatar = ({ avt, lastName, firstName, email }) => {
   const [visible, setVisible] = useState(false);
@@ -32,15 +33,17 @@ const Avatar = ({ avt, lastName, firstName, email }) => {
           ref={ref}
         >
           {/* Avatar and name */}
-          <li className="flex items-center gap-3 px-6">
-            <img src={avt} alt={lastName} className="rounded-full h-10 w-10" />
-            <div>
-              <p className="text-md font-medium">
-                {firstName} {lastName}
-              </p>
-              <p className="text-[10px] text-t_light_gray_2 font-light">{email}</p>
-            </div>
-          </li>
+          <Link to="/user-profile">
+            <li className="flex items-center gap-3 px-6">
+              <img src={avt} alt={lastName} className="rounded-full h-10 w-10" />
+              <div>
+                <p className="text-md font-medium">
+                  {firstName} {lastName}
+                </p>
+                <p className="text-[10px] text-t_light_gray_2 font-light">{email}</p>
+              </div>
+            </li>
+          </Link>
 
           <Divider />
           <li className="hover:font-semibold hover:text-t_dark cursor-pointer px-6">Khoá học của tôi</li>

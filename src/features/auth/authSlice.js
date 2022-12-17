@@ -7,6 +7,7 @@ import {
   signInService,
   signUpService,
   updateUserInfoService,
+  changeBannerService,
 } from './services/auth';
 
 const initialState = {
@@ -89,6 +90,16 @@ export const changeAvatar = createAsyncThunk('auth/changeAvatar', async ({ axios
   }
 });
 
+export const changeBanner = createAsyncThunk('auth/changeBanner', async ({ axiosPrivate, newImageUrl }, thunkAPI) => {
+  try {
+    await changeBannerService(axiosPrivate, newImageUrl);
+    return 'Change banner successfully';
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error?.response?.status);
+  }
+});
+
+//Các reducers để update lại state trong store
 const authSlice = createSlice({
   name: 'auth',
   initialState,

@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classnames from 'classnames';
 import { useRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useState, useImperativeHandle, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import './InputStyle.css';
 
 /* Props
 - type: specify input type
@@ -55,6 +54,7 @@ const Input = forwardRef(
       placeholder,
       style,
       label,
+      alternativeValue,
     },
     ref,
   ) => {
@@ -86,6 +86,15 @@ const Input = forwardRef(
       }
     };
 
+    useEffect(() => {
+      if ((value || alternativeValue) && !stickyLabel) {
+        setStickyLabel(true);
+      }
+      if (!value && !alternativeValue && stickyLabel && !inputRef.current?.value) {
+        setStickyLabel(false);
+      }
+    }, [value, alternativeValue, stickyLabel]);
+
     return (
       // Container
       <div
@@ -112,7 +121,7 @@ const Input = forwardRef(
           type === 'text' && !disabled && 'cursor-text',
 
           // Disabled
-          disabled && 'bg-bg_gray_2 border-br_light_gray border-[1px]',
+          disabled && 'bg-bg_light_gray_2 border-br_light_gray border-[1px]',
         )}
         style={{
           width: width,
@@ -163,8 +172,8 @@ const Input = forwardRef(
             className="absolute px-1 -mx-1 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
             style={{
               backgroundColor: fancyBackgroundColor,
-              top: stickyLabel && '0',
-              fontSize: stickyLabel && '12px',
+              top: (stickyLabel || type === 'date') && '0',
+              fontSize: (stickyLabel || type === 'date') && '12px',
             }}
           >
             {label}

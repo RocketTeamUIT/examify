@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classnames from 'classnames';
 import { useRef } from 'react';
 import { useState, useImperativeHandle, forwardRef } from 'react';
@@ -46,6 +46,7 @@ const TextArea = forwardRef(
       placeholder,
       style,
       label,
+      alternativeValue,
     },
     ref,
   ) => {
@@ -75,11 +76,20 @@ const TextArea = forwardRef(
       }
     };
 
+    useEffect(() => {
+      if ((value || alternativeValue) && !stickyLabel) {
+        setStickyLabel(true);
+      }
+      if (!value && !alternativeValue && stickyLabel && !inputRef.current?.value) {
+        setStickyLabel(false);
+      }
+    }, [value, alternativeValue, stickyLabel]);
+
     return (
       // Container
       <div
         className={classnames(
-          'flex items-center gap-2 p-4 text-lg rounded-lg focus-within:outline focus-within:outline-2 outline-ac_blue relative',
+          'flex items-center gap-2 p-4 text-md rounded-lg focus-within:outline focus-within:outline-2 outline-ac_blue relative',
 
           // Status
           !disabled && {
@@ -95,7 +105,7 @@ const TextArea = forwardRef(
           },
 
           // Disabled
-          disabled && 'bg-bg_gray_2 border-br_light_gray border-[1px]',
+          disabled && 'bg-br_gray_2 border-br_light_gray border-[1px]',
         )}
         style={{
           width: width,
