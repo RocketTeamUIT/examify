@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import Breadcrumb, { BreadcrumbItem } from '../Breadcrumb';
 
 const THREE_ITEM = ['IELTS Fundamentals', 'Past tenses 1...', 'Hiện tại'];

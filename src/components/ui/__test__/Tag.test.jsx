@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Tag from '../Tag';
 import { convertHexToRGBA } from '../../../utils/formatCurrency';

@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import ActionsList, { ActionItem } from '../ActionsList';
 
 const THREE_ITEM = [
