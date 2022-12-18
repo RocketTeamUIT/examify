@@ -19,17 +19,22 @@ const COLORS = {
   purple: '#531dab',
 };
 
-const Tip = ({ children, color }) => {
+const Tip = ({ children, color = 'green' }) => {
   // Check validity of color
   const checkColor = COLORS[color] === undefined ? color : COLORS[color];
 
   return (
-    <div className="flex flex-col items-start">
+    // Container
+    <div role="note" className="flex flex-col items-start">
       <div
         className={`py-3 px-4 rounded-lg flex items-center relative overflow-hidden tip-overlay`}
         style={{ '--bg': checkColor }}
       >
-        <AiOutlineExclamationCircle className="text-[20px] mr-2 flex-shrink-0" style={{ color: checkColor }} />
+        <AiOutlineExclamationCircle
+          title="icon"
+          className="text-[20px] mr-2 flex-shrink-0"
+          style={{ color: checkColor }}
+        />
         <span style={{ color: checkColor }}>{children}</span>
       </div>
     </div>
@@ -37,7 +42,7 @@ const Tip = ({ children, color }) => {
 };
 
 Tip.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.string.isRequired,
   color: PropTypes.string,
 };
 
