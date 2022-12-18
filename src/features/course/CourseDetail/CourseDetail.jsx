@@ -19,7 +19,9 @@ import { qualityUs } from '../../../data/constants';
 import Container from '../../../layouts/components/Container';
 import { useParams } from 'react-router-dom';
 import useComments from './hooks/useComments';
-import useCourseDetail from '../hooks/useCourseDetail';
+import { useSelector } from 'react-redux';
+import isEmptyObject from '../../../utils/isEmptyObject';
+import useFetchCourse from '../../../hooks/useFetchCourse';
 
 function CourseDetail() {
   const { courseId } = useParams();
@@ -34,7 +36,10 @@ function CourseDetail() {
     setSelectedPage,
     getComments,
   } = useComments(courseId);
-  const { courseDetail } = useCourseDetail(courseId);
+  useFetchCourse();
+  const { courseDetail } = useSelector((store) => store.course);
+
+  if (isEmptyObject(courseDetail)) return null;
 
   return (
     <div className="mb-20">

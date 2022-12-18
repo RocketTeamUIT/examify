@@ -64,7 +64,7 @@ const NoteItem = ({ note, seq }) => {
       </header>
 
       {/* NOTE CONTENT */}
-      <div className="px-4 py-6 bg-bg_light_gray rounded-xl text-t_dark mt-4">
+      <div className="px-4 py-6 bg-bg_light_gray rounded-xl text-t_dark mt-4 break-words">
         {note.note.split('\n').map((s, i) => (
           <span key={i}>
             {s}

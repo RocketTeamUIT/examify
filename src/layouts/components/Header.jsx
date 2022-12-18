@@ -1,9 +1,9 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg';
 import { BiSearch } from 'react-icons/bi';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { AutoComplete, Button } from '../../components/ui';
+import { AutoComplete, Button, Tag } from '../../components/ui';
 import { useState } from 'react';
 import classNames from 'classnames';
 import { useSpring, animated } from 'react-spring';
@@ -12,6 +12,7 @@ import Avatar from './Avatar';
 import debounce from '../../utils/debounce';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import { searchCourseService } from '../../features/course/services/course';
+import { printPrice } from '../../utils/formatCurrency';
 
 const NAVIGATION_LIST = [
   ['Khoá học', '/courses'],
@@ -26,6 +27,32 @@ const initialStyles = {
   top: '50px',
 };
 
+const SearchItem = ({ course }) => {
+  return (
+    <Link
+      to={`/courses/${course.id}/detail`}
+      className="flex gap-4 hover:bg-bg_light_gray -m-1 p-3 rounded-lg cursor-pointer"
+    >
+      <div className="flex">
+        <img src={course.image} alt={course.name} className="rounded-lg w-20 aspect-[5/4] m-auto" />
+      </div>
+      <div className="text-md flex-1 flex flex-col justify-between">
+        <p className="font-bold">{course.name}</p>
+        <div className="flex items-center justify-between">
+          <p className="text-ac_green">+{course.pointReward} điểm</p>
+          {course.isJoin ? (
+            <Tag color="green">đã tham gia</Tag>
+          ) : course.charges ? (
+            <p className="text-ac_red">{printPrice(course.price)}đ</p>
+          ) : (
+            <p className="text-primary">{course.pointToUnlock} điểm</p>
+          )}
+        </div>
+      </div>
+    </Link>
+  );
+};
+
 const Header = () => {
   const [search, setSearch] = useState('');
   const [options, setOptions] = useState([]);
@@ -38,8 +65,8 @@ const Header = () => {
     () =>
       debounce(async (value) => {
         try {
-          const response = searchCourseService(axiosPrivate, value);
-          console.log('🚀 ~ file: Header.jsx:42 ~ debounce ~ response', response);
+          const response = await searchCourseService(axiosPrivate, value, 5);
+          setOptions(response.data.data);
         } catch (error) {
           console.log('🚀 ~ file: Header.jsx:40 ~ fetchSearch ~ error', error);
         }
@@ -91,15 +118,11 @@ const Header = () => {
           leftIcon={<BiSearch className="w-5 h-5" />}
         >
           <ul>
-            {options.map((opt, i) => (
-              <li
-                key={i}
-                className="-mx-2 px-3 py-1 hover:bg-bg_light_gray_3 transition rounded-lg cursor-pointer"
-                onClick={() => setSearch(opt.text)}
-              >
-                {opt.text}
-              </li>
-            ))}
+            {options.length > 0 ? (
+              options.map((opt, i) => <SearchItem key={i} course={opt} />)
+            ) : (
+              <span className="text-md">Không tìm thấy kết quả nào</span>
+            )}
           </ul>
         </AutoComplete>
       </div>
@@ -152,15 +175,11 @@ const Header = () => {
               leftIcon={<BiSearch className="w-5 h-5" />}
             >
               <ul>
-                {options.map((opt, i) => (
-                  <li
-                    key={i}
-                    className="-mx-2 px-3 py-1 hover:bg-bg_light_gray_3 transition rounded-lg cursor-pointer"
-                    onClick={() => setSearch(opt.text)}
-                  >
-                    {opt.text}
-                  </li>
-                ))}
+                {options.length > 0 ? (
+                  options.map((opt, i) => <SearchItem key={i} course={opt} />)
+                ) : (
+                  <span className="text-md">Không tìm thấy kết quả nào</span>
+                )}
               </ul>
             </AutoComplete>
           </div>

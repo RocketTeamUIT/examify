@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // Some encourage sentences
 const BestWishes = () => {
   return (
-    <div className="text-md text-t_dark mt-20">
+    <div className="text text-t_dark mt-20">
       <p>
         Tham gia nhiều khóa học chất lượng tại{' '}
         <Link to="/" className="font-semibold text-primary underline">

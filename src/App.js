@@ -2,17 +2,14 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRouters } from './routes';
 import { DefaultLayout } from './layouts';
-import { useSelector } from 'react-redux';
 import SuspenseLayout from './layouts/SuspenseLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
-  const { isLoading } = useSelector((store) => store.auth);
-
   return (
     <Router>
-      <SuspenseLayout isLoading={isLoading}>
+      <SuspenseLayout>
         {/* App */}
         <div className="bg-bg_white">
           <Routes>

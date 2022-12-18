@@ -23,10 +23,11 @@ export const getChapterService = (axiosPrivate, chapterId, depth = 3) => {
   });
 };
 
-export const searchCourseService = (axiosPrivate, searchValue) => {
+export const searchCourseService = (axiosPrivate, searchValue, limit) => {
   return axiosPrivate.get(`/courses/search`, {
     params: {
-      q: searchValue,
+      key: searchValue,
+      limit,
     },
   });
 };
@@ -48,5 +49,11 @@ export const getPopularCourseService = (axios, limit = 4) => {
     params: {
       limit,
     },
+  });
+};
+
+export const joinLessonService = (axios, lessonId) => {
+  return axios.post('/lessons/join', {
+    lessonId,
   });
 };

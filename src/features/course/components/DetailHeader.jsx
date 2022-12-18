@@ -4,11 +4,14 @@ import { Button } from '../../../components/ui';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { CreateNote } from '../../note';
+import { AiOutlineQuestionCircle } from 'react-icons/ai';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 /*  props
     - sec: specify seconds to take note (time of the video). Eg: You want to take note at 1:30 of the video, pass sec=90
 */
-const DetailHeader = () => {
+const DetailHeader = ({ title, date, month, year }) => {
   const [isShowing, setShowing] = useState(false);
 
   const hideModal = () => {
@@ -16,13 +19,20 @@ const DetailHeader = () => {
   };
 
   return (
-    <div className="xl:flex items-center justify-between">
+    <div className="xl:flex items-center space-y-4">
       {/* Title & time*/}
-      <div className="mb-6 xl:mb-0">
-        <h4 className="font-semibold text-h4 text-t_dark">Lý thuyết về bất động từ</h4>
-        <p className="text-light text-sm mt-2 text-t_dark">Cập nhật tháng 10 năm 2022</p>
+      <div>
+        <h4 className="font-semibold text-h4 text-t_dark">{title}</h4>
+        <p className="text-light text-sm mt-2 text-t_dark">
+          Cập nhật ngày {date} tháng {month} năm {year}
+        </p>
       </div>
 
+      <AiOutlineQuestionCircle className="text-h4 xl:ml-auto mr-8" id="mark-as-learnt-help" />
+      <Tooltip
+        anchorId="mark-as-learnt-help"
+        content="Bạn cần học ít nhất 1 phút hoặc xem ít nhất 80% video để công nhận là hoàn thành bài học"
+      />
       {/* Note */}
       <Button
         type="default"
