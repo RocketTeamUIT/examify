@@ -144,7 +144,7 @@ function UserProfile() {
                 <p className="mt-1 text-h4 text-t_dark font-bold">
                   {user.firstName} {user.lastName}
                 </p>
-                <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank}</p>
+                <p className="text-h6 text-t_light_gray_2 font-medium">'rank'</p>
               </div>
             </div>
           </div>
