@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* Props
 - color: tag color. By default, background-opacity is set to 0.2
@@ -18,12 +19,13 @@ const COLORS = {
   purple: '#531dab',
 };
 
-const Tag = ({ children, color, icon }) => {
+const Tag = ({ children, color = 'volcano', icon }) => {
   // Check validity of color
   const checkColor = COLORS[color] === undefined ? color : COLORS[color];
 
   return (
     <div
+      role="presentation"
       className="px-2 py-0.5 rounded-full flex items-center justify-center relative overflow-hidden tag-overlay"
       style={{
         '--bg': checkColor,
@@ -41,6 +43,12 @@ const Tag = ({ children, color, icon }) => {
       </span>
     </div>
   );
+};
+
+Tag.propsTypes = {
+  children: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  icon: PropTypes.node,
 };
 
 export default Tag;
