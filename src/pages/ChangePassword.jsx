@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import authImg from '../assets/auth-page-img.png';
 import logo from '../assets/circle_logo.png';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 const ChangePassword = () => {
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
   const {
     register,
     handleSubmit,
@@ -63,7 +66,12 @@ const ChangePassword = () => {
                 type="password"
                 ref={passwordRef}
                 name={passwordLabel}
-                onChange={passwordOnChange}
+                onChange={
+                  (passwordOnChange,
+                  (e) => {
+                    setPassword(e.target.value);
+                  })
+                }
                 onBlur={passwordOnBlur}
                 fancyOutlined
                 visibilityToggle
@@ -78,7 +86,12 @@ const ChangePassword = () => {
                 type="password"
                 ref={confirmPasswordRef}
                 name={confirmPasswordLabel}
-                onChange={confirmPasswordOnChange}
+                onChange={
+                  (confirmPasswordOnChange,
+                  (e) => {
+                    setConfirmPassword(e.target.value);
+                  })
+                }
                 onBlur={confirmPasswordOnBlur}
                 fancyOutlined
                 visibilityToggle

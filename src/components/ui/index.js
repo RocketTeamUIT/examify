@@ -12,3 +12,4 @@ export { default as Pagination } from './Pagination';
 export { default as TextArea } from './TextArea';
 export { default as Filter } from './Filter';
 export { default as Confirmation } from './Confirmation';
+export { default as MuiTabs } from './MuiTabs';
