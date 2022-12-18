@@ -1,26 +1,20 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import Header from './components/Header';
-import { getCourseDetail } from '../features/course/courseSlice';
+import isEmptyObject from '../utils/isEmptyObject';
+import useFetchCourse from '../hooks/useFetchCourse';
+import LoadingScreen from './components/LoadingScreen';
 
 function FocusLayout({ children }) {
   const { accessToken } = useSelector((store) => store.auth);
   const location = useLocation();
   const { courseId } = useParams();
-  const dispatch = useDispatch();
+  const { courseDetail, isLoading } = useSelector((store) => store.course);
 
-  useEffect(() => {
-    if (accessToken) {
-      dispatch(
-        getCourseDetail({
-          accessToken,
-          courseId,
-        }),
-      );
-    }
-  }, [courseId, accessToken, dispatch]);
+  useFetchCourse();
+
+  if (isLoading) return <LoadingScreen />;
 
   if (!accessToken)
     return (
@@ -39,6 +33,21 @@ function FocusLayout({ children }) {
               đăng nhập
             </Link>{' '}
             để truy cập
+          </h3>
+        </div>
+      </div>
+    );
+
+  if (isEmptyObject(courseDetail) || !courseDetail.isJoin)
+    return (
+      <div>
+        <Header />
+        <div className="h-[calc(100vh-60px)] flex">
+          <h3 className="italic font-semibold m-auto text-center">
+            Bạn chưa đăng ký khoá học này <br />
+            <Link to={`/courses/${courseId}/detail`} className="text-primary underline">
+              Đăng ký ngay
+            </Link>
           </h3>
         </div>
       </div>

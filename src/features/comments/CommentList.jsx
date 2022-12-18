@@ -2,7 +2,6 @@ import React from 'react';
 import { Dropdown, Pagination, Tag } from '../../components/ui';
 import Comment from './Comment';
 import CommentEditor from './CommentEditor';
-import classNames from 'classnames';
 import { useMemo } from 'react';
 
 // comments: comment list
@@ -14,15 +13,11 @@ const CommentList = ({
   totalComments,
   setType,
   reloadComments,
-  colSpan,
   selected,
   setSelected,
   loading,
 }) => {
   const Divider = () => <div className="border-t br_light_gray w-full mt-[6px] mb-[14px]" />;
-  const getColSpan = (span) => {
-    return `lg:col-span-${span} col-span-full`;
-  };
 
   const totalPages = useMemo(() => {
     if (!totalRootComments) return 0;
@@ -31,7 +26,7 @@ const CommentList = ({
 
   return (
     <div className="grid grid-cols-12">
-      <div className={classNames(getColSpan(colSpan))}>
+      <div className="col-span-full xl:col-span-8">
         {/* Header */}
         <div className="flex">
           <h2 className="font-semibold text-h3 relative w-fit mb-8">

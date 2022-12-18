@@ -14,7 +14,7 @@ const COLORS = {
   green: '#389e0d',
   cyan: '#08979c',
   blue: '#096dd9',
-  geek: '1d39c4',
+  geek: '#1d39c4',
   purple: '#531dab',
 };
 

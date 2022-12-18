@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../../../components/ui';
 import { BiHelpCircle } from 'react-icons/bi';
 import { CgNotes } from 'react-icons/cg';
@@ -6,12 +6,18 @@ import { HiArrowNarrowLeft } from 'react-icons/hi';
 import { Link, useParams } from 'react-router-dom';
 import { useMemo } from 'react';
 import CourseTrackChapter from './CourseTrackChapter';
+import Note from '../../note';
 
 const CourseTrack = ({ learnedLesson, totalLesson, name, chapterList }) => {
+  const [showNote, setShowNote] = useState(false);
   const { courseId } = useParams();
   const learnedPercent = useMemo(() => {
     return (learnedLesson || 0) / (totalLesson || 1);
   }, [learnedLesson, totalLesson]);
+
+  const show = () => {
+    setShowNote((prev) => true);
+  };
 
   return (
     <div className="rounded-b-[4px] bg-white h-full">
@@ -46,7 +52,7 @@ const CourseTrack = ({ learnedLesson, totalLesson, name, chapterList }) => {
         </Button>
 
         {/* Button: Note */}
-        <Button type="text" dark unbold className="text-sm" leftIcon={<CgNotes className="text-lg" />}>
+        <Button type="text" dark unbold className="text-sm" leftIcon={<CgNotes className="text-lg" />} onClick={show}>
           Ghi chú
         </Button>
       </div>
@@ -96,6 +102,8 @@ const CourseTrack = ({ learnedLesson, totalLesson, name, chapterList }) => {
           Quay lại khoá học
         </Link>
       </div>
+
+      <Note showing={showNote} setShowing={setShowNote} />
     </div>
   );
 };
