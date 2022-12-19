@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import user from '@testing-library/user-event';
 import ActionsList, { ActionItem } from '../ActionsList';
 
 const THREE_ITEM = [
@@ -83,25 +84,34 @@ describe('ActionList', () => {
 
 describe('ActionItem', () => {
   test('ActionItem render correctly', () => {
-    render(<ActionItem index={0} children={ONE_ITEM[0].name} onAction={ONE_ITEM[0].func} onClick={() => {}} />);
+    const mockFunction = jest.fn();
+
+    render(<ActionItem children={ONE_ITEM[0].name} onClick={mockFunction} />);
     const actionItem = screen.getByRole('listitem');
     expect(actionItem).toBeInTheDocument();
     expect(actionItem).toHaveTextContent(ONE_ITEM[0].name);
   });
 
+  test('Handlers are called', async () => {
+    user.setup();
+    const handleClickItemHandler = jest.fn(); // Mock fn which passed from parent component
+    render(<ActionItem children={ONE_ITEM[0].name} onClick={handleClickItemHandler} />);
+    const actionItem = screen.getByRole('listitem');
+    await user.click(actionItem);
+    expect(handleClickItemHandler).toHaveBeenCalledTimes(1);
+  });
+
   test('ActionItem render with check icon', () => {
-    render(
-      <ActionItem index={0} check={false} children={ONE_ITEM[0].name} onAction={ONE_ITEM[0].func} onClick={() => {}} />,
-    );
+    const mockFunction = jest.fn();
+    render(<ActionItem isActive={true} children={ONE_ITEM[0].name} onClick={mockFunction} />);
     const checkIcon = screen.queryByTitle('icon');
-    expect(checkIcon).not.toBeInTheDocument();
+    expect(checkIcon).toBeInTheDocument();
   });
 
   test('ActionItem render without check icon', () => {
-    render(
-      <ActionItem index={0} check={true} children={ONE_ITEM[0].name} onAction={ONE_ITEM[0].func} onClick={() => {}} />,
-    );
+    const mockFunction = jest.fn();
+    render(<ActionItem isActive={false} children={ONE_ITEM[0].name} onClick={mockFunction} />);
     const checkIcon = screen.queryByTitle('icon');
-    expect(checkIcon).toBeInTheDocument();
+    expect(checkIcon).not.toBeInTheDocument();
   });
 });
