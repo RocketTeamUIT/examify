@@ -48,18 +48,14 @@ export function ActionItem({ children, isActive, onClick: handleOnClick }) {
 }
 
 ActionItem.defaultProps = {
-  check: false,
-  // index: 0,
+  isActive: false,
   onClick: () => {},
-  // onAction: () => {},
 };
 
 ActionItem.propTypes = {
   children: PropTypes.node, // Để node sau này upgrade component này cho dễ
-  check: PropTypes.bool,
-  // index: PropTypes.number,
+  isActive: PropTypes.bool,
   onClick: PropTypes.func,
-  // onAction: PropTypes.func,
 };
 
 ActionsList.defaultProps = {
