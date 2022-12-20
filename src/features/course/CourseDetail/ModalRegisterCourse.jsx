@@ -3,7 +3,8 @@ import { memo } from 'react';
 import { AiOutlineTeam, AiOutlineLaptop } from 'react-icons/ai';
 import { BiBookOpen } from 'react-icons/bi';
 import { MdSlowMotionVideo } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../../../components/ui/Button';
 import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
@@ -14,27 +15,39 @@ import { NOT_ENOUGH_POINTS } from '../services/messages';
 function ModalRegisterCourse({ course }) {
   const [loading, setLoading] = useState(false);
   const axiosPrivate = useAxiosPrivate(true);
+  const { accessToken } = useSelector((store) => store.auth);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   if (!course) return null;
 
   const handleEnrollCourse = async () => {
-    setLoading(true);
-    try {
-      const response = await enrollCourseService(axiosPrivate, course.id);
-      if (response.data.data?.enroll === false) {
-        let toastMessage = '';
-        if (response.data.message === NOT_ENOUGH_POINTS) toastMessage = 'Bạn không đủ điểm';
-        else toastMessage = 'Đăng ký khoá học thất bại';
-        toast.error(toastMessage);
-      } else {
-        toast.success('Đăng ký thành công');
-        window.location.reload();
+    if (accessToken) {
+      console.log('🚀 ~ file: ModalRegisterCourse.jsx:25 ~ handleEnrollCourse ~ accessToken', accessToken);
+      try {
+        setLoading(true);
+        const response = await enrollCourseService(axiosPrivate, course.id);
+        if (response.data.data?.enroll === false) {
+          let toastMessage = '';
+          if (response.data.message === NOT_ENOUGH_POINTS) toastMessage = 'Bạn không đủ điểm';
+          else toastMessage = 'Đăng ký khoá học thất bại';
+          toast.error(toastMessage);
+        } else {
+          toast.success('Đăng ký thành công');
+          window.location.reload();
+        }
+      } catch (error) {
+        toast.error('Lỗi gì đó đã xảy ra');
+        console.log('🚀 ~ file: ModalRegisterCourse.jsx:22 ~ handleEnrollCourse ~ error', error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      toast.error('Lỗi gì đó đã xảy ra');
-      console.log('🚀 ~ file: ModalRegisterCourse.jsx:22 ~ handleEnrollCourse ~ error', error);
-    } finally {
-      setLoading(false);
+    } else {
+      navigate('/signin', {
+        state: {
+          from: location,
+        },
+      });
     }
   };
 

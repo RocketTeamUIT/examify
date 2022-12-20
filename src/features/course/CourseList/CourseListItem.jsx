@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CourseItem from './CourseItem';
 
-function CourseListItem({ grid, listName, listCourse, isNew = false }) {
+function CourseListItem({ list, listName, listCourse, isNew = false }) {
   const navigate = useNavigate();
 
   const handleClickCourse = (course) => {
@@ -18,7 +18,7 @@ function CourseListItem({ grid, listName, listCourse, isNew = false }) {
       {/* List Course */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-8">
         {listCourse?.map((course) => (
-          <CourseItem grid={grid} key={course?.id} course={course} onClick={handleClickCourse} />
+          <CourseItem grid={list} key={course?.id} course={course} onClick={handleClickCourse} />
         ))}
       </div>
     </>

@@ -1,0 +1,43 @@
+import SubNav from '../../../components/ui/SubNav';
+import Container from '../../../layouts/components/Container';
+import bannerImg from '../../../assets/images/courseBanner.png';
+import { Outlet, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+const NAV_LIST = [
+  {
+    name: 'Khám phá',
+    path: '/courses',
+  },
+  {
+    name: 'Khoá học của tôi',
+    path: '/courses/my-courses',
+  },
+];
+
+function CourseList() {
+  const [curr, setCurr] = useState(0);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/courses') setCurr(0);
+    else setCurr(1);
+  }, [location]);
+
+  return (
+    <div className="mb-10">
+      {/* Banner */}
+      <Container className="py-5">
+        <img className="w-full object-cover" src={bannerImg} alt="examify" />
+      </Container>
+
+      {/* Sub Navigation component*/}
+      <SubNav navList={NAV_LIST} initialValue={curr} />
+
+      <Outlet />
+    </div>
+  );
+}
+
+export default CourseList;

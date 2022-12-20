@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react';
 
 const useGrid = () => {
-  const [grid, setGrid] = useState(false);
+  const [list, setList] = useState(false);
 
   useEffect(() => {
-    setGrid(localStorage.getItem('course-grid') === 'true' || false);
+    setList(localStorage.getItem('course-grid') === 'true' || false);
   }, []);
 
-  const toggleGrid = () => {
-    console.log(grid);
-    localStorage.setItem('course-grid', !grid);
-    setGrid((grid) => !grid);
+  const toggleList = () => {
+    localStorage.setItem('course-list', !list);
+    setList((prev) => !prev);
   };
 
-  return { grid, toggleGrid };
+  return { list, toggleList };
 };
 
 export default useGrid;

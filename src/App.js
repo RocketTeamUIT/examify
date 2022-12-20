@@ -34,7 +34,13 @@ const App = () => {
                       <Page />
                     </Layout>
                   }
-                />
+                >
+                  {Array.isArray(route.children) &&
+                    route.children.map((childRoute, index) => {
+                      const SubPage = childRoute.component;
+                      return <Route key={index} path={childRoute.path} element={<SubPage />} />;
+                    })}
+                </Route>
               );
             })}
           </Routes>

@@ -1,7 +1,7 @@
 import config from '../config';
 
 // Layouts
-import { AuthLayout, FocusLayout } from '../layouts';
+import { AuthLayout, DefaultLayout, FocusLayout, UserLayout } from '../layouts';
 
 // Page
 import Home from '../pages/Home';
@@ -20,6 +20,9 @@ import { CourseList, CourseDetail, CourseListChapter } from '../features/course'
 import { Exam } from '../features/exam/components';
 import CourseDetailLesson from '../features/course/CourseDetailLesson';
 import NoRecommendLayout from '../layouts/NoRecommendLayout';
+import { CourseListMe, CourseListSystem } from '../features/course/CourseList';
+import User from '../features/user/User';
+import { UserCourses } from '../features/user';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
@@ -31,13 +34,44 @@ const publicRouters = [
   { path: config.routes.userProfile, component: UserProfile },
 
   // Course
-  { path: config.routes.courseList, component: CourseList, layout: NoRecommendLayout },
+  {
+    path: config.routes.courseList,
+    component: CourseList,
+    layout: NoRecommendLayout,
+    children: [
+      {
+        path: '',
+        component: CourseListSystem,
+      },
+      {
+        path: 'my-courses',
+        component: CourseListMe,
+      },
+    ],
+  },
   { path: config.routes.courseDetail, component: CourseDetail, layout: NoRecommendLayout },
   { path: config.routes.courseListChapter, component: CourseListChapter, layout: FocusLayout },
   {
     path: config.routes.courseLesson,
     component: CourseDetailLesson,
     layout: FocusLayout,
+  },
+
+  // User
+  {
+    path: config.routes.me,
+    component: User,
+    layout: NoRecommendLayout,
+    children: [
+      {
+        path: '',
+        component: UserCourses,
+      },
+      {
+        path: 'exams',
+        component: UserCourses,
+      },
+    ],
   },
 
   // Exam
