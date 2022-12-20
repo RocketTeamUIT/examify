@@ -3,6 +3,7 @@ import { getCourseDetailService } from './services/course';
 
 const initialState = {
   courseDetail: {},
+  totalLearnedLessons: 0,
   // This fetchLessons property might be used for future purposes. (When you want not to fetch detail of all lessons even the user has not enrolled yet)
   fetchLessons: false,
   isLoading: false,
@@ -34,12 +35,16 @@ const courseSlice = createSlice({
     markFetchLessons: (state, action) => {
       state.fetchLessons = action.payload;
     },
+    updateTotalLearnedLessons: (state, action) => {
+      state.totalLearnedLessons = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getCourseDetail.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = false;
       state.courseDetail = action.payload;
+      state.totalLearnedLessons = 0;
     });
 
     const pendingList = [getCourseDetail.pending];
@@ -58,4 +63,4 @@ const courseSlice = createSlice({
 });
 
 export default courseSlice.reducer;
-export const { pending, finish, markFetchLessons } = courseSlice.actions;
+export const { pending, finish, markFetchLessons, updateTotalLearnedLessons } = courseSlice.actions;

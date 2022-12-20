@@ -8,7 +8,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 
-const CourseTrackLesson = ({ lesson, chapterId }) => {
+const CourseTrackLesson = ({ lesson, chapterId, seq }) => {
   const { courseId, lessonId } = useParams();
   const { name, type, completed, id } = lesson;
   const ref = useRef();
@@ -34,16 +34,13 @@ const CourseTrackLesson = ({ lesson, chapterId }) => {
         {type === 2 && <AiFillFileText className="text-t_gray" />}
         {type === 3 && <RiSimCardLine className="text-t_gray" />}
       </div>
-
-      {name}
-
+      {seq}. {name}
       {/* Done/Locked lesson icon */}
       {completed && (
         <div className="ml-auto mr-6 pl-2">
           <IoIosCheckmarkCircle className="w-[25px] h-[25px] text-ac_green" />
         </div>
       )}
-
       {/* Selected lesson blue line */}
       {Number(lessonId) === id && <div className="bg-ac_lighter_blue h-full w-[6px] right-0 absolute"></div>}
     </Link>

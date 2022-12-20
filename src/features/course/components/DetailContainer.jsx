@@ -11,7 +11,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 // You should use this in every detail page in feature course
 const DetailContainer = ({
   children,
-  learnedLesson,
   totalLesson,
   name,
   chapterList,
@@ -95,7 +94,7 @@ const DetailContainer = ({
           !showTrack && 'opacity-0 pointer-events-none',
         )}
       >
-        <CourseTrack learnedLesson={learnedLesson} totalLesson={totalLesson} chapterList={chapterList} name={name} />
+        <CourseTrack totalLesson={totalLesson} chapterList={chapterList} name={name} />
       </div>
 
       {/* Move Lesson Action Bar */}

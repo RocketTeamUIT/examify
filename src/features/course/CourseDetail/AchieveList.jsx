@@ -10,7 +10,11 @@ function AchieveList({ achieve }) {
           <div className="w-[30px] h-[30px] bg-primary flex flex-shrink-0 justify-center rounded-md items-center">
             <span className="text-white">{1}</span>
           </div>
-          <p>{achieve}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: achieve,
+            }}
+          ></div>
         </div>
       </div>
     </>

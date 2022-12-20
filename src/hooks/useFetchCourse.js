@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getCourseDetail } from '../features/course/courseSlice';
+import { getCourseDetail, updateTotalLearnedLessons } from '../features/course/courseSlice';
+import countCompletedLessonsInCourse from '../features/course/utils/countCompletedLessonsInCourse';
 
 const useFetchCourse = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const useFetchCourse = () => {
     const fetchCourses = async () => {
       // DON'T REMOVE THIS LINE
       // dispatch(markFetchLessons(false));
-      dispatch(
+      const response = await dispatch(
         getCourseDetail({
           accessToken,
           courseId,
@@ -30,6 +31,10 @@ const useFetchCourse = () => {
       //   );
       //   dispatch(markFetchLessons(true));
       // }
+      if (response.type === 'course/getCourseDetail/fulfilled') {
+        const totalLearnedLessons = countCompletedLessonsInCourse(response.payload);
+        dispatch(updateTotalLearnedLessons(totalLearnedLessons));
+      }
     };
 
     fetchCourses();
