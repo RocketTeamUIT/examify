@@ -22,6 +22,20 @@ describe('Button', () => {
     expect(handleOnClick).toBeCalledTimes(1);
   });
 
+  test('User hover', async () => {
+    user.setup();
+    const handleOnClick = jest.fn();
+    render(<Button onClick={handleOnClick}>{textButton}</Button>); // Type: primary
+    const buttonElement = screen.getByRole('button');
+    expect(buttonElement).toHaveStyle({
+      backgroundColor: convertHexToRGBA('#2860e1'),
+    });
+    await user.hover(buttonElement);
+    expect(buttonElement).toHaveStyle({
+      backgroundColor: convertHexToRGBA('#2860e1e6'),
+    });
+  });
+
   describe('Button with default props', () => {
     test('Default bold props', () => {
       render(<Button>{textButton}</Button>);
