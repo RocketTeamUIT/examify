@@ -1,7 +1,7 @@
 import React from 'react';
 import { BestWishes, DetailHeader } from '../components';
-import ReactMarkdown from 'react-markdown';
 import useCountdown from './hooks/useCountdown';
+import '../../../assets/css/lesson_text.css';
 const LessonText = ({ lesson, callback }) => {
   useCountdown(60, callback);
 
@@ -19,7 +19,12 @@ const LessonText = ({ lesson, callback }) => {
         {/* Lesson Text content */}
         <div className="text-t_gray mt-4">{lesson.description}</div>
         <div className="mt-[60px]"></div>
-        <ReactMarkdown>{lesson.text}</ReactMarkdown>
+        <div
+          className="space-y-5 lesson-detail"
+          dangerouslySetInnerHTML={{
+            __html: lesson.text,
+          }}
+        ></div>
 
         <BestWishes />
       </div>

@@ -17,10 +17,10 @@ function Unit({ progress, unit, seq, getPath }) {
 
   const lockItem = () => <LockIcon className="text-[24px] text-gray-400" />;
 
-  if (!unit.lessonList || !unit.lessonList.length) return null;
+  if (!Array.isArray(unit.lessonList)) return null;
 
   return (
-    <Link to={getPath(unit.lessonList[0].id)}>
+    <Link to={getPath(unit.lessonList[0]?.id || '')}>
       <div className="flex items-center justify-between h-[60px] bg-bg_light_gray shadow-md rounded-md px-4">
         <p>
           <span className="text-body-sm md:text-body-md">Chủ đề {seq}: </span>

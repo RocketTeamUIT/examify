@@ -15,7 +15,7 @@ const CourseDetailLesson = () => {
   const { courseId, chapterId, lessonId } = useParams();
   const { courseDetail } = useSelector((store) => store.course);
   const { accessToken } = useSelector((store) => store.auth);
-  const { learnedLesson, totalLesson, name } = courseDetail;
+  const { totalLesson, name } = courseDetail;
   const dispatch = useDispatch();
   const axios = useAxiosWithToken();
 
@@ -55,13 +55,7 @@ const CourseDetailLesson = () => {
   if (isEmptyObject(courseDetail)) return null;
 
   return (
-    <DetailContainer
-      hierarchy={hierarchy}
-      learnedLesson={learnedLesson}
-      totalLesson={totalLesson}
-      name={name}
-      chapterList={courseDetail.chapterList}
-    >
+    <DetailContainer hierarchy={hierarchy} totalLesson={totalLesson} name={name} chapterList={courseDetail.chapterList}>
       {lesson?.type === 1 && <LessonVideo callback={markAsLearnt} lesson={lesson} />}
       {lesson?.type === 2 && <LessonText lesson={lesson} callback={markAsLearnt} />}
       {lesson?.type === 3 && <LessonFlashcard lesson={lesson} callback={markAsLearnt} />}
