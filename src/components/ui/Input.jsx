@@ -137,7 +137,7 @@ const Input = forwardRef(
 
         {/* Real input */}
         <input
-          className="outline-none bg-transparent text-t_dark flex-1 max-w-full overflow-hidden peer"
+          className="outline-none bg-transparent flex-1 max-w-full overflow-hidden peer"
           disabled={disabled}
           value={value}
           type={currentType}
@@ -149,6 +149,7 @@ const Input = forwardRef(
           placeholder={fancyOutlined ? undefined : placeholder}
           style={{
             ...style,
+            color: disabled ? '#A9A7AC' : '#333333',
           }}
         />
 
@@ -169,7 +170,7 @@ const Input = forwardRef(
         {/* Label */}
         {fancyOutlined && (
           <label
-            className="absolute px-1 -mx-1 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
+            className="absolute text-t_light_gray_2 px-1 -mx-1 peer-focus:top-0 peer-focus:text-sm top-1/2 -translate-y-1/2 transition-all"
             style={{
               backgroundColor: fancyBackgroundColor,
               top: (stickyLabel || type === 'date') && '0',
