@@ -27,7 +27,7 @@ function ChangePasswordPanel() {
     dispatch(
       changePassword({
         axiosPrivate,
-        oldPassword: value.oldPassword,
+        oldPassword: '',
         newPassword: value.password,
       }),
     );
@@ -37,20 +37,6 @@ function ChangePasswordPanel() {
   return (
     <div className="flex flex-col justify-between">
       <form className="flex flex-col md:px-5 lg:px-10 py-8" onSubmit={handleSubmit(handleDataForm)}>
-        <div className="mt-2">
-          <Input
-            label="Mật khẩu cũ"
-            type="password"
-            {...register('oldPassword')}
-            alternativeValue={value.oldPassword}
-            onChange={(e) => setValue('oldPassword', e.target.value)}
-            fancyOutlined
-            visibilityToggle
-            status={errors.password?.message ? 'error' : ''}
-          />
-          <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
-        </div>
-
         <div className="mt-11">
           <Input
             label="Mật khẩu mới"
