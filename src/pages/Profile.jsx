@@ -33,7 +33,7 @@ function Profile() {
       setValue('firstName', user.firstName);
       setValue('lastName', user.lastName);
       setValue('dateOfBirth', moment(user.dateOfBirth).format('YYYY-MM-DD'));
-      setValue('phoneNumber', user.phoneNumber);
+      setValue('phoneNumber', user.phoneNumber ? user.phoneNumber : '');
       setValue('description', user.description);
     }
   }, [user]);
@@ -62,6 +62,7 @@ function Profile() {
     }
 
     setValue('description', e.target.value);
+    window.location.reload();
   };
 
   return (
