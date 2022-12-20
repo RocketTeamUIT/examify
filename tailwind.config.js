@@ -44,6 +44,14 @@ module.exports = {
       maxWidth: {
         primary: '1440px',
       },
+      keyframes: {
+        ping: {
+          '75%, 100%': {
+            transform: 'scale(2)',
+            opacity: '0',
+          },
+        },
+      },
       colors: {
         // Primary
         primary: '#0E46C7',

@@ -13,7 +13,7 @@ import {
 const initialState = {
   user: {},
   accessToken: '',
-  isLoading: false,
+  isLoading: true,
   error: '',
 };
 

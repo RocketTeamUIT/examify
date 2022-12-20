@@ -1,51 +1,44 @@
-import { useEffect, useMemo, useState } from 'react';
-import useAxiosPrivate from './useAxiosPrivate';
-import { getAllCoursesService } from '../features/course/services/course';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getCourseDetail, updateTotalLearnedLessons } from '../features/course/courseSlice';
+import countCompletedLessonsInCourse from '../features/course/utils/countCompletedLessonsInCourse';
 
 const useFetchCourse = () => {
-  const axiosPrivate = useAxiosPrivate(true);
-  const [courses, setCourses] = useState([]);
-
-  const filterCourses = useMemo(() => {
-    const chargeCourses = [];
-    const basicCourses = [];
-    const generalCourses = [];
-    const advanceCourses = [];
-
-    courses.forEach((course) => {
-      if (course.charges) chargeCourses.push(course);
-
-      switch (course.level) {
-        case 'basic':
-          basicCourses.push(course);
-          break;
-        case 'general':
-          generalCourses.push(course);
-          break;
-        case 'advance':
-          advanceCourses.push(course);
-          break;
-        default:
-          break;
-      }
-    });
-
-    return { chargeCourses, basicCourses, generalCourses, advanceCourses };
-  }, [courses]);
+  const dispatch = useDispatch();
+  const { accessToken } = useSelector((store) => store.auth);
+  const { courseId } = useParams();
 
   useEffect(() => {
     const fetchCourses = async () => {
-      try {
-        const response = await getAllCoursesService(axiosPrivate);
-        setCourses(response.data.data);
-      } catch (error) {
-        console.log('🚀 ~ file: index.jsx:27 ~ fetchCourses ~ error', error);
+      // DON'T REMOVE THIS LINE
+      // dispatch(markFetchLessons(false));
+      const response = await dispatch(
+        getCourseDetail({
+          accessToken,
+          courseId,
+          depth: 4,
+        }),
+      );
+      // DON'T REMOVE THESE LINES
+      // if (response.type === 'course/getCourseDetail/fulfilled' && response.payload.isJoin) {
+      //   await dispatch(
+      //     getCourseDetail({
+      //       accessToken,
+      //       courseId,
+      //       depth: 4,
+      //     }),
+      //   );
+      //   dispatch(markFetchLessons(true));
+      // }
+      if (response.type === 'course/getCourseDetail/fulfilled') {
+        const totalLearnedLessons = countCompletedLessonsInCourse(response.payload);
+        dispatch(updateTotalLearnedLessons(totalLearnedLessons));
       }
     };
-    fetchCourses();
-  }, [axiosPrivate]);
 
-  return filterCourses;
+    fetchCourses();
+  }, [courseId, accessToken, dispatch]);
 };
 
 export default useFetchCourse;

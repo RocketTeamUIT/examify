@@ -4,7 +4,7 @@ import CourseListItem from './CourseListItem';
 import Container from '../../../layouts/components/Container';
 import { Filter } from '../../../components/ui';
 import bannerImg from '../../../assets/images/courseBanner.png';
-import useFetchCourse from '../../../hooks/useFetchCourse';
+import useFetchCourse from './hooks/useFetchAllCourse';
 import useGrid from './hooks/useGrid';
 import { useState } from 'react';
 

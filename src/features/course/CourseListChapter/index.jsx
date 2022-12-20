@@ -6,19 +6,23 @@ import useCourseDetail from '../hooks/useCourseDetail';
 import Container from '../../../layouts/components/Container';
 import useFetchLearnedLessonsInWeek from './hooks/useFetchLearnedLessonsInWeek';
 import useFetchUncompletedUnit from './hooks/useFetchUncompletedUnit';
-
+import CourseProgress from './CourseProgress';
+import isEmptyObject from '../../../utils/isEmptyObject';
+import countCompletedLessonsInCourse from '../utils/countCompletedLessonsInCourse';
 function CourseListChapter() {
   const { courseId } = useParams();
   const { courseDetail } = useCourseDetail(courseId, false);
   const { learnedLessons } = useFetchLearnedLessonsInWeek();
   const { uncompletedLessons } = useFetchUncompletedUnit();
 
-  if (!courseDetail || !learnedLessons) return null;
+  if (isEmptyObject(courseDetail) || !learnedLessons) return null;
 
   const { name, chapterList } = courseDetail;
   const flashcardLessonQnt = Number(learnedLessons.flashcardLessonQnt);
   const textLessonQnt = Number(learnedLessons.textLessonQnt);
   const videoLessonQnt = Number(learnedLessons.videoLessonQnt);
+
+  const progress = Math.floor((countCompletedLessonsInCourse(courseDetail) * 100) / courseDetail.totalLesson) || 0;
 
   return (
     <div>
@@ -33,6 +37,7 @@ function CourseListChapter() {
           <h3 className="text-body-lg text-center md:text-h3 font-semibold">{name}</h3>
 
           <div className="text-body-sm md:text-body-md mt-10">
+            <CourseProgress className="mb-6" progress={progress} />
             <b className="text-primary">Tuần này bạn đã học: </b>
             <p className="inline separate-with-comma">
               {videoLessonQnt === 0 && textLessonQnt === 0 && flashcardLessonQnt === 0 && '0 bài'}
