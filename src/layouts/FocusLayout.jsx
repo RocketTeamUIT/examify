@@ -4,15 +4,12 @@ import { Link, useParams } from 'react-router-dom';
 import Header from './components/Header';
 import isEmptyObject from '../utils/isEmptyObject';
 import useFetchCourse from '../hooks/useFetchCourse';
-import LoadingScreen from './components/LoadingScreen';
 
 function FocusLayout({ children }) {
   const { courseId } = useParams();
-  const { courseDetail, isLoading } = useSelector((store) => store.course);
+  const { courseDetail } = useSelector((store) => store.course);
 
   useFetchCourse();
-
-  if (isLoading) return <LoadingScreen />;
 
   if (isEmptyObject(courseDetail) || !courseDetail.isJoin)
     return (
