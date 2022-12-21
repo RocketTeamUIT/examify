@@ -13,6 +13,9 @@ const routes = {
   courseListChapter: '/courses/:courseId/detail/list-chapter',
   courseLesson: '/courses/:courseId/detail/list-chapter/:chapterId/lesson/:lessonId', // Để tạm
 
+  // User
+  me: '/me',
+
   // Exam
   exam: '/exams',
   // Flashcard

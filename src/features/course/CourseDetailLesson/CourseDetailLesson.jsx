@@ -36,10 +36,11 @@ const CourseDetailLesson = () => {
     if (!chapter) return;
     return [
       <Link to={`/courses`}>Khoá học</Link>,
-      <Link to={`/courses/${courseDetail.id}/detail/list-chapter`}>{courseDetail.name}</Link>,
+      <Link to={`/courses/${courseId}/detail`}>{courseDetail.name}</Link>,
+      <Link to={`/courses/${courseDetail.id}/detail/list-chapter`}>Chi tiết học tập</Link>,
       chapter.name,
     ];
-  }, [courseDetail, chapter]);
+  }, [courseDetail, chapter, courseId]);
 
   const lesson = useMemo(() => {
     let foundLesson = {};

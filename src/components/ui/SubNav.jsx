@@ -23,11 +23,15 @@ import { useEffect } from 'react';
       {name: 'abc', path='/course'}
     ]
 */
-function SubNav({ navList, scroll }) {
+function SubNav({ navList, scroll, noShadow, initialValue }) {
   const [isShowNav, setShowNav] = useState(false);
   const [curr, setCurr] = useState(0);
   const ref = useRef();
   const triggerRef = useRef();
+
+  useEffect(() => {
+    setCurr(initialValue || 0);
+  }, [initialValue]);
 
   useClickOutside(ref, triggerRef, () => {
     setShowNav(false);
@@ -46,7 +50,7 @@ function SubNav({ navList, scroll }) {
   };
 
   return (
-    <Container className="shadow-sd_primary relative" overflowVisible>
+    <Container className={classNames('relative', !noShadow && 'shadow-sd_primary')} overflowVisible>
       <div className="h-[40px] md:h-[60px]">
         <div className="relative md:hidden flex items-center h-full">
           <div ref={triggerRef} className="cursor-pointer">
@@ -54,9 +58,11 @@ function SubNav({ navList, scroll }) {
           </div>
           <div
             ref={ref}
-            className={`${
-              isShowNav ? 'flex' : 'hidden'
-            } flex-col  absolute bg-white text-body-sm px-4 py-2 z-10 left-0 top-8 shadow-sd_primary rounded-md min-w-[200px]`}
+            className={classNames(
+              'flex-col absolute bg-white text-body-sm px-4 py-2 z-10 left-0 top-8 rounded-md min-w-[200px]',
+              isShowNav ? 'flex' : 'hidden',
+              !noShadow ? 'shadow-sd_primary' : 'lg:shadow-none shadow-sd_primary',
+            )}
           >
             {(navList || []).map((nav, index) => (
               <Link

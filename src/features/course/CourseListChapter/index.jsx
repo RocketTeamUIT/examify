@@ -9,6 +9,7 @@ import useFetchUncompletedUnit from './hooks/useFetchUncompletedUnit';
 import CourseProgress from './CourseProgress';
 import isEmptyObject from '../../../utils/isEmptyObject';
 import countCompletedLessonsInCourse from '../utils/countCompletedLessonsInCourse';
+import { useMemo } from 'react';
 function CourseListChapter() {
   const { courseId } = useParams();
   const { courseDetail } = useCourseDetail(courseId, false);
@@ -24,13 +25,19 @@ function CourseListChapter() {
 
   const progress = Math.floor((countCompletedLessonsInCourse(courseDetail) * 100) / courseDetail.totalLesson) || 0;
 
+  const hierarchy = [
+    <Link to={`/courses`}>Khoá học</Link>,
+    <Link to={`/courses/${courseId}/detail`}>{courseDetail.name}</Link>,
+    'Chi tiết học tập',
+  ];
+
   return (
     <div>
       {/* Main content Page */}
       <Container className="lg:flex mb-20">
         {/* Breadcrumb component */}
         <div className="pt-8">
-          <Breadcrumb hierarchy={[<Link to={`/courses`}>Khoá học</Link>, name]} />
+          <Breadcrumb hierarchy={hierarchy} />
         </div>
 
         <div className="mt-10 md:mt-20">

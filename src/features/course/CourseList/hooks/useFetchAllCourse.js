@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
-import useAxiosPrivate from '../../../../hooks/useAxiosPrivate';
+import { useSelector } from 'react-redux';
+import useAxiosWithToken from '../../../../hooks/useAxiosWithToken';
 import { getAllCoursesService } from '../../services/course';
 
-const useFetchCourse = () => {
-  const axiosPrivate = useAxiosPrivate(true);
+const useFetchAllCourse = () => {
   const [courses, setCourses] = useState([]);
+  const { accessToken } = useSelector((store) => store.auth);
+  const axiosWithToken = useAxiosWithToken();
 
   const filterCourses = useMemo(() => {
     const chargeCourses = [];
@@ -36,16 +38,16 @@ const useFetchCourse = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await getAllCoursesService(axiosPrivate);
+        const response = await getAllCoursesService(axiosWithToken);
         setCourses(response.data.data);
       } catch (error) {
         console.log('🚀 ~ file: index.jsx:27 ~ fetchCourses ~ error', error);
       }
     };
     fetchCourses();
-  }, [axiosPrivate]);
+  }, [axiosWithToken, accessToken]);
 
   return filterCourses;
 };
 
-export default useFetchCourse;
+export default useFetchAllCourse;
