@@ -74,7 +74,6 @@ const CourseDetailLesson = () => {
 
   const onScroll = (e) => {
     const bottom = e.target.scrollHeight - e.target.scrollTop - 100 <= e.target.clientHeight;
-    console.log(e.target.scrollHeight - e.target.scrollTop - 100);
     if (bottom && !reachBottom) {
       setReachBottom(true);
     }
