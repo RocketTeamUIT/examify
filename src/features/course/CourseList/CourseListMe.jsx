@@ -4,7 +4,7 @@ import { UserCourses } from '../../user';
 
 const CourseListMe = () => {
   return (
-    <Container className="mt-4">
+    <Container>
       <UserCourses />
     </Container>
   );

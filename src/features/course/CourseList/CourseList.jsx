@@ -4,21 +4,30 @@ import bannerImg from '../../../assets/images/courseBanner.png';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-
-const NAV_LIST = [
-  {
-    name: 'Khám phá',
-    path: '/courses',
-  },
-  {
-    name: 'Khoá học của tôi',
-    path: '/courses/my-courses',
-  },
-];
+import { useSelector } from 'react-redux';
 
 function CourseList() {
   const [curr, setCurr] = useState(0);
   const location = useLocation();
+  const { accessToken } = useSelector((store) => store.auth);
+
+  const NAV_LIST = accessToken
+    ? [
+        {
+          name: 'Khám phá',
+          path: '/courses',
+        },
+        {
+          name: 'Khoá học của tôi',
+          path: '/courses/my-courses',
+        },
+      ]
+    : [
+        {
+          name: 'Khám phá',
+          path: '/courses',
+        },
+      ];
 
   useEffect(() => {
     if (location.pathname === '/courses') setCurr(0);

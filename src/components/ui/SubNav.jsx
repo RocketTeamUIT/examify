@@ -1,6 +1,6 @@
 // This Navbar is placehoder component:
 
-import { Fragment, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { BiMenu } from 'react-icons/bi';
 import { memo } from 'react';
 import Container from '../../layouts/components/Container';
@@ -23,7 +23,7 @@ import { useEffect } from 'react';
       {name: 'abc', path='/course'}
     ]
 */
-function SubNav({ navList, scroll, noShadow, noPadding, initialValue }) {
+function SubNav({ navList, scroll, noShadow, initialValue }) {
   const [isShowNav, setShowNav] = useState(false);
   const [curr, setCurr] = useState(0);
   const ref = useRef();
@@ -49,16 +49,8 @@ function SubNav({ navList, scroll, noShadow, noPadding, initialValue }) {
     }
   };
 
-  let MainContainer = noPadding ? Fragment : Container;
-  let props = noPadding
-    ? {}
-    : {
-        className: classNames('relative', !noShadow && 'shadow-sd_primary'),
-        overflowVisible: true,
-      };
-
   return (
-    <MainContainer {...props}>
+    <Container className={classNames('relative', !noShadow && 'shadow-sd_primary')} overflowVisible>
       <div className="h-[40px] md:h-[60px]">
         <div className="relative md:hidden flex items-center h-full">
           <div ref={triggerRef} className="cursor-pointer">
@@ -69,7 +61,7 @@ function SubNav({ navList, scroll, noShadow, noPadding, initialValue }) {
             className={classNames(
               'flex-col absolute bg-white text-body-sm px-4 py-2 z-10 left-0 top-8 rounded-md min-w-[200px]',
               isShowNav ? 'flex' : 'hidden',
-              !noShadow && 'shadow-sd_primary',
+              !noShadow ? 'shadow-sd_primary' : 'lg:shadow-none shadow-sd_primary',
             )}
           >
             {(navList || []).map((nav, index) => (
@@ -114,7 +106,7 @@ function SubNav({ navList, scroll, noShadow, noPadding, initialValue }) {
           )}
         </div>
       </div>
-    </MainContainer>
+    </Container>
   );
 }
 

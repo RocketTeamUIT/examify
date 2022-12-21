@@ -5,6 +5,7 @@ import { DefaultLayout } from './layouts';
 import SuspenseLayout from './layouts/SuspenseLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivateLayout from './layouts/PrivateLayout';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             {publicRouters.map((route, index) => {
               let Layout;
               const Page = route.component;
+              const MainPrivateLayout = route.privateRoute ? PrivateLayout : Fragment;
 
               if (route.layout === null) {
                 Layout = Fragment;
@@ -30,15 +32,29 @@ const App = () => {
                   key={index}
                   path={route.path}
                   element={
-                    <Layout>
-                      <Page />
-                    </Layout>
+                    <MainPrivateLayout>
+                      <Layout>
+                        <Page />
+                      </Layout>
+                    </MainPrivateLayout>
                   }
                 >
                   {Array.isArray(route.children) &&
                     route.children.map((childRoute, index) => {
+                      const ChildPrivateLayout = childRoute.privateRoute ? PrivateLayout : Fragment;
+                      const props = childRoute.privateRoute ? { excludeFooter: true, excludeHeader: true } : {};
                       const SubPage = childRoute.component;
-                      return <Route key={index} path={childRoute.path} element={<SubPage />} />;
+                      return (
+                        <Route
+                          key={index}
+                          path={childRoute.path}
+                          element={
+                            <ChildPrivateLayout {...props}>
+                              <SubPage />
+                            </ChildPrivateLayout>
+                          }
+                        />
+                      );
                     })}
                 </Route>
               );

@@ -1,7 +1,7 @@
 import config from '../config';
 
 // Layouts
-import { AuthLayout, DefaultLayout, FocusLayout, UserLayout } from '../layouts';
+import { AuthLayout, FocusLayout } from '../layouts';
 
 // Page
 import Home from '../pages/Home';
@@ -31,7 +31,7 @@ const publicRouters = [
   { path: config.routes.signup, component: Signup, layout: AuthLayout },
   { path: config.routes.forgetPassword, component: ForgetPassword, layout: AuthLayout },
   { path: config.routes.changePassword, component: ChangePassword, layout: AuthLayout },
-  { path: config.routes.userProfile, component: UserProfile },
+  { path: config.routes.userProfile, component: UserProfile, privateRoute: true },
 
   // Course
   {
@@ -46,15 +46,17 @@ const publicRouters = [
       {
         path: 'my-courses',
         component: CourseListMe,
+        privateRoute: true,
       },
     ],
   },
   { path: config.routes.courseDetail, component: CourseDetail, layout: NoRecommendLayout },
-  { path: config.routes.courseListChapter, component: CourseListChapter, layout: FocusLayout },
+  { path: config.routes.courseListChapter, component: CourseListChapter, layout: FocusLayout, privateRoute: true },
   {
     path: config.routes.courseLesson,
     component: CourseDetailLesson,
     layout: FocusLayout,
+    privateRoute: true,
   },
 
   // User
@@ -62,6 +64,7 @@ const publicRouters = [
     path: config.routes.me,
     component: User,
     layout: NoRecommendLayout,
+    privateRoute: true,
     children: [
       {
         path: '',

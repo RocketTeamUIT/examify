@@ -3,21 +3,44 @@ import { memo } from 'react';
 import { AiOutlineTeam, AiOutlineLaptop } from 'react-icons/ai';
 import { BiBookOpen } from 'react-icons/bi';
 import { MdSlowMotionVideo } from 'react-icons/md';
-import { useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Button from '../../../components/ui/Button';
 import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 import { printPrice, convertTimeHours, convertTimeMinutes } from '../../../utils/formatCurrency';
+import Rating, { RatingModal } from '../../rating';
+import { getCourseDetail } from '../courseSlice';
 import { enrollCourseService } from '../services/course';
 import { NOT_ENOUGH_POINTS } from '../services/messages';
 
 function ModalRegisterCourse({ course }) {
   const [loading, setLoading] = useState(false);
+  const [hover, setHover] = useState(false);
+  const { courseId } = useParams();
+  const { initialRating, isEdit } = useSelector((store) => store.rating);
+  const [showingRating, setShowingRating] = useState(false);
   const axiosPrivate = useAxiosPrivate(true);
   const { accessToken } = useSelector((store) => store.auth);
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  const onMouseEnter = () => {
+    setHover(true);
+  };
+
+  const onMouseLeave = () => {
+    setHover(false);
+  };
+
+  const showRating = () => {
+    setShowingRating((prev) => true);
+  };
+
+  const hideRating = () => {
+    setShowingRating((prev) => false);
+  };
 
   if (!course) return null;
 
@@ -34,7 +57,7 @@ function ModalRegisterCourse({ course }) {
           toast.error(toastMessage);
         } else {
           toast.success('Đăng ký thành công');
-          window.location.reload();
+          dispatch(getCourseDetail({ accessToken, courseId }));
         }
       } catch (error) {
         toast.error('Lỗi gì đó đã xảy ra');
@@ -51,16 +74,16 @@ function ModalRegisterCourse({ course }) {
     }
   };
 
+  const RatingButton = () => {
+    if (isEdit && !hover) return <Rating rating={initialRating} width="w-6" height="h-6" />;
+    return !isEdit ? 'Đánh giá khoá học' : 'Chỉnh sửa đánh giá';
+  };
+
   return (
     <div className="bg-white border-br_gray border-2 rounded-md lg:border-none lg:shadow-xl overflow-hidden">
       {/* Course image */}
       <img className="w-full object-cover aspect-[3/2]" src={course.image} alt={course.name} />
       <div className="px-5 py-4">
-        {/* course voucher */}
-        <h3 className="font-medium text-body-sm pt-4 md:text-body-md xl:text-body-lg">
-          Ưu đãi cho bạn trong tháng 10/2022
-        </h3>
-
         {/* course price */}
         <div className="flex justify-between items-center mt-3">
           {course.charges ? (
@@ -89,9 +112,19 @@ function ModalRegisterCourse({ course }) {
 
         {/* Button Contact*/}
         <div className="mb-4 mt-2">
-          <Button type="default" width="100%">
-            Nhận tư vấn miễn phí
-          </Button>
+          {course.isJoin ? (
+            <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+              <Button type="default" width="100%" onClick={showRating}>
+                <RatingButton />
+              </Button>
+            </div>
+          ) : (
+            <a target="_blank" rel="noreferrer" href="https://facebook.com/hdatdragon2849">
+              <Button type="default" width="100%">
+                Nhận tư vấn miễn phí
+              </Button>
+            </a>
+          )}
         </div>
 
         {/* Divider */}
@@ -127,6 +160,8 @@ function ModalRegisterCourse({ course }) {
           </div>
         </div>
       </div>
+
+      <RatingModal isShowing={showingRating} hide={hideRating} />
     </div>
   );
 }
