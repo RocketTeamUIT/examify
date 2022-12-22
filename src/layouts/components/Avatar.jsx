@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logOut } from '../../features/auth/authSlice';
 import useClickOutside from '../../hooks/useClickOutside';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
@@ -46,7 +46,9 @@ const Avatar = ({ avt, lastName, firstName, email }) => {
           </Link>
 
           <Divider />
-          <li className="hover:font-semibold hover:text-t_dark cursor-pointer px-6">Khoá học của tôi</li>
+          <Link to="/me">
+            <li className="hover:font-semibold hover:text-t_dark cursor-pointer px-6">Khoá học của tôi</li>
+          </Link>
           <li className="hover:font-semibold hover:text-t_dark cursor-pointer px-6 mt-2">Flashcard của tôi</li>
           <Divider />
           <li className="hover:font-semibold hover:text-t_dark cursor-pointer px-6 mt-2">Lịch sử làm đề</li>

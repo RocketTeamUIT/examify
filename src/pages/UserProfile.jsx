@@ -1,5 +1,4 @@
 import { React, useState, useEffect, useRef } from 'react';
-import bannerImg from '../assets/banner1.jpg';
 import { AiFillCamera } from 'react-icons/ai';
 import { MuiTabs, Button } from '../components/ui';
 import Profile from './Profile';
@@ -8,10 +7,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import { changeAvatar, changeBanner } from '../features/auth/authSlice';
 import { toast } from 'react-toastify';
+import { uploadImageService } from '../lib/image';
 
 function UserProfile() {
-  const tempAvtUrl = 'https://kynguyenlamdep.com/wp-content/uploads/2022/06/avatar-cute-vui-nhon.jpg';
-  const tempBannerUrl = 'https://i.pinimg.com/originals/d8/39/74/d839742a057e1d111d0373fa614de906.jpg';
   const { user } = useSelector((store) => store.auth);
   const [avt, setAvt] = useState(user.avt);
   const [banner, setBanner] = useState(user.banner);
@@ -27,14 +25,16 @@ function UserProfile() {
     }
   }, [user]);
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const image = e.target.files[0];
+    const response = await uploadImageService(image, 'examify');
+    const url = response.data.url;
     if (imageType === 'avatar') {
       setAvt(URL.createObjectURL(image));
       dispatch(
         changeAvatar({
           axiosPrivate,
-          newImageUrl: tempAvtUrl,
+          newImageUrl: url,
         }),
       );
       toast.success('Đổi ảnh đại diện thành công!');
@@ -43,7 +43,7 @@ function UserProfile() {
       dispatch(
         changeBanner({
           axiosPrivate,
-          newImageUrl: tempBannerUrl,
+          newImageUrl: url,
         }),
       );
       toast.success('Đổi ảnh bìa thành công!');
@@ -75,7 +75,7 @@ function UserProfile() {
         >
           Đổi banner
         </Button>
-        <img className="object-cover w-full" src={banner} alt="User banner" />
+        <img className="object-cover w-full h-full" src={banner} alt="User banner" />
       </div>
       {/* Container */}
       <div className="relative h-fit md:h-[644px] -top-16 md:-top-20 md:mx-[20px] lg:mx-[50px] xl:mx-[100px] xxl:mx-[150px] flex flex-col md:flex-row md:gap-5 px-1 sm:px-10 md:px-0">
@@ -83,7 +83,10 @@ function UserProfile() {
         <div className="w-2/5 h-full bg-white overflow-hidden border border-br_gray rounded-3xl hidden md:flex flex-col items-center py-12">
           {/* header */}
           <div className="flex flex-col items-center mb-9">
-            <div className="w-20 h-20 relative overflow-hidden border border-br_gray rounded-full">
+            <div
+              className="w-20 h-20 relative overflow-hidden border border-br_gray rounded-full"
+              onClick={handleAvtClick}
+            >
               <Button
                 className="absolute bottom-0 w-full h-[30%] bg-black flex items-center justify-center"
                 dark
@@ -97,7 +100,7 @@ function UserProfile() {
             <p className="my-3 text-h3 text-t_dark font-bold">
               {user.firstName} {user.lastName}
             </p>
-            <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank}</p>
+            <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank?.rankName}</p>
           </div>
           {/* body */}
           <div className="flex flex-col items-center w-full">
@@ -105,7 +108,7 @@ function UserProfile() {
             {/* Num of enrolled course */}
             <div className="flex w-full justify-between px-10 py-5">
               <h1 className="text-h5 font-medium text-t_dark">Số khóa học đã đăng ký</h1>
-              <h1 className="text-h5 font-medium text-ac_orange">15</h1>
+              <h1 className="text-h5 font-medium text-ac_orange">{user.joinedCourses}</h1>
             </div>
             {/* Num of your flashcard */}
             <span className="w-full border-t-[0.5px] border-br_gray" />
@@ -125,7 +128,10 @@ function UserProfile() {
         <div className="md:hidden">
           {/* Avt and info */}
           <div className="flex">
-            <div className="w-32 h-32 relative overflow-hidden rounded-full border-8 border-white">
+            <div
+              className="w-32 h-32 relative overflow-hidden rounded-full border-8 border-white"
+              onClick={handleAvtClick}
+            >
               <Button
                 className="absolute bottom-0 w-full h-[40%] bg-black flex items-center justify-center"
                 dark
@@ -144,7 +150,7 @@ function UserProfile() {
                 <p className="mt-1 text-h4 text-t_dark font-bold">
                   {user.firstName} {user.lastName}
                 </p>
-                <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank}</p>
+                <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank?.rankName}</p>
               </div>
             </div>
           </div>
@@ -153,7 +159,7 @@ function UserProfile() {
             {/* Num of enrolled course */}
             <div className="flex w-full justify-between py-1">
               <h1 className="text-sm font-medium text-t_dark">Số khóa học đã đăng ký</h1>
-              <h1 className="text-sm font-medium text-ac_orange">15</h1>
+              <h1 className="text-sm font-medium text-ac_orange">{user.joinedCourses}</h1>
             </div>
             {/* Num of your flashcard */}
             <div className="flex w-full justify-between py-1">

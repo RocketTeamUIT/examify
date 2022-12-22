@@ -38,11 +38,20 @@ module.exports = {
       boxShadow: {
         sd_primary: '0px 4px 20px 0px rgba(0, 0, 0, 0.2)',
         sd_medium: '0 0 16px -4px rgba(0,0,0,0.3)',
+        sd_small_center: '0 0 12px -4px rgba(0,0,0,0.3)',
         sd_small: '0 4px 4px 0px rgba(0,0,0,0.25)',
         sd_xs: '0 0px 4px -1px rgba(0,0,0,0.2)',
       },
       maxWidth: {
         primary: '1440px',
+      },
+      keyframes: {
+        ping: {
+          '75%, 100%': {
+            transform: 'scale(2)',
+            opacity: '0',
+          },
+        },
       },
       colors: {
         // Primary

@@ -1,27 +1,14 @@
 import { Tip } from '../../../components/ui';
-import SubNav from '../../../components/ui/SubNav';
 import CourseListItem from './CourseListItem';
 import Container from '../../../layouts/components/Container';
 import { Filter } from '../../../components/ui';
-import bannerImg from '../../../assets/images/courseBanner.png';
-import useFetchCourse from '../../../hooks/useFetchCourse';
+import useFetchAllCourse from './hooks/useFetchAllCourse';
 import useGrid from './hooks/useGrid';
 import { useState } from 'react';
 
-const NAV_LIST = [
-  {
-    name: 'Khám phá',
-    path: '/courses',
-  },
-  {
-    name: 'Khoá học của tôi',
-    path: '/my-courses',
-  },
-];
-
-function CourseList() {
-  const { grid, toggleGrid } = useGrid();
-  const { chargeCourses, basicCourses, generalCourses, advanceCourses } = useFetchCourse();
+function CourseListSystem() {
+  const { list, toggleList } = useGrid();
+  const { chargeCourses, basicCourses, generalCourses, advanceCourses } = useFetchAllCourse();
   const [searchValue, setSearchValue] = useState('');
 
   const filterCourses = (courses, searchValue) => {
@@ -42,22 +29,14 @@ function CourseList() {
   };
 
   return (
-    <div className="mb-10">
-      {/* Banner */}
-      <Container className="py-5">
-        <img className="w-full object-cover" src={bannerImg} alt="examify" />
-      </Container>
-
-      {/* Sub Navigation component*/}
-      <SubNav navList={NAV_LIST} />
-
+    <>
       <Container className="mt-4">
         <Filter
           value={searchValue}
           handleChange={handleFilterChange}
           placeholder="Tìm khoá học theo tên"
-          grid={grid}
-          toggleGrid={toggleGrid}
+          list={list}
+          toggleList={toggleList}
         />
       </Container>
 
@@ -77,7 +56,7 @@ function CourseList() {
         {/* List Pro Course */}
         {chargeCourses?.length > 0 && (
           <CourseListItem
-            grid={grid}
+            list={list}
             listName="Khóa học Pro:"
             listCourse={filterCourses(chargeCourses, searchValue)}
             isNew={true}
@@ -87,7 +66,7 @@ function CourseList() {
         {/* List Basic Course */}
         {basicCourses?.length > 0 && (
           <CourseListItem
-            grid={grid}
+            list={list}
             listName="Khóa học cơ bản:"
             listCourse={filterCourses(basicCourses, searchValue)}
           />
@@ -96,7 +75,7 @@ function CourseList() {
         {/* List General Course */}
         {generalCourses?.length > 0 && (
           <CourseListItem
-            grid={grid}
+            list={list}
             listName="Khóa học phổ thông:"
             listCourse={filterCourses(generalCourses, searchValue)}
           />
@@ -105,14 +84,14 @@ function CourseList() {
         {/* List Advance Course */}
         {advanceCourses?.length > 0 && (
           <CourseListItem
-            grid={grid}
+            list={list}
             listName="Khóa học nâng cao:"
             listCourse={filterCourses(advanceCourses, searchValue)}
           />
         )}
       </Container>
-    </div>
+    </>
   );
 }
 
-export default CourseList;
+export default CourseListSystem;

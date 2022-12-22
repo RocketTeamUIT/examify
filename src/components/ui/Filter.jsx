@@ -5,7 +5,7 @@ import { BiSearch } from 'react-icons/bi';
 import { BsList } from 'react-icons/bs';
 import { CiGrid42 } from 'react-icons/ci';
 
-const Filter = ({ grid, toggleGrid, placeholder = '', value, handleChange }) => {
+const Filter = ({ list, toggleList, placeholder = '', value, handleChange }) => {
   return (
     <div className="w-full">
       <div className="w-full py-1">
@@ -26,16 +26,16 @@ const Filter = ({ grid, toggleGrid, placeholder = '', value, handleChange }) => 
         </div> */}
         <button
           className="h-full w-[104px] bg-bg_light_gray_2 rounded-full relative flex py-1 ml-auto"
-          onClick={toggleGrid}
+          onClick={toggleList}
         >
           <div
             className={classNames(
               'h-6 w-12 rounded-full bg-white absolute transition top-1 left-1',
-              grid && 'translate-x-12',
+              list && 'translate-x-12',
             )}
           />
-          <BsList className={classNames('absolute transition h-6 w-6 left-4', !grid && 'fill-primary')} />
-          <CiGrid42 className={classNames('absolute transition h-6 w-6 right-4', grid && 'fill-primary')} />
+          <CiGrid42 className={classNames('absolute transition h-6 w-6 left-4', !list && 'fill-primary')} />
+          <BsList className={classNames('absolute transition h-6 w-6 right-4', list && 'fill-primary')} />
         </button>
       </div>
     </div>

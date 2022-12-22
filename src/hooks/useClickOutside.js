@@ -15,7 +15,7 @@ const useClickOutside = (ref, triggerRef, callback) => {
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  }, [ref, triggerRef]);
+  }, [ref, triggerRef, callback]);
 };
 
 useClickOutside.propTypes = {

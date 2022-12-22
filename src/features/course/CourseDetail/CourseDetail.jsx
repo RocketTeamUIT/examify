@@ -19,7 +19,9 @@ import { qualityUs } from '../../../data/constants';
 import Container from '../../../layouts/components/Container';
 import { useParams } from 'react-router-dom';
 import useComments from './hooks/useComments';
-import useCourseDetail from '../hooks/useCourseDetail';
+import { useSelector } from 'react-redux';
+import isEmptyObject from '../../../utils/isEmptyObject';
+import useFetchCourse from '../../../hooks/useFetchCourse';
 
 function CourseDetail() {
   const { courseId } = useParams();
@@ -34,7 +36,10 @@ function CourseDetail() {
     setSelectedPage,
     getComments,
   } = useComments(courseId);
-  const { courseDetail } = useCourseDetail(courseId);
+  useFetchCourse();
+  const { courseDetail } = useSelector((store) => store.course);
+
+  if (isEmptyObject(courseDetail)) return null;
 
   return (
     <div className="mb-20">
@@ -125,7 +130,7 @@ function CourseDetail() {
             {/* Course information component */}
             <div className="mt-10 md:bg-bg_light_gray md:p-4 md:rounded-lg lg:p-8" id="course-info">
               <h3 className="text-body-lg text-center font-medium lg:text-left mb-8">Thông tin khoá học</h3>
-              <p>{courseDetail.description}</p>
+              <p dangerouslySetInnerHTML={{ __html: courseDetail.description }}></p>
             </div>
 
             {/* Couse Content component*/}

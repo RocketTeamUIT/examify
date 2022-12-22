@@ -2,23 +2,22 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRouters } from './routes';
 import { DefaultLayout } from './layouts';
-import { useSelector } from 'react-redux';
 import SuspenseLayout from './layouts/SuspenseLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivateLayout from './layouts/PrivateLayout';
 
 const App = () => {
-  const { isLoading } = useSelector((store) => store.auth);
-
   return (
     <Router>
-      <SuspenseLayout isLoading={isLoading}>
+      <SuspenseLayout>
         {/* App */}
         <div className="bg-bg_white">
           <Routes>
             {publicRouters.map((route, index) => {
               let Layout;
               const Page = route.component;
+              const MainPrivateLayout = route.privateRoute ? PrivateLayout : Fragment;
 
               if (route.layout === null) {
                 Layout = Fragment;
@@ -33,11 +32,31 @@ const App = () => {
                   key={index}
                   path={route.path}
                   element={
-                    <Layout>
-                      <Page />
-                    </Layout>
+                    <MainPrivateLayout>
+                      <Layout>
+                        <Page />
+                      </Layout>
+                    </MainPrivateLayout>
                   }
-                />
+                >
+                  {Array.isArray(route.children) &&
+                    route.children.map((childRoute, index) => {
+                      const ChildPrivateLayout = childRoute.privateRoute ? PrivateLayout : Fragment;
+                      const props = childRoute.privateRoute ? { excludeFooter: true, excludeHeader: true } : {};
+                      const SubPage = childRoute.component;
+                      return (
+                        <Route
+                          key={index}
+                          path={childRoute.path}
+                          element={
+                            <ChildPrivateLayout {...props}>
+                              <SubPage />
+                            </ChildPrivateLayout>
+                          }
+                        />
+                      );
+                    })}
+                </Route>
               );
             })}
           </Routes>

@@ -30,8 +30,8 @@ function CourseContent({ course }) {
 
       {/* List chapter of the course */}
       <div className="grid gap-2">
-        {chapterList.map((chapter) => (
-          <Chapter key={chapter.id} chapter={chapter} openAll={openAll} />
+        {chapterList.map((chapter, index) => (
+          <Chapter key={chapter.id} seq={index + 1} chapter={chapter} openAll={openAll} />
         ))}
       </div>
     </>

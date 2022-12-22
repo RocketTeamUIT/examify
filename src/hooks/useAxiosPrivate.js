@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshTokenService } from '../features/auth/services/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { setAccessToken } from '../features/auth/authSlice';
+import { setAccessToken, setFailAttempt } from '../features/auth/authSlice';
 import * as PropTypes from 'prop-types';
 
 const useAxiosPrivate = (stayOnError) => {
@@ -46,6 +46,7 @@ const useAxiosPrivate = (stayOnError) => {
               },
             });
           } catch (error) {
+            dispatch(setFailAttempt());
             console.log('🚀 ~ file: useAxiosPrivate.js:45 ~ error', error);
             if (!stayOnError) {
               navigate('/signin', {

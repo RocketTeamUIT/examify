@@ -11,11 +11,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 // You should use this in every detail page in feature course
 const DetailContainer = ({
   children,
-  learnedLesson,
   totalLesson,
   name,
   chapterList,
   hierarchy,
+  onScroll,
   // isNextChapterAvailable,
 }) => {
   const { courseId, lessonId } = useParams();
@@ -71,7 +71,7 @@ const DetailContainer = ({
   return (
     <div className="w-full flex justify-between mr-3 fixed top-[60px] bottom-0">
       {/* Main content */}
-      <div className="flex-1 h-[calc(100%-60px)] overflow-y-overlay">
+      <div className="flex-1 h-[calc(100%-60px)] overflow-y-overlay" onScroll={onScroll}>
         {/* Breadcrumb */}
         <div className="px-6 md:px-8 lg:px-16 xl:px-[100px] h-[60px] flex items-center">
           <Breadcrumb hierarchy={hierarchy || []} />
@@ -95,7 +95,7 @@ const DetailContainer = ({
           !showTrack && 'opacity-0 pointer-events-none',
         )}
       >
-        <CourseTrack learnedLesson={learnedLesson} totalLesson={totalLesson} chapterList={chapterList} name={name} />
+        <CourseTrack totalLesson={totalLesson} chapterList={chapterList} name={name} />
       </div>
 
       {/* Move Lesson Action Bar */}

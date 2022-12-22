@@ -6,7 +6,7 @@ import { TbChevronDown } from 'react-icons/tb';
 import { useParams } from 'react-router-dom';
 import CourseTrackLesson from './CourseTrackLesson';
 
-const CourseTrackUnit = ({ unit, chapterId }) => {
+const CourseTrackUnit = ({ unit, chapterId, seq }) => {
   const [expand, setExpand] = useState(false);
   const { lessonId } = useParams();
 
@@ -31,12 +31,14 @@ const CourseTrackUnit = ({ unit, chapterId }) => {
         )}
         onClick={handleExpand}
       >
-        {unit.name}
+        Chủ đề {seq}: {unit.name}
         <TbChevronDown className={classNames(expand && 'rotate-180', 'transition-all')} />
       </li>
 
       {expand &&
-        lessonList.map((lesson, index) => <CourseTrackLesson key={index} lesson={lesson} chapterId={chapterId} />)}
+        lessonList.map((lesson, index) => (
+          <CourseTrackLesson seq={index + 1} key={index} lesson={lesson} chapterId={chapterId} />
+        ))}
     </>
   );
 };
