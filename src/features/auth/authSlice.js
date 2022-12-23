@@ -13,6 +13,7 @@ import {
 const initialState = {
   user: {},
   accessToken: '',
+  failAttempt: false,
   isLoading: true,
   error: '',
 };
@@ -113,6 +114,9 @@ const authSlice = createSlice({
     setAccessToken: (state, action) => {
       state.accessToken = action.payload;
     },
+    setFailAttempt: (state) => {
+      state.failAttempt = true;
+    },
   },
   extraReducers: (builder) => {
     // Sign in
@@ -193,5 +197,4 @@ const authSlice = createSlice({
 
 export default authSlice.reducer;
 
-const { pending, finish, setAccessToken } = authSlice.actions;
-export { pending, finish, setAccessToken };
+export const { pending, finish, setAccessToken, setFailAttempt } = authSlice.actions;

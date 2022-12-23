@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 - hierarchy: array include items
 */
 
-function BreadcrumbItem({ children, isCurrent = false }) {
+export function BreadcrumbItem({ children, isCurrent = false }) {
   return (
-    <div
+    <li
       className={classNames(
         'flex items-center px-2 w-fit h-6 rounded overflow-hidden bg-transparent bg-clip-padding border border-br_gray',
         {
@@ -26,14 +26,14 @@ function BreadcrumbItem({ children, isCurrent = false }) {
       >
         {children}
       </span>
-    </div>
+    </li>
   );
 }
 
 function Breadcrumb({ hierarchy }) {
   return (
     // Wrapper
-    <div className="flex gap-2 items-center">
+    <ol aria-label="breadcrumb" className="flex gap-2 items-center">
       {hierarchy.map((data, index) => (
         <React.Fragment key={index}>
           {/* Items */}
@@ -42,7 +42,7 @@ function Breadcrumb({ hierarchy }) {
           {hierarchy.length !== index + 1 && <HiOutlineChevronRight className="dark:text-t_gray" />}
         </React.Fragment>
       ))}
-    </div>
+    </ol>
   );
 }
 
@@ -51,7 +51,11 @@ BreadcrumbItem.propTypes = {
 };
 
 Breadcrumb.propTypes = {
-  hierarchy: PropTypes.array.isRequired,
+  hierarchy: function (props, propName, componentName) {
+    if (!Array.isArray(props.hierarchy) || props.hierarchy < 2) {
+      return new Error(`${propName} must be an array and have at least 2 elements`);
+    }
+  },
 };
 
 export default Breadcrumb;

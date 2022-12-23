@@ -48,6 +48,7 @@ const Button = (
     height,
     dark,
     rounded = [],
+    testid,
   },
   ref,
 ) => {
@@ -69,6 +70,7 @@ const Button = (
 
   return (
     <button
+      data-testid={testid}
       className={classnames(
         // General
         'transition duration-300 flex items-center justify-center gap-2',

@@ -24,7 +24,7 @@ function Signin() {
   const navigate = useNavigate();
   const axiosPrivate = useAxiosPrivate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  let from = location.state?.from?.pathname || '/';
 
   // Get props from register form
   const { name: emailLabel, onChange: emailOnChange, onBlur: emailOnBlur, ref: emailRef } = register('email');
@@ -45,6 +45,7 @@ function Signin() {
     if (result.type === 'auth/signIn/fulfilled') {
       // Navigate if success
       await dispatch(getUserInfo(axiosPrivate));
+      if (from.includes('/signin')) from = '/';
       navigate(from, { replace: true });
     } else {
       // Handle error
@@ -96,7 +97,9 @@ function Signin() {
               fancyOutlined
               status={errors.email?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
+            <p data-testid="email-error" className="text-ac_red text-sm mt-1">
+              {errors.email?.message}
+            </p>
           </div>
 
           <div className="mt-6">
@@ -111,7 +114,9 @@ function Signin() {
               visibilityToggle
               status={errors.password?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+            <p data-testid="password-error" className="text-ac_red text-sm mt-1">
+              {errors.password?.message}
+            </p>
           </div>
 
           {/* actions */}
@@ -129,7 +134,9 @@ function Signin() {
           </div>
 
           <div className="mt-8">
-            <Button width="100%">Đăng nhập</Button>
+            <Button testid="login-button" width="100%">
+              Đăng nhập
+            </Button>
           </div>
         </form>
 

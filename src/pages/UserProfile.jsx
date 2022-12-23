@@ -1,5 +1,4 @@
 import { React, useState, useEffect, useRef } from 'react';
-import bannerImg from '../assets/banner1.jpg';
 import { AiFillCamera } from 'react-icons/ai';
 import { MuiTabs, Button } from '../components/ui';
 import Profile from './Profile';
@@ -8,10 +7,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import { changeAvatar, changeBanner } from '../features/auth/authSlice';
 import { toast } from 'react-toastify';
+import { uploadImageService } from '../lib/image';
 
 function UserProfile() {
-  const tempAvtUrl = 'https://kynguyenlamdep.com/wp-content/uploads/2022/06/avatar-cute-vui-nhon.jpg';
-  const tempBannerUrl = 'https://i.pinimg.com/originals/d8/39/74/d839742a057e1d111d0373fa614de906.jpg';
   const { user } = useSelector((store) => store.auth);
   const [avt, setAvt] = useState(user.avt);
   const [banner, setBanner] = useState(user.banner);
@@ -27,14 +25,16 @@ function UserProfile() {
     }
   }, [user]);
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const image = e.target.files[0];
+    const response = await uploadImageService(image, 'examify');
+    const url = response.data.url;
     if (imageType === 'avatar') {
       setAvt(URL.createObjectURL(image));
       dispatch(
         changeAvatar({
           axiosPrivate,
-          newImageUrl: tempAvtUrl,
+          newImageUrl: url,
         }),
       );
       toast.success('Đổi ảnh đại diện thành công!');
@@ -43,7 +43,7 @@ function UserProfile() {
       dispatch(
         changeBanner({
           axiosPrivate,
-          newImageUrl: tempBannerUrl,
+          newImageUrl: url,
         }),
       );
       toast.success('Đổi ảnh bìa thành công!');
@@ -75,7 +75,7 @@ function UserProfile() {
         >
           Đổi banner
         </Button>
-        <img className="object-cover w-full" src={banner} alt="User banner" />
+        <img className="object-cover w-full h-full" src={banner} alt="User banner" />
       </div>
       {/* Container */}
       <div className="relative h-fit md:h-[644px] -top-16 md:-top-20 md:mx-[20px] lg:mx-[50px] xl:mx-[100px] xxl:mx-[150px] flex flex-col md:flex-row md:gap-5 px-1 sm:px-10 md:px-0">

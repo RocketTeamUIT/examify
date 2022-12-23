@@ -31,7 +31,12 @@ const DetailHeader = ({ title, date, month, year }) => {
       <AiOutlineQuestionCircle className="text-h4 xl:ml-auto mr-8" id="mark-as-learnt-help" />
       <Tooltip
         anchorId="mark-as-learnt-help"
-        content="Bạn cần học ít nhất 1 phút hoặc xem ít nhất 80% video để công nhận là hoàn thành bài học"
+        content={
+          <>
+            <p>Bạn cần lướt tới cuối trang và học ít nhất 1 phút đối với các bài học tài liệu và flashcard</p>
+            <p>hoặc xem ít nhất 80% đối với các bài học video để được công nhận là hoàn thành bài học</p>
+          </>
+        }
       />
       {/* Note */}
       <Button
