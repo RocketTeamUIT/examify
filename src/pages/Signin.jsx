@@ -97,7 +97,9 @@ function Signin() {
               fancyOutlined
               status={errors.email?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
+            <p data-testid="email-error" className="text-ac_red text-sm mt-1">
+              {errors.email?.message}
+            </p>
           </div>
 
           <div className="mt-6">
@@ -112,7 +114,9 @@ function Signin() {
               visibilityToggle
               status={errors.password?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+            <p data-testid="password-error" className="text-ac_red text-sm mt-1">
+              {errors.password?.message}
+            </p>
           </div>
 
           {/* actions */}
@@ -130,7 +134,9 @@ function Signin() {
           </div>
 
           <div className="mt-8">
-            <Button width="100%">Đăng nhập</Button>
+            <Button testid="login-button" width="100%">
+              Đăng nhập
+            </Button>
           </div>
         </form>
 
