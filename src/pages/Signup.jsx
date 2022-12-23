@@ -94,7 +94,9 @@ function Signup() {
               fancyOutlined
               status={errors.email?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
+            <p data-testid="email-error" className="text-ac_red text-sm mt-1">
+              {errors.email?.message}
+            </p>
           </div>
 
           <div className="mt-6">
@@ -107,7 +109,9 @@ function Signup() {
               fancyOutlined
               status={errors.firstname?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.firstname?.message}</p>
+            <p data-testid="firstname-error" className="text-ac_red text-sm mt-1">
+              {errors.firstname?.message}
+            </p>
           </div>
 
           <div className="mt-6">
@@ -120,7 +124,9 @@ function Signup() {
               fancyOutlined
               status={errors.lastname?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.lastname?.message}</p>
+            <p data-testid="lastname-error" className="text-ac_red text-sm mt-1">
+              {errors.lastname?.message}
+            </p>
           </div>
 
           <div className="mt-6">
@@ -135,7 +141,9 @@ function Signup() {
               fancyOutlined
               status={errors.password?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+            <p data-testid="password-error" className="text-ac_red text-sm mt-1">
+              {errors.password?.message}
+            </p>
           </div>
 
           <div className="mt-6">
@@ -150,11 +158,15 @@ function Signup() {
               fancyOutlined
               status={errors.passwordConfirmation?.message ? 'error' : ''}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.passwordConfirmation?.message}</p>
+            <p data-testid="retype-password-error" className="text-ac_red text-sm mt-1">
+              {errors.passwordConfirmation?.message}
+            </p>
           </div>
 
           <div className="mt-10">
-            <Button width="100%">Đăng ký ngay</Button>
+            <Button testid="signup-button" width="100%">
+              Đăng ký ngay
+            </Button>
           </div>
         </form>
 

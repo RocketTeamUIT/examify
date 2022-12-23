@@ -62,7 +62,9 @@ function ChangePasswordPanel() {
             visibilityToggle
             status={errors.password?.message ? 'error' : ''}
           />
-          <p className="text-ac_red text-sm mt-1">{errors.password?.message}</p>
+          <p data-testid="new-password-error" className="text-ac_red text-sm mt-1">
+            {errors.password?.message}
+          </p>
         </div>
 
         <div className="mt-11">
@@ -76,7 +78,9 @@ function ChangePasswordPanel() {
             visibilityToggle
             status={errors.confirmPassword?.message ? 'error' : ''}
           />
-          <p className="text-ac_red text-sm mt-1">{errors.confirmPassword?.message}</p>
+          <p data-testid="retype-password-error" className="text-ac_red text-sm mt-1">
+            {errors.confirmPassword?.message}
+          </p>
         </div>
 
         <div className="mt-16">

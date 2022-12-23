@@ -33,7 +33,7 @@ const Avatar = ({ avt, lastName, firstName, email }) => {
           ref={ref}
         >
           {/* Avatar and name */}
-          <Link to="/user-profile">
+          <Link data-testid="user-info-direct" to="/user-profile">
             <li className="flex items-center gap-3 px-6">
               <img src={avt} alt={lastName} className="rounded-full h-10 w-10" />
               <div>

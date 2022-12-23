@@ -137,7 +137,7 @@ const Header = () => {
       </ul>
 
       {/* Buttons */}
-      <div className="gap-4 flex">
+      <div data-testid="user-avatar" className="gap-4 flex">
         {user.firstName ? (
           <Avatar avt={user.avt} lastName={user.lastName} firstName={user.firstName} email={user.email} />
         ) : (

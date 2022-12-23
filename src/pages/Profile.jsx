@@ -87,24 +87,26 @@ function Profile() {
             <Input
               label="Họ và tên đệm"
               alternativeValue={value.firstName}
-              {...register('firstName')}
-              onChange={(e) => setValue('firstName', e.target.value)}
               fancyOutlined
               status={errors.firstName?.message ? 'error' : ''}
+              {...register('firstName')}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.firstName?.message}</p>
+            <p data-testid="firstname-error" className="text-ac_red text-sm mt-1">
+              {errors.firstName?.message}
+            </p>
           </div>
 
           <div className="md:w-[40%] min-w-0">
             <Input
               label="Tên"
               alternativeValue={value.lastName}
-              {...register('lastName')}
-              onChange={(e) => setValue('lastName', e.target.value)}
               fancyOutlined
               status={errors.lastName?.message ? 'error' : ''}
+              {...register('lastName')}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.lastName?.message}</p>
+            <p data-testid="lastname-error" className="text-ac_red text-sm mt-1">
+              {errors.lastName?.message}
+            </p>
           </div>
         </div>
 
@@ -115,22 +117,24 @@ function Profile() {
               label="Ngày sinh"
               type="date"
               alternativeValue={moment(value.dateOfBirth).format('YYYY-MM-DD')}
-              {...register('dateOfBirth')}
-              onChange={(e) => setValue('dateOfBirth', e.target.value)}
               fancyOutlined
+              {...register('dateOfBirth')}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
+            <p data-testid="birthdate-error" className="text-ac_red text-sm mt-1">
+              {errors.dateOfBirth?.message}
+            </p>
           </div>
 
           <div className="md:w-1/2">
             <Input
               label="Số điện thoại"
-              {...register('phoneNumber')}
-              onChange={(e) => setValue('phoneNumber', e.target.value)}
               alternativeValue={value.phoneNumber}
               fancyOutlined
+              {...register('phoneNumber')}
             />
-            <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
+            <p data-testid="phone-error" className="text-ac_red text-sm mt-1">
+              {errors.phoneNumber?.message}
+            </p>
           </div>
         </div>
 
@@ -147,7 +151,9 @@ function Profile() {
           />
         </div>
         <span className="w-full border-t-[0.5px] border-br_gray my-10" />
-        <Button width="fit-content">Cập nhật</Button>
+        <Button testid="update-info-btn" width="fit-content">
+          Cập nhật
+        </Button>
       </form>
     </div>
   );
