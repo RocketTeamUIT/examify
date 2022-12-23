@@ -107,7 +107,7 @@ function Profile() {
             <p className="text-ac_red text-sm mt-1">{errors.lastName?.message}</p>
           </div>
         </div>
-=
+
         {/* Date of birth and Phone Number*/}
         <div className="mt-8 flex flex-col gap-8 md:flex-row md:gap-5">
           <div className="md:w-1/2">
@@ -133,7 +133,7 @@ function Profile() {
             <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
           </div>
         </div>
-=
+
         {/* Description */}
         <div className="mt-8">
           <TextArea
