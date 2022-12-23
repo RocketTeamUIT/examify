@@ -1,6 +1,7 @@
 import * as yup from 'yup';
 
 export const changePasswordScheme = yup.object().shape({
+  oldPassword: yup.string().trim().required('Vui lòng nhập trường này!'),
   password: yup
     .string()
     .trim()
