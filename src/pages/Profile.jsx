@@ -80,9 +80,10 @@ function Profile() {
             fancyBackgroundColor="transparent"
           />
         </div>
+
         {/* Full name */}
-        <div className="mt-8 hidden md:flex gap-5">
-          <div className="w-[60%] min-w-0">
+        <div className="mt-8 flex flex-col gap-8 md:flex-row md:gap-5">
+          <div className="md:w-[60%] min-w-0">
             <Input
               label="Họ và tên đệm"
               alternativeValue={value.firstName}
@@ -94,7 +95,7 @@ function Profile() {
             <p className="text-ac_red text-sm mt-1">{errors.firstName?.message}</p>
           </div>
 
-          <div className="w-[40%] min-w-0">
+          <div className="md:w-[40%] min-w-0">
             <Input
               label="Tên"
               alternativeValue={value.lastName}
@@ -106,33 +107,10 @@ function Profile() {
             <p className="text-ac_red text-sm mt-1">{errors.lastName?.message}</p>
           </div>
         </div>
-        <div className="mt-8 flex flex-col md:hidden gap-y-8">
-          <div>
-            <Input
-              label="Họ và tên đệm"
-              alternativeValue={value.firstName}
-              {...register('firstName')}
-              onChange={(e) => setValue('firstName', e.target.value)}
-              fancyOutlined
-              status={errors.firstName?.message ? 'error' : ''}
-            />
-            <p className="text-ac_red text-sm mt-1">{errors.firstName?.message}</p>
-          </div>
-          <div>
-            <Input
-              label="Tên"
-              alternativeValue={value.lastName}
-              {...register('lastName')}
-              onChange={(e) => setValue('lastName', e.target.value)}
-              fancyOutlined
-              status={errors.lastName?.message ? 'error' : ''}
-            />
-            <p className="text-ac_red text-sm mt-1">{errors.lastName?.message}</p>
-          </div>
-        </div>
-        {/* Date of birth */}
-        <div className="mt-8 hidden md:flex gap-5">
-          <div className="w-1/2">
+=
+        {/* Date of birth and Phone Number*/}
+        <div className="mt-8 flex flex-col gap-8 md:flex-row md:gap-5">
+          <div className="md:w-1/2">
             <Input
               label="Ngày sinh"
               type="date"
@@ -144,7 +122,7 @@ function Profile() {
             <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
           </div>
 
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <Input
               label="Số điện thoại"
               {...register('phoneNumber')}
@@ -155,31 +133,7 @@ function Profile() {
             <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
           </div>
         </div>
-
-        <div className="mt-8 flex flex-col md:hidden gap-y-8">
-          <div>
-            <Input
-              label="Ngày sinh"
-              type="date"
-              alternativeValue={moment(value.dateOfBirth).format('YYYY-MM-DD')}
-              {...register('dateOfBirth')}
-              onChange={(e) => setValue('dateOfBirth', e.target.value)}
-              fancyOutlined
-            />
-            <p className="text-ac_red text-sm mt-1">{errors.dateOfBirth?.message}</p>
-          </div>
-
-          <div>
-            <Input
-              label="Số điện thoại"
-              {...register('phoneNumber')}
-              onChange={(e) => setValue('phoneNumber', e.target.value)}
-              alternativeValue={value.phoneNumber}
-              fancyOutlined
-            />
-            <p className="text-ac_red text-sm mt-1">{errors.phoneNumber?.message}</p>
-          </div>
-        </div>
+=
         {/* Description */}
         <div className="mt-8">
           <TextArea
