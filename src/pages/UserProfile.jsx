@@ -100,7 +100,7 @@ function UserProfile() {
             <p className="my-3 text-h3 text-t_dark font-bold">
               {user.firstName} {user.lastName}
             </p>
-            <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank.rankName}</p>
+            <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank?.rankName}</p>
           </div>
           {/* body */}
           <div className="flex flex-col items-center w-full">
@@ -150,7 +150,7 @@ function UserProfile() {
                 <p className="mt-1 text-h4 text-t_dark font-bold">
                   {user.firstName} {user.lastName}
                 </p>
-                <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank.rankName}</p>
+                <p className="text-h6 text-t_light_gray_2 font-medium">{user.rank?.rankName}</p>
               </div>
             </div>
           </div>
