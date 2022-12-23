@@ -24,7 +24,7 @@ function Signin() {
   const navigate = useNavigate();
   const axiosPrivate = useAxiosPrivate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  let from = location.state?.from?.pathname || '/';
 
   // Get props from register form
   const { name: emailLabel, onChange: emailOnChange, onBlur: emailOnBlur, ref: emailRef } = register('email');
@@ -45,6 +45,7 @@ function Signin() {
     if (result.type === 'auth/signIn/fulfilled') {
       // Navigate if success
       await dispatch(getUserInfo(axiosPrivate));
+      if (from.includes('/signin')) from = '/';
       navigate(from, { replace: true });
     } else {
       // Handle error
