@@ -4,13 +4,17 @@ const routes = {
   signin: '/signin',
   signup: '/signup',
   forgetPassword: '/forget-password',
+  changePassword: '/change-password',
+  userProfile: '/user-profile',
 
   // Course
-  course: '/courses',
-  courseDetail: '/courses/detail', // Để tạm
-  courseListChapter: '/courses/detail/list-chapter', // Để tạm
-  courseLearn: '/courses/detail/list-chapter/video', // Để tạm
-  courseText: '/courses/detail/list-chapter/text', // Để tạm
+  courseList: '/courses',
+  courseDetail: '/courses/:courseId/detail',
+  courseListChapter: '/courses/:courseId/detail/list-chapter',
+  courseLesson: '/courses/:courseId/detail/list-chapter/:chapterId/lesson/:lessonId', // Để tạm
+
+  // User
+  me: '/me',
 
   // Exam
   exam: '/exams',
@@ -18,6 +22,9 @@ const routes = {
   flashcard: '/flashcards',
   // Contest
   contest: '/contest',
+
+  //test
+  tuanBig: '/tuan-big-test',
 };
 
 export default routes;

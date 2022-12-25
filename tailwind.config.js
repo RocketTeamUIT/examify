@@ -3,6 +3,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
     fontSize: {
       h1: ['36px', '40px'],
@@ -16,10 +17,12 @@ module.exports = {
       lg: ['16px', '20px'],
     },
     screens: {
-      sm: '320px', // Mobile
-      md: '768px', // Tablet
-      lg: '1024px', // Desktop
-      xl: '1440px', // Big Desktop
+      // None-prefix // Mobile < 576px
+      sm: '576px', // Mobile >= 576px
+      md: '768px', // Tablet >= 768px
+      lg: '992px', // Big Tablet || Small Desktop >= 992px
+      xl: '1200px', // Medium Desktop >= 1200px
+      xxl: '1440px', // Large Desktop >= 1440px
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
@@ -32,6 +35,24 @@ module.exports = {
       bold: 700,
     },
     extend: {
+      boxShadow: {
+        sd_primary: '0px 4px 20px 0px rgba(0, 0, 0, 0.2)',
+        sd_medium: '0 0 16px -4px rgba(0,0,0,0.3)',
+        sd_small_center: '0 0 12px -4px rgba(0,0,0,0.3)',
+        sd_small: '0 4px 4px 0px rgba(0,0,0,0.25)',
+        sd_xs: '0 0px 4px -1px rgba(0,0,0,0.2)',
+      },
+      maxWidth: {
+        primary: '1440px',
+      },
+      keyframes: {
+        ping: {
+          '75%, 100%': {
+            transform: 'scale(2)',
+            opacity: '0',
+          },
+        },
+      },
       colors: {
         // Primary
         primary: '#0E46C7',
@@ -47,6 +68,9 @@ module.exports = {
 
         // Background
         bg_light_gray: '#F5F7F9',
+        bg_light_gray_2: '#F2F1F3',
+        bg_light_gray_3: '#ECF0F4',
+        bg_light_gray_4: '#F7F9FA',
         bg_white: '#FFFFFF',
         bg_black: '#131417',
         bg_dark_gray: '#27292B',
@@ -54,6 +78,8 @@ module.exports = {
 
         // Border
         br_gray: '#90909033',
+        br_gray_2: '#5f5f5f',
+        br_gray_3: '#F5F5F5',
         br_light_gray: '#D2D0D5',
 
         // Actions
@@ -67,6 +93,16 @@ module.exports = {
         ac_dark_blue: '#001C7F',
         ac_lighter_blue: '#208AFF',
         ac_lighter_green: '#1FCF9B',
+      },
+    },
+    keyframes: {
+      flip: {
+        from: {
+          transformm: 'rotateY(0deg)',
+        },
+        to: {
+          transform: 'rotateY(360deg)',
+        },
       },
     },
   },
