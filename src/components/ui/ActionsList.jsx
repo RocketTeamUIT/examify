@@ -6,11 +6,8 @@ function ActionsList({ actionsList, onSelectItem, onChangeItem, ...props }) {
   const [itemActive, setItemActive] = useState(0);
 
   // Define ActionsList but actual used in ActionItem
-  const handleClickItem = (title, action, index) => {
+  const handleClickItem = (index) => {
     setItemActive(index);
-    onSelectItem(); // Hide Actions list when we click on item
-    onChangeItem(title);
-    action();
   };
 
   return (
@@ -20,9 +17,10 @@ function ActionsList({ actionsList, onSelectItem, onChangeItem, ...props }) {
     >
       {actionsList.map((actionItem, index) => (
         <ActionItem
+          testid={`test-item-${index}`}
           key={index}
           isActive={index === itemActive}
-          onClick={() => handleClickItem(actionItem.name, actionItem.func, index)}
+          onClick={() => handleClickItem(index)}
         >
           {actionItem.name}
         </ActionItem>
@@ -31,9 +29,10 @@ function ActionsList({ actionsList, onSelectItem, onChangeItem, ...props }) {
   );
 }
 
-export function ActionItem({ children, isActive, onClick: handleOnClick }) {
+export function ActionItem({ children, isActive, onClick: handleOnClick, testid }) {
   return (
     <li
+      data-testid={testid}
       onClick={handleOnClick}
       className="flex items-center justify-between px-3 py-2 text-t_dark dark:text-t_light_gray text-h6 font-medium cursor-pointer hover:bg-bg_light_gray dark:hover:bg-bg_dark_gray active:bg-bg_dark_gray active:text-t_light_gray dark:active:bg-bg_light_gray dark:active:text-t_dark"
     >

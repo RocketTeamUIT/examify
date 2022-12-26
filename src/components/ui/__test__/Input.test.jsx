@@ -29,7 +29,7 @@ describe('Input', () => {
     expect(screen.getByText(LABEL)).toBeInTheDocument();
   });
 
-  test('Should label sticky show and hide correctly', async () => {
+  test('Should label sticky show correctly', async () => {
     user.setup();
     const LABEL = 'MyComplexLabel';
     render(<Input fancyOutlined label={LABEL} />);
@@ -38,6 +38,14 @@ describe('Input', () => {
     expect(screen.getByText(LABEL)).toHaveStyle({
       top: 0,
     });
+  });
+
+  test('Should label sticky hide correctly', async () => {
+    user.setup();
+    const LABEL = 'MyComplexLabel';
+    render(<Input fancyOutlined label={LABEL} />);
+    const textbox = screen.getByRole('textbox');
+    await user.type(textbox, 'xyz');
 
     await user.clear(textbox);
     expect(screen.getByText(LABEL)).not.toHaveStyle({

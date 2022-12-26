@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@hookform/resolvers": "^2.9.10",
@@ -38,7 +39,10 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
     "autoprefixer": "^10.4.12",
+    "babel-jest": "^29.3.1",
     "cypress": "^12.1.0",
     "msw": "^0.49.2",
     "postcss": "^8.4.18",
@@ -49,7 +53,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "coverage": "npm test -- --coverage --watchAll --collectCoverageFrom='src/{components,hooks,pages}/**/*.{js,jsx}'"
+    "coverage": "npm test -- --coverage --watchAll"
   },
   "eslintConfig": {
     "extends": [
@@ -68,5 +72,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/ui/*.{js,jsx}",
+      "!src/components/ui/Filter.jsx"
+    ],
+    "transform": {}
   }
 }
