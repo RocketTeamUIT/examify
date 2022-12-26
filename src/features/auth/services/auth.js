@@ -1,4 +1,4 @@
-import base from '../../../lib/base';
+const base = require('../../../lib/base');
 
 export const signUpService = (email, firstname, lastname, password, passwordConfirmation) => {
   return base.post('/users/register', {

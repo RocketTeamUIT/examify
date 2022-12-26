@@ -31,15 +31,29 @@ describe('AutoComplete', () => {
       </AutoComplete>,
     );
     const element = screen.getByRole('textbox');
-    const animatedDiv = screen.getByTestId('list');
-
-    expect(animatedDiv).toHaveStyle({ opacity: 0 });
 
     element.focus();
     await user.click(element);
     expect(screen.queryByText('Option 1')).toBeVisible();
     expect(screen.queryByText('Option 2')).toBeVisible();
     expect(screen.queryByText('Option 3')).toBeVisible();
+  });
+
+  test('Hide popup element', async () => {
+    user.setup();
+    const onChange = jest.fn();
+    render(
+      <AutoComplete value="1" onChange={onChange}>
+        {list}
+      </AutoComplete>,
+    );
+    const element = screen.getByRole('textbox');
+    const animatedDiv = screen.getByTestId('list');
+
+    expect(animatedDiv).toHaveStyle({ opacity: 0 });
+
+    element.focus();
+    await user.click(element);
 
     const event = new Event('mousedown');
     document.dispatchEvent(event);

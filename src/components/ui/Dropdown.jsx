@@ -63,7 +63,10 @@ const Dropdown = ({ dark, type, context, children, actionsList }) => {
         >
           <span className="font-medium">
             <span>{context ? `${context}:  ` : ''}</span>
-            <span className={classNames({ 'text-bg_black': context, 'text-bg_light_gray': context && dark })}>
+            <span
+              className={classNames({ 'text-bg_black': context, 'text-bg_light_gray': context && dark })}
+              data-testid="test-title"
+            >
               {title}
             </span>
           </span>

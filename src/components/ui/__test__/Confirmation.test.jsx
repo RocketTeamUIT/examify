@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Confirmation from '../Confirmation';
 import user from '@testing-library/user-event';
-import { customRender } from '../../../utils/customRender';
 
 describe('Confirmation', () => {
   test('Render correctly', () => {
