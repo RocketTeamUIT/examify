@@ -14,8 +14,10 @@ const Modal = ({ children, excludeHeader, isShowing, hide, header, maxWidth, cla
         type === 'right' && 'duration-500',
       )}
       onClick={hide}
+      data-testid="test-wrapper"
     >
       <div
+        data-testid="test-modal"
         className={classNames(
           'bg-white p-7 w-full max-h-full overflow-x-auto side-slide-modal space-y-6',
           maxWidth,

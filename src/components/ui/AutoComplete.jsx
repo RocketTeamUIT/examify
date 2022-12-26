@@ -124,6 +124,7 @@ const AutoComplete = ({
       <animated.div
         ref={popoverRef}
         style={props}
+        data-testid="list"
         className="bg-white p-4 rounded-lg absolute w-full shadow-sd_medium text-t_dark"
       >
         {children}

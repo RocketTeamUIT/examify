@@ -98,6 +98,7 @@ const Input = forwardRef(
     return (
       // Container
       <div
+        data-testid="wrapper"
         className={classnames(
           'flex items-center gap-2 px-4 h-11 text-md rounded-lg focus-within:outline focus-within:outline-2 outline-ac_blue relative',
 
@@ -137,6 +138,7 @@ const Input = forwardRef(
 
         {/* Real input */}
         <input
+          data-testid="test-input"
           className="outline-none bg-transparent flex-1 max-w-full overflow-hidden peer"
           disabled={disabled}
           value={value}
