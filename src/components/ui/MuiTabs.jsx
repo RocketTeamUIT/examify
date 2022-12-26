@@ -43,6 +43,7 @@ export default function MuiTabs({
       <TabContext value={value}>
         <Box className="shadow-[0_0_15px_0_rgba(0,0,0,0.3)]">
           <TabList
+            data-testid="test-tablist"
             onChange={handleChange}
             sx={{
               '& .MuiTabs-flexContainer': {
@@ -74,7 +75,7 @@ export default function MuiTabs({
             }}
           >
             {componentList.map((component, index) => (
-              <Tab key={index} value={`${index}`} label={component.label} />
+              <Tab data-testid={`test-nav-${index}`} key={index} value={`${index}`} label={component.label} />
             ))}
           </TabList>
         </Box>

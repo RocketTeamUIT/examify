@@ -6,9 +6,6 @@ import PropTypes from 'prop-types';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 
 /* Props
-- size: button size
-    - normal
-    - large
 - status: status of this input (you should use state here). This change border color
     - error
     - warning
@@ -116,6 +113,7 @@ const TextArea = forwardRef(
           borderBottomLeftRadius: rounded[3],
         }}
         onClick={handleWrapperClick}
+        data-testid="wrapper"
       >
         {/* Real input */}
         <ReactTextareaAutosize
@@ -154,7 +152,6 @@ const TextArea = forwardRef(
 
 TextArea.propTypes = {
   type: PropTypes.string,
-  size: PropTypes.string,
   status: PropTypes.string,
   fancyOutlined: PropTypes.bool,
   fancyBackgroundColor: PropTypes.string,
@@ -162,8 +159,6 @@ TextArea.propTypes = {
   disabled: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  leftIcon: PropTypes.element,
-  rightIcon: PropTypes.element,
   rounded: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   value: PropTypes.string,
   onChange: PropTypes.func,

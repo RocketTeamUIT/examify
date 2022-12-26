@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React from 'react';
-import { useState } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { HiDotsHorizontal } from 'react-icons/hi';
 
@@ -24,6 +23,7 @@ const Pagination = ({ length, selected, setSelected }) => {
         <button
           className="hover:bg-opacity-30 transition w-9 h-8 rounded-md flex bg-primary bg-opacity-10 text-black items-center justify-center font-bold"
           onClick={() => handleMove(-1)}
+          data-testid="move-prev"
         >
           <BsChevronLeft />
         </button>
@@ -37,6 +37,7 @@ const Pagination = ({ length, selected, setSelected }) => {
             className={classNames(
               'bg-opacity-10 text-primary hover:bg-opacity-30 transition w-9 h-8 rounded-md bg-primary items-center justify-center font-bold text-md flex',
             )}
+            data-testid="very-first"
           >
             1
           </button>
@@ -58,6 +59,7 @@ const Pagination = ({ length, selected, setSelected }) => {
                 index === selected ? 'text-white' : 'bg-opacity-10 text-primary hover:bg-opacity-30 transition',
                 hide(index) && 'hidden',
               )}
+              data-testid={`button-${index + 1}`}
             >
               {index + 1}
             </button>
@@ -74,6 +76,7 @@ const Pagination = ({ length, selected, setSelected }) => {
             className={classNames(
               'bg-opacity-10 text-primary hover:bg-opacity-30 transition w-9 h-8 rounded-md bg-primary items-center justify-center font-bold text-md flex',
             )}
+            data-testid="very-end"
           >
             {length}
           </button>
@@ -85,6 +88,7 @@ const Pagination = ({ length, selected, setSelected }) => {
         <button
           className="hover:bg-opacity-30 transition w-9 h-8 rounded-md flex bg-primary bg-opacity-10 text-black items-center justify-center font-bold"
           onClick={() => handleMove(1)}
+          data-testid="move-next"
         >
           <BsChevronRight />
         </button>

@@ -54,7 +54,7 @@ function SubNav({ navList, scroll, noShadow, initialValue }) {
       <div className="h-[40px] md:h-[60px]">
         <div className="relative md:hidden flex items-center h-full">
           <div ref={triggerRef} className="cursor-pointer">
-            <BiMenu className="text-[20px]" onClick={() => setShowNav(!isShowNav)} />
+            <BiMenu className="text-[20px]" onClick={() => setShowNav(!isShowNav)} data-testid="test-toggle-button" />
           </div>
           <div
             ref={ref}
@@ -63,6 +63,7 @@ function SubNav({ navList, scroll, noShadow, initialValue }) {
               isShowNav ? 'flex' : 'hidden',
               !noShadow ? 'shadow-sd_primary' : 'lg:shadow-none shadow-sd_primary',
             )}
+            data-testid="test-menu"
           >
             {(navList || []).map((nav, index) => (
               <Link
@@ -70,6 +71,7 @@ function SubNav({ navList, scroll, noShadow, initialValue }) {
                 to={nav.path ?? '#'}
                 onClick={(e) => handleClick(e, nav, index)}
                 key={index}
+                data-testid={`test-mobile-nav-${index}`}
               >
                 {nav.name}
               </Link>
@@ -87,6 +89,7 @@ function SubNav({ navList, scroll, noShadow, initialValue }) {
                 )}
                 onClick={(e) => handleClick(e, nav, index)}
                 key={index}
+                data-testid={`test-scroll-nav-${index}`}
               >
                 {nav.name}
               </button>
@@ -99,6 +102,7 @@ function SubNav({ navList, scroll, noShadow, initialValue }) {
                 to={nav.path ?? '#'}
                 onClick={(e) => handleClick(e, nav, index)}
                 key={index}
+                data-testid={`test-nav-${index}`}
               >
                 {nav.name}
               </Link>
