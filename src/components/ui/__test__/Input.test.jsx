@@ -84,7 +84,16 @@ describe('Input', () => {
     expect(screen.getByTestId('myicon')).toBeInTheDocument();
   });
 
-  test('Should input show/hide password', async () => {
+  test('Should input show password', async () => {
+    user.setup();
+    render(<Input type="password" visibilityToggle />);
+    const button = screen.getByRole('button');
+    const textbox = screen.getByTestId('test-input');
+    expect(button).toBeInTheDocument();
+    await user.click(button);
+    expect(textbox.type).toBe('text');
+  });
+  test('Should input hide password', async () => {
     user.setup();
     render(<Input type="password" visibilityToggle />);
     const button = screen.getByRole('button');

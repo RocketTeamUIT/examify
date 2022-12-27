@@ -1,6 +1,6 @@
-const { render, screen } = require('@testing-library/react');
 import RatingStar from '../RatingStar';
 import { convertHexToRGBA } from '../../../utils/formatCurrency';
+const { render, screen } = require('@testing-library/react');
 
 describe('Rating', () => {
   test('Render correctly', () => {
