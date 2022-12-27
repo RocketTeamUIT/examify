@@ -37,11 +37,6 @@ describe('TextArea', () => {
     expect(screen.getByText(LABEL)).toHaveStyle({
       top: 0,
     });
-
-    await user.clear(textbox);
-    expect(screen.getByText(LABEL)).not.toHaveStyle({
-      top: 0,
-    });
   });
 
   test('Should label sticky hide correctly', async () => {
