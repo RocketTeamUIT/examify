@@ -6,8 +6,11 @@ function ActionsList({ actionsList, onSelectItem, onChangeItem, ...props }) {
   const [itemActive, setItemActive] = useState(0);
 
   // Define ActionsList but actual used in ActionItem
-  const handleClickItem = (index) => {
+  const handleClickItem = (title, action, index) => {
     setItemActive(index);
+    onSelectItem(); // Hide Actions list when we click on item
+    onChangeItem(title);
+    action();
   };
 
   return (
@@ -20,7 +23,7 @@ function ActionsList({ actionsList, onSelectItem, onChangeItem, ...props }) {
           testid={`test-item-${index}`}
           key={index}
           isActive={index === itemActive}
-          onClick={() => handleClickItem(index)}
+          onClick={() => handleClickItem(actionItem.name, actionItem.func, index)}
         >
           {actionItem.name}
         </ActionItem>
