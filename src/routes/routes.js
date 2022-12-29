@@ -17,7 +17,7 @@ import UserProfile from '../pages/UserProfile';
 import { CourseList, CourseDetail, CourseListChapter } from '../features/course';
 
 // Exam
-import { Exam } from '../features/exam/components';
+import { ExamList } from '../features/exam';
 import CourseDetailLesson from '../features/course/CourseDetailLesson';
 import NoRecommendLayout from '../layouts/NoRecommendLayout';
 import { CourseListMe, CourseListSystem } from '../features/course/CourseList';
@@ -26,12 +26,29 @@ import { UserCourses } from '../features/user';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
+  // Auth
   { path: config.routes.home, component: Home },
   { path: config.routes.signin, component: Signin, layout: AuthLayout },
   { path: config.routes.signup, component: Signup, layout: AuthLayout },
   { path: config.routes.forgetPassword, component: ForgetPassword, layout: AuthLayout },
   { path: config.routes.changePassword, component: ChangePassword, layout: AuthLayout },
   { path: config.routes.userProfile, component: UserProfile, privateRoute: true },
+  {
+    path: config.routes.me,
+    component: User,
+    layout: NoRecommendLayout,
+    privateRoute: true,
+    children: [
+      {
+        path: '',
+        component: UserCourses,
+      },
+      {
+        path: 'exams',
+        component: UserCourses,
+      },
+    ],
+  },
 
   // Course
   {
@@ -59,26 +76,12 @@ const publicRouters = [
     privateRoute: true,
   },
 
-  // User
-  {
-    path: config.routes.me,
-    component: User,
-    layout: NoRecommendLayout,
-    privateRoute: true,
-    children: [
-      {
-        path: '',
-        component: UserCourses,
-      },
-      {
-        path: 'exams',
-        component: UserCourses,
-      },
-    ],
-  },
-
   // Exam
-  { path: config.routes.exam, component: Exam },
+  {
+    path: config.routes.exam,
+    component: ExamList,
+    layout: NoRecommendLayout,
+  },
 
   // Test
   { path: config.routes.tuanBig, component: TuanBigTest },
