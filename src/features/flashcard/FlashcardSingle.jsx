@@ -1,17 +1,45 @@
-import React from 'react';
+import { PureDropdown, Tag } from 'components/ui';
+import React, { useState } from 'react';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { BsVolumeDown } from 'react-icons/bs';
-import { HiOutlineDotsHorizontal } from 'react-icons/hi';
+import { HiOutlineDotsHorizontal, HiTrash } from 'react-icons/hi';
 
-const FlashcardSingle = () => {
+const actionList = [
+  {
+    title: 'Đánh dấu là đã học',
+    func: () => console.log(1),
+    icon: <AiOutlineCheckCircle />,
+  },
+  {
+    title: 'Xoá flashcard này',
+    func: () => console.log(2),
+    danger: true,
+    icon: <HiTrash />,
+  },
+];
+
+const FlashcardSingle = ({ learned }) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const show = () => {
+    setShowDropdown(true);
+  };
+
+  const hide = () => {
+    setShowDropdown(false);
+  };
+
   return (
-    <li className="bg-white rounded-lg shadow-sd_large p-5 grid grid-cols-12 gap-x-5">
+    <li className="bg-white rounded-lg shadow-sd_large p-5 grid grid-cols-12 gap-x-5 relative">
       <header className="col-span-full flex items-center justify-between">
         <h4 className="text-h4 font-bold">
           ACQUIRE <span className="font-normal">(v)</span>
         </h4>
-        <button className="p-2 rounded-full -mr-2 hover:bg-bg_light_gray_5 transition">
-          <HiOutlineDotsHorizontal className="h-5 w-5" />
-        </button>
+        <PureDropdown visible={showDropdown} hide={hide} actionList={actionList}>
+          <button className="p-2 rounded-full -mr-2 hover:bg-bg_light_gray_5 transition" onClick={show}>
+            <HiOutlineDotsHorizontal className="h-5 w-5" />
+          </button>
+        </PureDropdown>
       </header>
 
       <div className="flex items-center gap-4 col-span-full mb-2 mt-0.5">
@@ -57,6 +85,14 @@ const FlashcardSingle = () => {
           className="w-full h-full object-cover"
         />
       </aside>
+
+      {learned && (
+        <div className="absolute left-5 -translate-y-1/2 rounded-full bg-white">
+          <Tag color="green" width="w-[91px]">
+            Đã học
+          </Tag>
+        </div>
+      )}
     </li>
   );
 };

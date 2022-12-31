@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { CiSearch } from 'react-icons/ci';
 import FlashcardSingle from './FlashcardSingle';
 
-const FLASHCARD_LIST = [{}];
+const FLASHCARD_LIST = [{}, { learned: true }];
 
 const FlashcardSetDetail = () => {
   return (
@@ -62,7 +62,7 @@ const FlashcardSetDetail = () => {
 
           <div className="border-t w-full border-br_gray my-6" />
 
-          <ul>
+          <ul className="space-y-8">
             {FLASHCARD_LIST.map((flashcard, index) => (
               <FlashcardSingle {...flashcard} key={index} />
             ))}
