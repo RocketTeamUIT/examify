@@ -48,6 +48,7 @@ const Button = (
     height,
     dark,
     rounded = [],
+    justifyBetweenContent = false,
     testid,
   },
   ref,
@@ -74,6 +75,11 @@ const Button = (
       className={classnames(
         // General
         'transition duration-300 flex items-center justify-center gap-2',
+
+        // Custom for dropdpown
+        {
+          'justify-between': justifyBetweenContent,
+        },
 
         // Type
         {

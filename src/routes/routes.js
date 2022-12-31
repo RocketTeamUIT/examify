@@ -23,6 +23,9 @@ import NoRecommendLayout from '../layouts/NoRecommendLayout';
 import { CourseListMe, CourseListSystem } from '../features/course/CourseList';
 import User from '../features/user/User';
 import { UserCourses } from '../features/user';
+import ExamDetail from '../features/exam/ExamDetail/ExamDetailIndex';
+import ExamDetailBase from '../features/exam/ExamDetail/ExamDetailBase';
+import ExamDetailAnswer from '../features/exam/ExamDetail/ExamDetailAnswer/ExamDetailAnswer';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
@@ -78,9 +81,24 @@ const publicRouters = [
 
   // Exam
   {
-    path: config.routes.exam,
+    path: config.routes.examList,
     component: ExamList,
     layout: NoRecommendLayout,
+  },
+  {
+    path: config.routes.examDetail,
+    component: ExamDetailBase,
+    layout: NoRecommendLayout,
+    children: [
+      {
+        path: '',
+        component: ExamDetail,
+      },
+      {
+        path: 'answer',
+        component: ExamDetailAnswer,
+      },
+    ],
   },
 
   // Test

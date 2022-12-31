@@ -19,7 +19,7 @@ import { useState } from 'react';
 - actionsList(Array): Mảng danh sách các actions (required)
 */
 
-const Dropdown = ({ dark, type, context, children, actionsList }) => {
+const Dropdown = ({ dark, color, type, context, children, actionsList, initialState = -1 }) => {
   const [title, setTitle] = useState(children);
   const [visible, setVisible] = useState(false);
   const show = () => setVisible(true);
@@ -28,6 +28,17 @@ const Dropdown = ({ dark, type, context, children, actionsList }) => {
   const handleChangeType = (newType) => {
     setTitle(newType);
   };
+
+  const renderActionsList = (attrs) => (
+    <ActionsList
+      initialState={initialState}
+      onChangeItem={handleChangeType}
+      onSelectItem={hide}
+      actionsList={actionsList}
+      tabIndex="-1"
+      {...attrs}
+    />
+  );
 
   return (
     // Using a wrapper <div> or <span> tag around the reference element solves
@@ -40,24 +51,18 @@ const Dropdown = ({ dark, type, context, children, actionsList }) => {
         onClickOutside={hide}
         placement="bottom-start" // Vị trí đối với Children của TippyHeadless
         offset={[0, 4]} // Độ dời tính từ placement
-        render={(attrs) => (
-          <ActionsList
-            onChangeItem={handleChangeType}
-            onSelectItem={hide}
-            actionsList={actionsList}
-            tabIndex="-1"
-            {...attrs}
-          />
-        )} // Khi click vào thì hiện cái gì
+        render={renderActionsList} // Khi click vào thì hiện cái gì
       >
         {/* Tái sử dụng Button component */}
         <Button
+          justifyBetweenContent
           onClick={visible ? hide : show}
           unbold={true}
           dark={dark}
           type={type}
           rounded={[]}
           height={32}
+          color={color}
           rightIcon={<HiChevronDown />}
           width="100%"
         >

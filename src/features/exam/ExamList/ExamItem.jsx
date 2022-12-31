@@ -15,7 +15,7 @@ const ExamItem = ({ exam }) => {
   return (
     <div className="p-5 rounded-lg border-t_light_gray_3 border ">
       {/* Top */}
-      <div className="flex items-center mb-3 gap-x-3">
+      <div className="flex items-center mb-5 gap-x-3">
         {exam.isExplain && (
           <Tippy content="Đề thi này đã được đội ngũ giáo viên giải thích đầy đủ">
             <span>
@@ -34,8 +34,8 @@ const ExamItem = ({ exam }) => {
       </div>
 
       {/* Body */}
-      <div className="">
-        <div className="inline-block mt-2 mr-5">
+      <div className="flex flex-wrap gap-x-5 gap-y-2">
+        <div>
           <span className="flex items-center gap-x-2">
             <HiOutlineClipboardDocumentList fontSize={18} />
             <span className="text-h6">{exam.totalPart} phần thi</span>
@@ -44,35 +44,35 @@ const ExamItem = ({ exam }) => {
 
         {/* <div className="h-4 w-[0.5px] ml-3 mr-4 mb-[1px] bg-bg_black inline-block"></div> */}
 
-        <div className="inline-block mt-2 mr-5">
+        <div>
           <span className="flex items-center gap-x-2">
             <HiOutlineQuestionMarkCircle fontSize={18} />
             <span className="text-h6">{exam.totalQuestion} câu hỏi</span>
           </span>
         </div>
 
-        <div className="inline-block mt-2 mr-5">
+        <div>
           <span className="flex items-center gap-x-2">
             <HiOutlineClock fontSize={18} />
             <span className="text-h6">{exam.duration} phút</span>
           </span>
         </div>
 
-        <div className="inline-block mt-2 mr-5">
+        <div>
           <span className="flex items-center gap-x-2">
             <HiOutlineChatBubbleLeftEllipsis fontSize={18} />
             <span className="text-h6">{exam.totalComment}</span>
           </span>
         </div>
 
-        <div className="inline-block mt-2 mr-5">
+        <div>
           <span className="flex items-center gap-x-2">
             <HiOutlineUsers fontSize={18} />
             <span className="text-h6">{exam.numsJoin}</span>
           </span>
         </div>
 
-        <div className="mt-5">
+        <div className="mt-2">
           {exam.hashtags.map((hashtagItem) => (
             <div className="inline-block mr-4">
               <Tag color="blue">{hashtagItem}</Tag>

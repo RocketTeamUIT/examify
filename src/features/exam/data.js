@@ -56,3 +56,78 @@ export const examList = [
     hashtags: ['Toeic', 'Reading', 'Listening'],
   },
 ];
+
+export const durationList = [
+  {
+    name: '5 phút',
+    func: () => {
+      console.log('5 phút');
+    },
+  },
+  {
+    name: '10 phút',
+    func: () => {
+      console.log('10 phút');
+    },
+  },
+  {
+    name: '15 phút',
+    func: () => {
+      console.log('5 phút');
+    },
+  },
+  {
+    name: '20 phút',
+    func: () => {
+      console.log('10 phút');
+    },
+  },
+  {
+    name: '25 phút',
+    func: () => {
+      console.log('5 phút');
+    },
+  },
+  {
+    name: '30 phút',
+    func: () => {
+      console.log('10 phút');
+    },
+  },
+  {
+    name: '35 phút',
+    func: () => {
+      console.log('5 phút');
+    },
+  },
+  {
+    name: '40 phút',
+    func: () => {
+      console.log('10 phút');
+    },
+  },
+  {
+    name: '45 phút',
+    func: () => {
+      console.log('5 phút');
+    },
+  },
+  {
+    name: '50 phút',
+    func: () => {
+      console.log('10 phút');
+    },
+  },
+  {
+    name: '55 phút',
+    func: () => {
+      console.log('5 phút');
+    },
+  },
+  {
+    name: '60 phút',
+    func: () => {
+      console.log('10 phút');
+    },
+  },
+];
