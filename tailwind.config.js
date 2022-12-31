@@ -38,7 +38,7 @@ module.exports = {
     extend: {
       boxShadow: {
         sd_primary: '0px 4px 20px 0px rgba(0, 0, 0, 0.2)',
-        sd_large: '0 0 20px 0px rgba(0,0,0,0.25)',
+        sd_large: '0 0 10px 0px rgba(0,0,0,0.25)',
         sd_medium: '0 0 16px -4px rgba(0,0,0,0.3)',
         sd_small_center: '0 0 12px -4px rgba(0,0,0,0.3)',
         sd_small: '0 4px 4px 0px rgba(0,0,0,0.25)',

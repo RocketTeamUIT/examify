@@ -4,6 +4,9 @@ import React from 'react';
 import { BsThreeDots } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { CiSearch } from 'react-icons/ci';
+import FlashcardSingle from './FlashcardSingle';
+
+const FLASHCARD_LIST = [{}];
 
 const FlashcardSetDetail = () => {
   return (
@@ -56,6 +59,14 @@ const FlashcardSetDetail = () => {
               <Input size="large" placeholder="Tìm Flashcard..." leftIcon={<CiSearch className="h-6 w-6" />} />
             </div>
           </div>
+
+          <div className="border-t w-full border-br_gray my-6" />
+
+          <ul>
+            {FLASHCARD_LIST.map((flashcard, index) => (
+              <FlashcardSingle {...flashcard} key={index} />
+            ))}
+          </ul>
         </div>
       </div>
     </Container>
