@@ -39,13 +39,14 @@ const Confirmation = ({ children, top, left, right, bottom, onConfirm, onCancel,
           right,
           bottom,
         )}
+        data-testid="test-wrapper"
       >
         {children}
         <div className="flex items-center gap-4 mt-3" onClick={handleCancel}>
-          <Button height="28px" type="default">
+          <Button height="28px" type="default" testid="test-cancel">
             Huỷ
           </Button>
-          <Button height="28px" type="danger" onClick={handleConfirm}>
+          <Button height="28px" type="danger" onClick={handleConfirm} testid="test-ok">
             OK
           </Button>
         </div>

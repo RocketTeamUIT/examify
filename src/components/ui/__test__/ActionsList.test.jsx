@@ -80,6 +80,39 @@ describe('ActionList', () => {
     expect(listElement).toContainElement(listItemElements[0]);
     expect(listItemElements).toHaveLength(TWO_ITEM.length);
   });
+
+  test('ActionList trigger onSelectItem', async () => {
+    user.setup();
+    const onSelectItem = jest.fn();
+    render(<ActionsList actionsList={TWO_ITEM} onSelectItem={onSelectItem} />);
+
+    const item = screen.getAllByRole('listitem')[0];
+    await user.click(item);
+    expect(onSelectItem).toBeCalledTimes(1);
+  });
+
+  test("ActionList trigger item's function", async () => {
+    user.setup();
+    const TWO_ITEM_DES = TWO_ITEM.map((item) => ({
+      ...item,
+      func: jest.fn(),
+    }));
+    render(<ActionsList actionsList={TWO_ITEM} />);
+
+    const item = screen.getAllByRole('listitem')[0];
+    await user.click(item);
+    expect(TWO_ITEM_DES[0].func).toBeCalledTimes(1);
+  });
+
+  test('ActionList trigger handleChangeType', async () => {
+    user.setup();
+    const onChangeItem = jest.fn();
+    render(<ActionsList actionsList={TWO_ITEM} onChangeType={onChangeItem} />);
+
+    const item = screen.getAllByRole('listitem')[0];
+    await user.click(item);
+    expect(onChangeItem).toBeCalledTimes(1);
+  });
 });
 
 describe('ActionItem', () => {
