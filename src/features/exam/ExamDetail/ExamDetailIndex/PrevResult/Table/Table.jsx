@@ -17,6 +17,12 @@ function Table() {
 
   return (
     <table {...getTableProps()}>
+      <colgroup>
+        <col span={1} className="w-1/3" />
+        <col span={1} className="w-1/5" />
+        <col span={1} className="w-1/4" />
+      </colgroup>
+
       <thead>
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>

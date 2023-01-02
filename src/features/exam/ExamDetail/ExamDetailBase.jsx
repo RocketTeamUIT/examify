@@ -20,6 +20,7 @@ function ExamDetailBase() {
 
       {/* NAV */}
       <Navs
+        initialValue={0}
         noShadow={true}
         navList={[
           {

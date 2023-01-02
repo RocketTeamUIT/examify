@@ -45,7 +45,7 @@ function Navs({ navList, scroll, noShadow, initialValue }) {
   };
 
   return (
-    <div className={classNames('relative', !noShadow && 'shadow-sd_primary')} overflowVisible>
+    <div className={classNames('relative', !noShadow && 'shadow-sd_primary')} overflowvisible="true">
       <div className="h-[40px] md:h-[60px]">
         <div className="relative md:hidden flex items-center h-full">
           <div ref={triggerRef} className="cursor-pointer">
