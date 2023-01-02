@@ -1,4 +1,5 @@
 import { Tip } from '../../../../components/ui';
+import Table from './Table';
 
 function ExamDetailAnswer() {
   return (
@@ -11,7 +12,8 @@ function ExamDetailAnswer() {
       </div>
 
       <div className="mt-6">
-        <h4 className="text-h4 font-semibold">Bảng đáp án:</h4>
+        <h4 className="mb-5 text-h4 font-semibold">Bảng đáp án:</h4>
+        <Table />
       </div>
     </div>
   );

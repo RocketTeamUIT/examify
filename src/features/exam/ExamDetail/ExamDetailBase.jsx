@@ -12,7 +12,7 @@ function ExamDetailBase() {
       <div className="flex justify-between mt-5 mb-2">
         <h1 className="text-h3 font-bold">ETS 2022 - Test 2</h1>
         <div className="">
-          <Button leftIcon={<HiOutlineArrowDownTray fontSize={16} />} height="32px" type="default">
+          <Button color="#777777" leftIcon={<HiOutlineArrowDownTray fontSize={16} />} height="32px" type="default">
             Download
           </Button>
         </div>
