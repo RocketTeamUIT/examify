@@ -4,6 +4,9 @@
 - Mở Terminal/CMD tại vị trí thư mục
 - Gõ lệnh: `npm install`
 - Sau đó gõ lệnh: `npm run coverage` để thực hiện automation test
+### Thực hiện Blackbox Testing
+- Do cấu trúc phức tạp của dự án, mong cô truy cập vào đường dẫn sau để truy cập tới trang web:
+[Examify - Website to Learn and Practice English](https://examify-ten.vercel.app/)
 ## Folder Structure
 
 ```
