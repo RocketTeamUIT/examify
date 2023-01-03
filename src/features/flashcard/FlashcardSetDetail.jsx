@@ -1,14 +1,39 @@
-import { Breadcrumb, Button, Input, Tag } from 'components/ui';
+import { Breadcrumb, Button, Input, PureDropdown, Tag } from 'components/ui';
 import Container from 'layouts/components/Container';
-import React from 'react';
+import React, { useState } from 'react';
 import { BsThreeDots } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { CiSearch } from 'react-icons/ci';
 import FlashcardSingle from './FlashcardSingle';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { HiTrash } from 'react-icons/hi';
 
 const FLASHCARD_LIST = [{}, { learned: true }];
+const ACTION_LIST = [
+  {
+    title: 'Chia sẻ bộ flashcard',
+    func: () => console.log(1),
+    icon: <AiOutlineCheckCircle />,
+  },
+  {
+    title: 'Xoá bộ flashcard này',
+    func: () => console.log(2),
+    danger: true,
+    icon: <HiTrash />,
+  },
+];
 
 const FlashcardSetDetail = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const show = () => {
+    setShowDropdown(true);
+  };
+
+  const hide = () => {
+    setShowDropdown(false);
+  };
+
   return (
     <Container>
       <div className="grid grid-cols-12">
@@ -17,9 +42,11 @@ const FlashcardSetDetail = () => {
 
           <div className="mt-2 flex items-center">
             <h3 className="font-extrabold text-h3">600 TOEIC words: Entertainment</h3>
-            <Button width="48px" height="48px" type="default" className="ml-auto">
-              <BsThreeDots className="text-h4" />
-            </Button>
+            <PureDropdown actionList={ACTION_LIST} visible={showDropdown} hide={hide}>
+              <Button width="48px" height="48px" type="default" className="ml-auto" onClick={show}>
+                <BsThreeDots className="text-h4" />
+              </Button>
+            </PureDropdown>
             <Button size="large" type="default" className="ml-3">
               Chỉnh sửa
             </Button>

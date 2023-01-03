@@ -4,7 +4,7 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { BsVolumeDown } from 'react-icons/bs';
 import { HiOutlineDotsHorizontal, HiTrash } from 'react-icons/hi';
 
-const actionList = [
+const ACTION_LIST = [
   {
     title: 'Đánh dấu là đã học',
     func: () => console.log(1),
@@ -35,7 +35,7 @@ const FlashcardSingle = ({ learned }) => {
         <h4 className="text-h4 font-bold">
           ACQUIRE <span className="font-normal">(v)</span>
         </h4>
-        <PureDropdown visible={showDropdown} hide={hide} actionList={actionList}>
+        <PureDropdown visible={showDropdown} hide={hide} actionList={ACTION_LIST}>
           <button className="p-2 rounded-full -mr-2 hover:bg-bg_light_gray_5 transition" onClick={show}>
             <HiOutlineDotsHorizontal className="h-5 w-5" />
           </button>
