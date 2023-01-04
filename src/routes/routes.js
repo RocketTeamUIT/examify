@@ -26,6 +26,7 @@ import { UserCourses } from '../features/user';
 import ExamDetail from '../features/exam/ExamDetail/ExamDetailIndex';
 import ExamDetailBase from '../features/exam/ExamDetail/ExamDetailBase';
 import ExamDetailAnswer from '../features/exam/ExamDetail/ExamDetailAnswer/ExamDetailAnswer';
+import { RecordDetailBase, RecordDetailIndex, RecordDetailFullmode } from '../features/exam/RecordDetail';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
@@ -97,6 +98,21 @@ const publicRouters = [
       {
         path: 'answer',
         component: ExamDetailAnswer,
+      },
+    ],
+  },
+  {
+    path: config.routes.recordDetail,
+    component: RecordDetailBase,
+    layout: NoRecommendLayout,
+    children: [
+      {
+        path: '',
+        component: RecordDetailIndex,
+      },
+      {
+        path: 'fullmode',
+        component: RecordDetailFullmode,
       },
     ],
   },

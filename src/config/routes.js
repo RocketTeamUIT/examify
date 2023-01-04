@@ -19,6 +19,7 @@ const routes = {
   // Exam
   examList: '/exams',
   examDetail: '/exams/:examId',
+  recordDetail: '/exams/record-detail',
 
   // Flashcard
   flashcard: '/flashcards',
