@@ -14,7 +14,7 @@ function ChoosePart() {
       </div>
       <div className="mt-4">
         {MOCK_DATA.map((partItem, index) => (
-          <Checkbox label={<Part key={index} part={partItem} />} leftDockLabel={'28px'} mb="20px" />
+          <Checkbox key={index} label={<Part key={index} part={partItem} />} leftDockLabel={'28px'} mb="20px" />
         ))}
       </div>
     </div>

@@ -16,7 +16,7 @@ function Table() {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
 
   return (
-    <table {...getTableProps()}>
+    <table {...getTableProps()} className="border-separate border-spacing-0 w-full">
       <colgroup>
         <col span={1} className="w-1/3" />
         <col span={1} className="w-1/5" />
@@ -25,9 +25,14 @@ function Table() {
 
       <thead>
         {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
+          <tr {...headerGroup.getHeaderGroupProps()} className="group">
             {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              <th
+                {...column.getHeaderProps()}
+                className="group-first:first:rounded-tl-lg group-first:last:rounded-tr-lg text-md border-solid border-[1px] border-t_light_gray align-top p-3 font-semibold text-left bg-[#f7f7f7] text-t_dark"
+              >
+                {column.render('Header')}
+              </th>
             ))}
           </tr>
         ))}
@@ -38,7 +43,14 @@ function Table() {
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map((cell) => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                return (
+                  <td
+                    {...cell.getCellProps()}
+                    className="text-md border-solid border-[1px] border-t_light_gray align-top p-3"
+                  >
+                    {cell.render('Cell')}
+                  </td>
+                );
               })}
             </tr>
           );
