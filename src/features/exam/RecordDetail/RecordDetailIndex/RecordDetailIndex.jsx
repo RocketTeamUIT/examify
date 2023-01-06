@@ -2,27 +2,31 @@ import GroupButtonTabs from '../../components/GroupButtonTabs/GroupButtonTabs';
 import { groupButtons } from '../../data';
 import Table from './Table';
 
+const newData = groupButtons.map((item) => {
+  return { ...item };
+});
+
 const newObject = {
   title: 'Tất cả',
   partAnswerList: [],
 };
 
-groupButtons.forEach((currentValue) => {
+newData.forEach((currentValue) => {
   newObject.partAnswerList = newObject.partAnswerList.concat(currentValue.partAnswerList);
 });
 
 // Add newObject to data
-groupButtons.push(newObject);
+newData.push(newObject);
 
 // Add element property to data
-groupButtons.forEach((item) => {
+newData.forEach((item) => {
   item.element = <Table data={item.partAnswerList} />;
 });
 
 function RecordDetailIndex() {
   return (
     <div>
-      <GroupButtonTabs tabList={groupButtons} mtContentDock="20px" />
+      <GroupButtonTabs tabList={newData} mtContentDock="20px" />
     </div>
   );
 }
