@@ -1,9 +1,11 @@
 import Table from './Table';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Breadcrumb, Button } from '../../../components/ui';
 import RecordDetailLayout from './RecordDetailLayout';
 
 function RecordDetailBase() {
+  const location = useLocation();
+
   return (
     <RecordDetailLayout>
       {/* Information */}
@@ -12,18 +14,25 @@ function RecordDetailBase() {
 
         <div className="mt-5 flex justify-between">
           <h3 className="text-h3 font-bold">ETS 2022 - Test 2</h3>
-          <div className="flex gap-6">
+          {location.pathname === '/exams/record-detail/fullmode' ? (
             <Link to={'/exams/record-detail'}>
-              <Button color="#777777" type="default" height={32} unbold>
+              <Button type="outline" height={32} unbold>
+                Xem dạng phân loại
+              </Button>
+            </Link>
+          ) : (
+            <></>
+          )}
+
+          {location.pathname === '/exams/record-detail' ? (
+            <Link to={'/exams/record-detail/fullmode'}>
+              <Button type="outline" height={32} unbold>
                 Xem dạng liệt kê
               </Button>
             </Link>
-            <Link to={'/exams/record-detail/fullmode'}>
-              <Button height={32} unbold>
-                Xem full mode
-              </Button>
-            </Link>
-          </div>
+          ) : (
+            <></>
+          )}
         </div>
 
         <div className="mt-6">
