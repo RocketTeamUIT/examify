@@ -131,3 +131,459 @@ export const durationList = [
     },
   },
 ];
+
+export const groupButtons = [
+  {
+    title: 'Part 5',
+    partAnswerList: [
+      {
+        name: '[Part 5] Câu hỏi ngữ pháp',
+        correct: 10,
+        wrong: 2,
+        skip: 0,
+        numberQnList: [
+          {
+            orderQn: 104,
+            status: true,
+          },
+          {
+            orderQn: 105,
+            status: true,
+          },
+          {
+            orderQn: 107,
+            status: true,
+          },
+          {
+            orderQn: 108,
+            status: true,
+          },
+          {
+            orderQn: 111,
+            status: true,
+          },
+          {
+            orderQn: 112,
+            status: true,
+          },
+          {
+            orderQn: 114,
+            status: true,
+          },
+          {
+            orderQn: 116,
+            status: true,
+          },
+          {
+            orderQn: 121,
+            status: true,
+          },
+          {
+            orderQn: 123,
+            status: true,
+          },
+          {
+            orderQn: 127,
+            status: false,
+          },
+          {
+            orderQn: 130,
+            status: false,
+          },
+        ],
+      },
+      {
+        name: '[Part 5] Câu hỏi từ loại',
+        correct: 5,
+        wrong: 1,
+        skip: 0,
+        numberQnList: [
+          {
+            orderQn: 101,
+            status: true,
+          },
+          {
+            orderQn: 103,
+            status: true,
+          },
+          {
+            orderQn: 108,
+            status: false,
+          },
+          {
+            orderQn: 109,
+            status: true,
+          },
+          {
+            orderQn: 113,
+            status: true,
+          },
+          {
+            orderQn: 115,
+            status: true,
+          },
+          {
+            orderQn: 117,
+            status: true,
+          },
+
+          {
+            orderQn: 125,
+            status: true,
+          },
+          {
+            orderQn: 129,
+            status: true,
+          },
+        ],
+      },
+      {
+        name: '[Part 5] Câu hỏi từ vựng',
+        correct: 3,
+        wrong: 6,
+        skip: 0,
+        numberQnList: [
+          {
+            orderQn: 102,
+            status: true,
+          },
+          {
+            orderQn: 106,
+            status: false,
+          },
+          {
+            orderQn: 110,
+            status: false,
+          },
+          {
+            orderQn: 118,
+            status: false,
+          },
+          {
+            orderQn: 120,
+            status: true,
+          },
+          {
+            orderQn: 122,
+            status: false,
+          },
+          {
+            orderQn: 124,
+            status: true,
+          },
+
+          {
+            orderQn: 126,
+            status: false,
+          },
+          {
+            orderQn: 128,
+            status: false,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Part 6',
+    partAnswerList: [
+      {
+        name: '[Part 6] Câu hỏi ngữ pháp',
+        correct: 10,
+        wrong: 2,
+        skip: 0,
+        numberQnList: [
+          {
+            orderQn: 104,
+            status: true,
+          },
+          {
+            orderQn: 105,
+            status: true,
+          },
+          {
+            orderQn: 107,
+            status: true,
+          },
+          {
+            orderQn: 108,
+            status: true,
+          },
+          {
+            orderQn: 111,
+            status: true,
+          },
+          {
+            orderQn: 112,
+            status: true,
+          },
+          {
+            orderQn: 114,
+            status: true,
+          },
+          {
+            orderQn: 116,
+            status: true,
+          },
+          {
+            orderQn: 121,
+            status: true,
+          },
+          {
+            orderQn: 123,
+            status: true,
+          },
+          {
+            orderQn: 127,
+            status: false,
+          },
+          {
+            orderQn: 130,
+            status: false,
+          },
+        ],
+      },
+      {
+        name: '[Part 6] Câu hỏi từ loại',
+        correct: 5,
+        wrong: 1,
+        skip: 0,
+        numberQnList: [
+          {
+            orderQn: 101,
+            status: true,
+          },
+          {
+            orderQn: 103,
+            status: true,
+          },
+          {
+            orderQn: 108,
+            status: false,
+          },
+          {
+            orderQn: 109,
+            status: true,
+          },
+          {
+            orderQn: 113,
+            status: true,
+          },
+          {
+            orderQn: 115,
+            status: true,
+          },
+          {
+            orderQn: 117,
+            status: true,
+          },
+
+          {
+            orderQn: 125,
+            status: true,
+          },
+          {
+            orderQn: 129,
+            status: true,
+          },
+        ],
+      },
+      {
+        name: '[Part 6] Câu hỏi từ vựng',
+        correct: 3,
+        wrong: 6,
+        skip: 0,
+        numberQnList: [
+          {
+            orderQn: 102,
+            status: true,
+          },
+          {
+            orderQn: 106,
+            status: false,
+          },
+          {
+            orderQn: 110,
+            status: false,
+          },
+          {
+            orderQn: 118,
+            status: false,
+          },
+          {
+            orderQn: 120,
+            status: true,
+          },
+          {
+            orderQn: 122,
+            status: false,
+          },
+          {
+            orderQn: 124,
+            status: true,
+          },
+
+          {
+            orderQn: 126,
+            status: false,
+          },
+          {
+            orderQn: 128,
+            status: false,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Part 7',
+    partAnswerList: [
+      {
+        name: '[Part 7] Câu hỏi ngữ pháp',
+        correct: 10,
+        wrong: 2,
+        skip: 0,
+        numberQnList: [
+          {
+            orderQn: 104,
+            status: true,
+          },
+          {
+            orderQn: 105,
+            status: true,
+          },
+          {
+            orderQn: 107,
+            status: true,
+          },
+          {
+            orderQn: 108,
+            status: true,
+          },
+          {
+            orderQn: 111,
+            status: true,
+          },
+          {
+            orderQn: 112,
+            status: true,
+          },
+          {
+            orderQn: 114,
+            status: true,
+          },
+          {
+            orderQn: 116,
+            status: true,
+          },
+          {
+            orderQn: 121,
+            status: true,
+          },
+          {
+            orderQn: 123,
+            status: true,
+          },
+          {
+            orderQn: 127,
+            status: false,
+          },
+          {
+            orderQn: 130,
+            status: false,
+          },
+        ],
+      },
+      {
+        name: '[Part 7] Câu hỏi từ loại',
+        correct: 5,
+        wrong: 1,
+        skip: 0,
+        numberQnList: [
+          {
+            orderQn: 101,
+            status: true,
+          },
+          {
+            orderQn: 103,
+            status: true,
+          },
+          {
+            orderQn: 108,
+            status: false,
+          },
+          {
+            orderQn: 109,
+            status: true,
+          },
+          {
+            orderQn: 113,
+            status: true,
+          },
+          {
+            orderQn: 115,
+            status: true,
+          },
+          {
+            orderQn: 117,
+            status: true,
+          },
+
+          {
+            orderQn: 125,
+            status: true,
+          },
+          {
+            orderQn: 129,
+            status: true,
+          },
+        ],
+      },
+      {
+        name: '[Part 7] Câu hỏi từ vựng',
+        correct: 3,
+        wrong: 6,
+        skip: 0,
+        numberQnList: [
+          {
+            orderQn: 102,
+            status: true,
+          },
+          {
+            orderQn: 106,
+            status: false,
+          },
+          {
+            orderQn: 110,
+            status: false,
+          },
+          {
+            orderQn: 118,
+            status: false,
+          },
+          {
+            orderQn: 120,
+            status: true,
+          },
+          {
+            orderQn: 122,
+            status: false,
+          },
+          {
+            orderQn: 124,
+            status: true,
+          },
+
+          {
+            orderQn: 126,
+            status: false,
+          },
+          {
+            orderQn: 128,
+            status: false,
+          },
+        ],
+      },
+    ],
+  },
+];
