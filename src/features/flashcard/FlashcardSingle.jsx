@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { BsVolumeDown } from 'react-icons/bs';
 import { HiOutlineDotsHorizontal, HiTrash } from 'react-icons/hi';
+import PropTypes from 'prop-types';
 
 const ACTION_LIST = [
   {
@@ -18,7 +19,8 @@ const ACTION_LIST = [
   },
 ];
 
-const FlashcardSingle = ({ learned }) => {
+const FlashcardSingle = (props) => {
+  const { learned } = props;
   const [showDropdown, setShowDropdown] = useState(false);
 
   const show = () => {
@@ -49,6 +51,7 @@ const FlashcardSingle = ({ learned }) => {
         </button>
       </div>
 
+      {/* Description */}
       <div className="col-span-8">
         <p className="text-lg">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis, turpis nec gravida pulvinar, lectus
@@ -89,12 +92,20 @@ const FlashcardSingle = ({ learned }) => {
       {learned && (
         <div className="absolute left-5 -translate-y-1/2 rounded-full bg-white">
           <Tag color="green" width="w-[91px]">
-            Đã học
+            <span className="text-md">Đã học</span>
           </Tag>
         </div>
       )}
     </li>
   );
+};
+
+FlashcardSingle.propTypes = {
+  learned: PropTypes.bool,
+};
+
+FlashcardSingle.defaultProps = {
+  learned: false,
 };
 
 export default FlashcardSingle;
