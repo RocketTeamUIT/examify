@@ -23,6 +23,7 @@ import NoRecommendLayout from '../layouts/NoRecommendLayout';
 import { CourseListMe, CourseListSystem } from '../features/course/CourseList';
 import User from '../features/user/User';
 import { UserCourses } from '../features/user';
+import Flashcard, { ExploreFlashcard, FlashcardPractice, FlashcardSetDetail, MyFlashcard } from '../features/flashcard';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
@@ -79,6 +80,24 @@ const publicRouters = [
 
   // Exam
   { path: config.routes.exam, component: Exam },
+
+  // Flashcard
+  {
+    path: '/flashcards',
+    component: Flashcard,
+    children: [
+      {
+        path: '',
+        component: MyFlashcard,
+      },
+      {
+        path: 'explore',
+        component: ExploreFlashcard,
+      },
+    ],
+  },
+  { path: '/flashcards/:flashcardSetId', component: FlashcardSetDetail, layout: NoRecommendLayout },
+  { path: '/flashcards/:flashcardSetId/practice', component: FlashcardPractice, layout: NoRecommendLayout },
 
   // Test
   { path: config.routes.tuanBig, component: TuanBigTest },

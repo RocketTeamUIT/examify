@@ -13,3 +13,5 @@ export { default as TextArea } from './TextArea';
 export { default as Filter } from './Filter';
 export { default as Confirmation } from './Confirmation';
 export { default as MuiTabs } from './MuiTabs';
+export { default as PureDropdown } from './PureDropdown';
+export { default as Select } from './Select';
