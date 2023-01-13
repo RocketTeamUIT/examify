@@ -8,7 +8,7 @@ import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const FlashcardSetDetailHeader = (props) => {
-  const { showShareModal, showAddModal } = props;
+  const { showShareModal, showAddModal, showAddMultipleModal } = props;
   const ACTION_LIST = [
     {
       title: 'Chia sẻ bộ flashcard',
@@ -86,7 +86,7 @@ const FlashcardSetDetailHeader = (props) => {
           <Button size="large" type="default" onClick={showAddModal}>
             Thêm từ
           </Button>
-          <Button size="large" type="default">
+          <Button size="large" type="default" onClick={showAddMultipleModal}>
             Thêm hàng loạt
           </Button>
         </div>
@@ -101,6 +101,7 @@ const FlashcardSetDetailHeader = (props) => {
 FlashcardSetDetailHeader.propTypes = {
   showShareModal: PropTypes.func.isRequired,
   showAddModal: PropTypes.func.isRequired,
+  showAddMultipleModal: PropTypes.func.isRequired,
 };
 
 export default FlashcardSetDetailHeader;

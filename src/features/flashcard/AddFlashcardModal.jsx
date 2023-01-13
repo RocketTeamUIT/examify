@@ -82,7 +82,7 @@ const AddFlashcardModal = (props) => {
         <div className="border-t border-br_gray mt-3 mb-4" />
 
         {/* Expand */}
-        <button className="font-semibold text-md flex gap-[14px] items-center" onClick={toggleMore}>
+        <button className="font-semibold text-md flex gap-[14px] items-center" type="button" onClick={toggleMore}>
           Thêm phiên âm, ảnh, ví dụ và ghi chú{' '}
           <BiChevronRight size="16px" className={classNames('transition', showMore && 'rotate-90')} />
         </button>
