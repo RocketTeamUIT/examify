@@ -1,30 +1,46 @@
-import SubNav from '../../../components/ui/SubNav';
+// import SubNav from '../../../components/ui/SubNav';
 import Container from '../../../layouts/components/Container';
-import bannerImg from '../../../assets/images/courseBanner.png';
+// import bannerImg from '../../../assets/images/courseBanner.png';
 import ExamItem from './ExamItem';
-import { examList } from '../data';
+// import { examList } from '../data';
 import { Filter } from '../../../components/ui';
 import useGrid from './hooks/useGrid';
+import { getAllExamsService } from '../services/exam';
+import { useEffect, useState } from 'react';
+import useAxiosPrivate from '../../../hooks/useAxiosPrivate';
 
-const NAV_LIST = [
-  {
-    name: 'Tất cả',
-    path: '/exams',
-  },
-];
+// const NAV_LIST = [
+//   {
+//     name: 'Tất cả',
+//     path: '/exams',
+//   },
+// ];
 
 const ExamList = () => {
   const { list, toggleList } = useGrid();
+  const [examList, setExamList] = useState(null);
+  const axiosPrivate = useAxiosPrivate();
+
+  useEffect(() => {
+    const fetchExams = async () => {
+      const examListRespond = (await getAllExamsService(axiosPrivate)).data;
+      // console.log(examListRespond);
+      setExamList(examListRespond);
+    };
+
+    fetchExams();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="mb-10">
       {/* Banner */}
-      <Container className="py-5">
+      {/* <Container className="py-5">
         <img className="w-full object-cover" src={bannerImg} alt="examify" />
-      </Container>
+      </Container> */}
 
       {/* Sub Navigation component*/}
-      <SubNav navList={NAV_LIST} initialValue={0} />
+      {/* <SubNav navList={NAV_LIST} initialValue={0} /> */}
 
       <Container className="mt-4">
         <Filter placeholder="Tìm đề thi theo tên" list={list} toggleList={toggleList} />
@@ -32,9 +48,7 @@ const ExamList = () => {
 
       <Container className="mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-8">
-          {examList.map((examItem) => (
-            <ExamItem grid={list} exam={examItem} key={examItem.id} />
-          ))}
+          {examList && examList.map((examItem) => <ExamItem grid={list} exam={examItem} key={examItem.id} />)}
         </div>
       </Container>
     </div>

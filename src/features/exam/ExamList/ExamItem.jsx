@@ -6,28 +6,29 @@ import {
   HiOutlineChatBubbleLeftEllipsis,
   HiOutlineUsers,
   HiOutlineBeaker,
-  HiShieldCheck,
+  HiOutlineShieldCheck,
 } from 'react-icons/hi2';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
 const ExamItem = ({ exam }) => {
   return (
     <div className="p-5 rounded-lg border-t_light_gray_3 border ">
       {/* Top */}
-      <div className="flex items-center mb-5 gap-x-3">
-        {exam.isExplain && (
+      <div className="flex flex-wrap items-center mb-5 gap-x-3">
+        <h5 className="text-h5 font-bold">{exam.name}</h5>
+        {exam.isFullExplanation && (
           <Tippy content="Đề thi này đã được đội ngũ giáo viên giải thích đầy đủ">
             <span>
-              <HiShieldCheck color="#389e0d" fontSize={24} />
+              <HiOutlineShieldCheck color="#0E46C7" fontSize={24} />
             </span>
           </Tippy>
         )}
-        <h5 className="text-h5 font-bold">ETS 2022 - Test 1</h5>
-        {exam.isTakingExam && (
+        {exam.isJoin && (
           <Tippy content="Bài thi này đã từng thực hiện">
             <span>
-              <HiOutlineBeaker color="#2860E1" fontSize={24} />
+              <HiOutlineBeaker color="#0E46C7" fontSize={24} />
             </span>
           </Tippy>
         )}
@@ -42,8 +43,6 @@ const ExamItem = ({ exam }) => {
           </span>
         </div>
 
-        {/* <div className="h-4 w-[0.5px] ml-3 mr-4 mb-[1px] bg-bg_black inline-block"></div> */}
-
         <div>
           <span className="flex items-center gap-x-2">
             <HiOutlineQuestionMarkCircle fontSize={18} />
@@ -54,7 +53,7 @@ const ExamItem = ({ exam }) => {
         <div>
           <span className="flex items-center gap-x-2">
             <HiOutlineClock fontSize={18} />
-            <span className="text-h6">{exam.duration} phút</span>
+            <span className="text-h6">{exam.examTime} phút</span>
           </span>
         </div>
 
@@ -73,17 +72,19 @@ const ExamItem = ({ exam }) => {
         </div>
 
         <div className="mt-2">
-          {exam.hashtags.map((hashtagItem) => (
-            <div className="inline-block mr-4">
+          {exam.hashtag.map((hashtagItem, index) => (
+            <div key={index} className="inline-block mr-4">
               <Tag color="blue">{hashtagItem}</Tag>
             </div>
           ))}
         </div>
       </div>
       <div className="mt-5">
-        <Button height="40px" width="100%" type="outline" unbold={true}>
-          Chi tiết
-        </Button>
+        <Link to={`${exam.id}`}>
+          <Button height="40px" width="100%" type="outline" unbold={true}>
+            Chi tiết
+          </Button>
+        </Link>
       </div>
     </div>
   );
