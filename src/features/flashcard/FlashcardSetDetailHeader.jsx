@@ -5,22 +5,24 @@ import { CiSearch } from 'react-icons/ci';
 import { HiTrash } from 'react-icons/hi';
 import { RiShareForwardFill } from 'react-icons/ri';
 import { Link, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const ACTION_LIST = [
-  {
-    title: 'Chia sẻ bộ flashcard',
-    func: () => console.log(1),
-    icon: <RiShareForwardFill />,
-  },
-  {
-    title: 'Xoá bộ flashcard này',
-    func: () => console.log(2),
-    danger: true,
-    icon: <HiTrash />,
-  },
-];
+const FlashcardSetDetailHeader = (props) => {
+  const { showShareModal, showAddModal } = props;
+  const ACTION_LIST = [
+    {
+      title: 'Chia sẻ bộ flashcard',
+      func: showShareModal,
+      icon: <RiShareForwardFill />,
+    },
+    {
+      title: 'Xoá bộ flashcard này',
+      func: () => console.log(2),
+      danger: true,
+      icon: <HiTrash />,
+    },
+  ];
 
-const FlashcardSetDetailHeader = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const { flashcardSetId } = useParams();
 
@@ -81,7 +83,7 @@ const FlashcardSetDetailHeader = () => {
       {/* Buttons and Search */}
       <div className="mt-[18px] lg:flex gap-4">
         <div className="flex gap-4">
-          <Button size="large" type="default">
+          <Button size="large" type="default" onClick={showAddModal}>
             Thêm từ
           </Button>
           <Button size="large" type="default">
@@ -94,6 +96,11 @@ const FlashcardSetDetailHeader = () => {
       </div>
     </>
   );
+};
+
+FlashcardSetDetailHeader.propTypes = {
+  showShareModal: PropTypes.func.isRequired,
+  showAddModal: PropTypes.func.isRequired,
 };
 
 export default FlashcardSetDetailHeader;

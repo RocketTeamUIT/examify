@@ -5,21 +5,23 @@ import classNames from 'classnames';
 
 const PureDropdown = ({ children, visible, hide, actionList }) => {
   return (
-    <TippyHeadless
-      interactive
-      visible={visible}
-      onClickOutside={hide}
-      placement="bottom-start"
-      render={(attrs) => (
-        <ul className="bg-white rounded-lg shadow-sd_large p-1 space-y-1" {...attrs}>
-          {actionList.map((action, index) => (
-            <DropdownItem {...action} key={index} hide={hide} />
-          ))}
-        </ul>
-      )}
-    >
-      {children}
-    </TippyHeadless>
+    <div className="z-10">
+      <TippyHeadless
+        interactive
+        visible={visible}
+        onClickOutside={hide}
+        placement="bottom-start"
+        render={(attrs) => (
+          <ul className="bg-white rounded-lg shadow-sd_large p-1 space-y-1" {...attrs}>
+            {actionList.map((action, index) => (
+              <DropdownItem {...action} key={index} hide={hide} />
+            ))}
+          </ul>
+        )}
+      >
+        {children}
+      </TippyHeadless>
+    </div>
   );
 };
 

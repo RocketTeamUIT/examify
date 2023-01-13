@@ -60,7 +60,7 @@ const App = () => {
               );
             })}
           </Routes>
-        </div>
+        </div>{' '}
         <ToastContainer
           position="top-right"
           autoClose={5000}

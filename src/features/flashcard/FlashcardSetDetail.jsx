@@ -1,20 +1,32 @@
 import { Pagination } from 'components/ui';
 import Container from 'layouts/components/Container';
 import React, { useState } from 'react';
+import AddFlashcardModal from './AddFlashcardModal';
 import FlashcardSetDetailHeader from './FlashcardSetDetailHeader';
 
 import FlashcardSingle from './FlashcardSingle';
+import ShareFlashcardModal from './ShareFlashcardModal';
 
 const FLASHCARD_LIST = [{}, { learned: true }];
 
 const FlashcardSetDetail = () => {
   const [selected, setSelected] = useState(0);
+  const [showShare, setShowShare] = useState(false);
+  const [showAdd, setShowAdd] = useState(false);
+
+  const toggleShareModal = () => {
+    setShowShare((prev) => !prev);
+  };
+
+  const toggleAddModal = () => {
+    setShowAdd((prev) => !prev);
+  };
 
   return (
     <Container>
       <div className="flex justify-center">
         <div className="max-w-[820px] my-8">
-          <FlashcardSetDetailHeader />
+          <FlashcardSetDetailHeader showShareModal={toggleShareModal} showAddModal={toggleAddModal} />
 
           <div className="border-t w-full border-br_gray my-6" />
 
@@ -28,6 +40,9 @@ const FlashcardSetDetail = () => {
             <Pagination length={10} selected={selected} setSelected={setSelected} />
           </div>
         </div>
+
+        <AddFlashcardModal isShowing={showAdd} hide={toggleAddModal} />
+        <ShareFlashcardModal isShowing={showShare} hide={toggleShareModal} />
       </div>
     </Container>
   );
