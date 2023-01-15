@@ -27,6 +27,7 @@ import ExamDetail from '../features/exam/ExamDetail/ExamDetailIndex';
 import ExamDetailBase from '../features/exam/ExamDetail/ExamDetailBase';
 import ExamDetailAnswer from '../features/exam/ExamDetail/ExamDetailAnswer/ExamDetailAnswer';
 import { RecordDetailBase, RecordDetailIndex, RecordDetailFullmode } from '../features/exam/RecordDetail';
+import Flashcard, { ExploreFlashcard, FlashcardPractice, FlashcardSetDetail, MyFlashcard } from '../features/flashcard';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
@@ -116,6 +117,24 @@ const publicRouters = [
       },
     ],
   },
+
+  // Flashcard
+  {
+    path: '/flashcards',
+    component: Flashcard,
+    children: [
+      {
+        path: '',
+        component: MyFlashcard,
+      },
+      {
+        path: 'explore',
+        component: ExploreFlashcard,
+      },
+    ],
+  },
+  { path: '/flashcards/:flashcardSetId', component: FlashcardSetDetail, layout: NoRecommendLayout },
+  { path: '/flashcards/:flashcardSetId/practice', component: FlashcardPractice, layout: NoRecommendLayout },
 
   // Test
   { path: config.routes.tuanBig, component: TuanBigTest },

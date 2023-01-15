@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { HiDotsHorizontal } from 'react-icons/hi';
+import PropTypes from 'prop-types';
 
 const Pagination = ({ length, selected, setSelected }) => {
   const handleMove = (value) => {
@@ -95,6 +96,12 @@ const Pagination = ({ length, selected, setSelected }) => {
       )}
     </div>
   );
+};
+
+Pagination.propTypes = {
+  length: PropTypes.number.isRequired,
+  selected: PropTypes.number.isRequired,
+  setSelected: PropTypes.func.isRequired,
 };
 
 export default Pagination;

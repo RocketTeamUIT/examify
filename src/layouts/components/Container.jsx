@@ -4,7 +4,7 @@ import * as PropTypes from 'prop-types';
 
 const Container = ({ children, className, overflowVisible, id }) => {
   return (
-    <div className={classNames('bg-white flex justify-center', className)} id={id}>
+    <div className={classNames('bg-white flex flex-1 justify-center', className)} id={id}>
       <div
         className={classNames('max-w-primary flex-1 px-6 md:px-8 lg:px-[100px]', !overflowVisible && 'overflow-auto')}
       >
