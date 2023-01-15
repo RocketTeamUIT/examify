@@ -17,7 +17,10 @@ const routes = {
   me: '/me',
 
   // Exam
-  exam: '/exams',
+  examList: '/exams',
+  examDetail: '/exams/:examId',
+  recordDetail: '/exams/record-detail',
+
   // Flashcard
   flashcard: '/flashcards',
   // Contest

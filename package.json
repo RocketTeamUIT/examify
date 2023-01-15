@@ -30,11 +30,13 @@
     "react-scripts": "5.0.1",
     "react-spinner": "^0.2.7",
     "react-spring": "^9.5.5",
+    "react-table": "^7.8.0",
     "react-textarea-autosize": "^8.4.0",
     "react-toastify": "^9.1.1",
     "react-tooltip": "^5.2.0",
     "react-youtube": "^10.1.0",
     "redux": "^4.2.0",
+    "redux-persist": "^6.0.0",
     "swiper": "^8.4.4",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"

@@ -17,22 +17,43 @@ import UserProfile from '../pages/UserProfile';
 import { CourseList, CourseDetail, CourseListChapter } from '../features/course';
 
 // Exam
-import { Exam } from '../features/exam/components';
+import { ExamList } from '../features/exam';
 import CourseDetailLesson from '../features/course/CourseDetailLesson';
 import NoRecommendLayout from '../layouts/NoRecommendLayout';
 import { CourseListMe, CourseListSystem } from '../features/course/CourseList';
 import User from '../features/user/User';
 import { UserCourses } from '../features/user';
+import ExamDetail from '../features/exam/ExamDetail/ExamDetailIndex';
+import ExamDetailBase from '../features/exam/ExamDetail/ExamDetailBase';
+import ExamDetailAnswer from '../features/exam/ExamDetail/ExamDetailAnswer/ExamDetailAnswer';
+import { RecordDetailBase, RecordDetailIndex, RecordDetailFullmode } from '../features/exam/RecordDetail';
 import Flashcard, { ExploreFlashcard, FlashcardPractice, FlashcardSetDetail, MyFlashcard } from '../features/flashcard';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
+  // Auth
   { path: config.routes.home, component: Home },
   { path: config.routes.signin, component: Signin, layout: AuthLayout },
   { path: config.routes.signup, component: Signup, layout: AuthLayout },
   { path: config.routes.forgetPassword, component: ForgetPassword, layout: AuthLayout },
   { path: config.routes.changePassword, component: ChangePassword, layout: AuthLayout },
   { path: config.routes.userProfile, component: UserProfile, privateRoute: true },
+  {
+    path: config.routes.me,
+    component: User,
+    layout: NoRecommendLayout,
+    privateRoute: true,
+    children: [
+      {
+        path: '',
+        component: UserCourses,
+      },
+      {
+        path: 'exams',
+        component: UserCourses,
+      },
+    ],
+  },
 
   // Course
   {
@@ -60,26 +81,42 @@ const publicRouters = [
     privateRoute: true,
   },
 
-  // User
+  // Exam
   {
-    path: config.routes.me,
-    component: User,
+    path: config.routes.examList,
+    component: ExamList,
     layout: NoRecommendLayout,
-    privateRoute: true,
+  },
+  {
+    path: config.routes.examDetail,
+    component: ExamDetailBase,
+    layout: NoRecommendLayout,
     children: [
       {
         path: '',
-        component: UserCourses,
+        component: ExamDetail,
       },
       {
-        path: 'exams',
-        component: UserCourses,
+        path: 'answer',
+        component: ExamDetailAnswer,
       },
     ],
   },
-
-  // Exam
-  { path: config.routes.exam, component: Exam },
+  {
+    path: config.routes.recordDetail,
+    component: RecordDetailBase,
+    layout: NoRecommendLayout,
+    children: [
+      {
+        path: '',
+        component: RecordDetailIndex,
+      },
+      {
+        path: 'fullmode',
+        component: RecordDetailFullmode,
+      },
+    ],
+  },
 
   // Flashcard
   {
