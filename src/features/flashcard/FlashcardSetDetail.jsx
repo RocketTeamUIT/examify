@@ -1,11 +1,13 @@
 import { Pagination } from 'components/ui';
 import Container from 'layouts/components/Container';
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import AddFlashcardModal from './AddFlashcardModal';
 import AddMultipleFlashcardsModal from './AddMultipleFlashcardsModal';
 import FlashcardSetDetailHeader from './FlashcardSetDetailHeader';
 
 import FlashcardSingle from './FlashcardSingle';
+import useFetchFlashcardSetDetail from './hooks/useFetchFlashcardSetDetail';
 import ShareFlashcardModal from './ShareFlashcardModal';
 
 const FLASHCARD_LIST = [{}, { learned: true }];
@@ -15,6 +17,8 @@ const FlashcardSetDetail = () => {
   const [showShare, setShowShare] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
   const [showAddMultiple, setShowAddMultiple] = useState(false);
+  const { flashcardSetId } = useParams();
+  const { detail } = useFetchFlashcardSetDetail(flashcardSetId);
 
   const toggleShareModal = () => {
     setShowShare((prev) => !prev);
@@ -33,6 +37,7 @@ const FlashcardSetDetail = () => {
       <div className="flex justify-center">
         <div className="max-w-[820px] my-8">
           <FlashcardSetDetailHeader
+            detail={detail}
             showShareModal={toggleShareModal}
             showAddModal={toggleAddModal}
             showAddMultipleModal={toggleAddMultipleModal}

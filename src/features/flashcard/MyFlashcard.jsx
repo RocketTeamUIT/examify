@@ -5,7 +5,7 @@ import FlashcardSetList from './FlashcardSetList';
 const MyFlashcard = () => {
   return (
     <div className="my-[60px]">
-      <FlashcardSetList />
+      <FlashcardSetList flashcardSets={[]} />
 
       <div className="mt-11">
         <Tip>

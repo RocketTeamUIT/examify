@@ -8,7 +8,7 @@ import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const FlashcardSetDetailHeader = (props) => {
-  const { showShareModal, showAddModal, showAddMultipleModal } = props;
+  const { detail, showShareModal, showAddModal, showAddMultipleModal } = props;
   const ACTION_LIST = [
     {
       title: 'Chia sẻ bộ flashcard',
@@ -40,7 +40,7 @@ const FlashcardSetDetailHeader = (props) => {
 
       {/* Title and Buttons */}
       <div className="mt-2 lg:flex items-center justify-between">
-        <h3 className="font-extrabold text-h3">600 TOEIC words: Entertainment</h3>
+        <h3 className="font-extrabold text-h3">{detail.name}</h3>
         <div className="lg:my-0 flex mt-2 mb-4 gap-4">
           <PureDropdown actionList={ACTION_LIST} visible={showDropdown} hide={hide}>
             <Button width="48px" height="48px" type="default" onClick={show}>
@@ -60,25 +60,26 @@ const FlashcardSetDetailHeader = (props) => {
 
       {/* Type */}
       <div className="flex gap-4 items-center">
-        <span className="font-bold">TOEIC</span>
+        <span className="font-bold">{detail.fc_type?.type}</span>
         <p className="border-r border-black  h-[22px]" />
-        <Tag color="blue">
-          <span className="text-md px-2">Hệ thống</span>
-        </Tag>
+        {detail.system_belong && (
+          <Tag color="blue">
+            <span className="text-md px-2">Hệ thống</span>
+          </Tag>
+        )}
       </div>
 
       {/* Learnt count */}
       <div className="mt-3 text-md">
-        Bạn đã học được <span className="font-bold">0 / 600</span> từ
+        Bạn đã học được{' '}
+        <span className="font-bold">
+          {detail.learnt_count} / {detail.words_count}
+        </span>{' '}
+        từ
       </div>
 
       {/* Description */}
-      <div className="mt-3 leading-[17px]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis, turpis nec gravida pulvinar, lectus dui
-        pulvinar risus, quis molestie augue quam a lorem. Morbi maximus pretium elit, et maximus velit varius pulvinar.
-        Maecenas molestie, odio maximus congue aliquet, ex nisi aliquam tortor, sit amet blandit nisi nunc at urna.
-        Proin venenatis purus nec sagittis sagittis
-      </div>
+      <div className="mt-3 leading-[17px]">{detail.description}</div>
 
       {/* Buttons and Search */}
       <div className="mt-[18px] lg:flex gap-4">
@@ -99,6 +100,7 @@ const FlashcardSetDetailHeader = (props) => {
 };
 
 FlashcardSetDetailHeader.propTypes = {
+  detail: PropTypes.object.isRequired,
   showShareModal: PropTypes.func.isRequired,
   showAddModal: PropTypes.func.isRequired,
   showAddMultipleModal: PropTypes.func.isRequired,
