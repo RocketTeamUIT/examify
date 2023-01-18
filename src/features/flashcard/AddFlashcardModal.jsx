@@ -6,18 +6,25 @@ import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { addFlashcardService, updateFlashcardService } from './services/flashcard';
+import useAxiosPrivate from 'hooks/useAxiosPrivate';
+import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
+import { uploadImageService } from 'lib/image';
 
 const schema = yup.object().shape({
   word: yup.string().required('Không được để trống'),
-  meaning: yup.string().required('Không được để trống trường này'),
+  meaning: yup.string().required('Không được để trống'),
 });
 
 const AddFlashcardModal = (props) => {
-  const { isShowing, hide } = props;
+  const { isShowing, hide, onSubmit: onOuterSubmit, isUpdate, initialData, onUpdate } = props;
+  const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     watch,
     setValue,
@@ -26,30 +33,93 @@ const AddFlashcardModal = (props) => {
   });
   const [image, setImage] = useState('');
   const imageFile = watch('image');
+  const axios = useAxiosPrivate();
+  const { flashcardSetId } = useParams();
 
   useEffect(() => {
+    if (typeof imageFile === 'string') return;
+
     if (imageFile && imageFile.length > 0) {
+      console.log('triggered');
       setImage(URL.createObjectURL(imageFile[0]));
     } else {
       setImage('');
     }
   }, [imageFile]);
 
+  useEffect(() => {
+    if (isUpdate) {
+      reset(initialData);
+      setImage(initialData.image);
+    }
+  }, [isUpdate, initialData, reset, setValue]);
+
   const toggleMore = () => {
     setShowMore((prev) => !prev);
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const createFlashcard = async (data) => {
+    try {
+      // Upload image
+      setLoading(true);
+      const response = imageFile?.length > 0 && (await uploadImageService(imageFile[0], 'examify'));
+      await addFlashcardService({
+        axios,
+        flashcardSetId,
+        ...data,
+        image: response ? response.data.url : '',
+      });
+      onOuterSubmit();
+      toast.success('Thêm flashcard thành công');
+      hide();
+      reset();
+    } catch (error) {
+      console.log(error);
+      toast.error('Thêm flashcard thất bại');
+    } finally {
+      setLoading(false);
+    }
   };
+
+  async function updateFlashcard(data) {
+    try {
+      setLoading(true);
+      const response =
+        typeof imageFile !== 'string' && imageFile?.length > 0 && (await uploadImageService(imageFile[0], 'examify'));
+      const newData = {
+        ...data,
+        image: response ? response.data.url : initialData.image,
+      };
+      await updateFlashcardService({
+        axios,
+        flashcardId: initialData.flashcardId,
+        ...newData,
+      });
+      toast.success('Cập nhật flashcard thành công');
+      onUpdate(newData);
+      hide();
+      reset();
+    } catch (error) {
+      toast.error('Cập nhật thất bại');
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const deleteImage = () => {
     setValue('image', '');
   };
 
+  function handleDrop(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setValue('image', e.dataTransfer?.files);
+  }
+
   return (
     <Modal isShowing={isShowing} maxWidth="max-w-[500px]" hide={hide} header="Thêm từ mới">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(isUpdate ? updateFlashcard : createFlashcard)}>
         {/* Word */}
         <h6 className="font-semibold text-h6">Từ</h6>
         <div className="mt-3">
@@ -93,6 +163,7 @@ const AddFlashcardModal = (props) => {
           <div className="mt-3">
             <Input {...register('pronounce')} />
           </div>
+
           {/* Image */}
           <div className="flex mt-6 items-center">
             <h6 className="font-semibold text-h6">Ảnh</h6>
@@ -117,14 +188,18 @@ const AddFlashcardModal = (props) => {
             <img
               src={image || 'https://vmsco.vn/wp-content/uploads/2021/05/placeholder.png'}
               alt="flashcard"
+              onDrop={handleDrop}
+              onDragOver={(e) => e.preventDefault()}
               className="object-cover w-full h-full"
             />
           </div>
+
           {/* Example */}
           <h6 className="font-semibold text-h6 mt-6">Ví dụ</h6>
           <div className="mt-3">
             <TextArea {...register('example')} />
           </div>
+
           {/* Note */}
           <h6 className="font-semibold text-h6 mt-6">Ghi chú</h6>
           <div className="mt-3">
@@ -133,8 +208,8 @@ const AddFlashcardModal = (props) => {
         </div>
 
         {/* Submit button */}
-        <Button className="mt-7" width="100%">
-          Thêm
+        <Button className="mt-7" width="100%" disabled={loading}>
+          {isUpdate ? 'Cập nhật' : 'Thêm'}
         </Button>
       </form>
     </Modal>
@@ -144,6 +219,17 @@ const AddFlashcardModal = (props) => {
 AddFlashcardModal.propTypes = {
   isShowing: PropTypes.bool.isRequired,
   hide: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
+  isUpdate: PropTypes.bool,
+  initialData: PropTypes.object,
+  onUpdate: PropTypes.func,
+};
+
+AddFlashcardModal.defaultProps = {
+  onSubmit: () => {},
+  isUpdate: false,
+  initialData: {},
+  onUpdate: () => {},
 };
 
 export default AddFlashcardModal;
