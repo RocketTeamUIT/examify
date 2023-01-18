@@ -1,3 +1,5 @@
+import { LayoutOne, LayoutTwo, LayoutThree, LayoutFour } from './ExamTaking/Main/Layouts';
+
 export const examList = [
   {
     id: 1,
@@ -738,5 +740,499 @@ export const dataListing = [
     orderQn: 130,
     userChoice: 'D',
     status: 'correct',
+  },
+];
+
+export const fullPart = [
+  {
+    title: 'Part 1',
+    questionList: [
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+    ],
+    element: <LayoutOne />,
+  },
+  {
+    title: 'Part 2',
+    questionList: [
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+    ],
+    element: <LayoutTwo />,
+  },
+  {
+    title: 'Part 3',
+    questionList: [
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+    ],
+    element: <LayoutThree />,
+  },
+  {
+    title: 'Part 4',
+    questionList: [
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+    ],
+    element: <LayoutThree />,
+  },
+  {
+    title: 'Part 5',
+    questionList: [
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+    ],
+    element: <LayoutTwo />,
+  },
+  {
+    title: 'Part 6',
+    questionList: [
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+    ],
+    element: <LayoutFour />,
+  },
+  {
+    title: 'Part 7',
+    questionList: [
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+      {
+        img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+        name: '',
+        mcq: [
+          {
+            name: 'A',
+            content: '',
+          },
+          {
+            name: 'B',
+            content: '',
+          },
+          {
+            name: 'C',
+            content: '',
+          },
+          {
+            name: 'D',
+            content: '',
+          },
+        ],
+      },
+    ],
+    element: <LayoutFour />,
+  },
+];
+
+export const part1 = [
+  {
+    seq: 1,
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+    name: '',
+    choiceList: [
+      {
+        seq: 1,
+        content: '',
+      },
+      {
+        seq: 2,
+        content: '',
+      },
+      {
+        seq: 3,
+        content: '',
+      },
+      {
+        seq: 4,
+        content: '',
+      },
+    ],
+  },
+  {
+    seq: 2,
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+    name: '',
+    choiceList: [
+      {
+        seq: 1,
+        content: '',
+      },
+      {
+        seq: 2,
+        content: '',
+      },
+      {
+        seq: 3,
+        content: '',
+      },
+      {
+        seq: 4,
+        content: '',
+      },
+    ],
+  },
+  {
+    seq: 3,
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+    name: '',
+    choiceList: [
+      {
+        seq: 1,
+        content: '',
+      },
+      {
+        seq: 2,
+        content: '',
+      },
+      {
+        seq: 3,
+        content: '',
+      },
+      {
+        seq: 4,
+        content: '',
+      },
+    ],
+  },
+  {
+    seq: 4,
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+    name: '',
+    choiceList: [
+      {
+        seq: 1,
+        content: '',
+      },
+      {
+        seq: 2,
+        content: '',
+      },
+      {
+        seq: 3,
+        content: '',
+      },
+      {
+        seq: 4,
+        content: '',
+      },
+    ],
+  },
+  {
+    seq: 5,
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+    name: '',
+    choiceList: [
+      {
+        seq: 1,
+        content: '',
+      },
+      {
+        seq: 2,
+        content: '',
+      },
+      {
+        seq: 3,
+        content: '',
+      },
+      {
+        seq: 4,
+        content: '',
+      },
+    ],
+  },
+  {
+    seq: 6,
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+    name: '',
+    choiceList: [
+      {
+        seq: 1,
+        content: '',
+      },
+      {
+        seq: 2,
+        content: '',
+      },
+      {
+        seq: 3,
+        content: '',
+      },
+      {
+        seq: 4,
+        content: '',
+      },
+    ],
   },
 ];

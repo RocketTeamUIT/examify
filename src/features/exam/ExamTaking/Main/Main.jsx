@@ -3,6 +3,8 @@ import { ToggleButton } from 'features/exam/components';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import AudioPlayer from './AudioPlayer';
+import { GroupButtonTabs } from '../../components';
+import { fullPart } from '../../data';
 
 function Main() {
   return (
@@ -19,6 +21,8 @@ function Main() {
       </div>
       {/* Audio */}
       <AudioPlayer />
+
+      <GroupButtonTabs className="mt-10" tabList={fullPart} mtContentDock="40px" />
     </div>
   );
 }
