@@ -1,5 +1,5 @@
 import audiomp3 from 'assets/audio/audio.mp3';
-import useAudioPlayer from '../../hooks/useAudioPlayer';
+import useAudioPlayer from '../../../hooks/useAudioPlayer';
 import { useRef } from 'react';
 import Audio from './Audio';
 import Volumn from './Volumn';
@@ -22,8 +22,10 @@ function AudioPlayer() {
           duration={duration}
           setClickedTime={setClickedTime}
         />
-        <Volumn muting={muting} curVolume={curVolume} setMuting={setMuting} setClickedVolume={setClickedVolume} />
-        <Setting />
+        <div className="ml-1 hidden lg:flex lg:basis-1/5 w-full ">
+          <Volumn muting={muting} curVolume={curVolume} setMuting={setMuting} setClickedVolume={setClickedVolume} />
+          <Setting />
+        </div>
       </div>
     </div>
   );

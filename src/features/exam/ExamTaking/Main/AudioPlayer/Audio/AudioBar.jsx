@@ -3,7 +3,7 @@ import { followCursor } from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import moment from 'moment';
 import 'moment-duration-format';
-import Bar from '../../../components/Bar';
+import { Bar } from '../../../../components';
 import { useState } from 'react';
 
 function AudioBar({ duration, curTime, onTimeUpdate }) {

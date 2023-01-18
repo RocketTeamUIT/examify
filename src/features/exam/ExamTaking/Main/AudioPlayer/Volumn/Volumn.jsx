@@ -1,10 +1,11 @@
 import Mute from './Mute';
 import Unmute from './Unmute';
-import Bar from '../../../components/Bar';
+import { Bar } from '../../../../components';
+import classNames from 'classnames';
 
-function Volumn({ muting, curVolume, setMuting, setClickedVolume }) {
+function Volumn({ muting, curVolume, setMuting, setClickedVolume, className }) {
   return (
-    <div className="ml-1 flex-1 flex items-center">
+    <div className={classNames('flex-1 flex items-center', className)}>
       {muting ? <Mute handleClick={() => setMuting(false)} /> : <Unmute handleClick={() => setMuting(true)} />}
       <Bar
         className="mx-3"

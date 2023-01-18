@@ -1,9 +1,6 @@
 import { Button } from '../../../components/ui';
-import ToggleButton from '../components/ToggleButton';
-import { HiOutlineExclamationCircle } from 'react-icons/hi2';
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
-import AudioPlayer from './AudioPlayer';
+import Sidebar from './Sidebar';
+import Main from './Main';
 
 function ExamTaking() {
   return (
@@ -20,25 +17,12 @@ function ExamTaking() {
       </div>
 
       {/* Layout */}
-      <div className="mt-5 px-5 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-5">
+      <div className="mt-5 px-5 flex w-full gap-3 xl:gap-5">
         {/* Thi */}
-        <div className="min-h-screen bg-white col-span-4 md:col-span-6 lg:col-span-9 rounded-lg py-4 px-2 lg:py-6 lg:px-4">
-          {/* Flashcard mode */}
-          <div className="flex items-center gap-2 text-t_gray">
-            <ToggleButton active={true} />
-            <span className="italic text-h5 text-t_dark">Flashcard mode</span>
-            <Tippy content="Trong quá trình làm bài thi, nếu có từ vựng nào chưa biết, bạn có thể bôi đen từ vựng đó và thêm nó vào flashcard.">
-              <span>
-                <HiOutlineExclamationCircle fontSize={22} />
-              </span>
-            </Tippy>
-          </div>
-          {/* Audio */}
-          <AudioPlayer />
-        </div>
+        <Main />
 
         {/* Sidebar */}
-        <div className="h-28 bg-white hidden lg:block lg:col-span-3 rounded-lg"></div>
+        <Sidebar />
       </div>
     </div>
   );
