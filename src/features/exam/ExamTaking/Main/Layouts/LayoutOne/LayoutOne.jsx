@@ -1,8 +1,7 @@
 import Question from './Question';
-import { part1 } from 'features/exam/data';
 
 // Layout này chỉ dành riêng cho Part 1
-function LayoutOne() {
+function LayoutOne({ data: part1 }) {
   return (
     <div className="flex flex-col gap-20">
       {part1.map((questionItem, index) => (
