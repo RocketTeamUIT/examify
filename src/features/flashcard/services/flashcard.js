@@ -100,3 +100,18 @@ export function updateFlashcardService({
     image,
   });
 }
+
+export function deleteFlashcardService({ axios, flashcardId }) {
+  return axios.delete(`/flashcards/delete/${flashcardId}`);
+}
+
+export function createBulkFlashcardService({ axios, data }) {
+  return axios.post('/flashcards/create-bulk', data);
+}
+
+export function addShareFlashcardSetService({ axios, flashcardSetId, userId }) {
+  return axios.post('/flashcard-sets/share', {
+    flashcardSetId,
+    userId,
+  });
+}

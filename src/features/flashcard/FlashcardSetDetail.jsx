@@ -36,6 +36,10 @@ const FlashcardSetDetail = () => {
     setSearch(e.target.value);
   }
 
+  async function handleCreate() {
+    await Promise.all([fetchData(), fetchFlashcardSet()]);
+  }
+
   return (
     <Container>
       <div className="flex justify-center">
@@ -56,7 +60,13 @@ const FlashcardSetDetail = () => {
 
           <ul className="space-y-8">
             {flashcards?.map((flashcard, index) => (
-              <FlashcardSingle {...flashcard} isOwner={detail.isOwner} key={index} onMark={fetchFlashcardSet} />
+              <FlashcardSingle
+                {...flashcard}
+                onDelete={fetchData}
+                isOwner={detail.isOwner}
+                key={index}
+                onMark={fetchFlashcardSet}
+              />
             ))}
           </ul>
 
@@ -69,8 +79,8 @@ const FlashcardSetDetail = () => {
           </div>
         </div>
 
-        <AddFlashcardModal onSubmit={fetchData} isShowing={showAdd} hide={toggleAddModal} />
-        <AddMultipleFlashcardsModal isShowing={showAddMultiple} hide={toggleAddMultipleModal} />
+        <AddFlashcardModal onSubmit={handleCreate} isShowing={showAdd} hide={toggleAddModal} />
+        <AddMultipleFlashcardsModal onCreate={handleCreate} isShowing={showAddMultiple} hide={toggleAddMultipleModal} />
         <ShareFlashcardModal isShowing={showShare} hide={toggleShareModal} />
       </div>
     </Container>

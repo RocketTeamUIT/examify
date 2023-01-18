@@ -1,12 +1,13 @@
-import { PureDropdown, Tag } from 'components/ui';
+import { Confirmation, PureDropdown, Tag } from 'components/ui';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from 'react-icons/ai';
 import { BsVolumeDown } from 'react-icons/bs';
 import { HiOutlineDotsHorizontal, HiTrash } from 'react-icons/hi';
 import useAxiosPrivate from 'hooks/useAxiosPrivate';
-import { markAsLearntService, markAsUnlearntService } from './services/flashcard';
+import { deleteFlashcardService, markAsLearntService, markAsUnlearntService } from './services/flashcard';
 import { MdOutlineModeEditOutline } from 'react-icons/md';
 import AddFlashcardModal from './AddFlashcardModal';
+import { toast } from 'react-toastify';
 
 const TYPES = {
   noun: 'n',
@@ -32,10 +33,12 @@ const initialState = {
 };
 
 const FlashcardSingle = (props) => {
-  const { learnt, word, meaning, type_of_word, pronounce, example, note, image, fc_id, onMark, isOwner } = props;
+  const { learnt, word, meaning, type_of_word, pronounce, example, note, image, fc_id, onMark, isOwner, onDelete } =
+    props;
   const [data, setData] = useState(initialState);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const axios = useAxiosPrivate();
 
   useEffect(() => {
@@ -86,7 +89,7 @@ const FlashcardSingle = (props) => {
       },
       {
         title: 'Xoá flashcard này',
-        func: () => console.log(2),
+        func: toggleShowConfirm,
         danger: true,
         icon: <HiTrash />,
       },
@@ -105,10 +108,29 @@ const FlashcardSingle = (props) => {
     setShowAdd((prev) => !prev);
   }
 
+  async function deleteFlashcard() {
+    try {
+      await deleteFlashcardService({ flashcardId: fc_id, axios });
+      await onDelete();
+      toast.success('Xoá thành công');
+    } catch (error) {
+      toast.error('Xoá thất bại');
+      console.log(error);
+    }
+  }
+
+  function toggleShowConfirm() {
+    setShowConfirm(true);
+  }
+
+  function toggleHideConfirm() {
+    setShowConfirm(false);
+  }
+
   return (
     <>
       <li className="bg-white rounded-lg shadow-sd_large p-5 grid grid-cols-12 gap-x-5 relative">
-        <header className="col-span-full flex items-center justify-between">
+        <header className="col-span-full flex items-center justify-between relative">
           <h4 className="text-h4 font-bold uppercase">
             {data.word} <span className="font-normal lowercase">({typeOfWord})</span>
           </h4>
@@ -117,6 +139,15 @@ const FlashcardSingle = (props) => {
               <HiOutlineDotsHorizontal className="h-5 w-5" />
             </button>
           </PureDropdown>
+          <Confirmation
+            onConfirm={deleteFlashcard}
+            right="right-0"
+            top="top-12"
+            showing={showConfirm}
+            hide={toggleHideConfirm}
+          >
+            Xác nhận xoá flashcard này?
+          </Confirmation>
         </header>
 
         {/* Description */}
