@@ -2926,6 +2926,405 @@ export const part5 = [
   },
 ];
 
+export const part6 = [
+  {
+    title: 'refer to following notice',
+    side: [
+      {
+        content:
+          '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+      },
+    ],
+    setQuestion: [
+      {
+        seq: 131,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'serve',
+          },
+          {
+            seq: 2,
+            content: 'served',
+          },
+          {
+            seq: 3,
+            content: 'server',
+          },
+          {
+            seq: 4,
+            content: 'service',
+          },
+        ],
+      },
+      {
+        seq: 132,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Along',
+          },
+          {
+            seq: 2,
+            content: 'During',
+          },
+          {
+            seq: 3,
+            content: 'Without',
+          },
+          {
+            seq: 4,
+            content: 'Between',
+          },
+        ],
+      },
+      {
+        seq: 133,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'apologize',
+          },
+          {
+            seq: 2,
+            content: 'organize',
+          },
+          {
+            seq: 3,
+            content: 'realize',
+          },
+          {
+            seq: 4,
+            content: 'recognize',
+          },
+        ],
+      },
+      {
+        seq: 134,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'If you would like to join our property management team, call us today.',
+          },
+          {
+            seq: 2,
+            content: 'Thank you for your patience while the main lobby is being painted.',
+          },
+          {
+            seq: 3,
+            content: 'Please do not attempt to access the north lobby on these days.',
+          },
+          {
+            seq: 4,
+            content: 'Questions or comments may be directed to the Management office.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'refer to following notice',
+    side: [
+      {
+        content:
+          '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+      },
+    ],
+    setQuestion: [
+      {
+        seq: 135,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'serve',
+          },
+          {
+            seq: 2,
+            content: 'served',
+          },
+          {
+            seq: 3,
+            content: 'server',
+          },
+          {
+            seq: 4,
+            content: 'service',
+          },
+        ],
+      },
+      {
+        seq: 136,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Along',
+          },
+          {
+            seq: 2,
+            content: 'During',
+          },
+          {
+            seq: 3,
+            content: 'Without',
+          },
+          {
+            seq: 4,
+            content: 'Between',
+          },
+        ],
+      },
+      {
+        seq: 137,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'apologize',
+          },
+          {
+            seq: 2,
+            content: 'organize',
+          },
+          {
+            seq: 3,
+            content: 'realize',
+          },
+          {
+            seq: 4,
+            content: 'recognize',
+          },
+        ],
+      },
+      {
+        seq: 138,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'If you would like to join our property management team, call us today.',
+          },
+          {
+            seq: 2,
+            content: 'Thank you for your patience while the main lobby is being painted.',
+          },
+          {
+            seq: 3,
+            content: 'Please do not attempt to access the north lobby on these days.',
+          },
+          {
+            seq: 4,
+            content: 'Questions or comments may be directed to the Management office.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'refer to following notice',
+    side: [
+      {
+        content:
+          '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+      },
+    ],
+    setQuestion: [
+      {
+        seq: 139,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'serve',
+          },
+          {
+            seq: 2,
+            content: 'served',
+          },
+          {
+            seq: 3,
+            content: 'server',
+          },
+          {
+            seq: 4,
+            content: 'service',
+          },
+        ],
+      },
+      {
+        seq: 140,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Along',
+          },
+          {
+            seq: 2,
+            content: 'During',
+          },
+          {
+            seq: 3,
+            content: 'Without',
+          },
+          {
+            seq: 4,
+            content: 'Between',
+          },
+        ],
+      },
+      {
+        seq: 141,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'apologize',
+          },
+          {
+            seq: 2,
+            content: 'organize',
+          },
+          {
+            seq: 3,
+            content: 'realize',
+          },
+          {
+            seq: 4,
+            content: 'recognize',
+          },
+        ],
+      },
+      {
+        seq: 142,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'If you would like to join our property management team, call us today.',
+          },
+          {
+            seq: 2,
+            content: 'Thank you for your patience while the main lobby is being painted.',
+          },
+          {
+            seq: 3,
+            content: 'Please do not attempt to access the north lobby on these days.',
+          },
+          {
+            seq: 4,
+            content: 'Questions or comments may be directed to the Management office.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'refer to following notice',
+    side: [
+      {
+        content:
+          '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+      },
+    ],
+    setQuestion: [
+      {
+        seq: 143,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'serve',
+          },
+          {
+            seq: 2,
+            content: 'served',
+          },
+          {
+            seq: 3,
+            content: 'server',
+          },
+          {
+            seq: 4,
+            content: 'service',
+          },
+        ],
+      },
+      {
+        seq: 144,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Along',
+          },
+          {
+            seq: 2,
+            content: 'During',
+          },
+          {
+            seq: 3,
+            content: 'Without',
+          },
+          {
+            seq: 4,
+            content: 'Between',
+          },
+        ],
+      },
+      {
+        seq: 145,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'apologize',
+          },
+          {
+            seq: 2,
+            content: 'organize',
+          },
+          {
+            seq: 3,
+            content: 'realize',
+          },
+          {
+            seq: 4,
+            content: 'recognize',
+          },
+        ],
+      },
+      {
+        seq: 146,
+        name: '',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'If you would like to join our property management team, call us today.',
+          },
+          {
+            seq: 2,
+            content: 'Thank you for your patience while the main lobby is being painted.',
+          },
+          {
+            seq: 3,
+            content: 'Please do not attempt to access the north lobby on these days.',
+          },
+          {
+            seq: 4,
+            content: 'Questions or comments may be directed to the Management office.',
+          },
+        ],
+      },
+    ],
+  },
+];
+
 export const fullPart = [
   {
     title: 'Part 1',
@@ -3225,7 +3624,7 @@ export const fullPart = [
         ],
       },
     ],
-    element: <LayoutFour />,
+    element: <LayoutFour data={part6} />,
   },
   {
     title: 'Part 7',
@@ -3275,6 +3674,6 @@ export const fullPart = [
         ],
       },
     ],
-    element: <LayoutFour />,
+    element: <LayoutFour data={part6} />,
   },
 ];

@@ -45,7 +45,7 @@ function MCQ({ seq, name, choiceList = [] }) {
             name="check1"
             label={contentMapping(choiceItem.seq, choiceItem.content)}
             leftDockLabel={32}
-            mb={8}
+            mb={choiceList.length - 1 === index ? 0 : 8}
           />
         ))}
       </div>
