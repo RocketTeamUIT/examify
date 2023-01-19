@@ -115,3 +115,16 @@ export function addShareFlashcardSetService({ axios, flashcardSetId, userId }) {
     userId,
   });
 }
+
+export function searchSharePersonService({ axios, value, flashcardSetId }) {
+  return axios.get('/flashcard-sets/search', {
+    params: {
+      value,
+      flashcardSetId,
+    },
+  });
+}
+
+export function getFlashcardShareListService({ axios, flashcardSetId }) {
+  return axios.get(`/flashcard-sets/share/${flashcardSetId}`);
+}
