@@ -1337,6 +1337,932 @@ export const part2 = [
   },
 ];
 
+export const part3 = [
+  {
+    img: '',
+    setQuestion: [
+      {
+        seq: 32,
+        name: 'What is the woman preparing for?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A move to a new a city',
+          },
+          {
+            seq: 2,
+            content: 'A business trip',
+          },
+          {
+            seq: 3,
+            content: 'A building tour',
+          },
+          {
+            seq: 4,
+            content: 'A meeting with visiting colleagues',
+          },
+        ],
+      },
+      {
+        seq: 33,
+        name: 'Who most likely is the man?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'An accountant',
+          },
+          {
+            seq: 2,
+            content: 'An administrative assistant',
+          },
+          {
+            seq: 3,
+            content: 'A marketing director',
+          },
+          {
+            seq: 4,
+            content: 'A company president',
+          },
+        ],
+      },
+      {
+        seq: 34,
+        name: 'What does the woman want to pick up on Friday morning?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A building map',
+          },
+          {
+            seq: 2,
+            content: 'A room key',
+          },
+          {
+            seq: 3,
+            content: 'An ID card',
+          },
+          {
+            seq: 4,
+            content: 'A parking pass',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png',
+    setQuestion: [
+      {
+        seq: 35,
+        name: "Look at the graphic. How much did the man's company charge for its service?",
+        choiceList: [
+          {
+            seq: 1,
+            content: '$4,456',
+          },
+          {
+            seq: 2,
+            content: '$1,300',
+          },
+          {
+            seq: 3,
+            content: '$10,200',
+          },
+          {
+            seq: 4,
+            content: '$400',
+          },
+        ],
+      },
+      {
+        seq: 36,
+        name: 'Why does the man apologize?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Business hours have changed.',
+          },
+          {
+            seq: 2,
+            content: 'A price was wrong.',
+          },
+          {
+            seq: 3,
+            content: 'Some staff arrived late.',
+          },
+          {
+            seq: 4,
+            content: 'A request could not be fulfilled.',
+          },
+        ],
+      },
+      {
+        seq: 37,
+        name: 'What does the woman like about a venue?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'It has a nice view.',
+          },
+          {
+            seq: 2,
+            content: 'It is conveniently located.',
+          },
+          {
+            seq: 3,
+            content: 'It is tastefully decorated.',
+          },
+          {
+            seq: 4,
+            content: 'It can host large events.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: '',
+    setQuestion: [
+      {
+        seq: 38,
+        name: 'What is the woman preparing for?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A move to a new a city',
+          },
+          {
+            seq: 2,
+            content: 'A business trip',
+          },
+          {
+            seq: 3,
+            content: 'A building tour',
+          },
+          {
+            seq: 4,
+            content: 'A meeting with visiting colleagues',
+          },
+        ],
+      },
+      {
+        seq: 39,
+        name: 'Who most likely is the man?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'An accountant',
+          },
+          {
+            seq: 2,
+            content: 'An administrative assistant',
+          },
+          {
+            seq: 3,
+            content: 'A marketing director',
+          },
+          {
+            seq: 4,
+            content: 'A company president',
+          },
+        ],
+      },
+      {
+        seq: 40,
+        name: 'What does the woman want to pick up on Friday morning?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A building map',
+          },
+          {
+            seq: 2,
+            content: 'A room key',
+          },
+          {
+            seq: 3,
+            content: 'An ID card',
+          },
+          {
+            seq: 4,
+            content: 'A parking pass',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png',
+    setQuestion: [
+      {
+        seq: 41,
+        name: "Look at the graphic. How much did the man's company charge for its service?",
+        choiceList: [
+          {
+            seq: 1,
+            content: '$4,456',
+          },
+          {
+            seq: 2,
+            content: '$1,300',
+          },
+          {
+            seq: 3,
+            content: '$10,200',
+          },
+          {
+            seq: 4,
+            content: '$400',
+          },
+        ],
+      },
+      {
+        seq: 42,
+        name: 'Why does the man apologize?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Business hours have changed.',
+          },
+          {
+            seq: 2,
+            content: 'A price was wrong.',
+          },
+          {
+            seq: 3,
+            content: 'Some staff arrived late.',
+          },
+          {
+            seq: 4,
+            content: 'A request could not be fulfilled.',
+          },
+        ],
+      },
+      {
+        seq: 43,
+        name: 'What does the woman like about a venue?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'It has a nice view.',
+          },
+          {
+            seq: 2,
+            content: 'It is conveniently located.',
+          },
+          {
+            seq: 3,
+            content: 'It is tastefully decorated.',
+          },
+          {
+            seq: 4,
+            content: 'It can host large events.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: '',
+    setQuestion: [
+      {
+        seq: 44,
+        name: 'What is the woman preparing for?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A move to a new a city',
+          },
+          {
+            seq: 2,
+            content: 'A business trip',
+          },
+          {
+            seq: 3,
+            content: 'A building tour',
+          },
+          {
+            seq: 4,
+            content: 'A meeting with visiting colleagues',
+          },
+        ],
+      },
+      {
+        seq: 45,
+        name: 'Who most likely is the man?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'An accountant',
+          },
+          {
+            seq: 2,
+            content: 'An administrative assistant',
+          },
+          {
+            seq: 3,
+            content: 'A marketing director',
+          },
+          {
+            seq: 4,
+            content: 'A company president',
+          },
+        ],
+      },
+      {
+        seq: 46,
+        name: 'What does the woman want to pick up on Friday morning?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A building map',
+          },
+          {
+            seq: 2,
+            content: 'A room key',
+          },
+          {
+            seq: 3,
+            content: 'An ID card',
+          },
+          {
+            seq: 4,
+            content: 'A parking pass',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png',
+    setQuestion: [
+      {
+        seq: 47,
+        name: "Look at the graphic. How much did the man's company charge for its service?",
+        choiceList: [
+          {
+            seq: 1,
+            content: '$4,456',
+          },
+          {
+            seq: 2,
+            content: '$1,300',
+          },
+          {
+            seq: 3,
+            content: '$10,200',
+          },
+          {
+            seq: 4,
+            content: '$400',
+          },
+        ],
+      },
+      {
+        seq: 48,
+        name: 'Why does the man apologize?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Business hours have changed.',
+          },
+          {
+            seq: 2,
+            content: 'A price was wrong.',
+          },
+          {
+            seq: 3,
+            content: 'Some staff arrived late.',
+          },
+          {
+            seq: 4,
+            content: 'A request could not be fulfilled.',
+          },
+        ],
+      },
+      {
+        seq: 49,
+        name: 'What does the woman like about a venue?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'It has a nice view.',
+          },
+          {
+            seq: 2,
+            content: 'It is conveniently located.',
+          },
+          {
+            seq: 3,
+            content: 'It is tastefully decorated.',
+          },
+          {
+            seq: 4,
+            content: 'It can host large events.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: '',
+    setQuestion: [
+      {
+        seq: 50,
+        name: 'What is the woman preparing for?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A move to a new a city',
+          },
+          {
+            seq: 2,
+            content: 'A business trip',
+          },
+          {
+            seq: 3,
+            content: 'A building tour',
+          },
+          {
+            seq: 4,
+            content: 'A meeting with visiting colleagues',
+          },
+        ],
+      },
+      {
+        seq: 51,
+        name: 'Who most likely is the man?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'An accountant',
+          },
+          {
+            seq: 2,
+            content: 'An administrative assistant',
+          },
+          {
+            seq: 3,
+            content: 'A marketing director',
+          },
+          {
+            seq: 4,
+            content: 'A company president',
+          },
+        ],
+      },
+      {
+        seq: 52,
+        name: 'What does the woman want to pick up on Friday morning?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A building map',
+          },
+          {
+            seq: 2,
+            content: 'A room key',
+          },
+          {
+            seq: 3,
+            content: 'An ID card',
+          },
+          {
+            seq: 4,
+            content: 'A parking pass',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png',
+    setQuestion: [
+      {
+        seq: 53,
+        name: "Look at the graphic. How much did the man's company charge for its service?",
+        choiceList: [
+          {
+            seq: 1,
+            content: '$4,456',
+          },
+          {
+            seq: 2,
+            content: '$1,300',
+          },
+          {
+            seq: 3,
+            content: '$10,200',
+          },
+          {
+            seq: 4,
+            content: '$400',
+          },
+        ],
+      },
+      {
+        seq: 54,
+        name: 'Why does the man apologize?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Business hours have changed.',
+          },
+          {
+            seq: 2,
+            content: 'A price was wrong.',
+          },
+          {
+            seq: 3,
+            content: 'Some staff arrived late.',
+          },
+          {
+            seq: 4,
+            content: 'A request could not be fulfilled.',
+          },
+        ],
+      },
+      {
+        seq: 55,
+        name: 'What does the woman like about a venue?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'It has a nice view.',
+          },
+          {
+            seq: 2,
+            content: 'It is conveniently located.',
+          },
+          {
+            seq: 3,
+            content: 'It is tastefully decorated.',
+          },
+          {
+            seq: 4,
+            content: 'It can host large events.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: '',
+    setQuestion: [
+      {
+        seq: 56,
+        name: 'What is the woman preparing for?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A move to a new a city',
+          },
+          {
+            seq: 2,
+            content: 'A business trip',
+          },
+          {
+            seq: 3,
+            content: 'A building tour',
+          },
+          {
+            seq: 4,
+            content: 'A meeting with visiting colleagues',
+          },
+        ],
+      },
+      {
+        seq: 57,
+        name: 'Who most likely is the man?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'An accountant',
+          },
+          {
+            seq: 2,
+            content: 'An administrative assistant',
+          },
+          {
+            seq: 3,
+            content: 'A marketing director',
+          },
+          {
+            seq: 4,
+            content: 'A company president',
+          },
+        ],
+      },
+      {
+        seq: 58,
+        name: 'What does the woman want to pick up on Friday morning?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A building map',
+          },
+          {
+            seq: 2,
+            content: 'A room key',
+          },
+          {
+            seq: 3,
+            content: 'An ID card',
+          },
+          {
+            seq: 4,
+            content: 'A parking pass',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png',
+    setQuestion: [
+      {
+        seq: 59,
+        name: "Look at the graphic. How much did the man's company charge for its service?",
+        choiceList: [
+          {
+            seq: 1,
+            content: '$4,456',
+          },
+          {
+            seq: 2,
+            content: '$1,300',
+          },
+          {
+            seq: 3,
+            content: '$10,200',
+          },
+          {
+            seq: 4,
+            content: '$400',
+          },
+        ],
+      },
+      {
+        seq: 60,
+        name: 'Why does the man apologize?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Business hours have changed.',
+          },
+          {
+            seq: 2,
+            content: 'A price was wrong.',
+          },
+          {
+            seq: 3,
+            content: 'Some staff arrived late.',
+          },
+          {
+            seq: 4,
+            content: 'A request could not be fulfilled.',
+          },
+        ],
+      },
+      {
+        seq: 61,
+        name: 'What does the woman like about a venue?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'It has a nice view.',
+          },
+          {
+            seq: 2,
+            content: 'It is conveniently located.',
+          },
+          {
+            seq: 3,
+            content: 'It is tastefully decorated.',
+          },
+          {
+            seq: 4,
+            content: 'It can host large events.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: '',
+    setQuestion: [
+      {
+        seq: 62,
+        name: 'What is the woman preparing for?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A move to a new a city',
+          },
+          {
+            seq: 2,
+            content: 'A business trip',
+          },
+          {
+            seq: 3,
+            content: 'A building tour',
+          },
+          {
+            seq: 4,
+            content: 'A meeting with visiting colleagues',
+          },
+        ],
+      },
+      {
+        seq: 63,
+        name: 'Who most likely is the man?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'An accountant',
+          },
+          {
+            seq: 2,
+            content: 'An administrative assistant',
+          },
+          {
+            seq: 3,
+            content: 'A marketing director',
+          },
+          {
+            seq: 4,
+            content: 'A company president',
+          },
+        ],
+      },
+      {
+        seq: 64,
+        name: 'What does the woman want to pick up on Friday morning?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'A building map',
+          },
+          {
+            seq: 2,
+            content: 'A room key',
+          },
+          {
+            seq: 3,
+            content: 'An ID card',
+          },
+          {
+            seq: 4,
+            content: 'A parking pass',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png',
+    setQuestion: [
+      {
+        seq: 65,
+        name: "Look at the graphic. How much did the man's company charge for its service?",
+        choiceList: [
+          {
+            seq: 1,
+            content: '$4,456',
+          },
+          {
+            seq: 2,
+            content: '$1,300',
+          },
+          {
+            seq: 3,
+            content: '$10,200',
+          },
+          {
+            seq: 4,
+            content: '$400',
+          },
+        ],
+      },
+      {
+        seq: 66,
+        name: 'Why does the man apologize?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Business hours have changed.',
+          },
+          {
+            seq: 2,
+            content: 'A price was wrong.',
+          },
+          {
+            seq: 3,
+            content: 'Some staff arrived late.',
+          },
+          {
+            seq: 4,
+            content: 'A request could not be fulfilled.',
+          },
+        ],
+      },
+      {
+        seq: 67,
+        name: 'What does the woman like about a venue?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'It has a nice view.',
+          },
+          {
+            seq: 2,
+            content: 'It is conveniently located.',
+          },
+          {
+            seq: 3,
+            content: 'It is tastefully decorated.',
+          },
+          {
+            seq: 4,
+            content: 'It can host large events.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    img: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png',
+    setQuestion: [
+      {
+        seq: 68,
+        name: "Look at the graphic. How much did the man's company charge for its service?",
+        choiceList: [
+          {
+            seq: 1,
+            content: '$4,456',
+          },
+          {
+            seq: 2,
+            content: '$1,300',
+          },
+          {
+            seq: 3,
+            content: '$10,200',
+          },
+          {
+            seq: 4,
+            content: '$400',
+          },
+        ],
+      },
+      {
+        seq: 69,
+        name: 'Why does the man apologize?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'Business hours have changed.',
+          },
+          {
+            seq: 2,
+            content: 'A price was wrong.',
+          },
+          {
+            seq: 3,
+            content: 'Some staff arrived late.',
+          },
+          {
+            seq: 4,
+            content: 'A request could not be fulfilled.',
+          },
+        ],
+      },
+      {
+        seq: 70,
+        name: 'What does the woman like about a venue?',
+        choiceList: [
+          {
+            seq: 1,
+            content: 'It has a nice view.',
+          },
+          {
+            seq: 2,
+            content: 'It is conveniently located.',
+          },
+          {
+            seq: 3,
+            content: 'It is tastefully decorated.',
+          },
+          {
+            seq: 4,
+            content: 'It can host large events.',
+          },
+        ],
+      },
+    ],
+  },
+];
+
 export const part5 = [
   {
     seq: 101,
@@ -2149,7 +3075,7 @@ export const fullPart = [
         ],
       },
     ],
-    element: <LayoutThree />,
+    element: <LayoutThree data={part3} />,
   },
   {
     title: 'Part 4',
@@ -2199,7 +3125,7 @@ export const fullPart = [
         ],
       },
     ],
-    element: <LayoutThree />,
+    element: <LayoutThree data={part3} />,
   },
   {
     title: 'Part 5',
