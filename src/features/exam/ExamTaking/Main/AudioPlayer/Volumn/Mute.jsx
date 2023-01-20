@@ -1,11 +1,13 @@
 import { HiSpeakerXMark, HiOutlineSpeakerXMark } from 'react-icons/hi2';
 import useHoverCondition from 'hooks/useHoverCondition';
+import { forwardRef } from 'react';
 
-function Mute({ handleClick }) {
+function Mute({ handleClick }, ref) {
   const { isHovering, handleHover } = useHoverCondition();
 
   return (
     <button
+      ref={ref}
       onMouseOver={handleHover.handleMouseOver}
       onMouseOut={handleHover.handleMouseOut}
       onClick={() => handleClick()}
@@ -16,4 +18,4 @@ function Mute({ handleClick }) {
   );
 }
 
-export default Mute;
+export default forwardRef(Mute);

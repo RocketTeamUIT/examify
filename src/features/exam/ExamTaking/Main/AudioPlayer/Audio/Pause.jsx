@@ -1,11 +1,13 @@
 import { HiPause, HiOutlinePause } from 'react-icons/hi2';
 import useHoverCondition from 'hooks/useHoverCondition';
+import { forwardRef } from 'react';
 
-function Pause({ handleClick }) {
+function Pause({ handleClick }, ref) {
   const { isHovering, handleHover } = useHoverCondition();
 
   return (
     <button
+      ref={ref}
       onClick={() => handleClick()}
       onMouseOver={handleHover.handleMouseOver}
       onMouseOut={handleHover.handleMouseOut}
@@ -16,4 +18,4 @@ function Pause({ handleClick }) {
   );
 }
 
-export default Pause;
+export default forwardRef(Pause);

@@ -1,11 +1,13 @@
 import { HiPlay, HiOutlinePlay } from 'react-icons/hi2';
 import useHoverCondition from 'hooks/useHoverCondition';
+import { forwardRef } from 'react';
 
-function Play({ handleClick }) {
+function Play({ handleClick }, ref) {
   const { isHovering, handleHover } = useHoverCondition();
 
   return (
     <button
+      ref={ref}
       onMouseOver={handleHover.handleMouseOver}
       onMouseOut={handleHover.handleMouseOut}
       onClick={() => handleClick()}
@@ -16,4 +18,4 @@ function Play({ handleClick }) {
   );
 }
 
-export default Play;
+export default forwardRef(Play);
