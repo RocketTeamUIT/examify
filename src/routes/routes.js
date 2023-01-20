@@ -28,6 +28,8 @@ import ExamDetailBase from '../features/exam/ExamDetail/ExamDetailBase';
 import ExamDetailAnswer from '../features/exam/ExamDetail/ExamDetailAnswer/ExamDetailAnswer';
 import { RecordDetailBase, RecordDetailIndex, RecordDetailFullmode } from '../features/exam/RecordDetail';
 import Flashcard, { ExploreFlashcard, FlashcardPractice, FlashcardSetDetail, MyFlashcard } from '../features/flashcard';
+import ExamTaking from 'features/exam/ExamTaking';
+import ExamTakingLayout from 'layouts/ExamTakingLayout';
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
 const publicRouters = [
@@ -116,6 +118,11 @@ const publicRouters = [
         component: RecordDetailFullmode,
       },
     ],
+  },
+  {
+    path: config.routes.examTaking,
+    component: ExamTaking,
+    layout: ExamTakingLayout,
   },
 
   // Flashcard
