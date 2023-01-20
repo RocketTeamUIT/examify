@@ -1,5 +1,5 @@
 import { Button } from '../../../components/ui';
-import Sidebar from './Sidebar';
+import ControlBar from './ControlBar';
 import Main from './Main';
 
 function ExamTaking() {
@@ -22,7 +22,7 @@ function ExamTaking() {
         <Main />
 
         {/* Sidebar */}
-        <Sidebar />
+        <ControlBar />
       </div>
     </div>
   );
