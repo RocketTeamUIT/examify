@@ -17,7 +17,7 @@ function ExamTaking() {
       </div>
 
       {/* Layout */}
-      <div className="mt-5 px-2 xl:px-5 flex w-full gap-3 xl:gap-5">
+      <div className="mt-5 px-2 xl:px-5 flex w-full gap-3 xl:gap-5 items-start">
         {/* Thi */}
         <Main />
 
