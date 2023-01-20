@@ -14,8 +14,8 @@ function SetQuestion({ data }) {
 
         {/* Mutiple MCQ */}
         <div className="w-full flex flex-col xl:basis-2/5 gap-y-10">
-          {data.setQuestion.map(({ seq, name, choiceList }, index) => (
-            <MCQ key={index} seq={seq} name={name} choiceList={choiceList} />
+          {data.setQuestion.map(({ id, seq, name, choiceList }, index) => (
+            <MCQ key={index} id={id} seq={seq} name={name} choiceList={choiceList} />
           ))}
         </div>
       </div>

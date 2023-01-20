@@ -4,7 +4,7 @@ import { HiEllipsisHorizontal, HiFlag, HiOutlineFlag } from 'react-icons/hi2';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
-function MCQ({ seq, name, choiceList = [] }) {
+function MCQ({ id, seq, name, choiceList = [] }) {
   const [flag, setFlag] = useState(false);
 
   function contentMapping(seq, content) {
@@ -42,7 +42,7 @@ function MCQ({ seq, name, choiceList = [] }) {
         {choiceList.map((choiceItem, index) => (
           <Radio
             key={index}
-            name="check1"
+            name={id}
             label={contentMapping(choiceItem.seq, choiceItem.content)}
             leftDockLabel={32}
             mb={choiceList.length - 1 === index ? 0 : 8}

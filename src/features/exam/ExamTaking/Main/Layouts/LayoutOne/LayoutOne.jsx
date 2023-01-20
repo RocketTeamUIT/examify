@@ -5,7 +5,7 @@ function LayoutOne({ data: part1 }) {
   return (
     <div className="flex flex-col gap-20">
       {part1.map((questionItem, index) => (
-        <Question seq={questionItem.seq} key={index} img={questionItem.img} choiceList={questionItem.choiceList} />
+        <Question key={index} data={questionItem} />
       ))}
     </div>
   );
