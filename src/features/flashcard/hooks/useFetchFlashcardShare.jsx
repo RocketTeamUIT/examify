@@ -11,6 +11,7 @@ const useFetchFlashcardShare = (flashcardSetId) => {
   useEffect(() => {
     (async () => {
       try {
+        if (!flashcardSetId || !accessToken) return;
         const response = await getFlashcardShareListService({ axios, flashcardSetId });
         setShareList(response.data.data);
       } catch (error) {
@@ -19,7 +20,7 @@ const useFetchFlashcardShare = (flashcardSetId) => {
     })();
   }, [axios, accessToken, flashcardSetId]);
 
-  return { shareList };
+  return { shareList, setShareList };
 };
 
 export default useFetchFlashcardShare;

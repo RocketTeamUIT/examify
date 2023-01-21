@@ -33,8 +33,21 @@ const initialState = {
 };
 
 const FlashcardSingle = (props) => {
-  const { learnt, word, meaning, type_of_word, pronounce, example, note, image, fc_id, onMark, isOwner, onDelete } =
-    props;
+  const {
+    learnt,
+    word,
+    meaning,
+    type_of_word,
+    pronounce,
+    example,
+    note,
+    image,
+    fc_id,
+    onMark,
+    isOwner,
+    onDelete,
+    audio,
+  } = props;
   const [data, setData] = useState(initialState);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
@@ -127,6 +140,29 @@ const FlashcardSingle = (props) => {
     setShowConfirm(false);
   }
 
+  function play() {
+    new Audio(audio).play();
+  }
+
+  // async function play() {
+  //   try {
+  //     if (!audio) {
+  //       const response = await getWordAudioService(data.word);
+  //       if (response.data.length > 0) {
+  //         const result = response.data[0].phonetics.find((item) => item.audio);
+  //         if (result) {
+  //           setAudio(result.audio);
+  //           new Audio(result.audio).play();
+  //         }
+  //       }
+  //     } else {
+  //       new Audio(audio).play();
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
   return (
     <>
       <li className="bg-white rounded-lg shadow-sd_large p-5 grid grid-cols-12 gap-x-5 relative">
@@ -153,10 +189,15 @@ const FlashcardSingle = (props) => {
         {/* Description */}
         <div className="col-span-8">
           <div className="flex items-center gap-4 mb-2 mt-0.5">
-            {data.pronounce && <p className="font-medium text-md text-t_dark">/{data.pronounce}/</p>}
-            <button className="w-7 h-7 rounded-full bg-ac_orange flex items-center justify-center bg-opacity-20 flex-shrink-0">
-              <BsVolumeDown className="w-6 h-6 text-ac_dark_blue" />
-            </button>
+            {data.pronounce && <p className="font-medium text-md text-t_dark">{data.pronounce}</p>}
+            {audio && (
+              <button
+                className="w-7 h-7 rounded-full bg-ac_orange flex items-center justify-center bg-opacity-20 flex-shrink-0"
+                onClick={play}
+              >
+                <BsVolumeDown className="w-6 h-6 text-ac_dark_blue" />
+              </button>
+            )}
           </div>
 
           <p className="text-lg">{data.meaning}</p>

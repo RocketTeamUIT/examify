@@ -20,7 +20,7 @@ const ShareFlashcardModal = (props) => {
   const { isShowing, hide } = props;
   const axios = useAxiosPrivate();
   const { flashcardSetId } = useParams();
-  const { shareList } = useFetchFlashcardShare(flashcardSetId);
+  const { shareList, setShareList } = useFetchFlashcardShare(flashcardSetId);
 
   const fetchSearch = useMemo(
     () =>
@@ -32,7 +32,6 @@ const ShareFlashcardModal = (props) => {
           }
           const response = await searchSharePersonService({ axios, value, flashcardSetId });
           setUsers(response.data.data);
-          console.log(response.data.data);
           fn && fn();
         } catch (error) {
           console.log(error);
@@ -66,6 +65,9 @@ const ShareFlashcardModal = (props) => {
     try {
       setLoading(true);
       await addShareFlashcardSetService({ axios, flashcardSetId, userId: selectedUser.id });
+      setShareList((prev) => [...prev, selectedUser]);
+      setUsers((prev) => prev.filter((user) => user.id !== selectedUser.id));
+      setSelectedUser({});
       fetchSearch(value, () => toast.success('Thêm thành công'));
     } catch (error) {
       toast.error('Thêm thất bại');
@@ -73,6 +75,11 @@ const ShareFlashcardModal = (props) => {
     } finally {
       setLoading(false);
     }
+  }
+
+  function handleDelete(id) {
+    setShareList((prev) => prev.filter((item) => item.id !== id));
+    fetchSearch(value);
   }
 
   return (
@@ -111,7 +118,7 @@ const ShareFlashcardModal = (props) => {
         <div className="space-y-4 mt-4">
           <SharePerson person={user} isOwner />
           {shareList.map((user) => (
-            <SharePerson key={user.user_id} person={user} />
+            <SharePerson key={user.id} onDelete={handleDelete} deletable person={user} />
           ))}
         </div>
 

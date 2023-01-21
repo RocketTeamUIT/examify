@@ -11,6 +11,8 @@ import useAxiosPrivate from 'hooks/useAxiosPrivate';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { uploadImageService } from 'lib/image';
+import 'react-tooltip/dist/react-tooltip.css';
+import { getWordAudioService } from 'lib/dictionary';
 
 const schema = yup.object().shape({
   word: yup.string().required('Không được để trống'),
@@ -63,11 +65,14 @@ const AddFlashcardModal = (props) => {
       // Upload image
       setLoading(true);
       const response = imageFile?.length > 0 && (await uploadImageService(imageFile[0], 'examify'));
+      const phonetic = await generatePhonetic(data);
       await addFlashcardService({
         axios,
         flashcardSetId,
         ...data,
         image: response ? response.data.url : '',
+        audio: phonetic.audio,
+        pronounce: phonetic.pronounce,
       });
       onOuterSubmit();
       toast.success('Thêm flashcard thành công');
@@ -86,9 +91,12 @@ const AddFlashcardModal = (props) => {
       setLoading(true);
       const response =
         typeof imageFile !== 'string' && imageFile?.length > 0 && (await uploadImageService(imageFile[0], 'examify'));
+      const phonetic = await generatePhonetic(data);
       const newData = {
         ...data,
         image: response ? response.data.url : initialData.image,
+        audio: phonetic.audio,
+        pronounce: phonetic.pronounce,
       };
       await updateFlashcardService({
         axios,
@@ -115,6 +123,32 @@ const AddFlashcardModal = (props) => {
     e.preventDefault();
     e.stopPropagation();
     setValue('image', e.dataTransfer?.files);
+  }
+
+  async function generatePhonetic(data) {
+    const result = {
+      audio: '',
+      pronounce: data.pronounce,
+    };
+    try {
+      const response = await getWordAudioService(data.word);
+      if (response.data.length > 0) {
+        const audioRes = response.data[0].phonetics.find((item) => item.audio);
+        const textRes = response.data[0].phonetics.find((item) => item.text);
+
+        if (audioRes) {
+          result.audio = audioRes.audio;
+        }
+
+        if (textRes && !data.pronounce) {
+          result.pronounce = textRes.text;
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      return result;
+    }
   }
 
   return (
@@ -152,10 +186,11 @@ const AddFlashcardModal = (props) => {
         <div className="border-t border-br_gray mt-3 mb-4" />
 
         {/* Expand */}
-        <button className="font-semibold text-md flex gap-[14px] items-center" type="button" onClick={toggleMore}>
-          Thêm phiên âm, ảnh, ví dụ và ghi chú{' '}
+        <button className="font-semibold text-md flex gap-3 items-center" type="button" onClick={toggleMore}>
+          Thêm phiên âm, ảnh, ví dụ và ghi chú
           <BiChevronRight size="16px" className={classNames('transition', showMore && 'rotate-90')} />
         </button>
+        {!showMore && <p className="text-sm text-t_dark italic">Phiên âm sẽ tự động thêm nếu có thể</p>}
 
         <div className={classNames(!showMore && 'hidden')}>
           {/* Pronounce */}

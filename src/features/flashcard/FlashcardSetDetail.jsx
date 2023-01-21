@@ -1,7 +1,7 @@
 import { Pagination } from 'components/ui';
 import Container from 'layouts/components/Container';
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import AddFlashcardModal from './AddFlashcardModal';
 import AddMultipleFlashcardsModal from './AddMultipleFlashcardsModal';
 import FlashcardSetDetailHeader from './FlashcardSetDetailHeader';
@@ -9,16 +9,19 @@ import FlashcardSingle from './FlashcardSingle';
 import useFetchFlashcardSetDetail from './hooks/useFetchFlashcardSetDetail';
 import useFetchFlashcardsInSet from './hooks/useFetchFlashcardsInSet';
 import ShareFlashcardModal from './ShareFlashcardModal';
+import EmptyState from 'assets/images/empty-state.jpg';
+import { FaRegSadCry } from 'react-icons/fa';
 
 const FlashcardSetDetail = () => {
-  const [selected, setSelected] = useState(0);
   const [showShare, setShowShare] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
   const [showAddMultiple, setShowAddMultiple] = useState(false);
   const [search, setSearch] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get('p');
   const { flashcardSetId } = useParams();
   const { detail, fetchData: fetchFlashcardSet, setDetail } = useFetchFlashcardSetDetail(flashcardSetId);
-  const { flashcards, fetchData } = useFetchFlashcardsInSet(flashcardSetId, selected + 1, search);
+  const { flashcards, fetchData } = useFetchFlashcardsInSet(flashcardSetId, page, search);
 
   const toggleShareModal = () => {
     setShowShare((prev) => !prev);
@@ -40,43 +43,66 @@ const FlashcardSetDetail = () => {
     await Promise.all([fetchData(), fetchFlashcardSet()]);
   }
 
+  function paginate(page) {
+    console.log('🚀 ~ file: FlashcardSetDetail.jsx:47 ~ paginate ~ page', page);
+    if (page === 0) {
+      searchParams.delete('p');
+      setSearchParams(searchParams);
+    } else {
+      setSearchParams({
+        p: page + 1,
+      });
+    }
+  }
+
   return (
     <Container>
       <div className="flex justify-center">
-        <div className="max-w-[820px] w-full my-8">
-          <FlashcardSetDetailHeader
-            detail={detail}
-            setDetail={setDetail}
-            isOwner={detail.isOwner}
-            showShareModal={toggleShareModal}
-            showAddModal={toggleAddModal}
-            showAddMultipleModal={toggleAddMultipleModal}
-            onSearch={onSearch}
-          />
-
-          <div className="border-t w-full border-br_gray my-6" />
-
-          {search && <h4 className="text-h4 font-bold mb-6 text-center">Hiển thị kết quả cho '{search}'</h4>}
-
-          <ul className="space-y-8">
-            {flashcards?.map((flashcard, index) => (
-              <FlashcardSingle
-                {...flashcard}
-                onDelete={fetchData}
+        <div className="max-w-[820px] w-full min-h-[600px] my-8">
+          {detail.name ? (
+            <>
+              <FlashcardSetDetailHeader
+                detail={detail}
+                setDetail={setDetail}
                 isOwner={detail.isOwner}
-                key={index}
-                onMark={fetchFlashcardSet}
+                showShareModal={toggleShareModal}
+                showAddModal={toggleAddModal}
+                showAddMultipleModal={toggleAddMultipleModal}
+                onSearch={onSearch}
               />
-            ))}
-          </ul>
 
-          <div className="flex justify-center mt-7">
-            <Pagination
-              length={Math.ceil((detail.words_count || 0) / 10)}
-              selected={selected}
-              setSelected={setSelected}
-            />
-          </div>
+              <div className="border-t w-full border-br_gray my-6" />
+
+              {search && <h4 className="text-h4 font-bold mb-6 text-center">Hiển thị kết quả cho '{search}'</h4>}
+
+              <ul className="space-y-8">
+                {flashcards?.map((flashcard, index) => (
+                  <FlashcardSingle
+                    {...flashcard}
+                    onDelete={fetchData}
+                    isOwner={detail.isOwner}
+                    key={index}
+                    onMark={fetchFlashcardSet}
+                  />
+                ))}
+              </ul>
+
+              <div className="flex justify-center mt-7">
+                <Pagination
+                  length={Math.ceil((detail.words_count || 0) / 10)}
+                  selected={(page || 1) - 1}
+                  setSelected={paginate}
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <img className="m-auto max-w-[500px]" src={EmptyState} alt="You don't have permission to access this" />
+              <h3 className="text-h3 font-semibold justify-center my-5 flex items-center gap-2 text-t_dark">
+                Bạn không có quyền truy cập <FaRegSadCry />
+              </h3>
+            </>
+          )}
         </div>
 
         <AddFlashcardModal onSubmit={handleCreate} isShowing={showAdd} hide={toggleAddModal} />

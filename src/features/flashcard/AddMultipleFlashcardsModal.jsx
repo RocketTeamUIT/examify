@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { createBulkFlashcardService } from './services/flashcard';
 import useAxiosPrivate from 'hooks/useAxiosPrivate';
+import { getWordAudioService } from 'lib/dictionary';
 
 const OPTIONS = {
   data: [[]],
@@ -83,7 +84,10 @@ const AddMultipleFlashcardsModal = (props) => {
 
   async function formatData(data) {
     const promises = [];
+    const audioPromises = [];
     let URLs = [];
+    let audios = [];
+
     try {
       data.forEach((item) => {
         if (item[4]) {
@@ -91,9 +95,13 @@ const AddMultipleFlashcardsModal = (props) => {
         } else {
           promises.push(Promise.resolve());
         }
+
+        audioPromises.push(getWordAudioService(item[0]));
       });
       const response = await Promise.all(promises);
+      const audioResponse = await Promise.allSettled(audioPromises);
       URLs = response.map((item) => (item ? item.data.url : ''));
+      audios = audioResponse.map((item) => getAudioObj(item));
     } catch (error) {
       console.log(error);
     }
@@ -132,7 +140,8 @@ const AddMultipleFlashcardsModal = (props) => {
         word,
         typeOfWord,
         meaning,
-        pronounce,
+        pronounce: pronounce || audios[index].pronounce,
+        audio: audios[index].audio,
         image: URLs[index],
         example,
         note,
@@ -141,10 +150,34 @@ const AddMultipleFlashcardsModal = (props) => {
     });
   }
 
+  function getAudioObj(data) {
+    const result = {
+      pronounce: '',
+      audio: '',
+    };
+
+    if (data.status === 'fulfilled') {
+      if (data.value.data.length > 0) {
+        const audioRes = data.value.data[0].phonetics.find((item) => item.audio);
+        const textRes = data.value.data[0].phonetics.find((item) => item.text);
+        if (audioRes) {
+          result.audio = audioRes.audio;
+        }
+
+        if (textRes && !data.pronounce) {
+          result.pronounce = textRes.text;
+        }
+      }
+    }
+
+    return result;
+  }
+
   return (
     <Modal header="Thêm hàng loạt" isShowing={isShowing} hide={hide} maxWidth="max-w-[85vw]">
       <div ref={jRef} />
       <br />
+      <p className="text-sm text-t_dark italic">* Phiên âm sẽ tự động thêm nếu có thể</p>
 
       <Button className="mt-4 ml-auto" width="120px" onClick={handleSubmit} disabled={loading}>
         Lưu

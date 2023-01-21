@@ -63,6 +63,7 @@ export function addFlashcardService({
   meaning,
   typeOfWord,
   pronounce,
+  audio = '',
   example,
   note,
   image,
@@ -74,6 +75,7 @@ export function addFlashcardService({
     typeOfWord,
     pronounce,
     example,
+    audio,
     note,
     image,
   });
@@ -86,6 +88,7 @@ export function updateFlashcardService({
   meaning,
   typeOfWord,
   pronounce,
+  audio,
   example,
   note,
   image,
@@ -95,6 +98,7 @@ export function updateFlashcardService({
     meaning,
     typeOfWord,
     pronounce,
+    audio,
     example,
     note,
     image,
@@ -127,4 +131,17 @@ export function searchSharePersonService({ axios, value, flashcardSetId }) {
 
 export function getFlashcardShareListService({ axios, flashcardSetId }) {
   return axios.get(`/flashcard-sets/share/${flashcardSetId}`);
+}
+
+export function deleteShareFlashcardSetService({ axios, flashcardSetId, userId }) {
+  return axios.delete('/flashcard-sets/share', {
+    params: {
+      set_id: flashcardSetId,
+      user_id: userId,
+    },
+  });
+}
+
+export function getPracticeFlashcardService({ axios, flashcardSetId }) {
+  return axios.get(`/flashcards/practice/${flashcardSetId}`);
 }
