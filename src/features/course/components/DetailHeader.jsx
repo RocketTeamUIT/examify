@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { CreateNote } from '../../note';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css';
 
 /*  props
     - sec: specify seconds to take note (time of the video). Eg: You want to take note at 1:30 of the video, pass sec=90

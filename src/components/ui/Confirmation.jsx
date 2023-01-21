@@ -9,14 +9,14 @@ const Confirmation = ({ children, top, left, right, bottom, onConfirm, onCancel,
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
+      if (showing && ref.current && !ref.current.contains(e.target)) {
         hide();
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [ref, hide]);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [ref, hide, showing]);
 
   const handleCancel = (e) => {
     onCancel && onCancel(e);
@@ -33,7 +33,7 @@ const Confirmation = ({ children, top, left, right, bottom, onConfirm, onCancel,
       <div
         ref={ref}
         className={classNames(
-          'rounded-lg shadow-sd_medium p-4 bg-white text-center absolute',
+          'rounded-lg shadow-sd_medium p-4 bg-white text-center absolute z-10',
           top,
           left,
           right,
@@ -42,7 +42,7 @@ const Confirmation = ({ children, top, left, right, bottom, onConfirm, onCancel,
         data-testid="test-wrapper"
       >
         {children}
-        <div className="flex items-center gap-4 mt-3" onClick={handleCancel}>
+        <div className="flex items-center justify-end gap-4 mt-3" onClick={handleCancel}>
           <Button height="28px" type="default" testid="test-cancel">
             Huỷ
           </Button>

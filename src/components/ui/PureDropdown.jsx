@@ -32,10 +32,10 @@ PureDropdown.propTypes = {
   actionList: PropTypes.array.isRequired,
 };
 
-const DropdownItem = ({ danger, title, func, hide, icon }) => {
+const DropdownItem = ({ danger, title, func, hide, icon, hideOnClick = true }) => {
   const handleClick = (e) => {
     func && func(e);
-    hide();
+    hideOnClick && hide();
   };
 
   return (
