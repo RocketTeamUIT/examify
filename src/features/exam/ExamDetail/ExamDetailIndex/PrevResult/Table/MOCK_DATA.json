@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "date_take": "25/09/2022",
+    "parts": ["Part 1", "Part 2", "Part 3", "Part 4", "Part 5", "Part 6", "Part 7"],
+    "correct": 100,
+    "total": 200,
+    "time_finish": "119:23:00"
+  },
+  {
+    "id": 2,
+    "date_take": "24/09/2022",
+    "parts": ["Part 5", "Part 6", "Part 7"],
+    "correct": 50,
+    "total": 100,
+    "time_finish": "72:13:00"
+  },
+  {
+    "id": 3,
+    "date_take": "01/07/2022",
+    "parts": ["Part 1", "Part 2", "Part 3", "Part 4"],
+    "correct": 70,
+    "total": 100,
+    "time_finish": "49:22:00"
+  }
+]

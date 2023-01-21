@@ -9,15 +9,14 @@ import LoadingScreen from './components/LoadingScreen';
 
 // Show pending animation while loading content/api
 const SuspenseLayout = ({ children }) => {
-  const { isLoading } = useSelector((store) => store.auth);
-  const { accessToken } = useSelector((store) => store.auth);
+  const { isLoading, isLogin } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const location = useLocation();
   const axios = useAxiosWithToken();
 
   useEffect(() => {
-    dispatch(getUserInfo(axios));
-  }, [dispatch, axios, accessToken]);
+    isLogin && dispatch(getUserInfo(axios));
+  }, [dispatch, axios, isLogin]);
 
   useEffect(() => {
     if (!location.hash) {
