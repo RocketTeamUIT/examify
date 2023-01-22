@@ -8,8 +8,18 @@ import Setting from './Setting';
 function AudioPlayer() {
   const audioRef = useRef();
 
-  const { curTime, curVolume, duration, playing, muting, setMuting, setPlaying, setClickedTime, setClickedVolume } =
-    useAudioPlayer(audioRef);
+  const {
+    curTime,
+    curVolume,
+    duration,
+    playing,
+    muting,
+    setMuting,
+    setPlaying,
+    setClickedTime,
+    setClickedVolume,
+    setClickedSpeed,
+  } = useAudioPlayer(audioRef);
 
   return (
     <div className="mt-10">
@@ -24,7 +34,7 @@ function AudioPlayer() {
         />
         <div className="ml-1 hidden lg:flex lg:basis-1/5 w-full ">
           <Volumn muting={muting} curVolume={curVolume} setMuting={setMuting} setClickedVolume={setClickedVolume} />
-          <Setting />
+          <Setting onChangeSpeed={setClickedSpeed} />
         </div>
       </div>
     </div>
