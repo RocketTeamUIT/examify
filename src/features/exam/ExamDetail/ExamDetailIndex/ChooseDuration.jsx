@@ -8,7 +8,7 @@ function ChooseDuration() {
 
       <div className="flex justify-between mt-5">
         <div className="basis-4/12">
-          <Dropdown color="#777777" type="default" actionsList={durationList}>
+          <Dropdown color="#777777" type="default" data={durationList}>
             -- Chọn thời gian --
           </Dropdown>
           <div className="mt-6">

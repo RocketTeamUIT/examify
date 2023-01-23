@@ -37,20 +37,24 @@ const CommentList = ({
           </h2>
           <div className="ml-auto">
             <Dropdown
-              actionsList={[
-                {
-                  name: 'Mới nhất',
-                  func: () => {
-                    setType('latest');
+              initialState={0}
+              data={{
+                type: 'active',
+                actionsList: [
+                  {
+                    title: 'Mới nhất',
+                    action: () => {
+                      setType('latest');
+                    },
                   },
-                },
-                {
-                  name: 'Phổ biến',
-                  func: () => {
-                    setType('popular');
+                  {
+                    title: 'Phổ biến',
+                    action: () => {
+                      setType('popular');
+                    },
                   },
-                },
-              ]}
+                ],
+              }}
             >
               Sắp xếp theo
             </Dropdown>
