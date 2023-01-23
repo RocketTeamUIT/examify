@@ -3,7 +3,18 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { IoCloseOutline } from 'react-icons/io5';
 
-const Modal = ({ children, excludeHeader, isShowing, hide, header, maxWidth, className, type, borderRadius }) => {
+const Modal = ({
+  children,
+  excludeHeader,
+  closeBtn = true,
+  isShowing,
+  hide,
+  header,
+  maxWidth,
+  className,
+  type,
+  borderRadius,
+}) => {
   return ReactDom.createPortal(
     <div
       className={classNames(
@@ -36,9 +47,11 @@ const Modal = ({ children, excludeHeader, isShowing, hide, header, maxWidth, cla
         {!excludeHeader && (
           <header className="font-bold text-black text-h3 flex justify-between gap-4">
             {header}
-            <button onClick={hide} className="p-[6px] bg-bg_light_gray_2 rounded-full h-fit">
-              <IoCloseOutline />{' '}
-            </button>
+            {closeBtn && (
+              <button onClick={hide} className="p-[6px] bg-bg_light_gray_2 rounded-full h-fit">
+                <IoCloseOutline />{' '}
+              </button>
+            )}
           </header>
         )}
 
