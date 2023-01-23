@@ -15,12 +15,19 @@ const FlashcardSet = (props) => {
         <h3 className="font-bold">{set.name}</h3>
       </header>
 
-      <p className="text-md mt-[9px] text-t_dark">{set.words_count} từ</p>
+      <p className="text-md mt-[9px] text-t_dark">
+        {set.learnt_count && (
+          <>
+            <span className="text-ac_green">{set.learnt_count}</span> /
+          </>
+        )}{' '}
+        {set.words_count} từ
+      </p>
       <p className="text-md mt-[9px] text-t_gray">{set.description}</p>
 
       <div className="flex items-center mt-auto">
         {set.system_belong && <Tag color="blue">Hệ thống</Tag>}
-        {!hideType && <p className="text-sm font-medium ml-auto">{set.fc_set_id}</p>}
+        {!hideType && <p className="text-sm font-medium ml-auto">{set.type}</p>}
       </div>
     </Link>
   );
