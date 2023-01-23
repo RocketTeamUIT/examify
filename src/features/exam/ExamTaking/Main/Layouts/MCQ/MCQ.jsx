@@ -10,12 +10,12 @@ import 'tippy.js/dist/tippy.css';
 function MCQ({ id, seq, name, choiceList = [] }) {
   const [flag, setFlag] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
-  const menuShow = () => setMenuVisible(true);
-  const menuHide = () => setMenuVisible(false);
+  const showMenu = () => setMenuVisible(true);
+  const hideMenu = () => setMenuVisible(false);
 
   const [modalVisible, setModalVisible] = useState(false);
-  const modalShow = () => setModalVisible(true);
-  const modalHide = () => setModalVisible(false);
+  const showModal = () => setModalVisible(true);
+  const hideModal = () => setModalVisible(false);
 
   function contentMapping(seq, content) {
     const seqMap = {
@@ -43,14 +43,14 @@ function MCQ({ id, seq, name, choiceList = [] }) {
             placement="bottom-end"
             offset={[0, 4]}
             visible={menuVisible}
-            onHide={menuHide}
+            onHide={hideMenu}
             data={{
               type: 'menu',
               actionsList: [
                 {
                   title: 'Báo cáo câu hỏi',
                   action: () => {
-                    modalShow();
+                    showModal();
                     console.log('Báo cáo câu hỏi');
                   },
                 },
@@ -58,7 +58,7 @@ function MCQ({ id, seq, name, choiceList = [] }) {
             }}
           >
             <Tippy content="Tùy chọn">
-              <span className="cursor-pointer select-none" onClick={menuVisible ? menuHide : menuShow}>
+              <span className="cursor-pointer select-none" onClick={menuVisible ? hideMenu : showMenu}>
                 <HiEllipsisHorizontal size={24} />
               </span>
             </Tippy>
@@ -80,7 +80,7 @@ function MCQ({ id, seq, name, choiceList = [] }) {
       </div>
 
       {/* Modal */}
-      <ReportModal isShowing={modalVisible} hide={modalHide} />
+      <ReportModal isShowing={modalVisible} hide={hideModal} />
     </div>
   );
 }

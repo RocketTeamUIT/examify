@@ -7,7 +7,7 @@ function ReportModal({ isShowing, hide }) {
   const {
     register,
     handleSubmit,
-    // setError,
+    setError,
     setValue,
     setFocus,
     formState: { errors },
@@ -19,11 +19,16 @@ function ReportModal({ isShowing, hide }) {
 
     // Call API here
     console.log(textReport);
+
+    // Close form
+    setValue('textReport', '');
+    hide();
   };
 
   const handleClear = (e) => {
     e.preventDefault();
     setValue('textReport', '');
+    setError('textReport', '');
     setFocus('textReport', { shouldSelect: true });
   };
 
