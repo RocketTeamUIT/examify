@@ -59,80 +59,83 @@ export const examList = [
   },
 ];
 
-export const durationList = [
-  {
-    name: '5 phút',
-    func: () => {
-      console.log('5 phút');
+export const durationList = {
+  type: 'menu',
+  actionsList: [
+    {
+      title: '5 phút',
+      action: () => {
+        console.log('5 phút');
+      },
     },
-  },
-  {
-    name: '10 phút',
-    func: () => {
-      console.log('10 phút');
+    {
+      title: '10 phút',
+      action: () => {
+        console.log('10 phút');
+      },
     },
-  },
-  {
-    name: '15 phút',
-    func: () => {
-      console.log('5 phút');
+    {
+      title: '15 phút',
+      action: () => {
+        console.log('5 phút');
+      },
     },
-  },
-  {
-    name: '20 phút',
-    func: () => {
-      console.log('10 phút');
+    {
+      title: '20 phút',
+      action: () => {
+        console.log('10 phút');
+      },
     },
-  },
-  {
-    name: '25 phút',
-    func: () => {
-      console.log('5 phút');
+    {
+      title: '25 phút',
+      action: () => {
+        console.log('5 phút');
+      },
     },
-  },
-  {
-    name: '30 phút',
-    func: () => {
-      console.log('10 phút');
+    {
+      title: '30 phút',
+      action: () => {
+        console.log('10 phút');
+      },
     },
-  },
-  {
-    name: '35 phút',
-    func: () => {
-      console.log('5 phút');
+    {
+      title: '35 phút',
+      action: () => {
+        console.log('5 phút');
+      },
     },
-  },
-  {
-    name: '40 phút',
-    func: () => {
-      console.log('10 phút');
+    {
+      title: '40 phút',
+      action: () => {
+        console.log('10 phút');
+      },
     },
-  },
-  {
-    name: '45 phút',
-    func: () => {
-      console.log('5 phút');
+    {
+      title: '45 phút',
+      action: () => {
+        console.log('5 phút');
+      },
     },
-  },
-  {
-    name: '50 phút',
-    func: () => {
-      console.log('10 phút');
+    {
+      title: '50 phút',
+      action: () => {
+        console.log('10 phút');
+      },
     },
-  },
-  {
-    name: '55 phút',
-    func: () => {
-      console.log('5 phút');
+    {
+      title: '55 phút',
+      action: () => {
+        console.log('5 phút');
+      },
     },
-  },
-  {
-    name: '60 phút',
-    func: () => {
-      console.log('10 phút');
+    {
+      title: '60 phút',
+      action: () => {
+        console.log('10 phút');
+      },
     },
-  },
-];
+  ],
+};
 
 export const groupButtons = [
   {
