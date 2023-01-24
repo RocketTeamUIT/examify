@@ -17,7 +17,11 @@ export const getFlashcardSetsByTypeService = () => {
 };
 
 export const getFlashcardSetDetailService = ({ id, axios }) => {
-  return axios.get(`/flashcard-sets/${id}`);
+  return axios.get(`/flashcard-sets/${id}`, {
+    params: {
+      addView: true,
+    },
+  });
 };
 
 export const getFlashcardsInSetService = ({ flashcardSetId, page, axios }) => {
