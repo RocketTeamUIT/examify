@@ -14,7 +14,7 @@ function useFetchExamTakingData(config) {
   // Call api get data depend on `config`
 
   // Format data
-  const newData = dataExamTaking.map((dataItem, index) => {
+  const newData = dataExamTaking.data.map((dataItem, index) => {
     // Create userchoice
     dataItem.setQuestionList.map((setQuestionListItem) =>
       setQuestionListItem.setQuestion.forEach((question) => {
@@ -74,7 +74,7 @@ function useFetchExamTakingData(config) {
   dispatch(storePartList(partList));
   dispatch(storeMode('countup'));
 
-  return [newData, partList];
+  return [{ ...dataExamTaking, data: newData }, partList];
 }
 
 export default useFetchExamTakingData;

@@ -7,7 +7,7 @@ import { GroupButtonTabs } from '../../components';
 import { useCallback } from 'react';
 import LayoutMap from './Layouts';
 
-function Main({ tackle }) {
+function Main({ tackle, audio }) {
   const dataMapping = useCallback((data = []) => {
     return data.map((item) => {
       return {
@@ -31,7 +31,7 @@ function Main({ tackle }) {
         </Tippy>
       </div>
       {/* Audio */}
-      <AudioPlayer />
+      <AudioPlayer src={audio} />
 
       <GroupButtonTabs className="mt-10" tabList={dataMapping(tackle)} mtContentDock="40px" nextMode={true} />
     </div>

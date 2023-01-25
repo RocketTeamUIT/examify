@@ -1,11 +1,10 @@
-import audiomp3 from 'assets/audio/audio.mp3';
 import useAudioPlayer from '../../../hooks/useAudioPlayer';
 import { useRef } from 'react';
 import Audio from './Audio';
 import Volumn from './Volumn';
 import Setting from './Setting';
 
-function AudioPlayer() {
+function AudioPlayer({ src }) {
   const audioRef = useRef();
 
   const {
@@ -23,7 +22,7 @@ function AudioPlayer() {
 
   return (
     <div className="mt-10">
-      <audio src={audiomp3} ref={audioRef}></audio>
+      <audio src={src} ref={audioRef}></audio>
       <div className="flex items-center">
         <Audio
           playing={playing}
