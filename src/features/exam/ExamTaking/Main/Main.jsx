@@ -33,7 +33,7 @@ function Main({ tackle }) {
       {/* Audio */}
       <AudioPlayer />
 
-      <GroupButtonTabs className="mt-10" tabList={dataMapping(tackle)} mtContentDock="40px" />
+      <GroupButtonTabs className="mt-10" tabList={dataMapping(tackle)} mtContentDock="40px" nextMode={true} />
     </div>
   );
 }
