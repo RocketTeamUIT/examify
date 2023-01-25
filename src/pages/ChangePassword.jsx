@@ -26,14 +26,14 @@ const ChangePassword = () => {
   const value = watch();
 
   const handleDataForm = (data) => {
-    // Call API at here
-    // dispatch(
-    //   changePassword({
-    //     axiosPrivate,
-    //     oldPassword: value.password,
-    //     newPassword: value.password,
-    //   }),
-    // );
+    Call API at here
+    dispatch(
+      changePassword({
+        axiosPrivate,
+        oldPassword: value.password,
+        newPassword: value.password,
+      }),
+    );
     toast.success('Đổi mật khẩu thành công!');
   };
 
