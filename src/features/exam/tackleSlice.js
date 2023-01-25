@@ -1,20 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  tackle: {},
+  questionList: [],
+  mode: 'countdown',
+  countdown: 0,
+  countup: 0,
   duration: 7200,
-  countdown: 1000,
   userChoice: {},
   partList: [],
-  another: {},
 };
 
-const examSlice = createSlice({
+const tackleSlice = createSlice({
   name: 'exam',
   initialState,
   reducers: {
     storeExamTaking: (state, action) => {
-      state.tackle = action.payload;
+      state.questionList = action.payload;
     },
     storeUserChoice: (state, action) => {
       state.userChoice = action.payload;
@@ -22,8 +23,8 @@ const examSlice = createSlice({
     storePartList: (state, action) => {
       state.partList = action.payload;
     },
-    storeActivateTab: (state, action) => {
-      state.another.activateTab = action.payload;
+    storeMode: (state, action) => {
+      state.mode = action.payload;
     },
     userSelect: (state, action) => {
       state.userChoice[action.payload.id].value = action.payload.value;
@@ -31,9 +32,24 @@ const examSlice = createSlice({
     toggleFlag: (state, action) => {
       state.userChoice[action.payload.id].flag = action.payload.flag;
     },
+    setCountdown: (state, action) => {
+      state.countdown = action.payload;
+    },
+    setCountup: (state, action) => {
+      state.countup = action.payload;
+    },
   },
 });
 
-export default examSlice.reducer;
-export const { storeExamTaking, storeUserChoice, storePartList, storeActivateTab, userSelect, toggleFlag } =
-  examSlice.actions;
+export default tackleSlice.reducer;
+export const {
+  storeExamTaking,
+  storeUserChoice,
+  storePartList,
+  storeActivateTab,
+  storeMode,
+  userSelect,
+  toggleFlag,
+  setCountdown,
+  setCountup,
+} = tackleSlice.actions;

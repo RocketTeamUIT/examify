@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 function Question({ partId, seq, flag = true, id }) {
-  const question = useSelector((store) => store.exam.userChoice[id]);
+  const question = useSelector((store) => store.tackle.userChoice[id]);
   const type = question.value ? 'fill' : 'unfill';
   const handleClick = async (_, path) => {
     document.getElementById(partId).click();

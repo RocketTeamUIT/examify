@@ -1,6 +1,6 @@
 import { dataExamTaking } from '../data';
 import { useDispatch } from 'react-redux';
-import { storeExamTaking, storeUserChoice, storePartList } from '../examSlice';
+import { storeExamTaking, storeUserChoice, storePartList, storeMode } from '../tackleSlice';
 
 function useFetchExamTakingData(config) {
   const dispatch = useDispatch();
@@ -72,6 +72,7 @@ function useFetchExamTakingData(config) {
   dispatch(storeExamTaking(newData));
   dispatch(storeUserChoice(userChoice));
   dispatch(storePartList(partList));
+  dispatch(storeMode('countup'));
 
   return [newData, partList];
 }

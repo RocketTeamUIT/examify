@@ -4,8 +4,10 @@ import Logo from '../../../assets/Logo.svg';
 import Avatar from '../Avatar';
 import { ModalConfirm } from 'components/ui/Modal';
 import { useState } from 'react';
+import useCount from 'features/exam/hooks/useCount';
 
 function HeaderTakeExam() {
+  const countdown = useCount();
   const [modalVisible, setModalVisible] = useState(false);
   const showModal = () => setModalVisible(true);
   const hideModal = () => setModalVisible(false);
@@ -33,8 +35,8 @@ function HeaderTakeExam() {
 
         <div className="flex gap-7 ">
           <div className="flex gap-4">
-            <div className="border rounded-md text-h5 px-4 py-[11px]">
-              <span>67:11</span>
+            <div className="border rounded-md text-h5 px-4 py-[11px] min-w-[100px] text-center">
+              <span>{countdown}</span>
             </div>
 
             <Button onClick={modalVisible ? hideModal : showModal}>Nộp bài</Button>
