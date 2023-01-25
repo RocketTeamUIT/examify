@@ -4,9 +4,20 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import AudioPlayer from './AudioPlayer';
 import { GroupButtonTabs } from '../../components';
-import { fullPart } from '../../data';
+import { useCallback } from 'react';
+import LayoutMap from './Layouts';
 
-function Main() {
+function Main({ tackle }) {
+  const dataMapping = useCallback((data = []) => {
+    return data.map((item) => {
+      return {
+        id: item.id,
+        title: item.name,
+        element: <LayoutMap part={item.name} data={item.data} />,
+      };
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-white flex-shrink-0 flex-grow-0 basis-full md:basis-[68%] lg:basis-3/4 xl:basis-4/5 max-w-full rounded-lg py-4 px-2 lg:py-6 lg:px-4">
       {/* Flashcard mode */}
@@ -22,7 +33,7 @@ function Main() {
       {/* Audio */}
       <AudioPlayer />
 
-      <GroupButtonTabs className="mt-10" tabList={fullPart} mtContentDock="40px" />
+      <GroupButtonTabs className="mt-10" tabList={dataMapping(tackle)} mtContentDock="40px" nextMode={true} />
     </div>
   );
 }
