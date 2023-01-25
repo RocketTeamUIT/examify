@@ -26,7 +26,7 @@ const ChangePassword = () => {
   const value = watch();
 
   const handleDataForm = (data) => {
-    Call API at here
+    //Call API at here
     dispatch(
       changePassword({
         axiosPrivate,
