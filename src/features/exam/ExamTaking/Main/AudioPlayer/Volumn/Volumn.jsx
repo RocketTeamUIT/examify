@@ -18,7 +18,7 @@ function Volumn({ muting, curVolume, setMuting, setClickedVolume, className }) {
         </Tippy>
       )}
       <Bar
-        className="mx-3"
+        className="mx-3 min-w-[80px]"
         curValue={curVolume}
         min={0}
         max={1}

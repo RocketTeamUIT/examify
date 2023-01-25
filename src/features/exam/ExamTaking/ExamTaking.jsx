@@ -4,17 +4,10 @@ import useFetchExamTakingData from './useFetchExamTakingData';
 import ExamInfo from './ExamInfo';
 
 const mockConfig = {
-  id: 1,
-  partTakeList: [
-    { id: '1p', name: 'Part 1' },
-    { id: '2p', name: 'Part 2' },
-    { id: '3p', name: 'Part 3' },
-    { id: '4p', name: 'Part 4' },
-    { id: '5p', name: 'Part 5' },
-    { id: '6p', name: 'Part 6' },
-    { id: '7p', name: 'Part 7' },
-  ],
-  duration: 7200,
+  id: 1, // examId
+  partIdList: ['1p', '2p', '3p', '4p', '5p', '6p', '7p'],
+  duration: 7200, // second
+  isFullmode: true,
 };
 
 function ExamTaking({ config = mockConfig }) {
