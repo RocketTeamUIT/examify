@@ -1,11 +1,11 @@
-import { React, useState } from 'react';
-import { Input, Dropdown, Button } from './';
+import { React } from 'react';
+import { Input } from './';
 import classNames from 'classnames';
 import { BiSearch } from 'react-icons/bi';
 import { BsList } from 'react-icons/bs';
 import { CiGrid42 } from 'react-icons/ci';
 
-const Filter = ({ hideGrid, list, toggleList, placeholder = '', value, handleChange }) => {
+const Filter = ({ hideGrid, list, toggleList, placeholder = '', value, handleChange, hideToggle }) => {
   return (
     <div className="w-full">
       <div className="w-full py-1">
@@ -25,19 +25,21 @@ const Filter = ({ hideGrid, list, toggleList, placeholder = '', value, handleCha
           {/* <div className="ml-auto mr-6">
           <Dropdown context="Sắp xếp">Số người đã thực hiện</Dropdown>
         </div> */}
-          <button
-            className="h-full w-[104px] bg-bg_light_gray_2 rounded-full relative flex py-1 ml-auto"
-            onClick={toggleList}
-          >
-            <div
-              className={classNames(
-                'h-6 w-12 rounded-full bg-white absolute transition top-1 left-1',
-                list && 'translate-x-12',
-              )}
-            />
-            <CiGrid42 className={classNames('absolute transition h-6 w-6 left-4', !list && 'fill-primary')} />
-            <BsList className={classNames('absolute transition h-6 w-6 right-4', list && 'fill-primary')} />
-          </button>
+          {!hideToggle && (
+            <button
+              className="h-full w-[104px] bg-bg_light_gray_2 rounded-full relative flex py-1 ml-auto"
+              onClick={toggleList}
+            >
+              <div
+                className={classNames(
+                  'h-6 w-12 rounded-full bg-white absolute transition top-1 left-1',
+                  list && 'translate-x-12',
+                )}
+              />
+              <CiGrid42 className={classNames('absolute transition h-6 w-6 left-4', !list && 'fill-primary')} />
+              <BsList className={classNames('absolute transition h-6 w-6 right-4', list && 'fill-primary')} />
+            </button>
+          )}
         </div>
       )}
     </div>
