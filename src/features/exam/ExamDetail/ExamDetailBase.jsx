@@ -1,12 +1,12 @@
 import ExamDetailLayout from './ExamDetailLayout';
 import { Breadcrumb, Button, Navs } from '../../../components/ui';
 import { HiOutlineArrowDownTray } from 'react-icons/hi2';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 function ExamDetailBase() {
   return (
     <ExamDetailLayout>
-      <Breadcrumb hierarchy={['Toeic', 'ETS 2022', 'Test 2']} />
+      <Breadcrumb hierarchy={[<Link to="/exams">Đề thi</Link>, 'Test 2']} />
 
       {/* Exam name */}
       <div className="flex justify-between mt-5 mb-2">

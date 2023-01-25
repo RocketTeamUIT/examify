@@ -11,8 +11,9 @@ import {
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
-const ExamItem = ({ exam }) => {
+const ExamItem = ({ exam, list }) => {
   return (
     <div className="p-5 rounded-lg border-t_light_gray_3 border ">
       {/* Top */}
@@ -71,21 +72,32 @@ const ExamItem = ({ exam }) => {
           </span>
         </div>
 
-        <div className="mt-2">
-          {exam.hashtag.map((hashtagItem, index) => (
-            <div key={index} className="inline-block mr-4">
-              <Tag color="blue">{hashtagItem}</Tag>
-            </div>
-          ))}
+        <div className={classNames(list && 'flex w-full')}>
+          <div className="mt-2">
+            {exam.hashtag.map((hashtagItem, index) => (
+              <div key={index} className="inline-block mr-4">
+                <Tag color="blue">{hashtagItem}</Tag>
+              </div>
+            ))}
+          </div>
+
+          {list && (
+            <Link to={`${exam.id}`} className="ml-auto">
+              <Button height="40px" width="100%" type="outline" unbold={true}>
+                Chi tiết
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
-      <div className="mt-5">
-        <Link to={`${exam.id}`}>
+
+      {!list && (
+        <Link to={`${exam.id}`} className="mt-5 block">
           <Button height="40px" width="100%" type="outline" unbold={true}>
             Chi tiết
           </Button>
         </Link>
-      </div>
+      )}
     </div>
   );
 };
