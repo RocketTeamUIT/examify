@@ -12,19 +12,26 @@ function GroupButtonTabs({ tabList, mtContentDock = 0, className }) {
   return (
     <>
       <div className={classNames('flex overflow-x-scroll', className)}>
-        {tabList.map((groupButtonItem, index) => (
+        {tabList.map(({ title, id }, index) => (
           <GroupButtonTabsItem
+            id={id}
             onClick={() => activateTab(index)}
             active={index === activeTabIndex}
             first={index === 0 ? true : false}
             last={index === tabList.length - 1 ? true : false}
             key={index}
           >
-            {groupButtonItem.title}
+            {title}
           </GroupButtonTabsItem>
         ))}
       </div>
-      <div style={{ marginTop: mtContentDock }}>{tabList[activeTabIndex].element}</div>
+      <div style={{ marginTop: mtContentDock }}>
+        {tabList.map((item, index) => (
+          <div key={index} className={classNames('hidden', { '!block': index === activeTabIndex })}>
+            {item.element}
+          </div>
+        ))}
+      </div>
     </>
   );
 }
