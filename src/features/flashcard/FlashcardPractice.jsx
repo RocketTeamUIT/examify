@@ -24,6 +24,11 @@ const FlashcardPractice = () => {
     'Hiện tại',
   ];
 
+  function nextWord() {
+    setTimeout(() => fetchData(), [700]);
+    if (flip) setFlip(!flip);
+  }
+
   async function mark() {
     try {
       setFlip(false);
@@ -53,7 +58,7 @@ const FlashcardPractice = () => {
                   <Button className="ml-auto" type="default" onClick={mark}>
                     Đánh dấu đã ôn từ này
                   </Button>
-                  <Button onClick={fetchData} className="ml-6" rightIcon={<TbRotateClockwise2 size="24px" />}>
+                  <Button onClick={nextWord} className="ml-6" rightIcon={<TbRotateClockwise2 size="24px" />}>
                     Từ tiếp theo
                   </Button>
                 </div>
