@@ -1,7 +1,7 @@
 import base from '../../../lib/base';
 
 export const signUpService = (email, firstname, lastname, password, passwordConfirmation) => {
-  return base.post('/users/register', {
+  return base.post('/auth/register', {
     email,
     firstname,
     lastname,
@@ -12,7 +12,7 @@ export const signUpService = (email, firstname, lastname, password, passwordConf
 
 export const signInService = (email, password) => {
   return base.post(
-    '/users/login',
+    '/auth/login',
     {
       email,
       password,
@@ -24,11 +24,11 @@ export const signInService = (email, password) => {
 };
 
 export const logOutService = (axiosPrivate) => {
-  return axiosPrivate.delete('/users/logout');
+  return axiosPrivate.delete('/auth/logout');
 };
 
 export const refreshTokenService = () => {
-  return base.post('/users/refresh-token', {}, { withCredentials: true });
+  return base.post('/auth/refresh-token', {}, { withCredentials: true });
 };
 
 // User

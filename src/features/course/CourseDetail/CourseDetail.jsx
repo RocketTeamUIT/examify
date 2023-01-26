@@ -39,7 +39,7 @@ function CourseDetail() {
   useFetchCourse();
   const { courseDetail } = useSelector((store) => store.course);
 
-  if (isEmptyObject(courseDetail)) return null;
+  if (!courseDetail || isEmptyObject(courseDetail)) return null;
 
   return (
     <div className="mb-20">

@@ -1,22 +1,22 @@
 import classNames from 'classnames';
+import useAxiosWithToken from 'hooks/useAxiosWithToken';
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { getUserInfo } from '../features/auth/authSlice';
-import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import LoadingScreen from './components/LoadingScreen';
 
 // Show pending animation while loading content/api
 const SuspenseLayout = ({ children }) => {
-  const { isLoading } = useSelector((store) => store.auth);
+  const { isLoading, isLogin } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const location = useLocation();
-  const axiosPrivate = useAxiosPrivate(true);
+  const axios = useAxiosWithToken();
 
   useEffect(() => {
-    dispatch(getUserInfo(axiosPrivate));
-  }, [dispatch, axiosPrivate]);
+    isLogin && dispatch(getUserInfo(axios));
+  }, [dispatch, axios, isLogin]);
 
   useEffect(() => {
     if (!location.hash) {

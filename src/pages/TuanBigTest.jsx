@@ -2,26 +2,36 @@ import { Breadcrumb, Dropdown } from '../components/ui';
 
 // Data sample
 const hierarchy = ['IELTS Fundamentals', 'Past tenses 1...', 'Hiện tại'];
-const actionsList = [
-  {
-    name: 'Tăng dần',
-    func: () => {
-      console.log('Tăng dần');
+
+const data = {
+  type: 'menu',
+  actionsList: [
+    {
+      title: 'Tăng dần',
+      action: () => {},
+      type: 'active',
+      initial: 0,
+      actionsList: [
+        {
+          title: 'TD1',
+          action: () => {
+            console.log('TD1');
+          },
+        },
+        {
+          title: 'TD2',
+          action: () => {
+            console.log('TD2');
+          },
+        },
+      ],
     },
-  },
-  {
-    name: 'Giảm dần',
-    func: () => {
-      console.log('Giảm dần');
+    {
+      title: 'Giảm dần',
+      action: () => {},
     },
-  },
-  {
-    name: 'Theo chữ cái A - Z',
-    func: () => {
-      console.log('Theo chữ cái A - Z');
-    },
-  },
-];
+  ],
+};
 
 function TuanBigTest() {
   return (
@@ -38,26 +48,26 @@ function TuanBigTest() {
       <div>
         <span className="text-h2 m-4">Dropdown</span>
         <div className="flex gap-4 h-72 p-4 bg-bg_black">
-          <Dropdown dark={true} actionsList={actionsList}>
+          {/* <Dropdown data={data}>
             Loại khóa học
           </Dropdown>
-          <Dropdown type="primary" dark={true} actionsList={actionsList}>
+          <Dropdown type="primary" actionsList={data}>
             Mức độ
           </Dropdown>
-          <Dropdown dark={true} context="Xếp theo" actionsList={actionsList}>
+          <Dropdown context="Xếp theo" actionsList={data}>
             A-Z
-          </Dropdown>
+          </Dropdown> */}
         </div>
         <div className="flex gap-4 h-72 p-4 ">
-          <Dropdown dark={false} actionsList={actionsList}>
+          <Dropdown context="Xếp theo" initialState={0} data={data}>
             Loại khóa học
           </Dropdown>
-          <Dropdown type="primary" dark={false} actionsList={actionsList}>
+          {/* <Dropdown type="primary" data={data}>
             Mức độ
           </Dropdown>
-          <Dropdown dark={false} context="Xếp theo" actionsList={actionsList}>
+          <Dropdown context="Xếp theo" data={data}>
             A-Z
-          </Dropdown>
+          </Dropdown> */}
         </div>
       </div>
     </div>
