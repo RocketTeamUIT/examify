@@ -8,6 +8,7 @@ import { deleteFlashcardService, markAsLearntService, markAsUnlearntService } fr
 import { MdOutlineModeEditOutline } from 'react-icons/md';
 import AddFlashcardModal from './AddFlashcardModal';
 import { toast } from 'react-toastify';
+import classNames from 'classnames';
 
 const TYPES = {
   noun: 'n',
@@ -144,25 +145,6 @@ const FlashcardSingle = (props) => {
     new Audio(audio).play();
   }
 
-  // async function play() {
-  //   try {
-  //     if (!audio) {
-  //       const response = await getWordAudioService(data.word);
-  //       if (response.data.length > 0) {
-  //         const result = response.data[0].phonetics.find((item) => item.audio);
-  //         if (result) {
-  //           setAudio(result.audio);
-  //           new Audio(result.audio).play();
-  //         }
-  //       }
-  //     } else {
-  //       new Audio(audio).play();
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
   return (
     <>
       <li className="bg-white rounded-lg shadow-sd_large p-5 grid grid-cols-12 gap-x-5 relative">
@@ -187,7 +169,7 @@ const FlashcardSingle = (props) => {
         </header>
 
         {/* Description */}
-        <div className="col-span-8">
+        <div className={classNames(data.image ? 'col-span-8' : 'col-span-full')}>
           <div className="flex items-center gap-4 mb-2 mt-0.5">
             {data.pronounce && <p className="font-medium text-md text-t_dark">{data.pronounce}</p>}
             {audio && (
@@ -217,16 +199,11 @@ const FlashcardSingle = (props) => {
           )}
         </div>
 
-        <aside className="col-span-4 rounded-lg border border-br_gray overflow-hidden aspect-[5/4]">
-          <img
-            src={
-              data.image ||
-              'https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/317990454_184277380933600_6789484805866779489_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=LuggDQ39-0UAX8GpktZ&tn=mTkZba3gIcviaDSJ&_nc_ht=scontent.fdad1-2.fna&oh=00_AfCEodVcRjhl1l8IVli9tYgztm0_w4N38OYHp2bdrd8bXw&oe=63C991DB'
-            }
-            alt="Bocchi the rock"
-            className="w-full h-full object-cover"
-          />
-        </aside>
+        {data.image && (
+          <aside className="col-span-4 rounded-lg border border-br_gray overflow-hidden aspect-[5/4]">
+            <img src={data.image} alt="Bocchi the rock" className="w-full h-full object-cover" />
+          </aside>
+        )}
 
         {data.learnt && (
           <div className="absolute left-5 -translate-y-1/2 rounded-full bg-white">
