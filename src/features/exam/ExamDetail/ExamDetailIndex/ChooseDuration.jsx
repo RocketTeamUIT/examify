@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import { Button, Dropdown, Input } from '../../../../components/ui';
-import { durationList } from '../../data';
 
-function ChooseDuration() {
+function ChooseDuration({ durationList, onChange, config }) {
   return (
     <div className="mt-9">
       <h4 className="text-h4 font-semibold">Chọn thời gian thi (Để trống nếu bạn không muốn giới hạn)</h4>
@@ -14,6 +14,7 @@ function ChooseDuration() {
           <div className="mt-6">
             <p className="mb-1 text-h5 font-normal">Hoặc tùy chỉnh</p>
             <Input
+              onChange={onChange}
               height={32}
               type="number"
               fancyOutlined
@@ -21,9 +22,9 @@ function ChooseDuration() {
             />
           </div>
         </div>
-        <div className="flex flex-col-reverse">
+        <Link to="#" state={{ config }} className="flex flex-col-reverse">
           <Button type="outline">Thực hiện</Button>
-        </div>
+        </Link>
       </div>
     </div>
   );

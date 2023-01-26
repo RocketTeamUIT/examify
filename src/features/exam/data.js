@@ -137,7 +137,7 @@ export const durationList = {
     {
       title: 'Không giới hạn',
       action: () => {
-        console.log('KGH');
+        console.log('0');
       },
     },
   ],
