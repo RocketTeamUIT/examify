@@ -30,6 +30,7 @@ import { RecordDetailBase, RecordDetailIndex, RecordDetailFullmode } from '../fe
 import Flashcard, { ExploreFlashcard, FlashcardPractice, FlashcardSetDetail, MyFlashcard } from '../features/flashcard';
 import ExamTaking from 'features/exam/ExamTaking';
 import ExamTakingLayout from 'layouts/ExamTakingLayout';
+import AnswerDetail from 'features/exam/AnswerDetail';
 
 //Contest
 import { ContestHome, ContestMain } from '../features/contest';
@@ -126,6 +127,11 @@ const publicRouters = [
   {
     path: config.routes.examTaking,
     component: ExamTaking,
+    layout: ExamTakingLayout,
+  },
+  {
+    path: config.routes.answerDetail,
+    component: AnswerDetail,
     layout: ExamTakingLayout,
   },
 

@@ -4889,11 +4889,11 @@ export const dataExamTaking = [
           {
             id: 2,
             seq: 2,
-            name: '',
+            name: 'This is question 2',
             choiceList: [
               {
                 seq: 1,
-                content: '',
+                content: 'This is answer of question 2',
               },
               {
                 seq: 2,
