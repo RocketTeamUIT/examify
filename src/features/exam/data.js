@@ -4841,4613 +4841,4618 @@ export const partList = [
   },
 ];
 
-export const dataExamTaking = [
-  {
-    part: 'Part 1',
-    title: '',
-    setQuestionList: [
-      {
-        title: '',
-        side: [
-          {
-            seq: 1,
-            content:
-              'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 1,
-            seq: 1,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-              {
-                seq: 4,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [
-          {
-            seq: 1,
-            content:
-              'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 2,
-            seq: 2,
-            name: 'This is question 2',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'This is answer of question 2',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-              {
-                seq: 4,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [
-          {
-            seq: 1,
-            content:
-              'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 3,
-            seq: 3,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-              {
-                seq: 4,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [
-          {
-            seq: 1,
-            content:
-              'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 4,
-            seq: 4,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-              {
-                seq: 4,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [
-          {
-            seq: 1,
-            content:
-              'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 5,
-            seq: 5,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-              {
-                seq: 4,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [
-          {
-            seq: 1,
-            content:
-              'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 6,
-            seq: 6,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-              {
-                seq: 4,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-    ],
-  },
-  {
-    part: 'Part 2',
-    title: '',
-    setQuestionList: [
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 7,
-            seq: 7,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 8,
-            seq: 8,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 9,
-            seq: 9,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 10,
-            seq: 10,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 11,
-            seq: 11,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 12,
-            seq: 12,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 13,
-            seq: 13,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 14,
-            seq: 14,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 15,
-            seq: 15,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 16,
-            seq: 16,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 17,
-            seq: 17,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 18,
-            seq: 18,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 19,
-            seq: 19,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 20,
-            seq: 20,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 21,
-            seq: 21,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 22,
-            seq: 22,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 23,
-            seq: 23,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 24,
-            seq: 24,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 25,
-            seq: 25,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 26,
-            seq: 26,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 27,
-            seq: 27,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 28,
-            seq: 28,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 29,
-            seq: 29,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 30,
-            seq: 30,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 31,
-            seq: 31,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: '',
-              },
-              {
-                seq: 2,
-                content: '',
-              },
-              {
-                seq: 3,
-                content: '',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-    ],
-  },
-  {
-    part: 'Part 3',
-    title: '',
-    setQuestionList: [
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 32,
-            seq: 32,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 33,
-            seq: 33,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 34,
-            seq: 34,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 35,
-            seq: 35,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 36,
-            seq: 36,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 37,
-            seq: 37,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 38,
-            seq: 38,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 39,
-            seq: 39,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 40,
-            seq: 40,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 41,
-            seq: 41,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 42,
-            seq: 42,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 43,
-            seq: 43,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 44,
-            seq: 44,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 45,
-            seq: 45,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 46,
-            seq: 46,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 47,
-            seq: 47,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 48,
-            seq: 48,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 49,
-            seq: 49,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 50,
-            seq: 50,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 51,
-            seq: 51,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 52,
-            seq: 52,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 53,
-            seq: 53,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 54,
-            seq: 54,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 55,
-            seq: 55,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 56,
-            seq: 56,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 57,
-            seq: 57,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 58,
-            seq: 58,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 59,
-            seq: 59,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 60,
-            seq: 60,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 61,
-            seq: 61,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 62,
-            seq: 62,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 63,
-            seq: 63,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 64,
-            seq: 64,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 65,
-            seq: 65,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 66,
-            seq: 66,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 67,
-            seq: 67,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 68,
-            seq: 68,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 69,
-            seq: 69,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 70,
-            seq: 70,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-    ],
-  },
-  {
-    part: 'Part 4',
-    title: '',
-    setQuestionList: [
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 32,
-            seq: 32,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 33,
-            seq: 33,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 34,
-            seq: 34,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 35,
-            seq: 35,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 36,
-            seq: 36,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 37,
-            seq: 37,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 38,
-            seq: 38,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 39,
-            seq: 39,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 40,
-            seq: 40,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 41,
-            seq: 41,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 42,
-            seq: 42,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 43,
-            seq: 43,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 44,
-            seq: 44,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 45,
-            seq: 45,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 46,
-            seq: 46,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 47,
-            seq: 47,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 48,
-            seq: 48,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 49,
-            seq: 49,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 50,
-            seq: 50,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 51,
-            seq: 51,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 52,
-            seq: 52,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 53,
-            seq: 53,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 54,
-            seq: 54,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 55,
-            seq: 55,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 56,
-            seq: 56,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 57,
-            seq: 57,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 58,
-            seq: 58,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 59,
-            seq: 59,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 60,
-            seq: 60,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 61,
-            seq: 61,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 62,
-            seq: 62,
-            name: 'What is the woman preparing for?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A move to a new a city',
-              },
-              {
-                seq: 2,
-                content: 'A business trip',
-              },
-              {
-                seq: 3,
-                content: 'A building tour',
-              },
-              {
-                seq: 4,
-                content: 'A meeting with visiting colleagues',
-              },
-            ],
-          },
-          {
-            id: 63,
-            seq: 63,
-            name: 'Who most likely is the man?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'An accountant',
-              },
-              {
-                seq: 2,
-                content: 'An administrative assistant',
-              },
-              {
-                seq: 3,
-                content: 'A marketing director',
-              },
-              {
-                seq: 4,
-                content: 'A company president',
-              },
-            ],
-          },
-          {
-            id: 64,
-            seq: 64,
-            name: 'What does the woman want to pick up on Friday morning?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'A building map',
-              },
-              {
-                seq: 2,
-                content: 'A room key',
-              },
-              {
-                seq: 3,
-                content: 'An ID card',
-              },
-              {
-                seq: 4,
-                content: 'A parking pass',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
-        setQuestion: [
-          {
-            id: 65,
-            seq: 65,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 66,
-            seq: 66,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 67,
-            seq: 67,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 68,
-            seq: 68,
-            name: "Look at the graphic. How much did the man's company charge for its service?",
-            choiceList: [
-              {
-                seq: 1,
-                content: '$4,456',
-              },
-              {
-                seq: 2,
-                content: '$1,300',
-              },
-              {
-                seq: 3,
-                content: '$10,200',
-              },
-              {
-                seq: 4,
-                content: '$400',
-              },
-            ],
-          },
-          {
-            id: 69,
-            seq: 69,
-            name: 'Why does the man apologize?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Business hours have changed.',
-              },
-              {
-                seq: 2,
-                content: 'A price was wrong.',
-              },
-              {
-                seq: 3,
-                content: 'Some staff arrived late.',
-              },
-              {
-                seq: 4,
-                content: 'A request could not be fulfilled.',
-              },
-            ],
-          },
-          {
-            id: 70,
-            seq: 70,
-            name: 'What does the woman like about a venue?',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'It has a nice view.',
-              },
-              {
-                seq: 2,
-                content: 'It is conveniently located.',
-              },
-              {
-                seq: 3,
-                content: 'It is tastefully decorated.',
-              },
-              {
-                seq: 4,
-                content: 'It can host large events.',
-              },
-            ],
-          },
-        ],
-        audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
-      },
-    ],
-  },
-  {
-    part: 'Part 5',
-    title: '',
-    setQuestionList: [
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 101,
-            seq: 101,
-            name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'regional',
-              },
-              {
-                seq: 2,
-                content: 'regionally',
-              },
-              {
-                seq: 3,
-                content: 'region',
-              },
-              {
-                seq: 4,
-                content: 'regions',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 102,
-            seq: 102,
-            name: 'Income levels are rising in the _____ and surrounding areas.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'family',
-              },
-              {
-                seq: 2,
-                content: 'world',
-              },
-              {
-                seq: 3,
-                content: 'company',
-              },
-              {
-                seq: 4,
-                content: 'city',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 103,
-            seq: 103,
-            name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'you',
-              },
-              {
-                seq: 2,
-                content: 'yours',
-              },
-              {
-                seq: 3,
-                content: 'yourself',
-              },
-              {
-                seq: 4,
-                content: 'your',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 104,
-            seq: 104,
-            name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'up',
-              },
-              {
-                seq: 2,
-                content: 'except',
-              },
-              {
-                seq: 3,
-                content: 'onto',
-              },
-              {
-                seq: 4,
-                content: 'through',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 105,
-            seq: 105,
-            name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'to arrange',
-              },
-              {
-                seq: 2,
-                content: 'arranging',
-              },
-              {
-                seq: 3,
-                content: 'having arranged',
-              },
-              {
-                seq: 4,
-                content: 'arrangement',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 106,
-            seq: 106,
-            name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'regional',
-              },
-              {
-                seq: 2,
-                content: 'regionally',
-              },
-              {
-                seq: 3,
-                content: 'region',
-              },
-              {
-                seq: 4,
-                content: 'regions',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 107,
-            seq: 107,
-            name: 'Income levels are rising in the _____ and surrounding areas.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'family',
-              },
-              {
-                seq: 2,
-                content: 'world',
-              },
-              {
-                seq: 3,
-                content: 'company',
-              },
-              {
-                seq: 4,
-                content: 'city',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 108,
-            seq: 108,
-            name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'you',
-              },
-              {
-                seq: 2,
-                content: 'yours',
-              },
-              {
-                seq: 3,
-                content: 'yourself',
-              },
-              {
-                seq: 4,
-                content: 'your',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 109,
-            seq: 109,
-            name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'up',
-              },
-              {
-                seq: 2,
-                content: 'except',
-              },
-              {
-                seq: 3,
-                content: 'onto',
-              },
-              {
-                seq: 4,
-                content: 'through',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 111,
-            seq: 110,
-            name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'to arrange',
-              },
-              {
-                seq: 2,
-                content: 'arranging',
-              },
-              {
-                seq: 3,
-                content: 'having arranged',
-              },
-              {
-                seq: 4,
-                content: 'arrangement',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 111,
-            seq: 111,
-            name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'regional',
-              },
-              {
-                seq: 2,
-                content: 'regionally',
-              },
-              {
-                seq: 3,
-                content: 'region',
-              },
-              {
-                seq: 4,
-                content: 'regions',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 112,
-            seq: 112,
-            name: 'Income levels are rising in the _____ and surrounding areas.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'family',
-              },
-              {
-                seq: 2,
-                content: 'world',
-              },
-              {
-                seq: 3,
-                content: 'company',
-              },
-              {
-                seq: 4,
-                content: 'city',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 113,
-            seq: 113,
-            name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'you',
-              },
-              {
-                seq: 2,
-                content: 'yours',
-              },
-              {
-                seq: 3,
-                content: 'yourself',
-              },
-              {
-                seq: 4,
-                content: 'your',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 114,
-            seq: 114,
-            name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'up',
-              },
-              {
-                seq: 2,
-                content: 'except',
-              },
-              {
-                seq: 3,
-                content: 'onto',
-              },
-              {
-                seq: 4,
-                content: 'through',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 115,
-            seq: 115,
-            name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'to arrange',
-              },
-              {
-                seq: 2,
-                content: 'arranging',
-              },
-              {
-                seq: 3,
-                content: 'having arranged',
-              },
-              {
-                seq: 4,
-                content: 'arrangement',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 116,
-            seq: 116,
-            name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'regional',
-              },
-              {
-                seq: 2,
-                content: 'regionally',
-              },
-              {
-                seq: 3,
-                content: 'region',
-              },
-              {
-                seq: 4,
-                content: 'regions',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 117,
-            seq: 117,
-            name: 'Income levels are rising in the _____ and surrounding areas.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'family',
-              },
-              {
-                seq: 2,
-                content: 'world',
-              },
-              {
-                seq: 3,
-                content: 'company',
-              },
-              {
-                seq: 4,
-                content: 'city',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 118,
-            seq: 118,
-            name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'you',
-              },
-              {
-                seq: 2,
-                content: 'yours',
-              },
-              {
-                seq: 3,
-                content: 'yourself',
-              },
-              {
-                seq: 4,
-                content: 'your',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 119,
-            seq: 119,
-            name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'up',
-              },
-              {
-                seq: 2,
-                content: 'except',
-              },
-              {
-                seq: 3,
-                content: 'onto',
-              },
-              {
-                seq: 4,
-                content: 'through',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 120,
-            seq: 120,
-            name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'to arrange',
-              },
-              {
-                seq: 2,
-                content: 'arranging',
-              },
-              {
-                seq: 3,
-                content: 'having arranged',
-              },
-              {
-                seq: 4,
-                content: 'arrangement',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 121,
-            seq: 121,
-            name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'regional',
-              },
-              {
-                seq: 2,
-                content: 'regionally',
-              },
-              {
-                seq: 3,
-                content: 'region',
-              },
-              {
-                seq: 4,
-                content: 'regions',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 122,
-            seq: 122,
-            name: 'Income levels are rising in the _____ and surrounding areas.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'family',
-              },
-              {
-                seq: 2,
-                content: 'world',
-              },
-              {
-                seq: 3,
-                content: 'company',
-              },
-              {
-                seq: 4,
-                content: 'city',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 123,
-            seq: 123,
-            name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'you',
-              },
-              {
-                seq: 2,
-                content: 'yours',
-              },
-              {
-                seq: 3,
-                content: 'yourself',
-              },
-              {
-                seq: 4,
-                content: 'your',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 124,
-            seq: 124,
-            name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'up',
-              },
-              {
-                seq: 2,
-                content: 'except',
-              },
-              {
-                seq: 3,
-                content: 'onto',
-              },
-              {
-                seq: 4,
-                content: 'through',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 125,
-            seq: 125,
-            name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'to arrange',
-              },
-              {
-                seq: 2,
-                content: 'arranging',
-              },
-              {
-                seq: 3,
-                content: 'having arranged',
-              },
-              {
-                seq: 4,
-                content: 'arrangement',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 126,
-            seq: 126,
-            name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'regional',
-              },
-              {
-                seq: 2,
-                content: 'regionally',
-              },
-              {
-                seq: 3,
-                content: 'region',
-              },
-              {
-                seq: 4,
-                content: 'regions',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 127,
-            seq: 127,
-            name: 'Income levels are rising in the _____ and surrounding areas.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'family',
-              },
-              {
-                seq: 2,
-                content: 'world',
-              },
-              {
-                seq: 3,
-                content: 'company',
-              },
-              {
-                seq: 4,
-                content: 'city',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 128,
-            seq: 128,
-            name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'you',
-              },
-              {
-                seq: 2,
-                content: 'yours',
-              },
-              {
-                seq: 3,
-                content: 'yourself',
-              },
-              {
-                seq: 4,
-                content: 'your',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 129,
-            seq: 129,
-            name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'up',
-              },
-              {
-                seq: 2,
-                content: 'except',
-              },
-              {
-                seq: 3,
-                content: 'onto',
-              },
-              {
-                seq: 4,
-                content: 'through',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-      {
-        title: '',
-        side: [],
-        setQuestion: [
-          {
-            id: 130,
-            seq: 130,
-            name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'to arrange',
-              },
-              {
-                seq: 2,
-                content: 'arranging',
-              },
-              {
-                seq: 3,
-                content: 'having arranged',
-              },
-              {
-                seq: 4,
-                content: 'arrangement',
-              },
-            ],
-          },
-        ],
-        audio: '',
-      },
-    ],
-  },
-  {
-    part: 'Part 6',
-    title: '',
-    setQuestionList: [
-      {
-        title: 'refer to following notice',
-        side: [
-          {
-            content:
-              '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 131,
-            seq: 131,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'serve',
-              },
-              {
-                seq: 2,
-                content: 'served',
-              },
-              {
-                seq: 3,
-                content: 'server',
-              },
-              {
-                seq: 4,
-                content: 'service',
-              },
-            ],
-          },
-          {
-            id: 132,
-            seq: 132,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Along',
-              },
-              {
-                seq: 2,
-                content: 'During',
-              },
-              {
-                seq: 3,
-                content: 'Without',
-              },
-              {
-                seq: 4,
-                content: 'Between',
-              },
-            ],
-          },
-          {
-            id: 133,
-            seq: 133,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'apologize',
-              },
-              {
-                seq: 2,
-                content: 'organize',
-              },
-              {
-                seq: 3,
-                content: 'realize',
-              },
-              {
-                seq: 4,
-                content: 'recognize',
-              },
-            ],
-          },
-          {
-            id: 134,
-            seq: 134,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'If you would like to join our property management team, call us today.',
-              },
-              {
-                seq: 2,
-                content: 'Thank you for your patience while the main lobby is being painted.',
-              },
-              {
-                seq: 3,
-                content: 'Please do not attempt to access the north lobby on these days.',
-              },
-              {
-                seq: 4,
-                content: 'Questions or comments may be directed to the Management office.',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'refer to following notice',
-        side: [
-          {
-            content:
-              '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 135,
-            seq: 135,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'serve',
-              },
-              {
-                seq: 2,
-                content: 'served',
-              },
-              {
-                seq: 3,
-                content: 'server',
-              },
-              {
-                seq: 4,
-                content: 'service',
-              },
-            ],
-          },
-          {
-            id: 136,
-            seq: 136,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Along',
-              },
-              {
-                seq: 2,
-                content: 'During',
-              },
-              {
-                seq: 3,
-                content: 'Without',
-              },
-              {
-                seq: 4,
-                content: 'Between',
-              },
-            ],
-          },
-          {
-            id: 137,
-            seq: 137,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'apologize',
-              },
-              {
-                seq: 2,
-                content: 'organize',
-              },
-              {
-                seq: 3,
-                content: 'realize',
-              },
-              {
-                seq: 4,
-                content: 'recognize',
-              },
-            ],
-          },
-          {
-            id: 138,
-            seq: 138,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'If you would like to join our property management team, call us today.',
-              },
-              {
-                seq: 2,
-                content: 'Thank you for your patience while the main lobby is being painted.',
-              },
-              {
-                seq: 3,
-                content: 'Please do not attempt to access the north lobby on these days.',
-              },
-              {
-                seq: 4,
-                content: 'Questions or comments may be directed to the Management office.',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'refer to following notice',
-        side: [
-          {
-            content:
-              '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 139,
-            seq: 139,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'serve',
-              },
-              {
-                seq: 2,
-                content: 'served',
-              },
-              {
-                seq: 3,
-                content: 'server',
-              },
-              {
-                seq: 4,
-                content: 'service',
-              },
-            ],
-          },
-          {
-            id: 140,
-            seq: 140,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Along',
-              },
-              {
-                seq: 2,
-                content: 'During',
-              },
-              {
-                seq: 3,
-                content: 'Without',
-              },
-              {
-                seq: 4,
-                content: 'Between',
-              },
-            ],
-          },
-          {
-            id: 141,
-            seq: 141,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'apologize',
-              },
-              {
-                seq: 2,
-                content: 'organize',
-              },
-              {
-                seq: 3,
-                content: 'realize',
-              },
-              {
-                seq: 4,
-                content: 'recognize',
-              },
-            ],
-          },
-          {
-            id: 142,
-            seq: 142,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'If you would like to join our property management team, call us today.',
-              },
-              {
-                seq: 2,
-                content: 'Thank you for your patience while the main lobby is being painted.',
-              },
-              {
-                seq: 3,
-                content: 'Please do not attempt to access the north lobby on these days.',
-              },
-              {
-                seq: 4,
-                content: 'Questions or comments may be directed to the Management office.',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'refer to following notice',
-        side: [
-          {
-            content:
-              '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 143,
-            seq: 143,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'serve',
-              },
-              {
-                seq: 2,
-                content: 'served',
-              },
-              {
-                seq: 3,
-                content: 'server',
-              },
-              {
-                seq: 4,
-                content: 'service',
-              },
-            ],
-          },
-          {
-            id: 144,
-            seq: 144,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Along',
-              },
-              {
-                seq: 2,
-                content: 'During',
-              },
-              {
-                seq: 3,
-                content: 'Without',
-              },
-              {
-                seq: 4,
-                content: 'Between',
-              },
-            ],
-          },
-          {
-            id: 145,
-            seq: 145,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'apologize',
-              },
-              {
-                seq: 2,
-                content: 'organize',
-              },
-              {
-                seq: 3,
-                content: 'realize',
-              },
-              {
-                seq: 4,
-                content: 'recognize',
-              },
-            ],
-          },
-          {
-            id: 146,
-            seq: 146,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'If you would like to join our property management team, call us today.',
-              },
-              {
-                seq: 2,
-                content: 'Thank you for your patience while the main lobby is being painted.',
-              },
-              {
-                seq: 3,
-                content: 'Please do not attempt to access the north lobby on these days.',
-              },
-              {
-                seq: 4,
-                content: 'Questions or comments may be directed to the Management office.',
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    part: 'Part 7',
-    title: '',
-    setQuestionList: [
-      {
-        title: 'refer to following notice',
-        side: [
-          {
-            content:
-              '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 131,
-            seq: 131,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'serve',
-              },
-              {
-                seq: 2,
-                content: 'served',
-              },
-              {
-                seq: 3,
-                content: 'server',
-              },
-              {
-                seq: 4,
-                content: 'service',
-              },
-            ],
-          },
-          {
-            id: 132,
-            seq: 132,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Along',
-              },
-              {
-                seq: 2,
-                content: 'During',
-              },
-              {
-                seq: 3,
-                content: 'Without',
-              },
-              {
-                seq: 4,
-                content: 'Between',
-              },
-            ],
-          },
-          {
-            id: 133,
-            seq: 133,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'apologize',
-              },
-              {
-                seq: 2,
-                content: 'organize',
-              },
-              {
-                seq: 3,
-                content: 'realize',
-              },
-              {
-                seq: 4,
-                content: 'recognize',
-              },
-            ],
-          },
-          {
-            id: 134,
-            seq: 134,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'If you would like to join our property management team, call us today.',
-              },
-              {
-                seq: 2,
-                content: 'Thank you for your patience while the main lobby is being painted.',
-              },
-              {
-                seq: 3,
-                content: 'Please do not attempt to access the north lobby on these days.',
-              },
-              {
-                seq: 4,
-                content: 'Questions or comments may be directed to the Management office.',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'refer to following notice',
-        side: [
-          {
-            content:
-              '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 135,
-            seq: 135,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'serve',
-              },
-              {
-                seq: 2,
-                content: 'served',
-              },
-              {
-                seq: 3,
-                content: 'server',
-              },
-              {
-                seq: 4,
-                content: 'service',
-              },
-            ],
-          },
-          {
-            id: 136,
-            seq: 136,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Along',
-              },
-              {
-                seq: 2,
-                content: 'During',
-              },
-              {
-                seq: 3,
-                content: 'Without',
-              },
-              {
-                seq: 4,
-                content: 'Between',
-              },
-            ],
-          },
-          {
-            id: 137,
-            seq: 137,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'apologize',
-              },
-              {
-                seq: 2,
-                content: 'organize',
-              },
-              {
-                seq: 3,
-                content: 'realize',
-              },
-              {
-                seq: 4,
-                content: 'recognize',
-              },
-            ],
-          },
-          {
-            id: 138,
-            seq: 138,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'If you would like to join our property management team, call us today.',
-              },
-              {
-                seq: 2,
-                content: 'Thank you for your patience while the main lobby is being painted.',
-              },
-              {
-                seq: 3,
-                content: 'Please do not attempt to access the north lobby on these days.',
-              },
-              {
-                seq: 4,
-                content: 'Questions or comments may be directed to the Management office.',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'refer to following notice',
-        side: [
-          {
-            content:
-              '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 139,
-            seq: 139,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'serve',
-              },
-              {
-                seq: 2,
-                content: 'served',
-              },
-              {
-                seq: 3,
-                content: 'server',
-              },
-              {
-                seq: 4,
-                content: 'service',
-              },
-            ],
-          },
-          {
-            id: 140,
-            seq: 140,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Along',
-              },
-              {
-                seq: 2,
-                content: 'During',
-              },
-              {
-                seq: 3,
-                content: 'Without',
-              },
-              {
-                seq: 4,
-                content: 'Between',
-              },
-            ],
-          },
-          {
-            id: 141,
-            seq: 141,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'apologize',
-              },
-              {
-                seq: 2,
-                content: 'organize',
-              },
-              {
-                seq: 3,
-                content: 'realize',
-              },
-              {
-                seq: 4,
-                content: 'recognize',
-              },
-            ],
-          },
-          {
-            id: 142,
-            seq: 142,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'If you would like to join our property management team, call us today.',
-              },
-              {
-                seq: 2,
-                content: 'Thank you for your patience while the main lobby is being painted.',
-              },
-              {
-                seq: 3,
-                content: 'Please do not attempt to access the north lobby on these days.',
-              },
-              {
-                seq: 4,
-                content: 'Questions or comments may be directed to the Management office.',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'refer to following notice',
-        side: [
-          {
-            content:
-              '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
-          },
-        ],
-        setQuestion: [
-          {
-            id: 143,
-            seq: 143,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'serve',
-              },
-              {
-                seq: 2,
-                content: 'served',
-              },
-              {
-                seq: 3,
-                content: 'server',
-              },
-              {
-                seq: 4,
-                content: 'service',
-              },
-            ],
-          },
-          {
-            id: 144,
-            seq: 144,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'Along',
-              },
-              {
-                seq: 2,
-                content: 'During',
-              },
-              {
-                seq: 3,
-                content: 'Without',
-              },
-              {
-                seq: 4,
-                content: 'Between',
-              },
-            ],
-          },
-          {
-            id: 145,
-            seq: 145,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'apologize',
-              },
-              {
-                seq: 2,
-                content: 'organize',
-              },
-              {
-                seq: 3,
-                content: 'realize',
-              },
-              {
-                seq: 4,
-                content: 'recognize',
-              },
-            ],
-          },
-          {
-            id: 146,
-            seq: 146,
-            name: '',
-            choiceList: [
-              {
-                seq: 1,
-                content: 'If you would like to join our property management team, call us today.',
-              },
-              {
-                seq: 2,
-                content: 'Thank you for your patience while the main lobby is being painted.',
-              },
-              {
-                seq: 3,
-                content: 'Please do not attempt to access the north lobby on these days.',
-              },
-              {
-                seq: 4,
-                content: 'Questions or comments may be directed to the Management office.',
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-];
+export const dataExamTaking = {
+  examSeriesName: 'Bộ đề thi: ETS 2022',
+  examName: 'ETS 2022 - Test 1',
+  audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+  data: [
+    {
+      part: 'Part 1',
+      title: '',
+      setQuestionList: [
+        {
+          title: '',
+          side: [
+            {
+              seq: 1,
+              content:
+                'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 1,
+              seq: 1,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+                {
+                  seq: 4,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [
+            {
+              seq: 1,
+              content:
+                'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 2,
+              seq: 2,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+                {
+                  seq: 4,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [
+            {
+              seq: 1,
+              content:
+                'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 3,
+              seq: 3,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+                {
+                  seq: 4,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [
+            {
+              seq: 1,
+              content:
+                'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 4,
+              seq: 4,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+                {
+                  seq: 4,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [
+            {
+              seq: 1,
+              content:
+                'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 5,
+              seq: 5,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+                {
+                  seq: 4,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [
+            {
+              seq: 1,
+              content:
+                'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674007263/ets_toeic_2022_test_1_1_1_fwzpbm.png',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 6,
+              seq: 6,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+                {
+                  seq: 4,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+      ],
+    },
+    {
+      part: 'Part 2',
+      title: '',
+      setQuestionList: [
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 7,
+              seq: 7,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 8,
+              seq: 8,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 9,
+              seq: 9,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 10,
+              seq: 10,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 11,
+              seq: 11,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 12,
+              seq: 12,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 13,
+              seq: 13,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 14,
+              seq: 14,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 15,
+              seq: 15,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 16,
+              seq: 16,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 17,
+              seq: 17,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 18,
+              seq: 18,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 19,
+              seq: 19,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 20,
+              seq: 20,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 21,
+              seq: 21,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 22,
+              seq: 22,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 23,
+              seq: 23,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 24,
+              seq: 24,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 25,
+              seq: 25,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 26,
+              seq: 26,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 27,
+              seq: 27,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 28,
+              seq: 28,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 29,
+              seq: 29,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 30,
+              seq: 30,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 31,
+              seq: 31,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '',
+                },
+                {
+                  seq: 2,
+                  content: '',
+                },
+                {
+                  seq: 3,
+                  content: '',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+      ],
+    },
+    {
+      part: 'Part 3',
+      title: '',
+      setQuestionList: [
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 32,
+              seq: 32,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 33,
+              seq: 33,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 34,
+              seq: 34,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 35,
+              seq: 35,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 36,
+              seq: 36,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 37,
+              seq: 37,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 38,
+              seq: 38,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 39,
+              seq: 39,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 40,
+              seq: 40,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 41,
+              seq: 41,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 42,
+              seq: 42,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 43,
+              seq: 43,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 44,
+              seq: 44,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 45,
+              seq: 45,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 46,
+              seq: 46,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 47,
+              seq: 47,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 48,
+              seq: 48,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 49,
+              seq: 49,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 50,
+              seq: 50,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 51,
+              seq: 51,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 52,
+              seq: 52,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 53,
+              seq: 53,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 54,
+              seq: 54,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 55,
+              seq: 55,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 56,
+              seq: 56,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 57,
+              seq: 57,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 58,
+              seq: 58,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 59,
+              seq: 59,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 60,
+              seq: 60,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 61,
+              seq: 61,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 62,
+              seq: 62,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 63,
+              seq: 63,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 64,
+              seq: 64,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 65,
+              seq: 65,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 66,
+              seq: 66,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 67,
+              seq: 67,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 68,
+              seq: 68,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 69,
+              seq: 69,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 70,
+              seq: 70,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+      ],
+    },
+    {
+      part: 'Part 4',
+      title: '',
+      setQuestionList: [
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 32,
+              seq: 32,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 33,
+              seq: 33,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 34,
+              seq: 34,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 35,
+              seq: 35,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 36,
+              seq: 36,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 37,
+              seq: 37,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 38,
+              seq: 38,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 39,
+              seq: 39,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 40,
+              seq: 40,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 41,
+              seq: 41,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 42,
+              seq: 42,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 43,
+              seq: 43,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 44,
+              seq: 44,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 45,
+              seq: 45,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 46,
+              seq: 46,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 47,
+              seq: 47,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 48,
+              seq: 48,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 49,
+              seq: 49,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 50,
+              seq: 50,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 51,
+              seq: 51,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 52,
+              seq: 52,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 53,
+              seq: 53,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 54,
+              seq: 54,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 55,
+              seq: 55,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 56,
+              seq: 56,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 57,
+              seq: 57,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 58,
+              seq: 58,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 59,
+              seq: 59,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 60,
+              seq: 60,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 61,
+              seq: 61,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 62,
+              seq: 62,
+              name: 'What is the woman preparing for?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A move to a new a city',
+                },
+                {
+                  seq: 2,
+                  content: 'A business trip',
+                },
+                {
+                  seq: 3,
+                  content: 'A building tour',
+                },
+                {
+                  seq: 4,
+                  content: 'A meeting with visiting colleagues',
+                },
+              ],
+            },
+            {
+              id: 63,
+              seq: 63,
+              name: 'Who most likely is the man?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'An accountant',
+                },
+                {
+                  seq: 2,
+                  content: 'An administrative assistant',
+                },
+                {
+                  seq: 3,
+                  content: 'A marketing director',
+                },
+                {
+                  seq: 4,
+                  content: 'A company president',
+                },
+              ],
+            },
+            {
+              id: 64,
+              seq: 64,
+              name: 'What does the woman want to pick up on Friday morning?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'A building map',
+                },
+                {
+                  seq: 2,
+                  content: 'A room key',
+                },
+                {
+                  seq: 3,
+                  content: 'An ID card',
+                },
+                {
+                  seq: 4,
+                  content: 'A parking pass',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [{ seq: 1, content: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1674054820/img_q9zucb.png' }],
+          setQuestion: [
+            {
+              id: 65,
+              seq: 65,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 66,
+              seq: 66,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 67,
+              seq: 67,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 68,
+              seq: 68,
+              name: "Look at the graphic. How much did the man's company charge for its service?",
+              choiceList: [
+                {
+                  seq: 1,
+                  content: '$4,456',
+                },
+                {
+                  seq: 2,
+                  content: '$1,300',
+                },
+                {
+                  seq: 3,
+                  content: '$10,200',
+                },
+                {
+                  seq: 4,
+                  content: '$400',
+                },
+              ],
+            },
+            {
+              id: 69,
+              seq: 69,
+              name: 'Why does the man apologize?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Business hours have changed.',
+                },
+                {
+                  seq: 2,
+                  content: 'A price was wrong.',
+                },
+                {
+                  seq: 3,
+                  content: 'Some staff arrived late.',
+                },
+                {
+                  seq: 4,
+                  content: 'A request could not be fulfilled.',
+                },
+              ],
+            },
+            {
+              id: 70,
+              seq: 70,
+              name: 'What does the woman like about a venue?',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'It has a nice view.',
+                },
+                {
+                  seq: 2,
+                  content: 'It is conveniently located.',
+                },
+                {
+                  seq: 3,
+                  content: 'It is tastefully decorated.',
+                },
+                {
+                  seq: 4,
+                  content: 'It can host large events.',
+                },
+              ],
+            },
+          ],
+          audio: 'https://study4.com/media/tez_media1/sound/ets_toeic_2022_test_1_1.mp3',
+        },
+      ],
+    },
+    {
+      part: 'Part 5',
+      title: '',
+      setQuestionList: [
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 101,
+              seq: 101,
+              name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'regional',
+                },
+                {
+                  seq: 2,
+                  content: 'regionally',
+                },
+                {
+                  seq: 3,
+                  content: 'region',
+                },
+                {
+                  seq: 4,
+                  content: 'regions',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 102,
+              seq: 102,
+              name: 'Income levels are rising in the _____ and surrounding areas.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'family',
+                },
+                {
+                  seq: 2,
+                  content: 'world',
+                },
+                {
+                  seq: 3,
+                  content: 'company',
+                },
+                {
+                  seq: 4,
+                  content: 'city',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 103,
+              seq: 103,
+              name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'you',
+                },
+                {
+                  seq: 2,
+                  content: 'yours',
+                },
+                {
+                  seq: 3,
+                  content: 'yourself',
+                },
+                {
+                  seq: 4,
+                  content: 'your',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 104,
+              seq: 104,
+              name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'up',
+                },
+                {
+                  seq: 2,
+                  content: 'except',
+                },
+                {
+                  seq: 3,
+                  content: 'onto',
+                },
+                {
+                  seq: 4,
+                  content: 'through',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 105,
+              seq: 105,
+              name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'to arrange',
+                },
+                {
+                  seq: 2,
+                  content: 'arranging',
+                },
+                {
+                  seq: 3,
+                  content: 'having arranged',
+                },
+                {
+                  seq: 4,
+                  content: 'arrangement',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 106,
+              seq: 106,
+              name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'regional',
+                },
+                {
+                  seq: 2,
+                  content: 'regionally',
+                },
+                {
+                  seq: 3,
+                  content: 'region',
+                },
+                {
+                  seq: 4,
+                  content: 'regions',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 107,
+              seq: 107,
+              name: 'Income levels are rising in the _____ and surrounding areas.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'family',
+                },
+                {
+                  seq: 2,
+                  content: 'world',
+                },
+                {
+                  seq: 3,
+                  content: 'company',
+                },
+                {
+                  seq: 4,
+                  content: 'city',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 108,
+              seq: 108,
+              name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'you',
+                },
+                {
+                  seq: 2,
+                  content: 'yours',
+                },
+                {
+                  seq: 3,
+                  content: 'yourself',
+                },
+                {
+                  seq: 4,
+                  content: 'your',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 109,
+              seq: 109,
+              name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'up',
+                },
+                {
+                  seq: 2,
+                  content: 'except',
+                },
+                {
+                  seq: 3,
+                  content: 'onto',
+                },
+                {
+                  seq: 4,
+                  content: 'through',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 111,
+              seq: 110,
+              name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'to arrange',
+                },
+                {
+                  seq: 2,
+                  content: 'arranging',
+                },
+                {
+                  seq: 3,
+                  content: 'having arranged',
+                },
+                {
+                  seq: 4,
+                  content: 'arrangement',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 111,
+              seq: 111,
+              name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'regional',
+                },
+                {
+                  seq: 2,
+                  content: 'regionally',
+                },
+                {
+                  seq: 3,
+                  content: 'region',
+                },
+                {
+                  seq: 4,
+                  content: 'regions',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 112,
+              seq: 112,
+              name: 'Income levels are rising in the _____ and surrounding areas.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'family',
+                },
+                {
+                  seq: 2,
+                  content: 'world',
+                },
+                {
+                  seq: 3,
+                  content: 'company',
+                },
+                {
+                  seq: 4,
+                  content: 'city',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 113,
+              seq: 113,
+              name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'you',
+                },
+                {
+                  seq: 2,
+                  content: 'yours',
+                },
+                {
+                  seq: 3,
+                  content: 'yourself',
+                },
+                {
+                  seq: 4,
+                  content: 'your',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 114,
+              seq: 114,
+              name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'up',
+                },
+                {
+                  seq: 2,
+                  content: 'except',
+                },
+                {
+                  seq: 3,
+                  content: 'onto',
+                },
+                {
+                  seq: 4,
+                  content: 'through',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 115,
+              seq: 115,
+              name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'to arrange',
+                },
+                {
+                  seq: 2,
+                  content: 'arranging',
+                },
+                {
+                  seq: 3,
+                  content: 'having arranged',
+                },
+                {
+                  seq: 4,
+                  content: 'arrangement',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 116,
+              seq: 116,
+              name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'regional',
+                },
+                {
+                  seq: 2,
+                  content: 'regionally',
+                },
+                {
+                  seq: 3,
+                  content: 'region',
+                },
+                {
+                  seq: 4,
+                  content: 'regions',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 117,
+              seq: 117,
+              name: 'Income levels are rising in the _____ and surrounding areas.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'family',
+                },
+                {
+                  seq: 2,
+                  content: 'world',
+                },
+                {
+                  seq: 3,
+                  content: 'company',
+                },
+                {
+                  seq: 4,
+                  content: 'city',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 118,
+              seq: 118,
+              name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'you',
+                },
+                {
+                  seq: 2,
+                  content: 'yours',
+                },
+                {
+                  seq: 3,
+                  content: 'yourself',
+                },
+                {
+                  seq: 4,
+                  content: 'your',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 119,
+              seq: 119,
+              name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'up',
+                },
+                {
+                  seq: 2,
+                  content: 'except',
+                },
+                {
+                  seq: 3,
+                  content: 'onto',
+                },
+                {
+                  seq: 4,
+                  content: 'through',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 120,
+              seq: 120,
+              name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'to arrange',
+                },
+                {
+                  seq: 2,
+                  content: 'arranging',
+                },
+                {
+                  seq: 3,
+                  content: 'having arranged',
+                },
+                {
+                  seq: 4,
+                  content: 'arrangement',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 121,
+              seq: 121,
+              name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'regional',
+                },
+                {
+                  seq: 2,
+                  content: 'regionally',
+                },
+                {
+                  seq: 3,
+                  content: 'region',
+                },
+                {
+                  seq: 4,
+                  content: 'regions',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 122,
+              seq: 122,
+              name: 'Income levels are rising in the _____ and surrounding areas.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'family',
+                },
+                {
+                  seq: 2,
+                  content: 'world',
+                },
+                {
+                  seq: 3,
+                  content: 'company',
+                },
+                {
+                  seq: 4,
+                  content: 'city',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 123,
+              seq: 123,
+              name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'you',
+                },
+                {
+                  seq: 2,
+                  content: 'yours',
+                },
+                {
+                  seq: 3,
+                  content: 'yourself',
+                },
+                {
+                  seq: 4,
+                  content: 'your',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 124,
+              seq: 124,
+              name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'up',
+                },
+                {
+                  seq: 2,
+                  content: 'except',
+                },
+                {
+                  seq: 3,
+                  content: 'onto',
+                },
+                {
+                  seq: 4,
+                  content: 'through',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 125,
+              seq: 125,
+              name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'to arrange',
+                },
+                {
+                  seq: 2,
+                  content: 'arranging',
+                },
+                {
+                  seq: 3,
+                  content: 'having arranged',
+                },
+                {
+                  seq: 4,
+                  content: 'arrangement',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 126,
+              seq: 126,
+              name: 'Mougey Fine Gifts is known for its large range of _____ goods.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'regional',
+                },
+                {
+                  seq: 2,
+                  content: 'regionally',
+                },
+                {
+                  seq: 3,
+                  content: 'region',
+                },
+                {
+                  seq: 4,
+                  content: 'regions',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 127,
+              seq: 127,
+              name: 'Income levels are rising in the _____ and surrounding areas.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'family',
+                },
+                {
+                  seq: 2,
+                  content: 'world',
+                },
+                {
+                  seq: 3,
+                  content: 'company',
+                },
+                {
+                  seq: 4,
+                  content: 'city',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 128,
+              seq: 128,
+              name: 'Since we had a recent rate change, expect _____ next electricity bill to be slightly lower.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'you',
+                },
+                {
+                  seq: 2,
+                  content: 'yours',
+                },
+                {
+                  seq: 3,
+                  content: 'yourself',
+                },
+                {
+                  seq: 4,
+                  content: 'your',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 129,
+              seq: 129,
+              name: 'Hotel guests have a lovely view of the ocean _____ the south-facing windows.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'up',
+                },
+                {
+                  seq: 2,
+                  content: 'except',
+                },
+                {
+                  seq: 3,
+                  content: 'onto',
+                },
+                {
+                  seq: 4,
+                  content: 'through',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+        {
+          title: '',
+          side: [],
+          setQuestion: [
+            {
+              id: 130,
+              seq: 130,
+              name: 'Mr. Kim would like _____ a meeting about the Jasper account as soon as possible.',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'to arrange',
+                },
+                {
+                  seq: 2,
+                  content: 'arranging',
+                },
+                {
+                  seq: 3,
+                  content: 'having arranged',
+                },
+                {
+                  seq: 4,
+                  content: 'arrangement',
+                },
+              ],
+            },
+          ],
+          audio: '',
+        },
+      ],
+    },
+    {
+      part: 'Part 6',
+      title: '',
+      setQuestionList: [
+        {
+          title: 'refer to following notice',
+          side: [
+            {
+              content:
+                '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 131,
+              seq: 131,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'serve',
+                },
+                {
+                  seq: 2,
+                  content: 'served',
+                },
+                {
+                  seq: 3,
+                  content: 'server',
+                },
+                {
+                  seq: 4,
+                  content: 'service',
+                },
+              ],
+            },
+            {
+              id: 132,
+              seq: 132,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Along',
+                },
+                {
+                  seq: 2,
+                  content: 'During',
+                },
+                {
+                  seq: 3,
+                  content: 'Without',
+                },
+                {
+                  seq: 4,
+                  content: 'Between',
+                },
+              ],
+            },
+            {
+              id: 133,
+              seq: 133,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'apologize',
+                },
+                {
+                  seq: 2,
+                  content: 'organize',
+                },
+                {
+                  seq: 3,
+                  content: 'realize',
+                },
+                {
+                  seq: 4,
+                  content: 'recognize',
+                },
+              ],
+            },
+            {
+              id: 134,
+              seq: 134,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'If you would like to join our property management team, call us today.',
+                },
+                {
+                  seq: 2,
+                  content: 'Thank you for your patience while the main lobby is being painted.',
+                },
+                {
+                  seq: 3,
+                  content: 'Please do not attempt to access the north lobby on these days.',
+                },
+                {
+                  seq: 4,
+                  content: 'Questions or comments may be directed to the Management office.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: 'refer to following notice',
+          side: [
+            {
+              content:
+                '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 135,
+              seq: 135,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'serve',
+                },
+                {
+                  seq: 2,
+                  content: 'served',
+                },
+                {
+                  seq: 3,
+                  content: 'server',
+                },
+                {
+                  seq: 4,
+                  content: 'service',
+                },
+              ],
+            },
+            {
+              id: 136,
+              seq: 136,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Along',
+                },
+                {
+                  seq: 2,
+                  content: 'During',
+                },
+                {
+                  seq: 3,
+                  content: 'Without',
+                },
+                {
+                  seq: 4,
+                  content: 'Between',
+                },
+              ],
+            },
+            {
+              id: 137,
+              seq: 137,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'apologize',
+                },
+                {
+                  seq: 2,
+                  content: 'organize',
+                },
+                {
+                  seq: 3,
+                  content: 'realize',
+                },
+                {
+                  seq: 4,
+                  content: 'recognize',
+                },
+              ],
+            },
+            {
+              id: 138,
+              seq: 138,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'If you would like to join our property management team, call us today.',
+                },
+                {
+                  seq: 2,
+                  content: 'Thank you for your patience while the main lobby is being painted.',
+                },
+                {
+                  seq: 3,
+                  content: 'Please do not attempt to access the north lobby on these days.',
+                },
+                {
+                  seq: 4,
+                  content: 'Questions or comments may be directed to the Management office.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: 'refer to following notice',
+          side: [
+            {
+              content:
+                '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 139,
+              seq: 139,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'serve',
+                },
+                {
+                  seq: 2,
+                  content: 'served',
+                },
+                {
+                  seq: 3,
+                  content: 'server',
+                },
+                {
+                  seq: 4,
+                  content: 'service',
+                },
+              ],
+            },
+            {
+              id: 140,
+              seq: 140,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Along',
+                },
+                {
+                  seq: 2,
+                  content: 'During',
+                },
+                {
+                  seq: 3,
+                  content: 'Without',
+                },
+                {
+                  seq: 4,
+                  content: 'Between',
+                },
+              ],
+            },
+            {
+              id: 141,
+              seq: 141,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'apologize',
+                },
+                {
+                  seq: 2,
+                  content: 'organize',
+                },
+                {
+                  seq: 3,
+                  content: 'realize',
+                },
+                {
+                  seq: 4,
+                  content: 'recognize',
+                },
+              ],
+            },
+            {
+              id: 142,
+              seq: 142,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'If you would like to join our property management team, call us today.',
+                },
+                {
+                  seq: 2,
+                  content: 'Thank you for your patience while the main lobby is being painted.',
+                },
+                {
+                  seq: 3,
+                  content: 'Please do not attempt to access the north lobby on these days.',
+                },
+                {
+                  seq: 4,
+                  content: 'Questions or comments may be directed to the Management office.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: 'refer to following notice',
+          side: [
+            {
+              content:
+                '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 143,
+              seq: 143,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'serve',
+                },
+                {
+                  seq: 2,
+                  content: 'served',
+                },
+                {
+                  seq: 3,
+                  content: 'server',
+                },
+                {
+                  seq: 4,
+                  content: 'service',
+                },
+              ],
+            },
+            {
+              id: 144,
+              seq: 144,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Along',
+                },
+                {
+                  seq: 2,
+                  content: 'During',
+                },
+                {
+                  seq: 3,
+                  content: 'Without',
+                },
+                {
+                  seq: 4,
+                  content: 'Between',
+                },
+              ],
+            },
+            {
+              id: 145,
+              seq: 145,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'apologize',
+                },
+                {
+                  seq: 2,
+                  content: 'organize',
+                },
+                {
+                  seq: 3,
+                  content: 'realize',
+                },
+                {
+                  seq: 4,
+                  content: 'recognize',
+                },
+              ],
+            },
+            {
+              id: 146,
+              seq: 146,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'If you would like to join our property management team, call us today.',
+                },
+                {
+                  seq: 2,
+                  content: 'Thank you for your patience while the main lobby is being painted.',
+                },
+                {
+                  seq: 3,
+                  content: 'Please do not attempt to access the north lobby on these days.',
+                },
+                {
+                  seq: 4,
+                  content: 'Questions or comments may be directed to the Management office.',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      part: 'Part 7',
+      title: '',
+      setQuestionList: [
+        {
+          title: 'refer to following notice',
+          side: [
+            {
+              content:
+                '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 131,
+              seq: 131,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'serve',
+                },
+                {
+                  seq: 2,
+                  content: 'served',
+                },
+                {
+                  seq: 3,
+                  content: 'server',
+                },
+                {
+                  seq: 4,
+                  content: 'service',
+                },
+              ],
+            },
+            {
+              id: 132,
+              seq: 132,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Along',
+                },
+                {
+                  seq: 2,
+                  content: 'During',
+                },
+                {
+                  seq: 3,
+                  content: 'Without',
+                },
+                {
+                  seq: 4,
+                  content: 'Between',
+                },
+              ],
+            },
+            {
+              id: 133,
+              seq: 133,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'apologize',
+                },
+                {
+                  seq: 2,
+                  content: 'organize',
+                },
+                {
+                  seq: 3,
+                  content: 'realize',
+                },
+                {
+                  seq: 4,
+                  content: 'recognize',
+                },
+              ],
+            },
+            {
+              id: 134,
+              seq: 134,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'If you would like to join our property management team, call us today.',
+                },
+                {
+                  seq: 2,
+                  content: 'Thank you for your patience while the main lobby is being painted.',
+                },
+                {
+                  seq: 3,
+                  content: 'Please do not attempt to access the north lobby on these days.',
+                },
+                {
+                  seq: 4,
+                  content: 'Questions or comments may be directed to the Management office.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: 'refer to following notice',
+          side: [
+            {
+              content:
+                '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 135,
+              seq: 135,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'serve',
+                },
+                {
+                  seq: 2,
+                  content: 'served',
+                },
+                {
+                  seq: 3,
+                  content: 'server',
+                },
+                {
+                  seq: 4,
+                  content: 'service',
+                },
+              ],
+            },
+            {
+              id: 136,
+              seq: 136,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Along',
+                },
+                {
+                  seq: 2,
+                  content: 'During',
+                },
+                {
+                  seq: 3,
+                  content: 'Without',
+                },
+                {
+                  seq: 4,
+                  content: 'Between',
+                },
+              ],
+            },
+            {
+              id: 137,
+              seq: 137,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'apologize',
+                },
+                {
+                  seq: 2,
+                  content: 'organize',
+                },
+                {
+                  seq: 3,
+                  content: 'realize',
+                },
+                {
+                  seq: 4,
+                  content: 'recognize',
+                },
+              ],
+            },
+            {
+              id: 138,
+              seq: 138,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'If you would like to join our property management team, call us today.',
+                },
+                {
+                  seq: 2,
+                  content: 'Thank you for your patience while the main lobby is being painted.',
+                },
+                {
+                  seq: 3,
+                  content: 'Please do not attempt to access the north lobby on these days.',
+                },
+                {
+                  seq: 4,
+                  content: 'Questions or comments may be directed to the Management office.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: 'refer to following notice',
+          side: [
+            {
+              content:
+                '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 139,
+              seq: 139,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'serve',
+                },
+                {
+                  seq: 2,
+                  content: 'served',
+                },
+                {
+                  seq: 3,
+                  content: 'server',
+                },
+                {
+                  seq: 4,
+                  content: 'service',
+                },
+              ],
+            },
+            {
+              id: 140,
+              seq: 140,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Along',
+                },
+                {
+                  seq: 2,
+                  content: 'During',
+                },
+                {
+                  seq: 3,
+                  content: 'Without',
+                },
+                {
+                  seq: 4,
+                  content: 'Between',
+                },
+              ],
+            },
+            {
+              id: 141,
+              seq: 141,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'apologize',
+                },
+                {
+                  seq: 2,
+                  content: 'organize',
+                },
+                {
+                  seq: 3,
+                  content: 'realize',
+                },
+                {
+                  seq: 4,
+                  content: 'recognize',
+                },
+              ],
+            },
+            {
+              id: 142,
+              seq: 142,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'If you would like to join our property management team, call us today.',
+                },
+                {
+                  seq: 2,
+                  content: 'Thank you for your patience while the main lobby is being painted.',
+                },
+                {
+                  seq: 3,
+                  content: 'Please do not attempt to access the north lobby on these days.',
+                },
+                {
+                  seq: 4,
+                  content: 'Questions or comments may be directed to the Management office.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: 'refer to following notice',
+          side: [
+            {
+              content:
+                '<h3><strong>NOTICE</strong></h3><p>To continue providing the highest level of ----- (131) to our corporate tenants, we have scheduled the south lobby restrooms for maintenance this weekend, May 13 and May 14. ----- (132) this time, the restrooms will be out of order, so tenants and their guests should instead use the facilities in the north lobby.</p><p>We ----- (133) for any inconvenience this might cause. -----(134).</p><p>Denville Property Management Partners</p>',
+            },
+          ],
+          setQuestion: [
+            {
+              id: 143,
+              seq: 143,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'serve',
+                },
+                {
+                  seq: 2,
+                  content: 'served',
+                },
+                {
+                  seq: 3,
+                  content: 'server',
+                },
+                {
+                  seq: 4,
+                  content: 'service',
+                },
+              ],
+            },
+            {
+              id: 144,
+              seq: 144,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'Along',
+                },
+                {
+                  seq: 2,
+                  content: 'During',
+                },
+                {
+                  seq: 3,
+                  content: 'Without',
+                },
+                {
+                  seq: 4,
+                  content: 'Between',
+                },
+              ],
+            },
+            {
+              id: 145,
+              seq: 145,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'apologize',
+                },
+                {
+                  seq: 2,
+                  content: 'organize',
+                },
+                {
+                  seq: 3,
+                  content: 'realize',
+                },
+                {
+                  seq: 4,
+                  content: 'recognize',
+                },
+              ],
+            },
+            {
+              id: 146,
+              seq: 146,
+              name: '',
+              choiceList: [
+                {
+                  seq: 1,
+                  content: 'If you would like to join our property management team, call us today.',
+                },
+                {
+                  seq: 2,
+                  content: 'Thank you for your patience while the main lobby is being painted.',
+                },
+                {
+                  seq: 3,
+                  content: 'Please do not attempt to access the north lobby on these days.',
+                },
+                {
+                  seq: 4,
+                  content: 'Questions or comments may be directed to the Management office.',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};

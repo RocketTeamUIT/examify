@@ -47,7 +47,7 @@ const examSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getExamDetail.fulfilled, (state, action) => {
-      state.detail = {};
+      state.detail = action.payload;
       state.isLoading = false;
       state.error = false;
     });

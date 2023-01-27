@@ -6,7 +6,7 @@ import authReducer from './features/auth/authSlice';
 import courseReducer from './features/course/courseSlice';
 import noteReducer from './features/note/noteSlice';
 import ratingReducer from './features/rating/ratingSlice';
-import examReducer from './features/exam/examSlice';
+import tackleReducer from './features/exam/tackleSlice';
 
 const persistConfig = {
   key: 'root',
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   course: courseReducer,
   note: noteReducer,
   rating: ratingReducer,
-  exam: examReducer,
+  tackle: tackleReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
