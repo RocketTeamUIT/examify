@@ -6,35 +6,34 @@ import { Input, Button } from '../components/ui';
 import { changePasswordScheme } from '../validations/changePassword';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import useAxiosPrivate from '../hooks/useAxiosPrivate';
-import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
-import { changePassword } from '../features/auth/authSlice';
 
 const ChangePassword = () => {
-  const dispatch = useDispatch();
-  const axiosPrivate = useAxiosPrivate();
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const {
     register,
-    watch,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm({ resolver: yupResolver(changePasswordScheme) });
 
-  const value = watch();
+  const {
+    name: passwordLabel,
+    onChange: passwordOnChange,
+    onBlur: passwordOnBlur,
+    ref: passwordRef,
+  } = register('password');
+  const {
+    name: confirmPasswordLabel,
+    onChange: confirmPasswordOnChange,
+    onBlur: confirmPasswordOnBlur,
+    ref: confirmPasswordRef,
+  } = register('confirmPassword');
 
   const handleDataForm = (data) => {
-    //Call API at here
-    dispatch(
-      changePassword({
-        axiosPrivate,
-        oldPassword: value.password,
-        newPassword: value.password,
-      }),
-    );
-    toast.success('Đổi mật khẩu thành công!');
+    console.log(data);
+
+    // Call API at here
   };
 
   return (
@@ -65,8 +64,15 @@ const ChangePassword = () => {
               <Input
                 label="Mật khẩu"
                 type="password"
-                {...register('password')}
-                onChange={(e) => setValue(e.target.value)}
+                ref={passwordRef}
+                name={passwordLabel}
+                onChange={
+                  (passwordOnChange,
+                  (e) => {
+                    setPassword(e.target.value);
+                  })
+                }
+                onBlur={passwordOnBlur}
                 fancyOutlined
                 visibilityToggle
                 status={errors.password?.message ? 'error' : ''}
@@ -78,7 +84,15 @@ const ChangePassword = () => {
               <Input
                 label="Xác nhận mật khẩu"
                 type="password"
-                {...register('confirmPassword')}
+                ref={confirmPasswordRef}
+                name={confirmPasswordLabel}
+                onChange={
+                  (confirmPasswordOnChange,
+                  (e) => {
+                    setConfirmPassword(e.target.value);
+                  })
+                }
+                onBlur={confirmPasswordOnBlur}
                 fancyOutlined
                 visibilityToggle
                 status={errors.confirmPassword?.message ? 'error' : ''}

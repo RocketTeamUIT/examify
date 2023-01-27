@@ -8,9 +8,6 @@ import { Link } from 'react-router-dom';
 import { forgetPasswordScheme } from '../validations/forgetPassword';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { auth } from '../features/auth/firebase';
-import { sendPasswordResetEmail } from 'firebase/auth';
-import { toast } from 'react-toastify';
 
 function ForgetPassword() {
   // Get some APIs to manage form
@@ -20,20 +17,14 @@ function ForgetPassword() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(forgetPasswordScheme) });
 
-  const forgetPassword = (email) => {
-    return sendPasswordResetEmail(auth, email);
-  };
+  // Get props from register form
+  const { name: emailLabel, onChange: emailOnChange, onBlur: emailOnBlur, ref: emailRef } = register('email');
 
   // Handle data that get from form
   const handleDataForm = (data) => {
-    const email = data.email;
-    console.log(email);
+    console.log(data);
 
-    if (email)
-      forgetPassword(email).then(() => {
-        toast.success('Vui lòng kiểm tra email!');
-      });
-    else toast.error('Email không đúng!');
+    // Call API at here
   };
 
   return (
@@ -68,8 +59,11 @@ function ForgetPassword() {
                 <Input
                   label="Email"
                   rightIcon={<MdAlternateEmail />}
+                  ref={emailRef}
+                  name={emailLabel}
+                  onChange={emailOnChange}
+                  onBlur={emailOnBlur}
                   fancyOutlined
-                  {...register('email')}
                   status={errors.email?.message ? 'error' : ''}
                 />
                 <p className="text-ac_red text-sm mt-1">{errors.email?.message}</p>
