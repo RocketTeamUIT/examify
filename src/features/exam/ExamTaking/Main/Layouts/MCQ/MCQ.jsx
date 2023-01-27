@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { HiEllipsisHorizontal, HiFlag, HiOutlineFlag } from 'react-icons/hi2';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { toggleFlag, userSelect } from 'features/exam/examSlice';
+import { toggleFlag, userSelect } from 'features/exam/tackleSlice';
 import { useDispatch } from 'react-redux';
 
 function MCQ({ id, seq, name, choiceList = [] }) {

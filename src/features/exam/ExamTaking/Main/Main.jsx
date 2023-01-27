@@ -6,8 +6,11 @@ import AudioPlayer from './AudioPlayer';
 import { GroupButtonTabs } from '../../components';
 import { useCallback } from 'react';
 import LayoutMap from './Layouts';
+import { useSelector } from 'react-redux';
 
-function Main({ tackle }) {
+function Main({ tackle, audio }) {
+  const isFullmode = useSelector((store) => store.tackle.isFullmode);
+
   const dataMapping = useCallback((data = []) => {
     return data.map((item) => {
       return {
@@ -31,7 +34,7 @@ function Main({ tackle }) {
         </Tippy>
       </div>
       {/* Audio */}
-      <AudioPlayer />
+      {isFullmode && <AudioPlayer src={audio} className="mt-10" includeVolume={true} includeSetting={true} />}
 
       <GroupButtonTabs className="mt-10" tabList={dataMapping(tackle)} mtContentDock="40px" nextMode={true} />
     </div>
