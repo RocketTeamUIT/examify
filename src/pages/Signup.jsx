@@ -8,8 +8,6 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { auth } from '../features/auth/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 function Signup() {
   // Get some APIs to manage form
@@ -22,11 +20,12 @@ function Signup() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const registerUser = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => console.log('Register user on firebase success'))
-      .catch((err) => toast.error(err.message));
-  };
+  // Get props from register form
+  const { name: emailLabel, onChange: emailOnChange, onBlur: emailOnBlur, ref: emailRef } = register('email');
+  const { name: pwLabel, onChange: pwOnChange, onBlur: pwOnBlur, ref: pwRef } = register('password');
+  const { name: cpwLabel, onChange: cpwOnChange, onBlur: cpwOnBlur, ref: cpwRef } = register('passwordConfirmation');
+  const { name: fnLabel, onChange: fnOnChange, onBlur: fnOnBlur, ref: fnRef } = register('firstname');
+  const { name: lnLabel, onChange: lnOnChange, onBlur: lnOnBlur, ref: lnRef } = register('lastname');
 
   // Handle data that get from form
   const handleDataForm = async (data) => {
@@ -42,11 +41,8 @@ function Signup() {
       }),
     );
     if (result.type === 'auth/signUp/fulfilled') {
-      toast.success('Đăng ký tài khoản thành công, vui lòng đăng nhập!');
       // Navigate if success
       navigate('/signin');
-      // Register the user on firebase
-      registerUser(email, password);
     } else {
       // Conflict
       switch (result.payload) {
@@ -91,7 +87,10 @@ function Signup() {
             <Input
               label="Email"
               rightIcon={<MdAlternateEmail />}
-              {...register('email')}
+              ref={emailRef}
+              name={emailLabel}
+              onChange={emailOnChange}
+              onBlur={emailOnBlur}
               fancyOutlined
               status={errors.email?.message ? 'error' : ''}
             />
@@ -103,7 +102,10 @@ function Signup() {
           <div className="mt-6">
             <Input
               label="Họ và tên đệm"
-              {...register('firstname')}
+              ref={fnRef}
+              name={fnLabel}
+              onChange={fnOnChange}
+              onBlur={fnOnBlur}
               fancyOutlined
               status={errors.firstname?.message ? 'error' : ''}
             />
@@ -115,7 +117,10 @@ function Signup() {
           <div className="mt-6">
             <Input
               label="Tên"
-              {...register('lastname')}
+              ref={lnRef}
+              name={lnLabel}
+              onChange={lnOnChange}
+              onBlur={lnOnBlur}
               fancyOutlined
               status={errors.lastname?.message ? 'error' : ''}
             />
@@ -129,7 +134,10 @@ function Signup() {
               label="Mật khẩu"
               type="password"
               visibilityToggle
-              {...register('password')}
+              ref={pwRef}
+              name={pwLabel}
+              onChange={pwOnChange}
+              onBlur={pwOnBlur}
               fancyOutlined
               status={errors.password?.message ? 'error' : ''}
             />
@@ -143,7 +151,10 @@ function Signup() {
               label="Xác nhận mật khẩu"
               type="password"
               visibilityToggle
-              {...register('passwordConfirmation')}
+              ref={cpwRef}
+              name={cpwLabel}
+              onChange={cpwOnChange}
+              onBlur={cpwOnBlur}
               fancyOutlined
               status={errors.passwordConfirmation?.message ? 'error' : ''}
             />

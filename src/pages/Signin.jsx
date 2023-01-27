@@ -26,6 +26,10 @@ function Signin() {
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
 
+  // Get props from register form
+  const { name: emailLabel, onChange: emailOnChange, onBlur: emailOnBlur, ref: emailRef } = register('email');
+  const { name: pwLabel, onChange: pwOnChange, onBlur: pwOnBlur, ref: pwRef } = register('password');
+
   // Handle data that get from form
   const handleDataForm = async (data) => {
     // Get email, password
@@ -86,7 +90,10 @@ function Signin() {
             <Input
               label="Email"
               rightIcon={<MdAlternateEmail />}
-              {...register('email')}
+              ref={emailRef}
+              name={emailLabel}
+              onChange={emailOnChange}
+              onBlur={emailOnBlur}
               fancyOutlined
               status={errors.email?.message ? 'error' : ''}
             />
@@ -99,7 +106,10 @@ function Signin() {
             <Input
               label="Mật khẩu"
               type="password"
-              {...register('password')}
+              ref={pwRef}
+              name={pwLabel}
+              onChange={pwOnChange}
+              onBlur={pwOnBlur}
               fancyOutlined
               visibilityToggle
               status={errors.password?.message ? 'error' : ''}
