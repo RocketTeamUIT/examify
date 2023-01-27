@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Tag } from '../../../../../../components/ui';
 
 export const COLUMNS = [
@@ -29,6 +30,10 @@ export const COLUMNS = [
   {
     Header: '',
     accessor: 'id',
-    Cell: () => <p className="text-primary">Xem chi tiết</p>,
+    Cell: (props) => (
+      <Link to={`/exams/record-detail/${props.row.original.id}`} className="text-primary">
+        Xem chi tiết
+      </Link>
+    ),
   },
 ];

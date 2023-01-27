@@ -6,7 +6,7 @@ import authReducer from './features/auth/authSlice';
 import courseReducer from './features/course/courseSlice';
 import noteReducer from './features/note/noteSlice';
 import ratingReducer from './features/rating/ratingSlice';
-import examReducer from 'features/exam/examSlice';
+import examReducer from './features/exam/examSlice';
 
 const persistConfig = {
   key: 'root',

@@ -18,8 +18,9 @@ const routes = {
 
   // Exam
   examList: '/exams',
+  history: '/exams/record-detail',
   examDetail: '/exams/:examId',
-  recordDetail: '/exams/record-detail',
+  recordDetail: '/exams/record-detail/:recordId',
   examTaking: '/exams/tackle',
   answerDetail: '/exams/:answerId/answer/',
 
