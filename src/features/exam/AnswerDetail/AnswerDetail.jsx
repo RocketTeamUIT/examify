@@ -1,4 +1,3 @@
-import { React, useState } from 'react';
 import { Button } from '../../../components/ui';
 import Main from './Main';
 import useFetchExamTakingData from '../ExamTaking/useFetchExamTakingData';
