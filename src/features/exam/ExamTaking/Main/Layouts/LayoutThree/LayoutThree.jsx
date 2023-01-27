@@ -2,7 +2,7 @@ import useHalveData from 'features/exam/hooks/useHalveData';
 import SetQuestion from './SetQuestion';
 
 // Layout này dành riêng cho Part 3, Part 4
-function LayoutThree({ data }) {
+function LayoutThree({ data, answerMode }) {
   const [leftData, rightData] = useHalveData(data);
 
   return (
@@ -10,14 +10,14 @@ function LayoutThree({ data }) {
       {/* Left column */}
       <div className="flex-1 flex flex-col gap-y-10">
         {leftData.map(({ img, setQuestion }, index) => (
-          <SetQuestion key={index} img={img} setQuestion={setQuestion} />
+          <SetQuestion key={index} img={img} setQuestion={setQuestion} answerMode={answerMode} />
         ))}
       </div>
 
       {/* Right column */}
       <div className="flex-1 flex flex-col gap-y-10">
         {rightData.map(({ img, setQuestion }, index) => (
-          <SetQuestion key={index} img={img} setQuestion={setQuestion} />
+          <SetQuestion key={index} img={img} setQuestion={setQuestion} answerMode={answerMode} />
         ))}
       </div>
     </div>

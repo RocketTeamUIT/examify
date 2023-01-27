@@ -1,6 +1,7 @@
 import MCQ from '../MCQ';
+import Answer from '../../../../AnswerDetail/Main/Layouts/Answer';
 
-function Question({ data }) {
+function Question({ data, answerMode }) {
   const { id, seq, img, name, choiceList = [] } = data;
 
   return (
@@ -9,7 +10,11 @@ function Question({ data }) {
         <img src={img} alt="img_toeic" />
       </div>
       <div className="w-full lg:w-[55%] xl:w-[48%] bg-white">
-        <MCQ id={id} seq={seq} choiceList={choiceList} name={name} />
+        {!answerMode ? (
+          <MCQ id={id} seq={seq} choiceList={choiceList} name={name} />
+        ) : (
+          <Answer id={id} seq={seq} choiceList={choiceList} name={name} />
+        )}
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ function Main({ tackle }) {
       return {
         id: item.id,
         title: item.name,
-        element: <LayoutMap part={item.name} data={item.data} />,
+        element: <LayoutMap part={item.name} data={item.data} answerMode={true} />,
       };
     });
   }, []);
