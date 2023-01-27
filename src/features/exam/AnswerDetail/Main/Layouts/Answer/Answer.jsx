@@ -1,16 +1,12 @@
-import { Radio } from 'components/form';
+import { React, useState } from 'react';
+import { HiEllipsisHorizontal } from 'react-icons/hi2';
 import { PopperActionsList } from 'components/ui/ActionsList';
-import ReportModal from './ReportModal';
-
-import { useState } from 'react';
-import { HiEllipsisHorizontal, HiFlag, HiOutlineFlag } from 'react-icons/hi2';
 import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
-import { toggleFlag, userSelect } from 'features/exam/examSlice';
-import { useDispatch } from 'react-redux';
+import { Radio } from 'components/form';
+import ReportModal from '../../../../ExamTaking/Main/Layouts/MCQ/ReportModal';
+import Advice from './Advice';
 
-function MCQ({ id, seq, name, choiceList = [] }) {
-  const [flag, setFlag] = useState(false);
+function Answer({ id, seq, name, choiceList = [], explain = '<h1>Tu dep trai</h1>' }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const showMenu = () => setMenuVisible(true);
   const hideMenu = () => setMenuVisible(false);
@@ -18,8 +14,6 @@ function MCQ({ id, seq, name, choiceList = [] }) {
   const [modalVisible, setModalVisible] = useState(false);
   const showModal = () => setModalVisible(true);
   const hideModal = () => setModalVisible(false);
-
-  const dispatch = useDispatch();
 
   function contentMapping(type, seq, content) {
     const seqMap = {
@@ -35,21 +29,10 @@ function MCQ({ id, seq, name, choiceList = [] }) {
 
   return (
     <div className="" id={`question-${id}`}>
-      {/* Name question & flag button & option button */}
-      <div className="flex justify-between gap-5 items-start">
+      {/* Question and option button */}
+      <div className="flex justify-between items-start gap-5">
         <p className="text-h5 text-t_dark mb-4 select-none">{`${seq}. ${name ? name : ''}`}</p>
         <div className="gap-4 items-center hidden md:flex">
-          <Tippy content={flag ? 'Tắt đánh dấu' : 'Đánh dấu câu hỏi'}>
-            <span
-              className="cursor-pointer select-none"
-              onClick={() => {
-                setFlag(!flag);
-                dispatch(toggleFlag({ id, flag: !flag }));
-              }}
-            >
-              {flag ? <HiFlag size={20} color="#EF3737" /> : <HiOutlineFlag size={20} />}
-            </span>
-          </Tippy>
           <PopperActionsList
             placement="bottom-end"
             offset={[0, 4]}
@@ -76,8 +59,7 @@ function MCQ({ id, seq, name, choiceList = [] }) {
           </PopperActionsList>
         </div>
       </div>
-
-      {/* MCQ */}
+      {/* MCQ Cần format lại*/}
       <div>
         {choiceList.map((choiceItem, index) => {
           const value = contentMapping('value', choiceItem.seq);
@@ -87,19 +69,21 @@ function MCQ({ id, seq, name, choiceList = [] }) {
               key={index}
               name={id}
               value={value}
-              onChange={() => dispatch(userSelect({ id, value }))}
               label={contentMapping('', choiceItem.seq, choiceItem.content)}
               leftDockLabel={32}
               mb={choiceList.length - 1 === index ? 0 : 8}
+              isAnswer={true}
             />
           );
         })}
       </div>
 
-      {/* Modal */}
+      <Advice explain='<ul style= " list-style-type: disc; "><li>lift(v): Nâng</li><li>car(n): Xe hơi</li></ul>' />
+
+      {/* Report */}
       <ReportModal isShowing={modalVisible} hide={hideModal} />
     </div>
   );
 }
 
-export default MCQ;
+export default Answer;
