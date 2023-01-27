@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { HiEllipsisHorizontal } from 'react-icons/hi2';
 import { PopperActionsList } from 'components/ui/ActionsList';
 import Tippy from '@tippyjs/react';
-import { Radio } from 'components/form';
+import { RadioAnswer } from 'components/form';
 import ReportModal from '../../../../ExamTaking/Main/Layouts/MCQ/ReportModal';
 import Advice from './Advice';
 
@@ -65,7 +65,7 @@ function Answer({ id, seq, name, choiceList = [], explain = '<h1>Tu dep trai</h1
           const value = contentMapping('value', choiceItem.seq);
 
           return (
-            <Radio
+            <RadioAnswer
               key={index}
               name={id}
               value={value}
