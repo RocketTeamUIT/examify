@@ -2,9 +2,12 @@ import Table from './Table';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Breadcrumb, Button } from '../../../components/ui';
 import RecordDetailLayout from './RecordDetailLayout';
+import useFetchData from './useFetchData';
+import { QuestionModal } from '../components/QuestionCircle';
 
 function RecordDetailBase() {
   const location = useLocation();
+  const [headerData] = useFetchData();
 
   return (
     <RecordDetailLayout>
@@ -13,7 +16,7 @@ function RecordDetailBase() {
         <Breadcrumb hierarchy={['Lịch sử thi', 'Toeic', 'ETS 2022']} />
 
         <div className="mt-5 flex justify-between">
-          <h3 className="text-h3 font-bold">ETS 2022 - Test 2</h3>
+          <h3 className="text-h3 font-bold">{headerData.examName}</h3>
           {location.pathname === '/exams/record-detail/fullmode' ? (
             <Link to={'/exams/record-detail'}>
               <Button type="outline" height={32} unbold>
@@ -36,10 +39,13 @@ function RecordDetailBase() {
         </div>
 
         <div className="mt-6">
-          <Table />
+          <Table data={headerData} />
           <div className="mt-7 mb-7 h-[1px] bg-bg_light_gray_3"></div>
         </div>
       </div>
+
+      {/* if use at here, performance is optimized */}
+      <QuestionModal />
 
       <Outlet />
     </RecordDetailLayout>
