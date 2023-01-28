@@ -12,6 +12,7 @@ const Modal = ({
   header,
   maxWidth,
   className,
+  zIndex,
   type,
   borderRadius,
 }) => {
@@ -23,6 +24,7 @@ const Modal = ({
         // Modal Type
         type === 'normal' && 'p-7',
         type === 'right' && 'duration-500',
+        zIndex,
       )}
       onClick={hide}
       data-testid="test-wrapper"
