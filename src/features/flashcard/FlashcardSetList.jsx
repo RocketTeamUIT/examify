@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import AddFlashcardSetModel from './AddFlashcardSetModel';
 
 const FlashcardSetList = (props) => {
-  const { flashcardSets, hideCreate, addSet } = props;
+  const { flashcardSets, hideCreate, addSet, hideType } = props;
   const [isShowing, setShowing] = useState(false);
 
   function toggle() {
@@ -25,7 +25,7 @@ const FlashcardSetList = (props) => {
       )}
 
       {flashcardSets.map((set) => (
-        <FlashcardSet set={set} hideType key={set.fc_set_id} />
+        <FlashcardSet set={set} hideType={hideType} key={set.fc_set_id} />
       ))}
 
       {!hideCreate && <AddFlashcardSetModel addSet={addSet} hide={toggle} isShowing={isShowing} />}
@@ -37,11 +37,13 @@ FlashcardSetList.propTypes = {
   flashcardSets: PropTypes.arrayOf(PropTypes.object).isRequired,
   hideCreate: PropTypes.bool,
   addSet: PropTypes.func,
+  hideType: PropTypes.bool,
 };
 
 FlashcardSetList.defaultProps = {
   hideCreate: false,
   addSet: () => {},
+  hideType: true,
 };
 
 export default FlashcardSetList;

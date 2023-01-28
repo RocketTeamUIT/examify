@@ -13,7 +13,7 @@ function RecordDetailBase() {
     <RecordDetailLayout>
       {/* Information */}
       <div className="mt-8">
-        <Breadcrumb hierarchy={['Lịch sử thi', 'Toeic', 'ETS 2022']} />
+        <Breadcrumb hierarchy={[<Link to="/exams/record-detail">Lịch sử thi</Link>, 'Toeic', 'ETS 2022']} />
 
         <div className="mt-5 flex justify-between">
           <h3 className="text-h3 font-bold">{headerData.examName}</h3>

@@ -1,5 +1,6 @@
+import classNames from 'classnames';
 import { Tag } from 'components/ui';
-import React, { useState } from 'react';
+import React from 'react';
 import { AiOutlineSound } from 'react-icons/ai';
 
 const FlashcardSinglePractice = ({ newWord, flashcard, flip, setFlip }) => {
@@ -13,7 +14,7 @@ const FlashcardSinglePractice = ({ newWord, flashcard, flip, setFlip }) => {
 
   return (
     <div
-      className="bg-white rounded-lg shadow-sd_large relative cursor-pointer min-h-[340px] flex items-center justify-center transition-transform duration-700"
+      className="bg-white rounded-lg shadow-sd_large relative cursor-pointer min-h-[300px] flex items-center justify-center transition-transform duration-700"
       onClick={handleClick}
       style={{
         transformStyle: 'preserve-3d',
@@ -22,13 +23,13 @@ const FlashcardSinglePractice = ({ newWord, flashcard, flip, setFlip }) => {
     >
       {/* Front side */}
       <div
-        className="flex flex-col justify-center items-center absolute p-5 cursor-default"
+        className="flex flex-col justify-center items-center absolute p-5 cursor-default j-"
         style={{
           backfaceVisibility: 'hidden',
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <p className="font-bold text-h2">{flashcard.word}</p>
+        <p className="font-bold text-h2 uppercase">{flashcard.word}</p>
         <div className="mt-5 flex items-center gap-3">
           <span className="font-medium text-md">{flashcard.pronouncec}</span>
           <button className="p-1 rounded-full bg-ac_orange bg-opacity-20" onClick={play}>
@@ -39,41 +40,38 @@ const FlashcardSinglePractice = ({ newWord, flashcard, flip, setFlip }) => {
 
       {/* Back side */}
       <div
-        className="grid grid-cols-12 absolute p-5 gap-4"
+        className="h-full w-full items-start absolute p-5"
         style={{
           backfaceVisibility: 'hidden',
           transform: 'rotateY(180deg)',
         }}
       >
-        <h5 className="col-span-12 text-h5 font-bold">Nghĩa</h5>
-        <div className="col-span-8">
-          <p className="text-lg">{flashcard.meaning}</p>
+        <div className="grid grid-cols-12 gap-4">
+          <h5 className="col-span-12 text-h5 font-bold">Nghĩa</h5>
+          <div className={classNames(flashcard.image ? 'col-span-8' : 'col-span-full')}>
+            <p className="text-lg">{flashcard.meaning}</p>
 
-          {flashcard.example && (
-            <div className="mt-[14px]">
-              <b className="italic font-semibold text-md mb-1">Ví dụ</b>
-              <p className="text-md">{flashcard.example}</p>
-            </div>
-          )}
+            {flashcard.example && (
+              <div className="mt-[14px]">
+                <b className="italic font-semibold text-md mb-1">Ví dụ</b>
+                <p className="text-md">{flashcard.example}</p>
+              </div>
+            )}
 
-          {flashcard.note && (
-            <div className="mt-2">
-              <b className="italic font-semibold text-md mb-1">Ghi chú</b>
-              <p className="text-md">{flashcard.note}</p>
-            </div>
+            {flashcard.note && (
+              <div className="mt-2">
+                <b className="italic font-semibold text-md mb-1">Ghi chú</b>
+                <p className="text-md">{flashcard.note}</p>
+              </div>
+            )}
+          </div>
+
+          {flashcard.image && (
+            <aside className="col-span-4 rounded-lg border border-br_gray overflow-hidden aspect-[5/4]">
+              <img src={flashcard.image} alt="Bocchi the rock" className="w-full h-full object-cover" />
+            </aside>
           )}
         </div>
-
-        <aside className="col-span-4 rounded-lg border border-br_gray overflow-hidden aspect-[5/4]">
-          <img
-            src={
-              flashcard.image ||
-              'https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/317990454_184277380933600_6789484805866779489_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=LuggDQ39-0UAX8GpktZ&tn=mTkZba3gIcviaDSJ&_nc_ht=scontent.fdad1-2.fna&oh=00_AfCEodVcRjhl1l8IVli9tYgztm0_w4N38OYHp2bdrd8bXw&oe=63C991DB'
-            }
-            alt="Bocchi the rock"
-            className="w-full h-full object-cover"
-          />
-        </aside>
       </div>
 
       {newWord && (

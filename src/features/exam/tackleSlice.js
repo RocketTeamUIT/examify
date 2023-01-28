@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const tackleSlice = createSlice({
-  name: 'exam',
+  name: 'tackle',
   initialState,
   reducers: {
     storeExamTaking: (state, action) => {

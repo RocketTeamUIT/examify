@@ -6,6 +6,7 @@ import authReducer from './features/auth/authSlice';
 import courseReducer from './features/course/courseSlice';
 import noteReducer from './features/note/noteSlice';
 import ratingReducer from './features/rating/ratingSlice';
+import examReducer from './features/exam/examSlice';
 import tackleReducer from 'features/exam/tackleSlice';
 import recordSlice from 'features/exam/recordSlice';
 
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   course: courseReducer,
   note: noteReducer,
   rating: ratingReducer,
+  exam: examReducer,
   tackle: tackleReducer,
   record: recordSlice,
 });

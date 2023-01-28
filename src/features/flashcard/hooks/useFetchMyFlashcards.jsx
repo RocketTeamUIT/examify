@@ -4,12 +4,15 @@ import { useSelector } from 'react-redux';
 import { getMyFlashcardService } from '../services/flashcard';
 
 const useFetchMyFlashcards = () => {
-  const [flashcardSets, setFlashcardSets] = useState([]);
+  const [flashcardSets, setFlashcardSets] = useState({});
   const axios = useAxiosWithToken();
   const { accessToken } = useSelector((store) => store.auth);
 
   function addSet(set) {
-    setFlashcardSets([...flashcardSets, set]);
+    setFlashcardSets({
+      ...flashcardSets,
+      sets: [...flashcardSets.sets, set],
+    });
   }
 
   useEffect(() => {
