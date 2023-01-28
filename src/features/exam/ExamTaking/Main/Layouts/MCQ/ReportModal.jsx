@@ -33,7 +33,7 @@ function ReportModal({ isShowing, hide }) {
   };
 
   return (
-    <Modal header="Báo cáo câu hỏi" isShowing={isShowing} hide={hide}>
+    <Modal header="Báo cáo câu hỏi" isShowing={isShowing} hide={hide} zIndex="z-50">
       <form onSubmit={handleSubmit(handleDataForm)}>
         <TextArea {...register('textReport')} label="Mô tả sai xót / góp ý" fancyOutlined />
         <p className="text-ac_red text-sm mt-1">{errors.textReport?.message}</p>
