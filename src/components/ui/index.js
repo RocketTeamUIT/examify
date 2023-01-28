@@ -16,3 +16,4 @@ export { default as Navs } from './Navs';
 export { default as MuiTabs } from './MuiTabs';
 export { default as PureDropdown } from './PureDropdown';
 export { default as Select } from './Select';
+export { default as Collapse } from './Collapse';
