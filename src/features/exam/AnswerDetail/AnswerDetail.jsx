@@ -1,6 +1,7 @@
 import { Button } from '../../../components/ui';
 import Main from './Main';
-import useFetchExamTakingData from '../ExamTaking/useFetchExamTakingData';
+import useFetchAnswerDetailData from './useFetchAnswerDetailData';
+// import useFetchExamTakingData from '../ExamTaking/useFetchExamTakingData';
 import ControlBar from '../ExamTaking/ControlBar';
 
 const mockConfig = {
@@ -11,7 +12,7 @@ const mockConfig = {
 };
 
 function AnswerDetail({ config = mockConfig }) {
-  const [{ data }, partList] = useFetchExamTakingData(config);
+  const [{ data }, partList] = useFetchAnswerDetailData(config);
 
   return (
     <div>
@@ -29,8 +30,8 @@ function AnswerDetail({ config = mockConfig }) {
       {/* Layout */}
       <div className="mt-5 px-2 xl:px-5 flex w-full gap-3 xl:gap-5 items-start">
         {/* Thi */}
+        {/* data co nhieu part */}
         <Main tackle={data} />
-
         {/* Sidebar */}
         <ControlBar partList={partList} />
       </div>

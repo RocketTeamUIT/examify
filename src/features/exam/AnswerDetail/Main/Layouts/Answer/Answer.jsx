@@ -6,7 +6,10 @@ import { RadioAnswer } from 'components/form';
 import ReportModal from '../../../../ExamTaking/Main/Layouts/MCQ/ReportModal';
 import Advice from './Advice';
 
-function Answer({ id, seq, name, choiceList = [], explain = '<h1>Tu dep trai</h1>' }) {
+function Answer({ id, seq, name, choiceList = [], explain, choicedId }) {
+  // console.log('id: ', id);
+  // console.log('choiceId: ', choicedId);
+
   const [menuVisible, setMenuVisible] = useState(false);
   const showMenu = () => setMenuVisible(true);
   const hideMenu = () => setMenuVisible(false);
@@ -31,7 +34,7 @@ function Answer({ id, seq, name, choiceList = [], explain = '<h1>Tu dep trai</h1
     <div className="" id={`question-${id}`}>
       {/* Question and option button */}
       <div className="flex justify-between items-start gap-5">
-        <p className="text-h5 text-t_dark mb-4 select-none">{`${seq}. ${name ? name : ''}`}</p>
+        <p className="text-h5 text-t_dark mb-4 select-none">{`${seq ? seq : id}. ${name ? name : ''}`}</p>
         <div className="gap-4 items-center hidden md:flex">
           <PopperActionsList
             placement="bottom-end"
@@ -67,18 +70,20 @@ function Answer({ id, seq, name, choiceList = [], explain = '<h1>Tu dep trai</h1
           return (
             <RadioAnswer
               key={index}
+              id={choiceItem.id}
               name={id}
               value={value}
               label={contentMapping('', choiceItem.seq, choiceItem.content)}
               leftDockLabel={32}
               mb={choiceList.length - 1 === index ? 0 : 8}
-              isAnswer={true}
+              isAnswer={choiceItem.key}
+              choicedId={choicedId}
             />
           );
         })}
       </div>
 
-      <Advice explain='<ul style= " list-style-type: disc; "><li>lift(v): Nâng</li><li>car(n): Xe hơi</li></ul>' />
+      <Advice explain={explain ? explain : 'Câu hỏi này không có ghi chú'} />
 
       {/* Report */}
       <ReportModal isShowing={modalVisible} hide={hideModal} />

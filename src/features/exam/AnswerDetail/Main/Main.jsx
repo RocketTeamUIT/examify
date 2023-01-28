@@ -5,6 +5,7 @@ import LayoutMap from './Layouts';
 function Main({ tackle }) {
   const dataMapping = useCallback((data = []) => {
     return data.map((item) => {
+      //moi item la 1 part
       return {
         id: item.id,
         title: item.name,

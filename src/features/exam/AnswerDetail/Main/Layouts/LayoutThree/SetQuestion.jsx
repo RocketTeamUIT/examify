@@ -13,8 +13,16 @@ function SetQuestion({ img, setQuestion }) {
         </div>
       )}
       <div className="mt-4 flex flex-col gap-y-5 xl:gap-y-14">
-        {setQuestion.map(({ id, seq, name, choiceList }, index) => (
-          <Answer id={id} key={index} seq={seq} choiceList={choiceList} name={name} />
+        {setQuestion.map(({ id, seq, name, choiceList, explain, userChoiceId }, index) => (
+          <Answer
+            id={id}
+            key={index}
+            seq={seq}
+            choiceList={choiceList}
+            name={name}
+            explain={explain}
+            choicedId={userChoiceId}
+          />
         ))}
       </div>
       <Divider />

@@ -14,7 +14,7 @@ function Advice({ explain }) {
         {!showAdvice && <IoIosArrowForward fill="#2860E1" />}
         {showAdvice && <IoIosArrowDown fill="#2860E1" />}
       </div>
-      {showAdvice && <div className="ml-8" dangerouslySetInnerHTML={{ __html: explain }} />}
+      {showAdvice && <div className="ml-8 mt-2" dangerouslySetInnerHTML={{ __html: explain }} />}
     </div>
   );
 }
