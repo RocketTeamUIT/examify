@@ -10,6 +10,13 @@ function useFetchAnswerDetailData(config) {
     data: [],
   }));
 
+  const questionStatus = (choiceList = [], userChoiceId) => {
+    const answer = choiceList.filter((choice) => choice.key === true);
+    if (userChoiceId === '') return 'unfill';
+    else if (userChoiceId === answer[0].id) return 'correct';
+    else return 'wrong';
+  };
+
   const newData = dataRecord.data.map((dataItem, index) => {
     dataItem.setQuestionList.map((setQuestionListItem) =>
       setQuestionListItem.setQuestion.forEach((question) => {
@@ -23,8 +30,12 @@ function useFetchAnswerDetailData(config) {
           flag: false,
           value: '',
         };
-        // console.log('qestion =>', question);
-        partList[index].data.push(question.id);
+        // console.log('question ', question.id, '=>', questionStatus(question.choiceList, question.userChoiceId));
+        partList[index].data.push({
+          id: question.id,
+          status: questionStatus(question.choiceList, question.userChoiceId),
+        });
+        // partList[index].data.push(question.id);
       }),
     );
 

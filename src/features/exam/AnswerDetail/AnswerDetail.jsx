@@ -2,7 +2,7 @@ import { Button } from '../../../components/ui';
 import Main from './Main';
 import useFetchAnswerDetailData from './useFetchAnswerDetailData';
 // import useFetchExamTakingData from '../ExamTaking/useFetchExamTakingData';
-import ControlBar from '../ExamTaking/ControlBar';
+import ControlBar from './ControlBar';
 
 const mockConfig = {
   id: 1, // examId
@@ -13,6 +13,8 @@ const mockConfig = {
 
 function AnswerDetail({ config = mockConfig }) {
   const [{ data }, partList] = useFetchAnswerDetailData(config);
+  // console.log('data', data);
+  // console.log('partList', partList);
 
   return (
     <div>
