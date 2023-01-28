@@ -1,4 +1,4 @@
-import QuestionCircle from '../../../components/QuestionCircle';
+import { QuestionCircle } from '../../../components/QuestionCircle';
 
 export const COLUMNS = [
   { Header: 'Phân loại câu hỏi', accessor: 'name' },
