@@ -44,6 +44,7 @@ const Button = (
     onClick,
     disabled,
     unbold,
+    unpdx = false,
     width,
     height,
     dark,
@@ -79,6 +80,11 @@ const Button = (
         // Custom for dropdpown
         {
           'justify-between': justifyBetweenContent,
+        },
+
+        // Unpadding x
+        {
+          '!px-0': unpdx,
         },
 
         // Type

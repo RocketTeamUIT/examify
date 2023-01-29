@@ -1,17 +1,9 @@
-import MOCK_DATA from './MOCK_DATA';
 import { Tag } from '../../../../components/ui';
 
 const KEY_MAPPING = {
-  partList: 'Phần thi',
-  result: 'Kết quả',
-  duration: 'Thời gian hoàn thành',
-  dateTake: 'Ngày thực hiện',
-};
-
-function Table() {
-  // Defind specific method render
-  const renderList = [
-    (cellData) => (
+  partList: {
+    name: 'Phần thi',
+    render: (cellData) => (
       <div className="flex flex-wrap gap-2">
         {cellData.map((partItem, index) => (
           <Tag color="#ff9513" key={index}>
@@ -20,21 +12,24 @@ function Table() {
         ))}
       </div>
     ),
-    (cellData) => `${cellData.correct}/${cellData.total}`,
-    (cellData) => cellData,
-    (cellData) => cellData,
-  ];
+  },
+  result: { name: 'Kết quả', render: (cellData) => `${cellData.correct}/${cellData.total}` },
+  duration: { name: 'Thời gian hoàn thành', render: (cellData) => cellData },
+  date: { name: 'Ngày thực hiện', render: (cellData) => cellData },
+};
+
+function Table({ data }) {
+  // Delete some props: status, examSeries, examName
+  const { status, examSeriesName, examName, ...newData } = data;
 
   // Convert object to array
-  const dataMapping = Object.keys(MOCK_DATA).map((key) => {
+  const dataMapping = Object.keys(newData).map((key) => {
     return {
-      name: KEY_MAPPING[key],
-      data: MOCK_DATA[key],
+      name: KEY_MAPPING[key].name,
+      data: newData[key],
+      render: KEY_MAPPING[key].render,
     };
   });
-
-  // Add render function to each object
-  dataMapping.forEach((item, index) => (item.render = renderList[index]));
 
   return (
     <table className="border-separate border-spacing-0 ">

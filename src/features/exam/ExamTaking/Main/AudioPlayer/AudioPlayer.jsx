@@ -1,11 +1,11 @@
-import audiomp3 from 'assets/audio/audio.mp3';
 import useAudioPlayer from '../../../hooks/useAudioPlayer';
 import { useRef } from 'react';
 import Audio from './Audio';
 import Volumn from './Volumn';
 import Setting from './Setting';
+import classNames from 'classnames';
 
-function AudioPlayer() {
+function AudioPlayer({ src, includeVolume = false, includeSetting = false, className }) {
   const audioRef = useRef();
 
   const {
@@ -22,9 +22,9 @@ function AudioPlayer() {
   } = useAudioPlayer(audioRef);
 
   return (
-    <div className="mt-10">
-      <audio src={audiomp3} ref={audioRef}></audio>
-      <div className="flex items-center">
+    <div className={className}>
+      <audio src={src} ref={audioRef}></audio>
+      <div className="flex items-center gap-x-2">
         <Audio
           playing={playing}
           setPlaying={setPlaying}
@@ -32,10 +32,23 @@ function AudioPlayer() {
           duration={duration}
           setClickedTime={setClickedTime}
         />
-        <div className="ml-1 hidden lg:flex lg:basis-1/5 w-full ">
-          <Volumn muting={muting} curVolume={curVolume} setMuting={setMuting} setClickedVolume={setClickedVolume} />
-          <Setting onChangeSpeed={setClickedSpeed} />
-        </div>
+
+        {includeVolume && (
+          <Volumn
+            className="hidden lg:flex"
+            muting={muting}
+            curVolume={curVolume}
+            setMuting={setMuting}
+            setClickedVolume={setClickedVolume}
+          />
+        )}
+        {includeSetting && (
+          <Setting
+            className={classNames('hidden lg:flex', { '!flex': includeSetting })}
+            onChangeSpeed={setClickedSpeed}
+            src={src}
+          />
+        )}
       </div>
     </div>
   );
