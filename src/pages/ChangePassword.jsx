@@ -1,39 +1,44 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import authImg from '../assets/auth-page-img.png';
 import logo from '../assets/circle_logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Input, Button } from '../components/ui';
 import { changePasswordScheme } from '../validations/changePassword';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import useAxiosPrivate from '../hooks/useAxiosPrivate';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { changePassword } from '../features/auth/authSlice';
 
 const ChangePassword = () => {
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const dispatch = useDispatch();
+  const axiosPrivate = useAxiosPrivate();
+  const navigate = useNavigate();
 
   const {
     register,
+    watch,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({ resolver: yupResolver(changePasswordScheme) });
 
-  const {
-    name: passwordLabel,
-    onChange: passwordOnChange,
-    onBlur: passwordOnBlur,
-    ref: passwordRef,
-  } = register('password');
-  const {
-    name: confirmPasswordLabel,
-    onChange: confirmPasswordOnChange,
-    onBlur: confirmPasswordOnBlur,
-    ref: confirmPasswordRef,
-  } = register('confirmPassword');
+  const value = watch();
 
-  const handleDataForm = (data) => {
-    console.log(data);
-
-    // Call API at here
+  const handleDataForm = () => {
+    console.log('data=> ', value.password);
+    //Call API at here
+    dispatch(
+      changePassword({
+        axiosPrivate,
+        oldPassword: value.password,
+        newPassword: value.password,
+      }),
+    );
+    toast.success('Đổi mật khẩu thành công!');
+    // Navigate if success
+    navigate('/signin');
   };
 
   return (
@@ -59,20 +64,13 @@ const ChangePassword = () => {
           </div>
 
           {/* body */}
-          <form className="mt-3" onSubmit={handleSubmit(handleDataForm)}>
+          <form className="mt-3" onSubmit={() => handleDataForm()}>
             <div className="mt-2">
               <Input
                 label="Mật khẩu"
                 type="password"
-                ref={passwordRef}
-                name={passwordLabel}
-                onChange={
-                  (passwordOnChange,
-                  (e) => {
-                    setPassword(e.target.value);
-                  })
-                }
-                onBlur={passwordOnBlur}
+                {...register('password')}
+                onChange={(e) => setValue(e.target.value)}
                 fancyOutlined
                 visibilityToggle
                 status={errors.password?.message ? 'error' : ''}
@@ -84,15 +82,7 @@ const ChangePassword = () => {
               <Input
                 label="Xác nhận mật khẩu"
                 type="password"
-                ref={confirmPasswordRef}
-                name={confirmPasswordLabel}
-                onChange={
-                  (confirmPasswordOnChange,
-                  (e) => {
-                    setConfirmPassword(e.target.value);
-                  })
-                }
-                onBlur={confirmPasswordOnBlur}
+                {...register('confirmPassword')}
                 fancyOutlined
                 visibilityToggle
                 status={errors.confirmPassword?.message ? 'error' : ''}

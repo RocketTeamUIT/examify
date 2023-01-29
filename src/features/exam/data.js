@@ -9480,7 +9480,7 @@ export const dataRecord = {
             {
               id: 1,
               name: '',
-              explain: '',
+              explain: '<ul style= " list-style-type: disc; "><li>lift(v): Nâng</li><li>car(n): Xe hơi</li></ul>',
               order: 1,
               userAnswer: 1,
               userChoiceId: 2,
@@ -9776,7 +9776,7 @@ export const dataRecord = {
           setQuestion: [
             {
               id: 7,
-              name: '',
+              name: 'Question 7',
               explain: '',
               order: 7,
               userAnswer: 0,
@@ -10711,7 +10711,7 @@ export const dataRecord = {
               explain: '',
               order: 32,
               userAnswer: 0,
-              userChoiceId: 100,
+              userChoiceId: '',
               choiceList: [
                 {
                   id: 100,
