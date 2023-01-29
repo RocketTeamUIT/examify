@@ -134,12 +134,6 @@ export const durationList = {
         console.log('10 phút');
       },
     },
-    {
-      title: 'Không giới hạn',
-      action: () => {
-        console.log('0');
-      },
-    },
   ],
 };
 

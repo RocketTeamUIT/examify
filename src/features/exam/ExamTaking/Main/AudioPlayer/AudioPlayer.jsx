@@ -46,6 +46,7 @@ function AudioPlayer({ src, includeVolume = false, includeSetting = false, class
           <Setting
             className={classNames('hidden lg:flex', { '!flex': includeSetting })}
             onChangeSpeed={setClickedSpeed}
+            src={src}
           />
         )}
       </div>

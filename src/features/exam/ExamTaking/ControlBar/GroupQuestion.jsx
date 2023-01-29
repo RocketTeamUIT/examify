@@ -1,12 +1,12 @@
 import Question from './Question';
 
-function GroupQuestion({ name, questionList }) {
+function GroupQuestion({ title, groupId, partId }) {
   return (
     <div>
-      <p className="text-h5 font-medium">{name}</p>
+      <p className="text-h5 font-medium">{title}</p>
       <div className="mt-2 flex flex-row flex-wrap gap-2">
-        {questionList.map((question, index) => (
-          <Question key={index} seq={question.seq} type={question.type} flag={question.flag} />
+        {groupId.map((id, index) => (
+          <Question key={index} id={id} partId={partId} />
         ))}
       </div>
     </div>

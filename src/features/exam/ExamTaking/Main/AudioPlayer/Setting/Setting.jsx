@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { useRef, useState } from 'react';
 import { PopperActionsList } from 'components/ui/ActionsList';
 
-function Setting({ className, onChangeSpeed = () => {} }) {
+function Setting({ className, onChangeSpeed = () => {}, src }) {
   const { isHovering, handleHover } = useHoverCondition();
   const [visible, setVisible] = useState(false);
   const downloadRef = useRef();
@@ -71,7 +71,7 @@ function Setting({ className, onChangeSpeed = () => {} }) {
               <>
                 <a
                   ref={downloadRef}
-                  href="https://file-examples.com/storage/fe2879c03363c669a9ef954/2017/11/file_example_MP3_700KB.mp3"
+                  href={src}
                   download
                   rel="noopener noreferrer"
                   target="_blank"
