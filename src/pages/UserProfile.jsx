@@ -8,12 +8,14 @@ import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import { changeAvatar, changeBanner } from '../features/auth/authSlice';
 import { toast } from 'react-toastify';
 import { uploadImageService } from '../lib/image';
+import classnames from 'classnames';
 
 function UserProfile() {
   const { user } = useSelector((store) => store.auth);
   const [avt, setAvt] = useState(user.avt);
   const [banner, setBanner] = useState(user.banner);
   const [imageType, setImageType] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const inputFile = useRef(null);
   const dispatch = useDispatch();
   const axiosPrivate = useAxiosPrivate();
@@ -27,27 +29,35 @@ function UserProfile() {
 
   const handleImageChange = async (e) => {
     const image = e.target.files[0];
-    const response = await uploadImageService(image, 'examify');
-    const url = response.data.url;
-    if (imageType === 'avatar') {
-      setAvt(URL.createObjectURL(image));
-      dispatch(
-        changeAvatar({
-          axiosPrivate,
-          newImageUrl: url,
-        }),
-      );
-      toast.success('Đổi ảnh đại diện thành công!');
-    } else {
-      setBanner(URL.createObjectURL(image));
-      dispatch(
-        changeBanner({
-          axiosPrivate,
-          newImageUrl: url,
-        }),
-      );
-      toast.success('Đổi ảnh bìa thành công!');
+
+    try {
+      setIsLoading(true);
+      const response = await uploadImageService(image, 'examify');
+      const url = response.data.url;
+      if (imageType === 'avatar') {
+        setAvt(URL.createObjectURL(image));
+        dispatch(
+          changeAvatar({
+            axiosPrivate,
+            newImageUrl: url,
+          }),
+        );
+        toast.success('Đổi ảnh đại diện thành công!');
+      } else {
+        setBanner(URL.createObjectURL(image));
+        dispatch(
+          changeBanner({
+            axiosPrivate,
+            newImageUrl: url,
+          }),
+        );
+        toast.success('Đổi ảnh bìa thành công!');
+      }
+    } catch (err) {
+      console.log('🚀 ~ file: UserProfile.jsx:54 ~ handleImageChange ~ err', err);
+      toast.error('Tải ảnh thất bại');
     }
+    setIsLoading(false);
   };
 
   const handleAvtClick = (e) => {
@@ -72,6 +82,7 @@ function UserProfile() {
           type="default"
           leftIcon={<AiFillCamera />}
           onClick={handleBannerClick}
+          disable={isLoading}
         >
           Đổi banner
         </Button>
@@ -84,14 +95,16 @@ function UserProfile() {
           {/* header */}
           <div className="flex flex-col items-center mb-9">
             <div
-              className="w-20 h-20 relative overflow-hidden border border-br_gray rounded-full"
+              className={classnames(
+                'w-20 h-20 relative overflow-hidden border border-br_gray rounded-full cursor-pointer',
+                { 'cursor-none opacity-40': isLoading },
+              )}
               onClick={handleAvtClick}
             >
               <Button
                 className="absolute bottom-0 w-full h-[30%] bg-black flex items-center justify-center"
                 dark
                 type="default"
-                onClick={handleAvtClick}
               >
                 <AiFillCamera fill="#ffff" />
               </Button>

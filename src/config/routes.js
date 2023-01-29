@@ -15,6 +15,10 @@ const routes = {
 
   // User
   me: '/me',
+  myCourses: '/me',
+  myExams: '/me/exams',
+  myFlashcards: '/me/flashcards',
+  myContests: '/me/contests',
 
   // Exam
   examList: '/exams',

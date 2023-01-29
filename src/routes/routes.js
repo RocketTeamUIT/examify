@@ -22,7 +22,7 @@ import CourseDetailLesson from '../features/course/CourseDetailLesson';
 import NoRecommendLayout from '../layouts/NoRecommendLayout';
 import { CourseListMe, CourseListSystem } from '../features/course/CourseList';
 import User from '../features/user/User';
-import { UserCourses } from '../features/user';
+import { UserCourses, UserExams, UserFlashcards, UserContests } from '../features/user';
 import ExamDetail from '../features/exam/ExamDetail/ExamDetailIndex';
 import ExamDetailBase from '../features/exam/ExamDetail/ExamDetailBase';
 import ExamDetailAnswer from '../features/exam/ExamDetail/ExamDetailAnswer/ExamDetailAnswer';
@@ -57,7 +57,15 @@ const publicRouters = [
       },
       {
         path: 'exams',
-        component: UserCourses,
+        component: UserExams,
+      },
+      {
+        path: 'flashcards',
+        component: UserFlashcards,
+      },
+      {
+        path: 'contests',
+        component: UserContests,
       },
     ],
   },
