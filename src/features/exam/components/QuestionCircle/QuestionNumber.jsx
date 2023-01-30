@@ -8,8 +8,8 @@ function QuestionNumber({ children: numberOrder, type = 'solid', onClick = () =>
         ref={ref}
         onClick={onClick}
         className={classNames('w-8 h-8 bg-white ring-1 flex justify-center items-center rounded-full', {
-          'ring-ac_green': type === 'success',
-          'hover:bg-[#34c63533]': type === 'success',
+          'ring-ac_green': type === 'correct',
+          'hover:bg-[#34c63533]': type === 'correct',
           'ring-ac_red': type === 'wrong',
           'hover:bg-[#EF373733]': type === 'wrong',
           'ring-ac_blue/20': type === 'solid',
@@ -18,7 +18,7 @@ function QuestionNumber({ children: numberOrder, type = 'solid', onClick = () =>
       >
         <span
           className={classNames('font-normal text-sm', {
-            'text-ac_green': type === 'success',
+            'text-ac_green': type === 'correct',
             'text-ac_red': type === 'wrong',
             'text-primary': type === 'solid',
             '!font-bold': type === 'solid',

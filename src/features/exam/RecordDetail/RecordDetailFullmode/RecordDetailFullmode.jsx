@@ -1,28 +1,30 @@
 import AnswerListing from './AnswerListing/AnswerListing';
-import { dataListing } from '../../data';
-import { groupButtons } from '../../data';
 import GroupButtonTabs from '../../components/GroupButtonTabs/GroupButtonTabs';
-
-const newData = groupButtons.map((item) => {
-  return { ...item };
-});
-
-const newObject = {
-  title: 'Tất cả',
-};
-
-// Add newObject to data
-newData.push(newObject);
-
-// Add element property to data
-newData.forEach((item) => {
-  item.element = <AnswerListing data={dataListing} />;
-});
+import { useOutletContext } from 'react-router-dom';
+import { useCallback } from 'react';
 
 function RecordDetailFullmode() {
+  const [partIdList] = useOutletContext();
+
+  const formatData = useCallback(() => {
+    const tempData = partIdList.map((item) => ({
+      ...item,
+      title: item.name,
+      element: <AnswerListing data={item.questionIdList} />,
+    }));
+
+    const totalData = tempData.reduce((acc, curValue) => [...acc, ...curValue.questionIdList], []);
+    tempData.push({
+      title: 'Tất cả',
+      element: <AnswerListing data={totalData} />,
+    });
+
+    return tempData;
+  }, [partIdList]);
+
   return (
     <div>
-      <GroupButtonTabs tabList={newData} mtContentDock="20px" />
+      <GroupButtonTabs tabList={formatData()} mtContentDock="20px" />
     </div>
   );
 }

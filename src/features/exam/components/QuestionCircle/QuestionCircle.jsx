@@ -1,9 +1,9 @@
 import QuestionNumber from './QuestionNumber';
 import { forwardRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleModalVisible } from 'features/exam/recordSlice';
+import { toggleModalVisible, setCurId } from 'features/exam/recordSlice';
 
-function QuestionCircle({ children: numberOrder, type = 'solid' }, ref) {
+function QuestionCircle({ id, children: numberOrder, type = 'solid' }, ref) {
   const dispatch = useDispatch();
 
   return (
@@ -12,6 +12,7 @@ function QuestionCircle({ children: numberOrder, type = 'solid' }, ref) {
         type={type}
         onClick={() => {
           dispatch(toggleModalVisible());
+          dispatch(setCurId(id));
         }}
         ref={ref}
       >
