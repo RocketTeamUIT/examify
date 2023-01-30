@@ -8,6 +8,7 @@ import { useMemo } from 'react';
 import CourseTrackChapter from './CourseTrackChapter';
 import Note from '../../note';
 import { useSelector } from 'react-redux';
+import { Tooltip } from 'react-tooltip';
 
 const CourseTrack = ({ totalLesson, name, chapterList }) => {
   const [showNote, setShowNote] = useState(false);
@@ -49,9 +50,20 @@ const CourseTrack = ({ totalLesson, name, chapterList }) => {
         </div>
 
         {/* Button: Guide */}
-        <Button type="text" dark unbold className="text-sm" leftIcon={<BiHelpCircle className="text-[1.125rem]" />}>
-          Hướng dẫn
-        </Button>
+        <div id="mark-as-learnt-help">
+          <Button type="text" dark unbold className="text-sm" leftIcon={<BiHelpCircle className="text-[1.125rem]" />}>
+            Hướng dẫn
+          </Button>
+        </div>
+        <Tooltip
+          anchorId="mark-as-learnt-help"
+          content={
+            <>
+              <p>Bạn cần học ít nhất 1 phút đối với các bài học tài liệu và flashcard</p>
+              <p>hoặc xem ít nhất 80% đối với các bài học video để được công nhận là hoàn thành bài học</p>
+            </>
+          }
+        />
 
         {/* Button: Note */}
         <Button type="text" dark unbold className="text-sm" leftIcon={<CgNotes className="text-lg" />} onClick={show}>
