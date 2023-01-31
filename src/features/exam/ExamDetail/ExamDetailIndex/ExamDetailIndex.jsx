@@ -7,25 +7,25 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { durationList } from 'features/exam/data';
 
-const initialState = Array(7).fill(false);
-
-const ExamDetailIndex = ({ exam }) => {
-  const [parts, setParts] = useState(initialState);
+const ExamDetailIndex = () => {
+  const [parts, setParts] = useState([]);
   const [duration, setDuration] = useState(0);
   const [inputDuration, setInputDuration] = useState(0);
   const { examId } = useParams();
-  const formattedParts = parts.reduce((prev, curr, index) => {
-    if (curr) {
-      return [...prev, index + 1 + 'p'];
-    }
-    return prev;
-  }, []);
+  const formattedParts = (() => {
+    // Remove all element which appear twice
+    const r1 = parts.filter((item) => parts.filter((e) => e === item).length % 2 === 1);
+
+    // Remove duplicate
+    const r2 = [...new Set(r1)];
+    return r2;
+  })();
 
   const config = {
     id: examId,
-    parts: formattedParts,
+    partIdList: formattedParts,
     duration: inputDuration * 60 || duration,
-    isFullTest: false,
+    isFullmode: false,
   };
 
   const formattedDurationList = {
@@ -46,12 +46,24 @@ const ExamDetailIndex = ({ exam }) => {
   }
 
   function handleChange(e) {
-    setInputDuration(e.target.value);
+    let curValue = e.target.value;
+
+    // Control input value
+    if (/^0/.test(curValue)) {
+      curValue = curValue.replace(/^0/, '');
+    }
+
+    if (curValue > 180) {
+      setInputDuration(180);
+    } else if (curValue < 0) {
+      setInputDuration(0);
+    } else {
+      setInputDuration(curValue);
+    }
   }
 
-  function choosePart(index) {
-    const result = [...parts];
-    result[index] = !result[index];
+  function choosePart(partId) {
+    const result = [...parts, partId];
     setParts(result);
   }
 
@@ -70,7 +82,12 @@ const ExamDetailIndex = ({ exam }) => {
       <ChoosePart choosePart={choosePart} />
 
       {/* Choose duration */}
-      <ChooseDuration config={config} durationList={formattedDurationList} onChange={handleChange} />
+      <ChooseDuration
+        config={config}
+        durationList={formattedDurationList}
+        durationValue={inputDuration}
+        onChange={handleChange}
+      />
     </>
   );
 };

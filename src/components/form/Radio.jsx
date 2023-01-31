@@ -41,7 +41,7 @@ function Radio({
         name={name}
         value={value}
         disabled={disabled}
-        checked={checked}
+        checked={disabled ? checked : checked ? true : null}
         onChange={onChange}
         className="peer absolute opacity-0 cursor-pointer h-0 w-0"
       />

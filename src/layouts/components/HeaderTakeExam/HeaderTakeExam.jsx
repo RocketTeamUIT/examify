@@ -50,10 +50,13 @@ function HeaderTakeExam() {
         </div>
       </div>
       <ModalConfirm
+        header="Xác nhận"
         message="Thời gian vẫn còn nhiều. Bạn có chắc chắn muốn nộp bài?"
         isShowing={modalVisible}
         onHide={hideModal}
         onResolve={handleSubmitExam}
+        titleResolve="Nộp bài"
+        titleReject="Hủy"
       />
     </>
   );

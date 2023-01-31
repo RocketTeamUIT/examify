@@ -2,6 +2,7 @@ import ControlBar from './ControlBar';
 import Main from './Main';
 import useFetchExamTakingData from './useFetchExamTakingData';
 import ExamInfo from './ExamInfo';
+import { useLocation } from 'react-router-dom';
 
 const mockConfig = {
   id: 1, // examId
@@ -10,8 +11,12 @@ const mockConfig = {
   isFullmode: true,
 };
 
-function ExamTaking({ config = mockConfig }) {
-  const [{ examSeriesName, examName, audio, data }, partList] = useFetchExamTakingData(config);
+function ExamTaking() {
+  // Get config from react-router-dom
+  const location = useLocation();
+  const { config } = location.state;
+  const tempConfig = { ...config, partIdList: mockConfig.partIdList };
+  const [{ examSeriesName, examName, audio, data }, partList] = useFetchExamTakingData(tempConfig);
 
   return (
     <div>

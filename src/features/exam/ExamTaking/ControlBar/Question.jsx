@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 function Question({ partId, seq, flag = true, id }) {
   const question = useSelector((store) => store.tackle.userChoice[id]);
   const type = question.value ? 'fill' : 'unfill';
-  const handleClick = async (_, path) => {
+  const handleClick = async (e, path) => {
+    e.preventDefault();
     document.getElementById(partId).click();
     const element = document.querySelector(path);
     const scrollor = () => {
@@ -24,7 +25,7 @@ function Question({ partId, seq, flag = true, id }) {
 
   return (
     <Link
-      to={`#question-${id}`}
+      to={`#question-${id}` ?? '#'}
       className={classNames(
         'w-8 h-7 rounded ring-[0.8px] flex items-center justify-center cursor-pointer hover:ring-[1.2px] relative hover:underline',
         {

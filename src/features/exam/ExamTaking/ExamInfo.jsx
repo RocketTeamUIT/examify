@@ -1,16 +1,25 @@
 import { Button } from '../../../components/ui';
 import { ModalConfirm } from 'components/ui/Modal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function ExamInfo({ examSeriesName, examName }) {
   const [modalCloseVisible, setModalCloseVisible] = useState(false);
   const showModal = () => setModalCloseVisible(true);
   const hideModal = () => setModalCloseVisible(false);
+  const navigate = useNavigate();
 
   const handleCloseExam = () => {
-    console.log('handle close exam');
-    // Call API at here
+    navigate(-1, { replace: true });
   };
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      return 'Your work will be lost.';
+    };
+
+    window.onbeforeunload = handleBeforeUnload;
+  }, []);
 
   return (
     <>
@@ -25,10 +34,13 @@ function ExamInfo({ examSeriesName, examName }) {
       </div>
 
       <ModalConfirm
+        header="Xác nhận"
         message="Bạn có chắc chắn muốn thoát? Kết quả sẽ không được lưu lại đâu nha!"
         isShowing={modalCloseVisible}
         onHide={hideModal}
         onResolve={handleCloseExam}
+        titleResolve="Xác nhận"
+        titleReject="Hủy"
       />
     </>
   );

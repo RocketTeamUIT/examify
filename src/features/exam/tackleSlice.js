@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  examId: -1,
   questionList: [],
-  duration: 7200,
+  duration: 0,
   isFullmode: false,
   countdown: 0,
   countup: 0,
@@ -26,6 +27,12 @@ const tackleSlice = createSlice({
     storeMode: (state, action) => {
       state.isFullmode = action.payload;
     },
+    setDuration: (state, action) => {
+      state.duration = action.payload;
+    },
+    setExamId: (state, action) => {
+      state.examId = action.payload;
+    },
     userSelect: (state, action) => {
       state.userChoice[action.payload.id].value = action.payload.value;
     },
@@ -48,6 +55,8 @@ export const {
   storePartList,
   storeActivateTab,
   storeMode,
+  setDuration,
+  setExamId,
   userSelect,
   toggleFlag,
   setCountdown,
