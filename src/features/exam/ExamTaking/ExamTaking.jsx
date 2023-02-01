@@ -3,20 +3,18 @@ import Main from './Main';
 import useFetchExamTakingData from './useFetchExamTakingData';
 import ExamInfo from './ExamInfo';
 import { useLocation } from 'react-router-dom';
-
-const mockConfig = {
-  id: 1, // examId
-  partIdList: ['1p', '2p', '3p', '4p', '5p', '6p', '7p'],
-  duration: 7200, // second
-  isFullmode: true,
-};
+import useFetchData from './useFetchData';
+import { useSelector } from 'react-redux';
+import isEmptyObject from 'utils/isEmptyObject';
 
 function ExamTaking() {
   // Get config from react-router-dom
   const location = useLocation();
   const { config } = location.state;
-  const tempConfig = { ...config, partIdList: mockConfig.partIdList };
-  const [{ examSeriesName, examName, audio, data }, partList] = useFetchExamTakingData(tempConfig);
+  useFetchData(config);
+  const examTaking = useSelector((store) => store.tackle.data);
+  const [{ examSeriesName, examName, audio, data }, partList] = useFetchExamTakingData(examTaking);
+  if (!examTaking || isEmptyObject(examTaking)) return null;
 
   return (
     <div>
@@ -29,7 +27,7 @@ function ExamTaking() {
         <Main tackle={data} audio={audio} />
 
         {/* Sidebar */}
-        <ControlBar partList={partList} />
+        {partList && <ControlBar partList={partList} />}
       </div>
     </div>
   );

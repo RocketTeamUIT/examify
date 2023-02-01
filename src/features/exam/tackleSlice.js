@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, isAnyOf } from '@reduxjs/toolkit';
+import { getExamTakingService } from './services/exam';
 
 const initialState = {
   examId: -1,
@@ -9,7 +10,19 @@ const initialState = {
   countup: 0,
   userChoice: {},
   partList: [],
+  data: {},
+  isLoading: false,
+  error: '',
 };
+
+export const getExamTaking = createAsyncThunk('tackle/getExamTaking', async ({ base, id, queryString }, thunkAPI) => {
+  try {
+    const response = await getExamTakingService(base, id, queryString);
+    return response.data;
+  } catch (error) {
+    thunkAPI.rejectWithValue(error?.message);
+  }
+});
 
 const tackleSlice = createSlice({
   name: 'tackle',
@@ -24,7 +37,7 @@ const tackleSlice = createSlice({
     storePartList: (state, action) => {
       state.partList = action.payload;
     },
-    storeMode: (state, action) => {
+    setMode: (state, action) => {
       state.isFullmode = action.payload;
     },
     setDuration: (state, action) => {
@@ -46,6 +59,25 @@ const tackleSlice = createSlice({
       state.countup = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(getExamTaking.fulfilled, (state, action) => {
+      state.data = action.payload;
+      state.isLoading = false;
+      state.error = false;
+    });
+
+    const pendingList = [getExamTaking.pending];
+    const rejectedList = [getExamTaking.rejected];
+
+    builder.addMatcher(isAnyOf(...pendingList), (state) => {
+      state.isLoading = true;
+      state.error = false;
+    });
+    builder.addMatcher(isAnyOf(...rejectedList), (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    });
+  },
 });
 
 export default tackleSlice.reducer;
@@ -54,7 +86,7 @@ export const {
   storeUserChoice,
   storePartList,
   storeActivateTab,
-  storeMode,
+  setMode,
   setDuration,
   setExamId,
   userSelect,

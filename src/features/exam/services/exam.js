@@ -5,3 +5,11 @@ export const getAllExamsService = async (axiosPrivate) => {
 export function getExamDetailService(axios, id) {
   return axios.get('/exams/' + id);
 }
+
+export const getExamTakingService = async (axios, id, data) => {
+  return axios.get('/exams/exam-takingg/' + id, {
+    params: {
+      ...data,
+    },
+  });
+};

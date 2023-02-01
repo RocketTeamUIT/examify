@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { ModalConfirm } from 'components/ui/Modal';
 import { useState } from 'react';
-import { setDuration } from 'features/exam/tackleSlice';
+import { setDuration, setMode } from 'features/exam/tackleSlice';
 
 function ChoosePart({ choosePart }) {
   const { examId } = useParams();
@@ -58,6 +58,7 @@ function ChoosePart({ choosePart }) {
         isShowing={modalVisible}
         onHide={hideModal}
         onResolve={() => {
+          dispatch(setMode(fullTestConfig.isFullmode));
           dispatch(setDuration(fullTestConfig.duration));
           navigate('/exams/tackle', {
             state: {

@@ -30,7 +30,7 @@ function ExamInfo({ examSeriesName, examName }) {
             Thoát
           </Button>
         </div>
-        <h2 className="text-h6 sm:text-h5 lg:text-h4 font-normal mt-3">{examSeriesName}</h2>
+        <h2 className="text-h6 sm:text-h5 lg:text-h4 font-normal mt-3">Thuộc bộ đề: {examSeriesName}</h2>
       </div>
 
       <ModalConfirm
