@@ -14,7 +14,6 @@ import { useCallback } from 'react';
 
 const CourseDetailLesson = () => {
   const { courseId, chapterId, lessonId } = useParams();
-  const [reachBottom, setReachBottom] = useState(false);
   const [enoughTime, setEnoughTime] = useState(false);
   const { courseDetail } = useSelector((store) => store.course);
   const { accessToken } = useSelector((store) => store.auth);
@@ -59,38 +58,24 @@ const CourseDetailLesson = () => {
 
   useEffect(() => {
     setEnoughTime(false);
-    setReachBottom(false);
   }, [location]);
 
   // If users learnt at least 60 seconds and they have scrolled to the bottom of the lesson, mark this lesson as learnt
   // If this lesson is a video lesson, user only to watch at least 80% of video
   useEffect(() => {
-    if (enoughTime && reachBottom && (lesson?.type === 2 || lesson?.type === 3) && !lesson.completed) {
+    if (enoughTime && (lesson?.type === 2 || lesson?.type === 3) && !lesson.completed) {
       markAsLearnt();
     }
-  }, [reachBottom, enoughTime, lesson, markAsLearnt]);
+  }, [enoughTime, lesson, markAsLearnt]);
 
   if (isEmptyObject(courseDetail)) return null;
-
-  const onScroll = (e) => {
-    const bottom = e.target.scrollHeight - e.target.scrollTop - 100 <= e.target.clientHeight;
-    if (bottom && !reachBottom) {
-      setReachBottom(true);
-    }
-  };
 
   const markEnoughTime = () => {
     setEnoughTime(true);
   };
 
   return (
-    <DetailContainer
-      onScroll={onScroll}
-      hierarchy={hierarchy}
-      totalLesson={totalLesson}
-      name={name}
-      chapterList={courseDetail.chapterList}
-    >
+    <DetailContainer hierarchy={hierarchy} totalLesson={totalLesson} name={name} chapterList={courseDetail.chapterList}>
       {lesson?.type === 1 && <LessonVideo callback={markAsLearnt} lesson={lesson} />}
       {lesson?.type === 2 && <LessonText lesson={lesson} callback={markEnoughTime} />}
       {lesson?.type === 3 && <LessonFlashcard lesson={lesson} callback={markEnoughTime} />}

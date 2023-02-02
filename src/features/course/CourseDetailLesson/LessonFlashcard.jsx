@@ -1,3 +1,4 @@
+import { FlashcardSetDetail } from 'features/flashcard';
 import React from 'react';
 import { BestWishes, DetailHeader } from '../components';
 import useCountdown from './hooks/useCountdown';
@@ -16,8 +17,8 @@ const LessonFlashcard = ({ lesson, callback }) => {
           year={lesson.updatedAt.slice(0, 4)}
         />
         <div className="text-t_gray mt-4">{lesson.description}</div>
-        <div className="mt-[60px]"></div>
-        {lesson.flashcardSetId}
+        <div className="mt-10"></div>
+        <FlashcardSetDetail flashcardSetId={lesson.flashcardSetId} pure />
         <BestWishes />
       </div>
     </>

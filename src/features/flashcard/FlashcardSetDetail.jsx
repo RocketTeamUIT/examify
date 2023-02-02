@@ -11,8 +11,9 @@ import useFetchFlashcardsInSet from './hooks/useFetchFlashcardsInSet';
 import ShareFlashcardModal from './ShareFlashcardModal';
 import EmptyState from 'assets/images/empty-state.jpg';
 import { FaRegSadCry } from 'react-icons/fa';
+import classNames from 'classnames';
 
-const FlashcardSetDetail = () => {
+const FlashcardSetDetail = ({ pure = false, flashcardSetId: outerFlashcardSetId }) => {
   const [showShare, setShowShare] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
   const [showAddMultiple, setShowAddMultiple] = useState(false);
@@ -20,8 +21,12 @@ const FlashcardSetDetail = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('p');
   const { flashcardSetId } = useParams();
-  const { detail, fetchData: fetchFlashcardSet, setDetail } = useFetchFlashcardSetDetail(flashcardSetId);
-  const { flashcards, fetchData } = useFetchFlashcardsInSet(flashcardSetId, page, search);
+  const {
+    detail,
+    fetchData: fetchFlashcardSet,
+    setDetail,
+  } = useFetchFlashcardSetDetail(outerFlashcardSetId || flashcardSetId);
+  const { flashcards, fetchData } = useFetchFlashcardsInSet(outerFlashcardSetId || flashcardSetId, page, search);
 
   const toggleShareModal = () => {
     setShowShare((prev) => !prev);
@@ -55,23 +60,29 @@ const FlashcardSetDetail = () => {
     }
   }
 
+  const Outer = pure ? React.Fragment : Container;
+
   return (
-    <Container>
+    <Outer>
       <div className="flex justify-center">
-        <div className="max-w-[820px] w-full min-h-[600px] my-8">
+        <div className={classNames('w-full min-h-[600px]', !pure && 'max-w-[820px] my-8')}>
           {detail.name ? (
             <>
-              <FlashcardSetDetailHeader
-                detail={detail}
-                setDetail={setDetail}
-                isOwner={detail.isOwner}
-                showShareModal={toggleShareModal}
-                showAddModal={toggleAddModal}
-                showAddMultipleModal={toggleAddMultipleModal}
-                onSearch={onSearch}
-              />
-
-              <div className="border-t w-full border-br_gray my-6" />
+              {!pure && (
+                <>
+                  <FlashcardSetDetailHeader
+                    hideBreadcrumb={pure}
+                    detail={detail}
+                    setDetail={setDetail}
+                    isOwner={detail.isOwner}
+                    showShareModal={toggleShareModal}
+                    showAddModal={toggleAddModal}
+                    showAddMultipleModal={toggleAddMultipleModal}
+                    onSearch={onSearch}
+                  />
+                  <div className="border-t w-full border-br_gray my-6" />
+                </>
+              )}
 
               {search && <h4 className="text-h4 font-bold mb-6 text-center">Hiển thị kết quả cho '{search}'</h4>}
 
@@ -109,7 +120,7 @@ const FlashcardSetDetail = () => {
         <AddMultipleFlashcardsModal onCreate={handleCreate} isShowing={showAddMultiple} hide={toggleAddMultipleModal} />
         <ShareFlashcardModal isShowing={showShare} hide={toggleShareModal} />
       </div>
-    </Container>
+    </Outer>
   );
 };
 
