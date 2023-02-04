@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, isAnyOf } from '@reduxjs/toolkit';
-import { getExamTakingService } from './services/exam';
+import { getExamTakingService, submitExamService } from './services/exam';
 
 const initialState = {
   examId: -1,
@@ -24,6 +24,33 @@ export const getExamTaking = createAsyncThunk('tackle/getExamTaking', async ({ b
   }
 });
 
+export const submitExam = createAsyncThunk(
+  'tackle/submitExam',
+  async ({ axiosPrivate, navigate }, { getState, rejectWithValue }) => {
+    try {
+      const state = getState();
+      const { examId, partList, countup, userChoice } = state.tackle;
+
+      const body = {
+        examId,
+        partIds: partList.map((partItem) => partItem.id),
+        timeFinished: countup,
+        listAnswer: userChoice
+          .map(({ id, choiceId }) => ({
+            questionId: id,
+            choiceId,
+          }))
+          .slice(1), // remove first element
+      };
+
+      const { recordId } = (await submitExamService(axiosPrivate, body)).data;
+      navigate(`../exams/record-detail/${recordId}`, { replace: true });
+    } catch (error) {
+      rejectWithValue(error?.message);
+    }
+  },
+);
+
 const tackleSlice = createSlice({
   name: 'tackle',
   initialState,
@@ -47,6 +74,7 @@ const tackleSlice = createSlice({
       state.examId = action.payload;
     },
     userSelect: (state, action) => {
+      state.userChoice[action.payload.id].choiceId = action.payload.choiceId;
       state.userChoice[action.payload.id].value = action.payload.value;
     },
     toggleFlag: (state, action) => {
@@ -54,6 +82,9 @@ const tackleSlice = createSlice({
     },
     setCountdown: (state, action) => {
       state.countdown = action.payload;
+      if (state.duration !== 0) {
+        state.countup = state.countup + 1;
+      }
     },
     setCountup: (state, action) => {
       state.countup = action.payload;
@@ -66,8 +97,13 @@ const tackleSlice = createSlice({
       state.error = false;
     });
 
-    const pendingList = [getExamTaking.pending];
-    const rejectedList = [getExamTaking.rejected];
+    builder.addCase(submitExam.fulfilled, (state) => {
+      state.isLoading = false;
+      state.error = false;
+    });
+
+    const pendingList = [getExamTaking.pending, submitExam.pending];
+    const rejectedList = [getExamTaking.rejected, submitExam.rejected];
 
     builder.addMatcher(isAnyOf(...pendingList), (state) => {
       state.isLoading = true;

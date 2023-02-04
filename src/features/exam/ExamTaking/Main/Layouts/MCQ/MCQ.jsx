@@ -87,7 +87,7 @@ function MCQ({ id, seq, name, choiceList = [] }) {
               key={index}
               name={id}
               value={value}
-              onChange={() => dispatch(userSelect({ id, value }))}
+              onChange={() => dispatch(userSelect({ id, choiceId: choiceItem.id, value }))}
               label={contentMapping('', choiceItem.seq, choiceItem.content)}
               leftDockLabel={32}
               mb={choiceList.length - 1 === index ? 0 : 8}

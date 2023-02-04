@@ -19,6 +19,7 @@ function useFetchExamTakingData(examTakingData) {
         userChoice[question.id] = {
           partId: dataItem.id,
           id: question.id,
+          choiceId: null,
           seq: question.seq,
           flag: false,
           value: '',

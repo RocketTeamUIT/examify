@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Dropdown, Input } from '../../../../components/ui';
 import { ModalConfirm } from 'components/ui/Modal';
 import { useDispatch } from 'react-redux';
-import { setDuration, setMode } from 'features/exam/tackleSlice';
+import { setCountup, setDuration, setExamId, setMode } from 'features/exam/tackleSlice';
 
 function ChooseDuration({ durationValue, durationList, onChange, config }) {
   const isActive = (() => config.partIdList.length !== 0)();
@@ -39,6 +39,8 @@ function ChooseDuration({ durationValue, durationList, onChange, config }) {
               <Button
                 type="outline"
                 onClick={() => {
+                  dispatch(setExamId(config.id));
+                  dispatch(setCountup(0));
                   dispatch(setMode(config.isFullmode));
                   dispatch(setDuration(config.duration));
                 }}

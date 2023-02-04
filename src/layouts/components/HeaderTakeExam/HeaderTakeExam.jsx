@@ -1,29 +1,31 @@
 import { Button } from 'components/ui';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../../assets/Logo.svg';
 import Avatar from '../Avatar';
 import { ModalConfirm } from 'components/ui/Modal';
 import { useState } from 'react';
 import useCount from 'features/exam/hooks/useCount';
+import { useSelector, useDispatch } from 'react-redux';
+import { submitExam } from 'features/exam/tackleSlice';
+import isEmptyObject from 'utils/isEmptyObject';
+import useAxiosPrivate from 'hooks/useAxiosPrivate';
 
 function HeaderTakeExam() {
   const countdown = useCount();
+  const axiosPrivate = useAxiosPrivate();
   const [modalVisible, setModalVisible] = useState(false);
   const showModal = () => setModalVisible(true);
   const hideModal = () => setModalVisible(false);
+  const { user } = useSelector((store) => store.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmitExam = () => {
-    console.log('handle submit exam');
     // Call API at here
+    dispatch(submitExam({ axiosPrivate, navigate }));
   };
 
-  // Mock data
-  const user = {
-    email: '20522122@gm.uit.edu.vn',
-    firstName: 'Tuấn',
-    lastName: 'Nguyễn',
-    avt: 'http://res.cloudinary.com/dt68ufvrr/image/upload/v1673599864/swkvdaj6wioqvfhiqupy.jpg',
-  };
+  if (!user && isEmptyObject(user)) return null;
 
   return (
     <>
