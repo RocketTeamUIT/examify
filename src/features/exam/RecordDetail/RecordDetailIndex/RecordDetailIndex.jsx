@@ -1,32 +1,31 @@
 import GroupButtonTabs from '../../components/GroupButtonTabs/GroupButtonTabs';
-import { groupButtons } from '../../data';
 import Table from './Table';
-
-const newData = groupButtons.map((item) => {
-  return { ...item };
-});
-
-const newObject = {
-  title: 'Tất cả',
-  partAnswerList: [],
-};
-
-newData.forEach((currentValue) => {
-  newObject.partAnswerList = newObject.partAnswerList.concat(currentValue.partAnswerList);
-});
-
-// Add newObject to data
-newData.push(newObject);
-
-// Add element property to data
-newData.forEach((item) => {
-  item.element = <Table data={item.partAnswerList} />;
-});
+import { useOutletContext } from 'react-router-dom';
+import { useCallback } from 'react';
 
 function RecordDetailIndex() {
+  // eslint-disable-next-line no-unused-vars
+  const [_, partIdListGrByHashtag] = useOutletContext();
+
+  const formatData = useCallback(() => {
+    const tempData = partIdListGrByHashtag.map((item) => ({
+      ...item,
+      title: item.name,
+      element: <Table data={item.partAnswerGrByList} />,
+    }));
+
+    const totalData = tempData.reduce((acc, curValue) => [...acc, ...curValue.partAnswerGrByList], []);
+    tempData.push({
+      title: 'Tất cả',
+      element: <Table data={totalData} />,
+    });
+
+    return tempData;
+  }, [partIdListGrByHashtag]);
+
   return (
     <div>
-      <GroupButtonTabs tabList={newData} mtContentDock="20px" />
+      <GroupButtonTabs tabList={formatData()} mtContentDock="20px" />
     </div>
   );
 }

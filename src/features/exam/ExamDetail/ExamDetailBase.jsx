@@ -4,11 +4,14 @@ import { HiOutlineArrowDownTray } from 'react-icons/hi2';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import useFetchExamDetail from '../hooks/useFetchExamDetail';
 import { useSelector } from 'react-redux';
+import isEmptyObject from 'utils/isEmptyObject';
 
 function ExamDetailBase() {
   const { examId } = useParams();
   useFetchExamDetail(examId);
   const { detail } = useSelector((store) => store.exam);
+
+  if (!detail || isEmptyObject(detail)) return null;
 
   return (
     <ExamDetailLayout>
@@ -18,9 +21,11 @@ function ExamDetailBase() {
       <div className="flex justify-between mt-5 mb-2">
         <h1 className="text-h3 font-bold">{detail.name}</h1>
         <div className="">
-          <Button color="#777777" leftIcon={<HiOutlineArrowDownTray fontSize={16} />} height="32px" type="default">
-            Download
-          </Button>
+          <Link to={detail.fileDownload} download target="_blank">
+            <Button color="#777777" leftIcon={<HiOutlineArrowDownTray fontSize={16} />} height="32px" type="default">
+              Download
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -40,7 +45,7 @@ function ExamDetailBase() {
       />
       <div className="mt-1 h-[1px] bg-bg_light_gray_3"></div>
 
-      <Outlet />
+      <Outlet context={[detail.historyTaking]} />
     </ExamDetailLayout>
   );
 }

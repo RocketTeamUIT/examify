@@ -1,11 +1,10 @@
 import { useMemo } from 'react';
 import { useTable } from 'react-table';
-import MOCK_DATA from './MOCK_DATA.json';
 import { COLUMNS } from './columns';
 
-function Table() {
+function Table({ data: dataProps }) {
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => dataProps, [dataProps]);
 
   const tableInstance = useTable({
     columns,
@@ -23,13 +22,13 @@ function Table() {
         <col span={1} className="w-1/4" />
       </colgroup>
 
-      <thead>
+      <thead className="sticky top-0 z-10">
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()} className="group">
             {headerGroup.headers.map((column) => (
               <th
                 {...column.getHeaderProps()}
-                className="group-first:first:rounded-tl-lg group-first:last:rounded-tr-lg text-md border-solid border-[1px] border-t_light_gray align-top p-3 font-semibold text-left bg-[#f7f7f7] text-t_dark"
+                className="sticky top-0 z-10 group-first:first:rounded-tl-lg group-first:last:rounded-tr-lg text-md border-solid border-[1px] border-t_light_gray align-top p-3 font-semibold text-left bg-[#f7f7f7] text-t_dark"
               >
                 {column.render('Header')}
               </th>

@@ -1,25 +1,25 @@
-import { dataExamTaking } from '../data';
 import { useDispatch } from 'react-redux';
-import { storeExamTaking, storeUserChoice, storePartList, storeMode } from '../tackleSlice';
+import { storeExamTaking, storeUserChoice, storePartList } from '../tackleSlice';
+import { useEffect } from 'react';
 
-function useFetchExamTakingData(config) {
+function useFetchExamTakingData(examTakingData) {
   const dispatch = useDispatch();
-  const userChoice = {};
-  const partList = config.partIdList.map((id) => ({
-    id: id,
+  const userChoice = (() => {}, []);
+
+  const partList = examTakingData.data.map((partItem) => ({
+    id: partItem.id,
     data: [],
   }));
 
-  // Call api get data depend on `config`
-
   // Format data
-  const newData = dataExamTaking.data.map((dataItem, index) => {
+  const newData = examTakingData.data.map((dataItem, index) => {
     // Create userchoice
     dataItem.setQuestionList.map((setQuestionListItem) =>
       setQuestionListItem.setQuestion.forEach((question) => {
         userChoice[question.id] = {
-          partId: config.partIdList[index],
+          partId: dataItem.id,
           id: question.id,
+          choiceId: null,
           seq: question.seq,
           flag: false,
           value: '',
@@ -33,7 +33,7 @@ function useFetchExamTakingData(config) {
 
     if (dataItem.part === 'Part 1')
       return {
-        id: config.partIdList[index],
+        id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
           ...item.setQuestion[0],
@@ -43,7 +43,7 @@ function useFetchExamTakingData(config) {
       };
     else if (dataItem.part === 'Part 2' || dataItem.part === 'Part 5') {
       return {
-        id: config.partIdList[index],
+        id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
           ...item.setQuestion[0],
@@ -52,7 +52,7 @@ function useFetchExamTakingData(config) {
       };
     } else if (dataItem.part === 'Part 3' || dataItem.part === 'Part 4') {
       return {
-        id: config.partIdList[index],
+        id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
           img: item?.side[0]?.content || '',
@@ -62,7 +62,7 @@ function useFetchExamTakingData(config) {
       };
     } else if (dataItem.part === 'Part 6' || dataItem.part === 'Part 7') {
       return {
-        id: config.partIdList[index],
+        id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList,
       };
@@ -70,12 +70,13 @@ function useFetchExamTakingData(config) {
   });
 
   // Save to redux
-  dispatch(storeExamTaking(newData));
-  dispatch(storeUserChoice(userChoice));
-  dispatch(storePartList(partList));
-  dispatch(storeMode(config.isFullmode));
+  useEffect(() => {
+    dispatch(storeExamTaking(newData));
+    dispatch(storeUserChoice(userChoice));
+    dispatch(storePartList(partList));
+  }, [dispatch, newData, partList, userChoice]);
 
-  return [{ ...dataExamTaking, data: newData }, partList];
+  return [{ ...examTakingData, data: newData }, partList];
 }
 
 export default useFetchExamTakingData;

@@ -1,8 +1,5 @@
-// import SubNav from '../../../components/ui/SubNav';
 import Container from '../../../layouts/components/Container';
-// import bannerImg from '../../../assets/images/courseBanner.png';
 import ExamItem from './ExamItem';
-// import { examList } from '../data';
 import { Dropdown, Pagination } from '../../../components/ui';
 import { getAllExamsService } from '../services/exam';
 import { useEffect, useState } from 'react';
@@ -29,7 +26,6 @@ const ExamList = ({ search, list }) => {
   useEffect(() => {
     const fetchExams = async () => {
       const examListRespond = (await getAllExamsService(axiosPrivate)).data;
-      // console.log(examListRespond);
       setExamList(examListRespond);
     };
 
@@ -59,14 +55,6 @@ const ExamList = ({ search, list }) => {
 
   return (
     <div className="mb-10">
-      {/* Banner */}
-      {/* <Container className="py-5">
-        <img className="w-full object-cover" src={bannerImg} alt="examify" />
-      </Container> */}
-
-      {/* Sub Navigation component*/}
-      {/* <SubNav navList={NAV_LIST} initialValue={0} /> */}
-
       <Container className="relative">
         <div className="flex gap-4 absolute -top-8">
           <Dropdown data={seriesDropdown}>

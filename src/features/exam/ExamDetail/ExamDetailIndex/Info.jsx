@@ -7,6 +7,12 @@ import {
 } from 'react-icons/hi2';
 import { useSelector } from 'react-redux';
 import { Tag } from '../../../../components/ui';
+import moment from 'moment';
+import 'moment-duration-format';
+
+const formatDuration = (duration) => {
+  return moment.duration(duration, 'seconds').format('mm', { trim: false });
+};
 
 function Info() {
   const { detail } = useSelector((store) => store.exam);
@@ -32,7 +38,7 @@ function Info() {
         <div>
           <span className="flex items-center gap-x-2">
             <HiOutlineClock fontSize={18} />
-            <span className="text-h6">{detail.duration} phút</span>
+            <span className="text-h6">{formatDuration(detail.duration)} phút</span>
           </span>
         </div>
 

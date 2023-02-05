@@ -7,8 +7,8 @@ import classNames from 'classnames';
 
 function Radio({
   label,
-  name,
-  value,
+  name = '',
+  value = '',
   onChange = () => {},
   leftDockLabel,
   mb,
@@ -41,7 +41,7 @@ function Radio({
         name={name}
         value={value}
         disabled={disabled}
-        checked={checked ? true : null}
+        checked={disabled ? checked : checked ? true : null}
         onChange={onChange}
         className="peer absolute opacity-0 cursor-pointer h-0 w-0"
       />

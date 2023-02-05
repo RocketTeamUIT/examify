@@ -11,6 +11,7 @@ function useCount() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('useCount called');
     const interval = setInterval(() => {
       if (duration > 0 && count > 0) {
         setCount((countPrev) => countPrev - 1);
