@@ -1,31 +1,48 @@
 import { Link } from 'react-router-dom';
 import { Tag } from '../../../../../../components/ui';
+import moment from 'moment';
+import 'moment-duration-format';
+
+const formatDate = (data) => {
+  const date = new Date(data);
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
+
+  return `${day}/${month + 1}/${year}`;
+};
+
+const formatDuration = (duration) => {
+  return moment.duration(duration, 'seconds').format('HH:mm:ss', { trim: false });
+};
 
 export const COLUMNS = [
   {
     Header: 'Ngày làm',
-    accessor: 'date_take',
+    accessor: 'createdAt',
     Cell: (props) => (
       <>
-        <span>{props.value}</span>
+        <span>{formatDate(props.value)}</span>
         <div className="flex flex-wrap gap-2 mt-2">
-          {props.row.original.parts.map((partItem, index) => (
-            <Tag color="#ff9513" key={index}>
-              {partItem}
-            </Tag>
-          ))}
+          {props.row.original.partTakeList &&
+            props.row.original.partTakeList.map((partItem, index) => (
+              <Tag color="#ff9513" key={index}>
+                {partItem}
+              </Tag>
+            ))}
         </div>
       </>
     ),
   },
   {
     Header: 'Kết quả',
-    accessor: 'correct',
-    Cell: (props) => <span>{`${props.value}/${props.row.original.total}`}</span>,
+    accessor: 'numsOfCorrectQn',
+    Cell: (props) => <span>{`${props.value}/${props.row.original.totalQuestion}`}</span>,
   },
   {
     Header: 'Thời gian làm bài',
-    accessor: 'time_finish',
+    accessor: 'timeFinished',
+    Cell: (props) => <span>{formatDuration(props.value)}</span>,
   },
   {
     Header: '',

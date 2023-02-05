@@ -3,12 +3,14 @@ import classNames from 'classnames';
 import { HiCheck, HiXMark } from 'react-icons/hi2';
 import { useRef } from 'react';
 
-function AnswerItem({ answerUser, type = 'wrong', children: orderNumber }) {
+function AnswerItem({ id, answerUser, type = 'wrong', children: orderNumber }) {
   const questionRef = useRef();
 
   return (
     <div className="flex items-center">
-      <QuestionCircle ref={questionRef}>{orderNumber}</QuestionCircle>
+      <QuestionCircle id={id} ref={questionRef}>
+        {orderNumber}
+      </QuestionCircle>
       <span
         className={classNames('text-h6 ml-2', {
           'line-through': type === 'wrong',

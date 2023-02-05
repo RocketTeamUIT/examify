@@ -19,8 +19,8 @@ const KEY_MAPPING = {
 };
 
 function Table({ data }) {
-  // Delete some props: status, examSeries, examName
-  const { status, examSeriesName, examName, ...newData } = data;
+  // Delete some props: status, examSeries, examName, examId
+  const { status, examSeriesName, examName, examId, ...newData } = data;
 
   // Convert object to array
   const dataMapping = Object.keys(newData).map((key) => {

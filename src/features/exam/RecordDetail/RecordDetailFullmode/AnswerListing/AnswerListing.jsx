@@ -8,16 +8,16 @@ function AnswerListing({ data = [] }) {
   return (
     <div className="flex justify-between">
       <div className="flex flex-col gap-4">
-        {leftData.map((answerItem, index) => (
-          <AnswerItem answerUser={answerItem.userChoice} key={index} type={answerItem.status}>
-            {answerItem.orderQn}
+        {leftData.map(({ id, userChoice, order, userAnswer }, index) => (
+          <AnswerItem id={id} answerUser={userChoice} key={index} type={userAnswer === 1 ? 'correct' : 'wrong'}>
+            {order}
           </AnswerItem>
         ))}
       </div>
       <div className="flex flex-col gap-4">
-        {rightData.map((answerItem, index) => (
-          <AnswerItem answerUser={answerItem.userChoice} key={index} type={answerItem.status}>
-            {answerItem.orderQn}
+        {rightData.map(({ id, userChoice, order, userAnswer }, index) => (
+          <AnswerItem id={id} answerUser={userChoice} key={index} type={userAnswer === 1 ? 'correct' : 'wrong'}>
+            {order}
           </AnswerItem>
         ))}
       </div>

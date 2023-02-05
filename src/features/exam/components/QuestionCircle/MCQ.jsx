@@ -8,7 +8,7 @@ import { HiEllipsisHorizontal } from 'react-icons/hi2';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
-function MCQ({ id, seq, name, choiceList = [], disabled = false }) {
+function MCQ({ id, seq, name, choiceList = [], disabled = false, userChoiceId }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const showMenu = () => setMenuVisible(true);
   const hideMenu = () => setMenuVisible(false);
@@ -68,15 +68,16 @@ function MCQ({ id, seq, name, choiceList = [], disabled = false }) {
         <div>
           {choiceList.map((choiceItem, index) => {
             const value = contentMapping('value', choiceItem.seq);
+            let curStatus = choiceItem.id === userChoiceId ? (choiceItem.key === true ? 'correct' : 'wrong') : 'normal';
 
             return (
               <Radio
                 key={index}
                 name={id}
                 disabled={disabled}
-                checked
+                checked={choiceItem.id === userChoiceId}
                 value={value}
-                status="wrong"
+                status={curStatus}
                 label={contentMapping('', choiceItem.seq, choiceItem.content)}
                 leftDockLabel={32}
                 mb={choiceList.length - 1 === index ? 0 : 8}

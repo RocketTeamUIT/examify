@@ -7,12 +7,12 @@ export const COLUMNS = [
   { Header: 'Bỏ qua', accessor: 'skip' },
   {
     Header: 'Danh sách câu hỏi',
-    accessor: 'numberQnList',
+    accessor: 'questionIdList',
     Cell: (props) => (
       <div className="flex flex-wrap gap-2">
-        {props.value.map((questionItem, index) => (
-          <QuestionCircle key={index} type={questionItem.status ? 'success' : 'wrong'}>
-            {questionItem.orderQn}
+        {props.value.map(({ id, order, userAnswer }, index) => (
+          <QuestionCircle id={id} key={index} type={userAnswer === 1 ? 'correct' : 'wrong'}>
+            {order}
           </QuestionCircle>
         ))}
       </div>

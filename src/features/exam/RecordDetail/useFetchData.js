@@ -1,38 +1,19 @@
-import { dataRecord } from '../data';
-import moment from 'moment';
 import 'moment-duration-format';
-
-const formatDate = (data) => {
-  const date = new Date(data);
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
-
-  return `${day}/${month + 1}/${year}`;
-};
-
-const formatDuration = (duration) => {
-  return moment.duration(duration, 'seconds').format('HH:mm:ss', { trim: false });
-};
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getRecordDetail } from '../recordSlice';
+import useAxiosPrivate from 'hooks/useAxiosPrivate';
+import { useParams } from 'react-router-dom';
 
 function useFetchData() {
-  const headerData = {
-    partList: [],
-    ...dataRecord,
-    date: formatDate(dataRecord.date),
-    duration: formatDuration(dataRecord.duration),
-  };
+  const dispatch = useDispatch();
+  const axiosPrivate = useAxiosPrivate();
+  const { recordId } = useParams();
 
   // Call API
-
-  // Format data
-  dataRecord.data.forEach((partItem) => {
-    headerData.partList.push(partItem.part);
-  });
-
-  delete headerData['data'];
-
-  return [headerData];
+  useEffect(() => {
+    dispatch(getRecordDetail({ axiosPrivate, id: recordId }));
+  }, [dispatch, axiosPrivate, recordId]);
 }
 
 export default useFetchData;
