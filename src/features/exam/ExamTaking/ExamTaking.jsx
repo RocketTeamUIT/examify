@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import useFetchData from './useFetchData';
 import useFormatData from './useFormatData';
 import { useSelector } from 'react-redux';
-import isEmptyObject from 'utils/isEmptyObject';
+import { isEmptyObject } from 'utils';
 
 function ExamTaking() {
   // Get config from react-router-dom

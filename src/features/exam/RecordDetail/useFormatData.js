@@ -1,17 +1,7 @@
-import moment from 'moment';
-import 'moment-duration-format';
 import { useDispatch } from 'react-redux';
 import { useEffect, useMemo } from 'react';
 import { storeHeaderData, storeQuestionList } from '../recordSlice';
-
-const groupBy = (xs = [], key) => {
-  return xs.reduce((rv, x) => {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {});
-};
-
-const objectMap = (obj, fn) => Object.fromEntries(Object.entries(obj).map(([k, v], i) => [k, fn(v, k, i)]));
+import { formatDuration, formatDate, groupBy, objectMap } from 'utils';
 
 const findUserChoice = (choiceList = [], userChoiceId) => {
   const choiceMapping = {
@@ -28,19 +18,6 @@ const findUserChoice = (choiceList = [], userChoiceId) => {
     }
   });
   return result;
-};
-
-const formatDate = (data) => {
-  const date = new Date(data);
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
-
-  return `${day}/${month + 1}/${year}`;
-};
-
-const formatDuration = (duration) => {
-  return moment.duration(duration, 'seconds').format('HH:mm:ss', { trim: false });
 };
 
 function useFormatData(recordData) {

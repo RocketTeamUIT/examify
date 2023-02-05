@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCountdown, setCountup } from '../tackleSlice';
-import moment from 'moment';
-import 'moment-duration-format';
+import { formatDuration } from 'utils';
 
 // Duration = second
 function useCount() {
@@ -11,7 +10,6 @@ function useCount() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('useCount called');
     const interval = setInterval(() => {
       if (duration > 0 && count > 0) {
         setCount((countPrev) => countPrev - 1);
@@ -26,11 +24,7 @@ function useCount() {
     return () => clearInterval(interval);
   }, [duration, count, dispatch]);
 
-  return formatDuration(count);
-}
-
-function formatDuration(duration) {
-  return moment.duration(duration, 'seconds').format('mm:ss', { trim: false });
+  return formatDuration(count, 2);
 }
 
 export default useCount;

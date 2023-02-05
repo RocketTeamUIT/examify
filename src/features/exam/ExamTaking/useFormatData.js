@@ -1,11 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { storeExamTaking, storeUserChoice, storePartList } from '../tackleSlice';
 import { useEffect } from 'react';
-
-const getImgFromInnerHtml = (innerHtml) => {
-  if (!innerHtml) return '';
-  return innerHtml.slice(3, innerHtml.length - 4);
-};
+import { getImgFromInnerHtml } from 'utils';
 
 function useFormatData(examTakingData) {
   const dispatch = useDispatch();
