@@ -45,7 +45,7 @@ function ExamDetailBase() {
       />
       <div className="mt-1 h-[1px] bg-bg_light_gray_3"></div>
 
-      <Outlet />
+      <Outlet context={[detail.historyTaking]} />
     </ExamDetailLayout>
   );
 }

@@ -4,10 +4,11 @@ import TipGroup from './TipGroup';
 import ChoosePart from './ChoosePart';
 import ChooseDuration from './ChooseDuration';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useOutletContext } from 'react-router-dom';
 import { durationList } from 'features/exam/data';
 
 const ExamDetailIndex = () => {
+  const [historyTaking] = useOutletContext();
   const [parts, setParts] = useState([]);
   const [duration, setDuration] = useState(0);
   const [inputDuration, setInputDuration] = useState(0);
@@ -73,7 +74,7 @@ const ExamDetailIndex = () => {
       <Info />
 
       {/* Prev Result */}
-      <PrevResult />
+      {historyTaking.length > 0 && <PrevResult data={historyTaking} />}
 
       {/* Tip Group */}
       <TipGroup />

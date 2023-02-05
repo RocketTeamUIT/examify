@@ -43,6 +43,7 @@ module.exports = {
         sd_small_center: '0 0 12px -4px rgba(0,0,0,0.3)',
         sd_small: '0 4px 4px 0px rgba(0,0,0,0.25)',
         sd_xs: '0 0px 4px -1px rgba(0,0,0,0.2)',
+        sd_bt: '0 4px 4px -2px rgba(0, 0, 0, 0.2)',
       },
       maxWidth: {
         primary: '1440px',
