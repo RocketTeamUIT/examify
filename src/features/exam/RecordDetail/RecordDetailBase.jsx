@@ -3,18 +3,29 @@ import { Outlet, Link, useLocation, useParams } from 'react-router-dom';
 import { Breadcrumb, Button } from '../../../components/ui';
 import RecordDetailLayout from './RecordDetailLayout';
 import useFetchData from './useFetchData';
+import useFormatData from './useFormatData';
 import { QuestionModal } from '../components/QuestionCircle';
+import { useSelector } from 'react-redux';
+import isEmptyObject from 'utils/isEmptyObject';
 
 function RecordDetailBase() {
   const location = useLocation();
   const { recordId } = useParams();
-  const [headerData, partIdList, partIdListGrByHashtag] = useFetchData();
+  useFetchData();
+  const recordData = useSelector((store) => store.record.data);
+  const [headerData, partIdList, partIdListGrByHashtag] = useFormatData(recordData);
+  if (!recordData || isEmptyObject(recordData)) return null;
 
   return (
     <RecordDetailLayout>
       {/* Information */}
       <div className="mt-8">
-        <Breadcrumb hierarchy={[<Link to="/exams/record-detail">Lịch sử thi</Link>, 'Toeic', 'ETS 2022']} />
+        <Breadcrumb
+          hierarchy={[
+            <Link to="/exams/record-detail">Lịch sử thi</Link>,
+            <Link to={`/exams/${headerData.examId}`}>{headerData.examSeriesName}</Link>,
+          ]}
+        />
 
         <div className="mt-5 flex justify-between">
           <h3 className="text-h3 font-bold">{headerData.examName}</h3>
