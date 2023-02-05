@@ -2,17 +2,22 @@ import { useDispatch } from 'react-redux';
 import { storeExamTaking, storeUserChoice, storePartList } from '../tackleSlice';
 import { useEffect } from 'react';
 
-function useFetchExamTakingData(examTakingData) {
+const getImgFromInnerHtml = (innerHtml) => {
+  if (!innerHtml) return '';
+  return innerHtml.slice(3, innerHtml.length - 4);
+};
+
+function useFormatData(examTakingData) {
   const dispatch = useDispatch();
   const userChoice = (() => {}, []);
 
-  const partList = examTakingData.data.map((partItem) => ({
+  const partList = examTakingData?.data.map((partItem) => ({
     id: partItem.id,
     data: [],
   }));
 
   // Format data
-  const newData = examTakingData.data.map((dataItem, index) => {
+  const newData = examTakingData?.data.map((dataItem, index) => {
     // Create userchoice
     dataItem.setQuestionList.map((setQuestionListItem) =>
       setQuestionListItem.setQuestion.forEach((question) => {
@@ -37,7 +42,7 @@ function useFetchExamTakingData(examTakingData) {
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
           ...item.setQuestion[0],
-          img: item.side[0].content,
+          img: getImgFromInnerHtml(item.side[0].content),
           audio: item?.audio,
         })),
       };
@@ -55,7 +60,7 @@ function useFetchExamTakingData(examTakingData) {
         id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
-          img: item?.side[0]?.content || '',
+          img: getImgFromInnerHtml(item?.side[0]?.content),
           audio: item.audio,
           setQuestion: item.setQuestion,
         })),
@@ -79,4 +84,4 @@ function useFetchExamTakingData(examTakingData) {
   return [{ ...examTakingData, data: newData }, partList];
 }
 
-export default useFetchExamTakingData;
+export default useFormatData;

@@ -1,9 +1,9 @@
 import ControlBar from './ControlBar';
 import Main from './Main';
-import useFetchExamTakingData from './useFetchExamTakingData';
 import ExamInfo from './ExamInfo';
 import { useLocation } from 'react-router-dom';
 import useFetchData from './useFetchData';
+import useFormatData from './useFormatData';
 import { useSelector } from 'react-redux';
 import isEmptyObject from 'utils/isEmptyObject';
 
@@ -13,7 +13,7 @@ function ExamTaking() {
   const { config } = location.state;
   useFetchData(config);
   const examTaking = useSelector((store) => store.tackle.data);
-  const [{ examSeriesName, examName, audio, data }, partList] = useFetchExamTakingData(examTaking);
+  const [{ examSeriesName, examName, audio, data }, partList] = useFormatData(examTaking);
   if (!examTaking || isEmptyObject(examTaking)) return null;
 
   return (
