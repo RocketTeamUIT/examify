@@ -1,6 +1,6 @@
 import { Button } from '../../../components/ui';
 import { ModalConfirm } from 'components/ui/Modal';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function ExamInfo({ examSeriesName, examName }) {
@@ -12,14 +12,6 @@ function ExamInfo({ examSeriesName, examName }) {
   const handleCloseExam = () => {
     navigate(-1, { replace: true });
   };
-
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      return 'Your work will be lost.';
-    };
-
-    window.onbeforeunload = handleBeforeUnload;
-  }, []);
 
   return (
     <>
