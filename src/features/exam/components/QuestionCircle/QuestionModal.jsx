@@ -4,6 +4,7 @@ import MCQ from './MCQ';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleModalVisible } from 'features/exam/recordSlice';
 import { useCallback } from 'react';
+import { getImgFromInnerHtml } from 'utils';
 
 function Divider() {
   return <div className="my-4 w-full h-[1px] bg-br_light_gray"></div>;
@@ -51,7 +52,7 @@ function QuestionModal() {
       {/* Img */}
       {question.img && (
         <div className="max-w-[320px]">
-          <img src={question.img} alt="toeic_img" />
+          <img src={getImgFromInnerHtml(question.img)} alt="toeic_img" />
         </div>
       )}
 

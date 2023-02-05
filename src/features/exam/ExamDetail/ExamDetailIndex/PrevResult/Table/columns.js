@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Tag } from '../../../../../../components/ui';
-import moment from 'moment';
-import 'moment-duration-format';
+import { formatDuration } from 'utils';
 
 const formatDate = (data) => {
   const date = new Date(data);
@@ -10,10 +9,6 @@ const formatDate = (data) => {
   const day = date.getDate();
 
   return `${day}/${month + 1}/${year}`;
-};
-
-const formatDuration = (duration) => {
-  return moment.duration(duration, 'seconds').format('HH:mm:ss', { trim: false });
 };
 
 export const COLUMNS = [

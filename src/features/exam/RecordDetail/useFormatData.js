@@ -1,17 +1,7 @@
-import moment from 'moment';
-import 'moment-duration-format';
 import { useDispatch } from 'react-redux';
 import { useEffect, useMemo } from 'react';
 import { storeHeaderData, storeQuestionList } from '../recordSlice';
-
-const groupBy = (xs = [], key) => {
-  return xs.reduce((rv, x) => {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {});
-};
-
-const objectMap = (obj, fn) => Object.fromEntries(Object.entries(obj).map(([k, v], i) => [k, fn(v, k, i)]));
+import { formatDuration, formatDate, groupBy, objectMap } from 'utils';
 
 const findUserChoice = (choiceList = [], userChoiceId) => {
   const choiceMapping = {
@@ -30,34 +20,21 @@ const findUserChoice = (choiceList = [], userChoiceId) => {
   return result;
 };
 
-const formatDate = (data) => {
-  const date = new Date(data);
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
-
-  return `${day}/${month + 1}/${year}`;
-};
-
-const formatDuration = (duration) => {
-  return moment.duration(duration, 'seconds').format('HH:mm:ss', { trim: false });
-};
-
-function useFetchData(recordData) {
+function useFormatData(recordData) {
   const dispatch = useDispatch();
 
   const headerData = useMemo(
     () => ({
-      partList: recordData.data.reduce((acc, partItem) => [...acc, partItem.part], []),
+      partList: recordData?.data.reduce((acc, partItem) => [...acc, partItem.part], []),
       ...recordData,
-      date: formatDate(recordData.date),
-      duration: formatDuration(recordData.duration),
+      date: formatDate(recordData?.date),
+      duration: formatDuration(recordData?.duration),
     }),
     [recordData],
   );
 
   // Format data
-  const questionListData = recordData.data.reduce((acc0, partItem) => {
+  const questionListData = recordData?.data.reduce((acc0, partItem) => {
     const temp = partItem.setQuestionList.reduce((acc1, setQuestionListItem) => {
       const temp1 = setQuestionListItem.setQuestion.reduce((acc2, questionItem) => {
         let temp2 = { ...questionItem, hashtag: questionItem.hashtag.name };
@@ -78,7 +55,7 @@ function useFetchData(recordData) {
     return { ...acc0, ...temp };
   }, {});
 
-  const partIdList = recordData.data.map((partItem) => ({
+  const partIdList = recordData?.data.map((partItem) => ({
     id: partItem.id,
     name: partItem.part,
     questionIdList: partItem.setQuestionList.reduce((accPar, setQuestionListItem) => {
@@ -94,7 +71,7 @@ function useFetchData(recordData) {
     }, []),
   }));
 
-  const partIdListGrByHashtag = recordData.data.map((partItem) => ({
+  const partIdListGrByHashtag = recordData?.data.map((partItem) => ({
     id: partItem.id,
     name: partItem.part,
     partAnswerGrByList: (() => {
@@ -139,4 +116,4 @@ function useFetchData(recordData) {
   return [headerData, partIdList, partIdListGrByHashtag, questionListData];
 }
 
-export default useFetchData;
+export default useFormatData;
