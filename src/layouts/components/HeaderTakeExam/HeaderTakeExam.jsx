@@ -7,7 +7,7 @@ import { useState } from 'react';
 import useCount from 'features/exam/hooks/useCount';
 import { useSelector, useDispatch } from 'react-redux';
 import { submitExam } from 'features/exam/tackleSlice';
-import isEmptyObject from 'utils/isEmptyObject';
+import { isEmptyObject } from 'utils';
 import useAxiosPrivate from 'hooks/useAxiosPrivate';
 
 function HeaderTakeExam() {

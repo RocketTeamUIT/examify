@@ -6,7 +6,7 @@ import useFetchData from './useFetchData';
 import useFormatData from './useFormatData';
 import { QuestionModal } from '../components/QuestionCircle';
 import { useSelector } from 'react-redux';
-import isEmptyObject from 'utils/isEmptyObject';
+import { isEmptyObject } from 'utils';
 
 function RecordDetailBase() {
   const location = useLocation();

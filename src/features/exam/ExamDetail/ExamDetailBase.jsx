@@ -4,7 +4,7 @@ import { HiOutlineArrowDownTray } from 'react-icons/hi2';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import useFetchExamDetail from '../hooks/useFetchExamDetail';
 import { useSelector } from 'react-redux';
-import isEmptyObject from 'utils/isEmptyObject';
+import { isEmptyObject } from 'utils';
 
 function ExamDetailBase() {
   const { examId } = useParams();
