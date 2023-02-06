@@ -2,8 +2,8 @@ import SideItem from './SideItem';
 
 function Side({ data }) {
   function headerTitleRender(setQuestion) {
-    const firstSeqQn = setQuestion[0].seq;
-    const lastSeqQn = setQuestion[setQuestion.length - 1].seq;
+    const firstSeqQn = setQuestion[0].seq || setQuestion[0].order;
+    const lastSeqQn = setQuestion[setQuestion.length - 1].seq || setQuestion[setQuestion.length - 1].order;
 
     return `${firstSeqQn}-${lastSeqQn}`;
   }
