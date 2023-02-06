@@ -4,7 +4,8 @@ import MCQ from './MCQ';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleModalVisible } from 'features/exam/recordSlice';
 import { useCallback } from 'react';
-import { getImgFromInnerHtml } from 'utils';
+import { getImgFromInnerHtml, isEmptyObject } from 'utils';
+import Side from 'features/exam/ExamTaking/Main/Layouts/LayoutFour/SetQuestion/Side';
 
 function Divider() {
   return <div className="my-4 w-full h-[1px] bg-br_light_gray"></div>;
@@ -32,6 +33,10 @@ function QuestionModal() {
     return result;
   }, []);
 
+  const handleAutoCollapseParagraph = () => false;
+
+  if (!question || isEmptyObject(question)) return null;
+
   return (
     <Modal
       maxWidth="max-w-[800px]"
@@ -49,25 +54,40 @@ function QuestionModal() {
       {/* Audio */}
       {question.audio && <AudioPlayer src={question.audio} className="my-4" includeSetting={true} />}
 
-      {/* Img */}
-      {question.img && (
-        <div className="max-w-[320px]">
-          <img src={getImgFromInnerHtml(question.img)} alt="toeic_img" />
-        </div>
-      )}
+      <div className="flex gap-3">
+        {/* Img */}
+        {question.img && (
+          <div className="max-w-[320px] flex-shrink-0">
+            <img src={getImgFromInnerHtml(question.img)} alt="toeic_img" />
+          </div>
+        )}
 
-      {/* Transcript */}
-      <Collapse
-        title="Hiển thị transcript"
-        className="mt-2"
-        content={
-          <div
-            dangerouslySetInnerHTML={{
-              __html: question.explain,
-            }}
-          ></div>
-        }
-      />
+        {/* Transcript */}
+        {question?.transcript && (
+          <Collapse
+            title="Hiển thị transcript"
+            className=""
+            content={
+              <div
+                className="text-md"
+                dangerouslySetInnerHTML={{
+                  __html: question.transcript,
+                }}
+              ></div>
+            }
+          />
+        )}
+
+        {/* Paragraph */}
+        {question.ancestor && (
+          <Collapse
+            title="Hiển thị đoạn văn"
+            onControl={modalVisible ? undefined : handleAutoCollapseParagraph}
+            className="mt-2"
+            content={<Side data={question.ancestor} />}
+          />
+        )}
+      </div>
       <Divider />
       <MCQ
         id={question.id}

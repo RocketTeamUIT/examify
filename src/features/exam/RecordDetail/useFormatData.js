@@ -36,14 +36,25 @@ function useFormatData(recordData) {
   // Format data
   const questionListData = recordData?.data.reduce((acc0, partItem) => {
     const temp = partItem.setQuestionList.reduce((acc1, setQuestionListItem) => {
+      const { audio, id, ...ancestor } = setQuestionListItem;
       const temp1 = setQuestionListItem.setQuestion.reduce((acc2, questionItem) => {
-        let temp2 = { ...questionItem, hashtag: questionItem.hashtag.name };
+        let temp2 = { ...questionItem, hashtag: questionItem.hashtag.name, partName: partItem.part };
 
         if (['Part 1', 'Part 3', 'Part 4'].includes(partItem.part)) {
-          temp2 = { ...temp2, img: setQuestionListItem?.side[0]?.content };
+          temp2 = { ...temp2, img: setQuestionListItem?.side[1]?.content };
         }
         if (['Part 1', 'Part 2', 'Part 3', 'Part 4'].includes(partItem.part)) {
-          temp2 = { ...temp2, audio: setQuestionListItem.audio };
+          temp2 = {
+            ...temp2,
+            audio: setQuestionListItem.audio,
+            transcript: setQuestionListItem?.side[0]?.content,
+          };
+        }
+        if (['Part 6', 'Part 7'].includes(partItem.part)) {
+          temp2 = {
+            ...temp2,
+            ancestor,
+          };
         }
 
         return { ...acc2, [questionItem.id]: { ...temp2 } };
@@ -79,7 +90,7 @@ function useFormatData(recordData) {
         const temp1 = setQuestionListItem.setQuestion.reduce((acc2, questionItem) => {
           let temp2 = { ...questionItem, hashtag: questionItem.hashtag.name };
           if (['Part 1', 'Part 3', 'Part 4'].includes(partItem.part)) {
-            temp2 = { ...temp2, img: setQuestionListItem?.side[0]?.content };
+            temp2 = { ...temp2, img: setQuestionListItem?.side[1]?.content };
           }
           if (['Part 1', 'Part 2', 'Part 3', 'Part 4'].includes(partItem.part)) {
             temp2 = { ...temp2, audio: setQuestionListItem.audio };

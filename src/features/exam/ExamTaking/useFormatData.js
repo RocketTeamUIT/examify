@@ -38,7 +38,7 @@ function useFormatData(examTakingData) {
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
           ...item.setQuestion[0],
-          img: getImgFromInnerHtml(item.side[0].content),
+          img: getImgFromInnerHtml(item.side[1].content),
           audio: item?.audio,
         })),
       };
@@ -56,7 +56,7 @@ function useFormatData(examTakingData) {
         id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
-          img: getImgFromInnerHtml(item?.side[0]?.content),
+          img: getImgFromInnerHtml(item?.side[1]?.content),
           audio: item.audio,
           setQuestion: item.setQuestion,
         })),
