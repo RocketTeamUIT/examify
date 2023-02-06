@@ -1,18 +1,23 @@
 import { React, useState, useMemo } from 'react';
 import { useTable, useFilters } from 'react-table';
 import { Filter } from 'components/ui';
+import useFetchData from './useFetchData.js';
+import { useSelector } from 'react-redux';
 import OptionButton from './Table/OptionButton';
 import { COLUMNS } from './Table/columns';
 import MOCK_DATA from './Table/MOCK_DATA.json';
 
 const UserExams = () => {
-  const data = useMemo(() => MOCK_DATA, []);
+  useFetchData();
+  const { data } = useSelector((store) => store.history);
+
+  const dataReal = useMemo(() => data, [data]);
   const columns = useMemo(() => COLUMNS, []);
 
   const tableInstance = useTable(
     {
       columns,
-      data,
+      data: dataReal,
     },
     useFilters,
   );
@@ -72,7 +77,7 @@ const UserExams = () => {
                       {...cell.getCellProps()}
                       className="first:rounded-l-lg last:rounded-r-lg text-md font-bold border-solid border-[1px] border-t_light_gray align-middle p-6 text-center"
                     >
-                      {index + 1 === row.cells.length ? <OptionButton examId={cell.row.id} /> : cell.render('Cell')}
+                      {index + 1 === row.cells.length ? <OptionButton examId={cell.value} /> : cell.render('Cell')}
                     </td>
                   );
                 })}

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleModalVisible } from 'features/exam/recordSlice';
 import { useCallback } from 'react';
 import { getImgFromInnerHtml } from 'utils';
+import { isEmptyObject } from 'utils';
 
 function Divider() {
   return <div className="my-4 w-full h-[1px] bg-br_light_gray"></div>;
@@ -13,7 +14,7 @@ function Divider() {
 function QuestionModal() {
   const dispatch = useDispatch();
   const { modalVisible, curQuestionId: questionId, headerData } = useSelector((store) => store.record);
-  const question = useSelector((store) => store.record.questionList[questionId]);
+  const question = useSelector((store) => store.record?.questionList[questionId]);
 
   const correctAnswer = useCallback((choiceList = []) => {
     const choiceMapping = {
@@ -32,6 +33,7 @@ function QuestionModal() {
     return result;
   }, []);
 
+  if (!question || isEmptyObject(question)) return null;
   return (
     <Modal
       maxWidth="max-w-[800px]"

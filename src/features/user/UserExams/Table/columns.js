@@ -1,14 +1,24 @@
 import { Tag } from 'components/ui';
+import { formatDuration } from 'utils';
+
+const formatDate = (data) => {
+  const date = new Date(data);
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
+
+  return `${day}/${month + 1}/${year}`;
+};
 
 export const COLUMNS = [
   {
     Header: 'Mã',
-    accessor: 'name',
+    accessor: 'examName',
     Cell: (props) => <span>{props.value}</span>,
   },
   {
     Header: 'Nội dung',
-    accessor: 'parts',
+    accessor: 'partTakeList',
     Cell: (props) => (
       <div className="flex flex-wrap gap-2">
         {props.value
@@ -29,18 +39,18 @@ export const COLUMNS = [
   },
   {
     Header: 'Ngày làm',
-    accessor: 'date_take',
-    Cell: (props) => <span>{props.value}</span>,
+    accessor: 'updatedAt',
+    Cell: (props) => <span>{formatDate(props.value)}</span>,
   },
   {
     Header: 'Kết quả',
-    accessor: 'correct',
-    Cell: (props) => <span>{`${props.value}/${props.row.original.total}`}</span>,
+    accessor: 'numsOfCorrectQn',
+    Cell: (props) => <span>{`${props.value}/${props.row.original.totalQuestion}`}</span>,
   },
   {
     Header: 'Thời gian làm bài',
-    accessor: 'time_finish',
-    Cell: (props) => <span>{props.value}</span>,
+    accessor: 'timeFinished',
+    Cell: (props) => <span>{formatDuration(props.value)}</span>,
   },
   {
     Header: '',
