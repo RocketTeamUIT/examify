@@ -25,8 +25,8 @@ const ExamList = ({ search, list }) => {
 
   useEffect(() => {
     const fetchExams = async () => {
-      const examListRespond = (await getAllExamsService(axiosPrivate)).data;
-      setExamList(examListRespond);
+      const response = await getAllExamsService(axiosPrivate);
+      setExamList(response.data);
     };
 
     fetchExams();
@@ -70,10 +70,6 @@ const ExamList = ({ search, list }) => {
         >
           {filtered && filtered.map((examItem) => <ExamItem list={list} exam={examItem} key={examItem.id} />)}
         </div>
-
-        <footer className="mt-10 flex justify-center">
-          <Pagination length={10} selected={selected} setSelected={setSelected} />
-        </footer>
       </Container>
     </div>
   );

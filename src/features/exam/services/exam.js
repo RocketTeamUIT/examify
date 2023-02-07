@@ -2,6 +2,10 @@ export const getAllExamsService = async (axiosPrivate) => {
   return (await axiosPrivate.get('/exams')).data;
 };
 
+export const getLatestExamsService = async (axiosPrivate) => {
+  return axiosPrivate.get('/exams');
+};
+
 export function getExamDetailService(axios, id) {
   return axios.get('/exams/' + id);
 }
