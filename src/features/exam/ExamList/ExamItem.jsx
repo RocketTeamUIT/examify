@@ -12,6 +12,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import { formatDuration } from 'utils';
 
 const ExamItem = ({ exam, list }) => {
   return (
@@ -54,7 +55,7 @@ const ExamItem = ({ exam, list }) => {
         <div>
           <span className="flex items-center gap-x-2">
             <HiOutlineClock fontSize={18} />
-            <span className="text-h6">{exam.examTime} phút</span>
+            <span className="text-h6">{formatDuration(exam.duration, 3)} phút</span>
           </span>
         </div>
 
