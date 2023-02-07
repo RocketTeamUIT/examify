@@ -14,7 +14,7 @@ function Divider() {
 function QuestionModal() {
   const dispatch = useDispatch();
   const { modalVisible, curQuestionId: questionId, headerData } = useSelector((store) => store.record);
-  const question = useSelector((store) => store.record.questionList[questionId]);
+  const question = useSelector((store) => store.record?.questionList[questionId]);
 
   const correctAnswer = useCallback((choiceList = []) => {
     const choiceMapping = {

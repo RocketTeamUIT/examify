@@ -1,7 +1,7 @@
 import Question from './Question';
 
 function GroupQuestion({ title, groupId, partId }) {
-  console.log('data', groupId);
+  // console.log('data', groupId);
   return (
     <div>
       <p className="text-h5 font-medium">{title}</p>

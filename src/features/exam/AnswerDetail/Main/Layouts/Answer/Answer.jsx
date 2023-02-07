@@ -62,7 +62,6 @@ function Answer({ id, seq, name, choiceList = [], explain, choicedId }) {
           </PopperActionsList>
         </div>
       </div>
-      {/* MCQ Cần format lại*/}
       <div>
         {choiceList.map((choiceItem, index) => {
           const value = contentMapping('value', choiceItem.seq);
