@@ -40,8 +40,11 @@ export const submitExam = createAsyncThunk(
             questionId: id,
             choiceId,
           }))
-          .slice(1), // remove first element
+          .slice(1) // remove first element
+          .filter((item) => item.choiceId !== null),
       };
+
+      console.log(body);
 
       const { recordId } = (await submitExamService(axiosPrivate, body)).data;
       navigate(`../exams/record-detail/${recordId}`, { replace: true });

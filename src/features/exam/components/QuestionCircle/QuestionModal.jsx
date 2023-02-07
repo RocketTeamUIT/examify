@@ -106,7 +106,7 @@ function QuestionModal() {
         open
         content={
           <div
-            className="table-para-css"
+            className="table-para-css table-para-pd"
             dangerouslySetInnerHTML={{
               __html: question.explain,
             }}
