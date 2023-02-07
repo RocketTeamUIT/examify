@@ -7,6 +7,7 @@ import useFormatData from './useFormatData';
 import { QuestionModal } from '../components/QuestionCircle';
 import { useSelector } from 'react-redux';
 import { isEmptyObject } from 'utils';
+import config from 'config';
 
 function RecordDetailBase() {
   const location = useLocation();
@@ -22,7 +23,7 @@ function RecordDetailBase() {
       <div className="mt-8">
         <Breadcrumb
           hierarchy={[
-            <Link to="/me/exams/">Lịch sử thi</Link>,
+            <Link to={config.routes.myExams}>Lịch sử thi</Link>,
             <Link to={`/exams/${headerData.examId}`}>{headerData.examSeriesName}</Link>,
           ]}
         />
