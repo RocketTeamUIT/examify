@@ -1,7 +1,12 @@
-function useFetchAnswerDetailData(config) {
-  const questionList = {};
-  const partList = config.data.map((id) => ({
-    id: id,
+import { useDispatch } from 'react-redux';
+import { storeExamTaking, storeUserChoice, storePartList } from '../tackleSlice';
+import { useEffect } from 'react';
+
+function useFormatData(config) {
+  const dispatch = useDispatch();
+  const userChoice = (() => {}, []);
+  const partList = config?.data.map((dataItem) => ({
+    id: dataItem.id,
     data: [],
   }));
 
@@ -15,13 +20,13 @@ function useFetchAnswerDetailData(config) {
   const newData = config.data.map((dataItem, index) => {
     dataItem.setQuestionList.map((setQuestionListItem) =>
       setQuestionListItem.setQuestion.forEach((question) => {
-        questionList[question.id] = {
+        userChoice[question.id] = {
           partId: dataItem.id,
           id: question.id,
           name: question.name,
           explain: question.explain,
           userChoiceId: question.userChoiceId,
-          seq: question.seq,
+          seq: question.order,
           flag: false,
           value: '',
         };
@@ -37,7 +42,7 @@ function useFetchAnswerDetailData(config) {
 
     if (dataItem.part === 'Part 1')
       return {
-        id: config.partIdList[index],
+        id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
           ...item.setQuestion[0],
@@ -47,7 +52,7 @@ function useFetchAnswerDetailData(config) {
       };
     else if (dataItem.part === 'Part 2' || dataItem.part === 'Part 5') {
       return {
-        id: config.partIdList[index],
+        id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
           ...item.setQuestion[0],
@@ -56,7 +61,7 @@ function useFetchAnswerDetailData(config) {
       };
     } else if (dataItem.part === 'Part 3' || dataItem.part === 'Part 4') {
       return {
-        id: config.partIdList[index],
+        id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList.map((item) => ({
           img: item?.side[0]?.content || '',
@@ -66,14 +71,20 @@ function useFetchAnswerDetailData(config) {
       };
     } else if (dataItem.part === 'Part 6' || dataItem.part === 'Part 7') {
       return {
-        id: config.partIdList[index],
+        id: dataItem.id,
         name: dataItem.part,
         data: dataItem.setQuestionList,
       };
     } else return dataItem;
   });
 
+  useEffect(() => {
+    // dispatch(storeExamTaking(newData));
+    dispatch(storeUserChoice(userChoice));
+    // dispatch(storePartList(partList));
+  }, [dispatch, newData, partList, userChoice]);
+
   return [{ ...config, data: newData }, partList];
 }
 
-export default useFetchAnswerDetailData;
+export default useFormatData;

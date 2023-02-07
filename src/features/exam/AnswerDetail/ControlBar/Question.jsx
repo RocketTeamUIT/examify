@@ -2,10 +2,9 @@ import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function Question({ partId, seq, flag = true, id, status = 'unfill' }) {
+function Question({ partId, id, status = 'unfill' }) {
   const question = useSelector((store) => store.tackle.userChoice[id]);
-  // console.log(question);
-  // const type = question.value ? 'fill' : 'unfill';
+
   const type = status;
   const handleClick = async (_, path) => {
     document.getElementById(partId).click();
@@ -42,7 +41,7 @@ function Question({ partId, seq, flag = true, id, status = 'unfill' }) {
       )}
       onClick={(e) => handleClick(e, `#question-${id}`)}
     >
-      <span className="font-normal text-h6 select-none">{question.seq}</span>
+      <span className="font-normal text-h6 select-none">{question?.seq}</span>
     </Link>
   );
 }
