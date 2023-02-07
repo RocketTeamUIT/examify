@@ -3,17 +3,17 @@ import { storeExamTaking, storeUserChoice, storePartList } from '../tackleSlice'
 import { useEffect } from 'react';
 import { getImgFromInnerHtml } from 'utils';
 
-function useFormatData(examTakingData) {
+function useFormatData(examTakingData = []) {
   const dispatch = useDispatch();
   const userChoice = (() => {}, []);
 
-  const partList = examTakingData?.data.map((partItem) => ({
+  const partList = examTakingData?.data?.map((partItem) => ({
     id: partItem.id,
     data: [],
   }));
 
   // Format data
-  const newData = examTakingData?.data.map((dataItem, index) => {
+  const newData = examTakingData?.data?.map((dataItem, index) => {
     // Create userchoice
     dataItem.setQuestionList.map((setQuestionListItem) =>
       setQuestionListItem.setQuestion.forEach((question) => {

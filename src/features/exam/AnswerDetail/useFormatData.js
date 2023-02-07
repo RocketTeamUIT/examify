@@ -2,10 +2,10 @@ import { useDispatch } from 'react-redux';
 import { storeExamTaking, storeUserChoice, storePartList } from '../tackleSlice';
 import { useEffect } from 'react';
 
-function useFormatData(config) {
+function useFormatData(config = {}) {
   const dispatch = useDispatch();
   const userChoice = (() => {}, []);
-  const partList = config?.data.map((dataItem) => ({
+  const partList = config?.data?.map((dataItem) => ({
     id: dataItem.id,
     data: [],
   }));
@@ -17,7 +17,7 @@ function useFormatData(config) {
     else return 'wrong';
   };
 
-  const newData = config.data.map((dataItem, index) => {
+  const newData = config?.data?.map((dataItem, index) => {
     dataItem.setQuestionList.map((setQuestionListItem) =>
       setQuestionListItem.setQuestion.forEach((question) => {
         userChoice[question.id] = {
