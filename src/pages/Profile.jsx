@@ -38,8 +38,8 @@ function Profile() {
     }
   }, [user]);
 
-  const handleDataForm = (data) => {
-    dispatch(
+  const handleDataForm = async (data) => {
+    await dispatch(
       updateUserInfo({
         axiosPrivate,
         firstName: value.firstName,
@@ -50,6 +50,9 @@ function Profile() {
       }),
     );
     toast.success('Cập nhật thành công!');
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   };
 
   const handleChange = (e) => {
@@ -62,7 +65,6 @@ function Profile() {
     }
 
     setValue('description', e.target.value);
-    window.location.reload();
   };
 
   return (

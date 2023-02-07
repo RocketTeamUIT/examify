@@ -32,7 +32,7 @@ function UserProfile() {
 
     try {
       setIsLoading(true);
-      const response = await uploadImageService(image, 'examify');
+      const response = uploadImageService(image, 'examify');
       const url = response.data.url;
       if (imageType === 'avatar') {
         setAvt(URL.createObjectURL(image));
@@ -86,7 +86,11 @@ function UserProfile() {
         >
           Đổi banner
         </Button>
-        <img className="object-cover w-full h-full" src={banner} alt="User banner" />
+        <img
+          src={banner}
+          alt="User banner"
+          className={classnames('object-cover w-full h-full', { 'cursor-none opacity-40': isLoading })}
+        />
       </div>
       {/* Container */}
       <div className="relative h-fit md:h-[644px] -top-16 md:-top-20 md:mx-[20px] lg:mx-[50px] xl:mx-[100px] xxl:mx-[150px] flex flex-col md:flex-row md:gap-5 px-1 sm:px-10 md:px-0">
@@ -127,7 +131,7 @@ function UserProfile() {
             <span className="w-full border-t-[0.5px] border-br_gray" />
             <div className="flex w-full justify-between px-10 py-5">
               <h1 className="text-h5 font-medium text-t_dark">Số flashcard của bạn</h1>
-              <h1 className="text-h5 font-medium text-ac_green">15</h1>
+              <h1 className="text-h5 font-medium text-ac_green">{user.ownFlashcard}</h1>
             </div>
             {/* Accumulated point */}
             <span className="w-full border-t-[0.5px] border-br_gray" />
