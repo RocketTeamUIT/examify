@@ -3,7 +3,7 @@ import { storeExamTaking, storeUserChoice, storePartList } from '../tackleSlice'
 import { useEffect } from 'react';
 import { getImgFromInnerHtml } from 'utils';
 
-function useFormatData(examTakingData = []) {
+function useFormatData(examTakingData = {}) {
   const dispatch = useDispatch();
   const userChoice = (() => {}, []);
 

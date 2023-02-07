@@ -6,18 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 function OptionButton({ examId }) {
   const [menuVisible, setMenuVisible] = useState(false);
-  const [destination, setDestination] = useState('');
   const showMenu = () => setMenuVisible(true);
   const hideMenu = () => setMenuVisible(false);
   const navigate = useNavigate();
-
-  const navigateTo = () => {
-    examId++;
-    const link = '/exams/' + examId;
-    if (destination !== '')
-      if (destination === 'answer') navigate(link + '/answer');
-      else navigate(link);
-  };
 
   return (
     <div className="items-center hidden md:flex">
@@ -26,20 +17,20 @@ function OptionButton({ examId }) {
         offset={[0, 4]}
         visible={menuVisible}
         onHide={hideMenu}
-        handleChangeType={navigateTo()}
         data={{
           type: 'menu',
           actionsList: [
             {
               title: 'Xem chi tiết đáp án',
               action: () => {
-                setDestination('answer');
+                // Temp
+                navigate(`/exams/${examId}`);
               },
             },
             {
               title: 'Làm lại đề thi',
               action: () => {
-                setDestination('detail');
+                navigate(`/exams/${examId}`);
               },
             },
           ],
