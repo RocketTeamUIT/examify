@@ -22,7 +22,7 @@ function RecordDetailBase() {
       <div className="mt-8">
         <Breadcrumb
           hierarchy={[
-            <Link to="/exams/record-detail">Lịch sử thi</Link>,
+            <Link to="/me/exams/">Lịch sử thi</Link>,
             <Link to={`/exams/${headerData.examId}`}>{headerData.examSeriesName}</Link>,
           ]}
         />
