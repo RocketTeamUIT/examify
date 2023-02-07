@@ -20,12 +20,12 @@ const findUserChoice = (choiceList = [], userChoiceId) => {
   return result;
 };
 
-function useFormatData(recordData) {
+function useFormatData(recordData = {}) {
   const dispatch = useDispatch();
 
   const headerData = useMemo(
     () => ({
-      partList: recordData?.data.reduce((acc, partItem) => [...acc, partItem.part], []),
+      partList: recordData?.data?.reduce((acc, partItem) => [...acc, partItem.part], []),
       ...recordData,
       date: formatDate(recordData?.date),
       duration: formatDuration(recordData?.duration),
@@ -34,7 +34,7 @@ function useFormatData(recordData) {
   );
 
   // Format data
-  const questionListData = recordData?.data.reduce((acc0, partItem) => {
+  const questionListData = recordData?.data?.reduce((acc0, partItem) => {
     const temp = partItem.setQuestionList.reduce((acc1, setQuestionListItem) => {
       const { audio, id, ...ancestor } = setQuestionListItem;
       const temp1 = setQuestionListItem.setQuestion.reduce((acc2, questionItem) => {
@@ -66,7 +66,7 @@ function useFormatData(recordData) {
     return { ...acc0, ...temp };
   }, {});
 
-  const partIdList = recordData?.data.map((partItem) => ({
+  const partIdList = recordData?.data?.map((partItem) => ({
     id: partItem.id,
     name: partItem.part,
     questionIdList: partItem.setQuestionList.reduce((accPar, setQuestionListItem) => {
@@ -82,7 +82,7 @@ function useFormatData(recordData) {
     }, []),
   }));
 
-  const partIdListGrByHashtag = recordData?.data.map((partItem) => ({
+  const partIdListGrByHashtag = recordData?.data?.map((partItem) => ({
     id: partItem.id,
     name: partItem.part,
     partAnswerGrByList: (() => {

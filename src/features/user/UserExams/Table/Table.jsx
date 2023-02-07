@@ -1,4 +1,3 @@
-import OptionButton from './OptionButton';
 import { useMemo, useEffect } from 'react';
 import { useTable, useFilters } from 'react-table';
 import { COLUMNS } from './columns';
@@ -50,13 +49,13 @@ function Table({ data: dataProps, valueFilterChange }) {
           return (
             // destructure
             <tr {...row.getRowProps()} className="group">
-              {row.cells.map((cell, index) => {
+              {row.cells.map((cell) => {
                 return (
                   <td
                     {...cell.getCellProps()}
                     className="first:rounded-l-lg last:rounded-r-lg text-md font-bold border-solid border-[1px] border-t_light_gray align-middle p-6 text-center"
                   >
-                    {index + 1 === row.cells.length ? <OptionButton examId={cell.value} /> : cell.render('Cell')}
+                    {cell.render('Cell')}
                   </td>
                 );
               })}
