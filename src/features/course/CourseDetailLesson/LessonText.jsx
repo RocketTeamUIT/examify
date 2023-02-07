@@ -25,8 +25,6 @@ const LessonText = ({ lesson, callback }) => {
             __html: lesson.text,
           }}
         ></div>
-
-        <BestWishes />
       </div>
     </>
   );
