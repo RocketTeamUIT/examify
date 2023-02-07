@@ -1,5 +1,6 @@
 import { Tag } from 'components/ui';
 import { formatDuration, formatDate } from 'utils';
+import OptionButton from './OptionButton';
 
 export const COLUMNS = [
   {
@@ -45,6 +46,7 @@ export const COLUMNS = [
   },
   {
     Header: '',
-    accessor: 'id',
+    accessor: 'examId',
+    Cell: (props) => <OptionButton examId={props.value} />,
   },
 ];
