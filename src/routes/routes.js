@@ -61,7 +61,7 @@ const publicRouters = [
       },
       {
         path: 'flashcards',
-        component: UserFlashcards,
+        component: MyFlashcard,
       },
       {
         path: 'contests',
@@ -160,10 +160,6 @@ const publicRouters = [
   },
   { path: '/flashcards/:flashcardSetId', component: FlashcardSetDetail, layout: NoRecommendLayout },
   { path: '/flashcards/:flashcardSetId/practice', component: FlashcardPractice, layout: NoRecommendLayout },
-
-  //Contest
-  { path: '/contest', component: ContestHome, layout: NoRecommendLayout },
-  { path: '/contest/:contestId', component: ContestMain, layout: AuthLayout },
 
   // Test
   { path: config.routes.tuanBig, component: TuanBigTest },

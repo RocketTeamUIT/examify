@@ -13,7 +13,7 @@ function Divider() {
 
 function QuestionModal() {
   const dispatch = useDispatch();
-  const { modalVisible, curQuestionId: questionId, headerData } = useSelector((store) => store?.record);
+  const { modalVisible, curQuestionId: questionId, headerData } = useSelector((store) => store.record);
   const question = useSelector((store) => store.record?.questionList?.[questionId]);
 
   const correctAnswer = useCallback((choiceList = []) => {
@@ -69,7 +69,7 @@ function QuestionModal() {
             className=""
             content={
               <div
-                className="text-md"
+                className="table-para-css text-md"
                 dangerouslySetInnerHTML={{
                   __html: question.transcript,
                 }}
@@ -106,6 +106,7 @@ function QuestionModal() {
         open
         content={
           <div
+            className="table-para-css table-para-pd"
             dangerouslySetInnerHTML={{
               __html: question.explain,
             }}

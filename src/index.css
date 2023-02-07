@@ -115,3 +115,15 @@ code {
     opacity: 1;
   }
 }
+
+.table-para-css table,
+.table-para-css td,
+.table-para-css tr,
+.table-para-css th {
+  border: 1px solid #777777;
+}
+
+.table-para-pd td,
+.table-para-pd th {
+  padding: 8px;
+}

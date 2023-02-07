@@ -18,7 +18,6 @@ const NAVIGATION_LIST = [
   ['Khoá học', '/courses'],
   ['Đề thi', '/exams'],
   ['Flashcard', '/flashcards'],
-  ['Thi đấu', '/contest'],
 ];
 
 const initialStyles = {

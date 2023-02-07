@@ -13,19 +13,11 @@ export const COLUMNS = [
     accessor: 'partTakeList',
     Cell: (props) => (
       <div className="flex flex-wrap gap-2">
-        {props.value
-          .filter((item, index) => index < 8)
-          .map((partItem, index) =>
-            index + 1 === 8 ? (
-              <Tag color="#ff9513" key={index}>
-                . . .
-              </Tag>
-            ) : (
-              <Tag color="#ff9513" key={index}>
-                {partItem}
-              </Tag>
-            ),
-          )}
+        {props.value?.map((partItem, index) => (
+          <Tag color="#ff9513" key={index}>
+            {partItem}
+          </Tag>
+        ))}
       </div>
     ),
   },

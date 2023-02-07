@@ -41,6 +41,7 @@ const ShareFlashcardModal = (props) => {
   );
 
   const copyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
     toast.success('Sao chép thành công');
   };
 
