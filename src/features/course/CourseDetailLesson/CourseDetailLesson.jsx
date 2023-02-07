@@ -9,13 +9,13 @@ import { joinLessonService } from '../services/course';
 import useAxiosWithToken from '../../../hooks/useAxiosWithToken';
 import { useDispatch, useSelector } from 'react-redux';
 import isEmptyObject from '../../../utils/isEmptyObject';
-import { getCourseDetail } from '../courseSlice';
+import { getCourseDetail, updateTotalLearnedLessons } from '../courseSlice';
 import { useCallback } from 'react';
 
 const CourseDetailLesson = () => {
   const { courseId, chapterId, lessonId } = useParams();
   const [enoughTime, setEnoughTime] = useState(false);
-  const { courseDetail } = useSelector((store) => store.course);
+  const { courseDetail, totalLearnedLessons } = useSelector((store) => store.course);
   const { accessToken } = useSelector((store) => store.auth);
   const { totalLesson, name } = courseDetail;
   const dispatch = useDispatch();
@@ -25,11 +25,12 @@ const CourseDetailLesson = () => {
   const markAsLearnt = useCallback(async () => {
     try {
       await joinLessonService(axios, lessonId);
-      dispatch(getCourseDetail({ accessToken, courseId }));
+      await dispatch(getCourseDetail({ accessToken, courseId }));
+      dispatch(updateTotalLearnedLessons(totalLearnedLessons + 1));
     } catch (error) {
       console.log('🚀 ~ file: CourseDetailLesson.jsx:21 ~ markAsLearnt ~ error', error);
     }
-  }, [accessToken, courseId, dispatch, axios, lessonId]);
+  }, [accessToken, courseId, dispatch, axios, lessonId, totalLearnedLessons]);
 
   const chapter = useMemo(() => {
     return (courseDetail?.chapterList || []).find((chapter) => chapter.id === Number(chapterId));
