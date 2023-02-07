@@ -11,7 +11,7 @@ export function BreadcrumbItem({ children, isCurrent = false }) {
   return (
     <li
       className={classNames(
-        'flex items-center px-2 w-fit h-6 rounded overflow-hidden bg-transparent bg-clip-padding border border-br_gray',
+        'flex items-center px-2 w-fit h-6 rounded overflow-hidden bg-transparent bg-clip-padding border border-br_gray max-w-[200px]',
         {
           'bg-br_gray': isCurrent,
         },
@@ -19,7 +19,7 @@ export function BreadcrumbItem({ children, isCurrent = false }) {
     >
       <span
         className={classNames(
-          'font-medium text-h6 text-t_dark dark:text-t_light_gray',
+          'font-medium text-h6 text-t_dark dark:text-t_light_gray max-w-full overflow-hidden text-ellipsis whitespace-nowrap',
           // if is the current element in hierarchy
           { 'text-t_gray': isCurrent },
         )}

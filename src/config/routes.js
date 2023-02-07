@@ -15,9 +15,19 @@ const routes = {
 
   // User
   me: '/me',
+  myCourses: '/me',
+  myExams: '/me/exams',
+  myFlashcards: '/me/flashcards',
+  myContests: '/me/contests',
 
   // Exam
-  exam: '/exams',
+  examList: '/exams',
+  history: '/exams/record-detail',
+  examDetail: '/exams/:examId',
+  recordDetail: '/exams/record-detail/:recordId',
+  examTaking: '/exams/tackle',
+  // answerDetail: '/exams/:examId/answer/',
+
   // Flashcard
   flashcard: '/flashcards',
   // Contest

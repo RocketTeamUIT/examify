@@ -9,14 +9,13 @@ import { joinLessonService } from '../services/course';
 import useAxiosWithToken from '../../../hooks/useAxiosWithToken';
 import { useDispatch, useSelector } from 'react-redux';
 import isEmptyObject from '../../../utils/isEmptyObject';
-import { getCourseDetail } from '../courseSlice';
+import { getCourseDetail, updateTotalLearnedLessons } from '../courseSlice';
 import { useCallback } from 'react';
 
 const CourseDetailLesson = () => {
   const { courseId, chapterId, lessonId } = useParams();
-  const [reachBottom, setReachBottom] = useState(false);
   const [enoughTime, setEnoughTime] = useState(false);
-  const { courseDetail } = useSelector((store) => store.course);
+  const { courseDetail, totalLearnedLessons } = useSelector((store) => store.course);
   const { accessToken } = useSelector((store) => store.auth);
   const { totalLesson, name } = courseDetail;
   const dispatch = useDispatch();
@@ -26,11 +25,12 @@ const CourseDetailLesson = () => {
   const markAsLearnt = useCallback(async () => {
     try {
       await joinLessonService(axios, lessonId);
-      dispatch(getCourseDetail({ accessToken, courseId }));
+      await dispatch(getCourseDetail({ accessToken, courseId }));
+      dispatch(updateTotalLearnedLessons(totalLearnedLessons + 1));
     } catch (error) {
       console.log('🚀 ~ file: CourseDetailLesson.jsx:21 ~ markAsLearnt ~ error', error);
     }
-  }, [accessToken, courseId, dispatch, axios, lessonId]);
+  }, [accessToken, courseId, dispatch, axios, lessonId, totalLearnedLessons]);
 
   const chapter = useMemo(() => {
     return (courseDetail?.chapterList || []).find((chapter) => chapter.id === Number(chapterId));
@@ -59,38 +59,24 @@ const CourseDetailLesson = () => {
 
   useEffect(() => {
     setEnoughTime(false);
-    setReachBottom(false);
   }, [location]);
 
   // If users learnt at least 60 seconds and they have scrolled to the bottom of the lesson, mark this lesson as learnt
   // If this lesson is a video lesson, user only to watch at least 80% of video
   useEffect(() => {
-    if (enoughTime && reachBottom && (lesson?.type === 2 || lesson?.type === 3) && !lesson.completed) {
+    if (enoughTime && (lesson?.type === 2 || lesson?.type === 3) && !lesson.completed) {
       markAsLearnt();
     }
-  }, [reachBottom, enoughTime, lesson, markAsLearnt]);
+  }, [enoughTime, lesson, markAsLearnt]);
 
   if (isEmptyObject(courseDetail)) return null;
-
-  const onScroll = (e) => {
-    const bottom = e.target.scrollHeight - e.target.scrollTop - 100 <= e.target.clientHeight;
-    if (bottom && !reachBottom) {
-      setReachBottom(true);
-    }
-  };
 
   const markEnoughTime = () => {
     setEnoughTime(true);
   };
 
   return (
-    <DetailContainer
-      onScroll={onScroll}
-      hierarchy={hierarchy}
-      totalLesson={totalLesson}
-      name={name}
-      chapterList={courseDetail.chapterList}
-    >
+    <DetailContainer hierarchy={hierarchy} totalLesson={totalLesson} name={name} chapterList={courseDetail.chapterList}>
       {lesson?.type === 1 && <LessonVideo callback={markAsLearnt} lesson={lesson} />}
       {lesson?.type === 2 && <LessonText lesson={lesson} callback={markEnoughTime} />}
       {lesson?.type === 3 && <LessonFlashcard lesson={lesson} callback={markEnoughTime} />}

@@ -27,7 +27,7 @@ import { forwardRef } from 'react';
 - dark: dark mode
 */
 
-const TYPES = ['primary', 'default', 'danger', 'disabled', 'text', 'plain'];
+const TYPES = ['primary', 'outline', 'default', 'danger', 'disabled', 'text', 'plain'];
 const SIZE = ['normal', 'large'];
 const SHAPE = ['rectangle', 'circle'];
 
@@ -44,10 +44,12 @@ const Button = (
     onClick,
     disabled,
     unbold,
+    unpdx = false,
     width,
     height,
     dark,
     rounded = [],
+    justifyBetweenContent = false,
     testid,
   },
   ref,
@@ -75,9 +77,20 @@ const Button = (
         // General
         'transition duration-300 flex items-center justify-center gap-2',
 
+        // Custom for dropdpown
+        {
+          'justify-between': justifyBetweenContent,
+        },
+
+        // Unpadding x
+        {
+          '!px-0': unpdx,
+        },
+
         // Type
         {
           'bg-ac_blue text-white hover:bg-opacity-90': checkType === 'primary',
+          'border-[1px] border-ac_blue text-ac_blue hover:bg-ac_blue hover:text-white': checkType === 'outline',
           'border-[1px] border-br_light_gray hover:bg-br_light_gray': checkType === 'default',
           'text-t_dark': ['default', 'text'].indexOf(checkType) !== -1 && !dark,
           'text-white': ['default', 'text'].indexOf(checkType) !== -1 && dark,

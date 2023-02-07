@@ -33,14 +33,17 @@ module.exports = {
       medium: 500,
       semibold: 600,
       bold: 700,
+      extrabold: 800,
     },
     extend: {
       boxShadow: {
         sd_primary: '0px 4px 20px 0px rgba(0, 0, 0, 0.2)',
+        sd_large: '0 0 10px 0px rgba(0,0,0,0.25)',
         sd_medium: '0 0 16px -4px rgba(0,0,0,0.3)',
         sd_small_center: '0 0 12px -4px rgba(0,0,0,0.3)',
         sd_small: '0 4px 4px 0px rgba(0,0,0,0.25)',
         sd_xs: '0 0px 4px -1px rgba(0,0,0,0.2)',
+        sd_bt: '0 4px 4px -2px rgba(0, 0, 0, 0.2)',
       },
       maxWidth: {
         primary: '1440px',
@@ -56,7 +59,7 @@ module.exports = {
       colors: {
         // Primary
         primary: '#0E46C7',
-        secondary: '#424242',
+        secondary: '#EF3737',
 
         // Text
         t_dark: '#333333',
@@ -71,6 +74,7 @@ module.exports = {
         bg_light_gray_2: '#F2F1F3',
         bg_light_gray_3: '#ECF0F4',
         bg_light_gray_4: '#F7F9FA',
+        bg_light_gray_5: '#F5F5F5',
         bg_white: '#FFFFFF',
         bg_black: '#131417',
         bg_dark_gray: '#27292B',

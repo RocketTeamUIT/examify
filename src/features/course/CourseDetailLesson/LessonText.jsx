@@ -1,5 +1,5 @@
 import React from 'react';
-import { BestWishes, DetailHeader } from '../components';
+import { DetailHeader } from '../components';
 import useCountdown from './hooks/useCountdown';
 import '../../../assets/css/lesson_text.css';
 const LessonText = ({ lesson, callback }) => {
@@ -25,8 +25,6 @@ const LessonText = ({ lesson, callback }) => {
             __html: lesson.text,
           }}
         ></div>
-
-        <BestWishes />
       </div>
     </>
   );

@@ -55,6 +55,7 @@ const Input = forwardRef(
       style,
       label,
       alternativeValue,
+      ...props
     },
     ref,
   ) => {
@@ -138,6 +139,7 @@ const Input = forwardRef(
 
         {/* Real input */}
         <input
+          {...props}
           data-testid="test-input"
           className="outline-none bg-transparent flex-1 max-w-full overflow-hidden peer"
           disabled={disabled}

@@ -14,7 +14,8 @@ const initialState = {
   user: {},
   accessToken: '',
   failAttempt: false,
-  isLoading: true,
+  isLoading: false,
+  isLogin: false,
   error: '',
 };
 
@@ -122,6 +123,7 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     // Sign in
     builder.addCase(signIn.fulfilled, (state, action) => {
+      state.isLogin = true;
       state.isLoading = false;
       state.user = action.payload.user;
       state.accessToken = action.payload.accessToken;
@@ -130,6 +132,7 @@ const authSlice = createSlice({
 
     // Logout
     builder.addCase(logOut.fulfilled, (state) => {
+      state.isLogin = false;
       state.user = {};
       state.accessToken = '';
       state.isLoading = false;
@@ -138,6 +141,7 @@ const authSlice = createSlice({
 
     // Logout
     builder.addCase(logOut.rejected, (state, action) => {
+      state.isLogin = false;
       state.user = {};
       state.accessToken = '';
       state.isLoading = false;
