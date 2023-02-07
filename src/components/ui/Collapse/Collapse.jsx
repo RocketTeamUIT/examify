@@ -1,12 +1,20 @@
 import { Button } from '../';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HiChevronRight, HiChevronDown } from 'react-icons/hi2';
 import CollapseWrapper from './CollapseWrapper';
 
-function Collapse({ open = false, title = '', content, className }) {
+function Collapse({ open = false, title = '', content, className, onControl }) {
   const [visible, setVisible] = useState(open);
   const show = () => setVisible(true);
   const hide = () => setVisible(false);
+
+  useEffect(() => {
+    if (!onControl) return;
+
+    // result returned Boolean
+    const result = onControl();
+    setVisible(result);
+  }, [onControl]);
 
   return (
     <CollapseWrapper visible={visible} content={content} className={className}>
