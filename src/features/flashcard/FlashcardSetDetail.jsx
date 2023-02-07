@@ -13,12 +13,18 @@ import EmptyState from 'assets/images/empty-state.jpg';
 import { FaRegSadCry } from 'react-icons/fa';
 import classNames from 'classnames';
 
+const initialUpdate = {
+  isUpdate: false,
+  initialData: {},
+};
+
 const FlashcardSetDetail = ({ pure = false, flashcardSetId: outerFlashcardSetId }) => {
   const [showShare, setShowShare] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
   const [showAddMultiple, setShowAddMultiple] = useState(false);
   const [search, setSearch] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
+  const [update, setUpdate] = useState(initialUpdate);
   const page = searchParams.get('p');
   const { flashcardSetId } = useParams();
   const {
@@ -33,6 +39,9 @@ const FlashcardSetDetail = ({ pure = false, flashcardSetId: outerFlashcardSetId 
   };
 
   const toggleAddModal = () => {
+    if (showAdd) {
+      setUpdate(initialUpdate);
+    }
     setShowAdd((prev) => !prev);
   };
 
@@ -62,6 +71,14 @@ const FlashcardSetDetail = ({ pure = false, flashcardSetId: outerFlashcardSetId 
 
   const Outer = pure ? React.Fragment : Container;
 
+  function toggleUpdateModal(index) {
+    toggleAddModal();
+    setUpdate({
+      isUpdate: true,
+      initialData: flashcards[index],
+    });
+  }
+
   return (
     <Outer>
       <div className="flex justify-center">
@@ -90,6 +107,7 @@ const FlashcardSetDetail = ({ pure = false, flashcardSetId: outerFlashcardSetId 
                 {flashcards?.map((flashcard, index) => (
                   <FlashcardSingle
                     {...flashcard}
+                    toggleAddModal={() => toggleUpdateModal(index)}
                     onDelete={fetchData}
                     isOwner={detail.isOwner}
                     key={index}
@@ -116,7 +134,14 @@ const FlashcardSetDetail = ({ pure = false, flashcardSetId: outerFlashcardSetId 
           )}
         </div>
 
-        <AddFlashcardModal onSubmit={handleCreate} isShowing={showAdd} hide={toggleAddModal} />
+        <AddFlashcardModal
+          isUpdate={update.isUpdate}
+          initialData={update.initialData}
+          onUpdate={fetchData}
+          onSubmit={handleCreate}
+          isShowing={showAdd}
+          hide={toggleAddModal}
+        />
         <AddMultipleFlashcardsModal onCreate={handleCreate} isShowing={showAddMultiple} hide={toggleAddMultipleModal} />
         <ShareFlashcardModal isShowing={showShare} hide={toggleShareModal} />
       </div>

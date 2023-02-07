@@ -94,14 +94,16 @@ const AddFlashcardModal = (props) => {
       const phonetic = await generatePhonetic(data);
       const newData = {
         ...data,
-        image: response ? response.data.url : initialData.image,
+        image: response ? response.data.url : image,
         audio: phonetic.audio,
         pronounce: phonetic.pronounce,
       };
+
       await updateFlashcardService({
         axios,
-        flashcardId: initialData.flashcardId,
         ...newData,
+        flashcardId: initialData.fc_id,
+        typeOfWord: initialData.type_of_word,
       });
       toast.success('Cập nhật flashcard thành công');
       onUpdate(newData);
@@ -117,6 +119,7 @@ const AddFlashcardModal = (props) => {
 
   const deleteImage = () => {
     setValue('image', '');
+    setImage('');
   };
 
   function handleDrop(e) {
@@ -208,7 +211,7 @@ const AddFlashcardModal = (props) => {
             >
               Thêm
             </label>
-            <button className="ml-4 font-semibold text-md text-ac_red" onClick={deleteImage}>
+            <button type="button" className="ml-4 font-semibold text-md text-ac_red" onClick={deleteImage}>
               Xoá
             </button>
           </div>
@@ -219,7 +222,7 @@ const AddFlashcardModal = (props) => {
             {...register('image')}
             accept="image/png, image/jpeg"
           />
-          <div className="mt-3 border border-br_gray rounded-lg h-[200px] overflow-hidden">
+          <div className="mt-3 border border-br_gray rounded-lg h-[360px] overflow-hidden">
             <img
               src={image || 'https://vmsco.vn/wp-content/uploads/2021/05/placeholder.png'}
               alt="flashcard"

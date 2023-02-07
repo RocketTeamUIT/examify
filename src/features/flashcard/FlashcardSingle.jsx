@@ -6,7 +6,6 @@ import { HiOutlineDotsHorizontal, HiTrash } from 'react-icons/hi';
 import useAxiosPrivate from 'hooks/useAxiosPrivate';
 import { deleteFlashcardService, markAsLearntService, markAsUnlearntService } from './services/flashcard';
 import { MdOutlineModeEditOutline } from 'react-icons/md';
-import AddFlashcardModal from './AddFlashcardModal';
 import { toast } from 'react-toastify';
 import classNames from 'classnames';
 
@@ -48,10 +47,10 @@ const FlashcardSingle = (props) => {
     isOwner,
     onDelete,
     audio,
+    toggleAddModal,
   } = props;
   const [data, setData] = useState(initialState);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [showAdd, setShowAdd] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const axios = useAxiosPrivate();
 
@@ -117,10 +116,6 @@ const FlashcardSingle = (props) => {
   const hide = () => {
     setShowDropdown(false);
   };
-
-  function toggleAddModal() {
-    setShowAdd((prev) => !prev);
-  }
 
   async function deleteFlashcard() {
     try {
@@ -213,8 +208,6 @@ const FlashcardSingle = (props) => {
           </div>
         )}
       </li>
-
-      <AddFlashcardModal isUpdate initialData={data} onUpdate={setData} isShowing={showAdd} hide={toggleAddModal} />
     </>
   );
 };
