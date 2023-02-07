@@ -137,11 +137,11 @@ const publicRouters = [
     component: ExamTaking,
     layout: ExamTakingLayout,
   },
-  {
-    path: config.routes.answerDetail,
-    component: AnswerDetail,
-    layout: ExamTakingLayout,
-  },
+  // {
+  //   path: config.routes.answerDetail,
+  //   component: AnswerDetail,
+  //   layout: ExamTakingLayout,
+  // },
 
   // Flashcard
   {

@@ -26,7 +26,7 @@ const routes = {
   examDetail: '/exams/:examId',
   recordDetail: '/exams/record-detail/:recordId',
   examTaking: '/exams/tackle',
-  answerDetail: '/exams/:examId/answer/',
+  // answerDetail: '/exams/:examId/answer/',
 
   // Flashcard
   flashcard: '/flashcards',
