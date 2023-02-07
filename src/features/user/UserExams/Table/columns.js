@@ -1,14 +1,5 @@
 import { Tag } from 'components/ui';
-import { formatDuration } from 'utils';
-
-const formatDate = (data) => {
-  const date = new Date(data);
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
-
-  return `${day}/${month + 1}/${year}`;
-};
+import { formatDuration, formatDate } from 'utils';
 
 export const COLUMNS = [
   {

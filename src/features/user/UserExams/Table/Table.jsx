@@ -1,19 +1,25 @@
 import OptionButton from './OptionButton';
-import { useMemo } from 'react';
-import { useTable } from 'react-table';
+import { useMemo, useEffect } from 'react';
+import { useTable, useFilters } from 'react-table';
 import { COLUMNS } from './columns';
-import MOCK_DATA from './MOCK_DATA.json';
 
-function Table() {
+function Table({ data: dataProps, valueFilterChange }) {
+  const data = useMemo(() => dataProps, [dataProps]);
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
 
-  const tableInstance = useTable({
-    columns,
-    data,
-  });
+  const tableInstance = useTable(
+    {
+      columns,
+      data,
+    },
+    useFilters,
+  );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, setAllFilters } = tableInstance;
+
+  useEffect(() => {
+    setAllFilters([{ id: 'examName', value: valueFilterChange }]);
+  }, [valueFilterChange, setAllFilters]);
 
   return (
     <table {...getTableProps()} className="border-separate border-spacing-y-3 w-full">
@@ -50,7 +56,7 @@ function Table() {
                     {...cell.getCellProps()}
                     className="first:rounded-l-lg last:rounded-r-lg text-md font-bold border-solid border-[1px] border-t_light_gray align-middle p-6 text-center"
                   >
-                    {index + 1 === row.cells.length ? <OptionButton examId={cell.row.id} /> : cell.render('Cell')}
+                    {index + 1 === row.cells.length ? <OptionButton examId={cell.value} /> : cell.render('Cell')}
                   </td>
                 );
               })}

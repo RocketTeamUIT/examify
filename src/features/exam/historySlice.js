@@ -1,4 +1,4 @@
-import { getAllRecord } from 'features/exam/services/exam';
+import { getAllRecordService } from 'features/exam/services/exam';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
 
 export const getAllRecordDetail = createAsyncThunk('record/getAllRecord', async ({ axiosPrivate }, thunkAPI) => {
   try {
-    const response = await getAllRecord(axiosPrivate);
+    const response = await getAllRecordService(axiosPrivate);
     return response.data;
   } catch (error) {
     thunkAPI.rejectWithValue(error?.message);

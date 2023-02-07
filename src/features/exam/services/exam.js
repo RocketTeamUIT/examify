@@ -30,6 +30,6 @@ export const getRecord = (axiosPrivate, id) => {
   return axiosPrivate.get(`/exams/result/${id}`, {}, { withCredentials: true });
 };
 
-export const getAllRecord = (axiosPrivate) => {
-  return axiosPrivate.get('/exams/history-taking');
+export const getAllRecordService = (axiosPrivate) => {
+  return axiosPrivate.get('/exams/history-taking', {}, { withCredentials: true });
 };
