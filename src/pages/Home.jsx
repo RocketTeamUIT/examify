@@ -114,7 +114,7 @@ const Home = () => {
             </div>
             {/* List Course */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-8">
-              {exams.length > 0 && exams.map((exam) => <ExamItem list={false} exam={exam} key={exam.id} />)}
+              {exams.length > 0 && exams.slice(0, 4).map((exam) => <ExamItem list={false} exam={exam} key={exam.id} />)}
             </div>
           </>
         )}
