@@ -50,10 +50,19 @@ const AddFlashcardModal = (props) => {
   }, [imageFile]);
 
   useEffect(() => {
+    console.log('🚀 ~ file: AddFlashcardModal.jsx:58 ~ useEffect ~ initialData', initialData);
     if (isUpdate) {
       reset(initialData);
-      setImage(initialData.image);
+    } else {
+      setValue('word', '');
+      setValue('typeOfWord', 'noun');
+      setValue('meaning', '');
+      setValue('pronounce', '');
+      setValue('image', '');
+      setValue('example', '');
+      setValue('note', '');
     }
+    setImage(initialData.image);
   }, [isUpdate, initialData, reset, setValue]);
 
   const toggleMore = () => {
