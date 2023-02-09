@@ -33,7 +33,7 @@ function UserProfile() {
     try {
       setIsLoading(true);
       const response = await uploadImageService(image, 'examify');
-      const url = response.data.url;
+      const url = response?.data?.url;
       if (imageType === 'avatar') {
         setAvt(URL.createObjectURL(image));
         dispatch(
