@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+import { VIDEOS } from 'data/mock';
 import React, { useRef, useState } from 'react';
 import { useEffect } from 'react';
 import { AiOutlineArrowDown, AiOutlineArrowUp, AiOutlineCheck, AiOutlineMenu } from 'react-icons/ai';
@@ -42,8 +44,10 @@ export default function CourseLearn() {
 
       <VideoScroll outerRef={ref} videoRefs={videoRefs} focus={focus} setFocus={setFocus} />
 
-      <div className="h-full flex flex-col justify-between py-5">
-        <IconButton icon={AiOutlineCheck} text="text-[#2C972D]" disabled />
+      <div
+        className={classNames('h-full flex flex-col py-5', VIDEOS[focus].learnt ? 'justify-between' : 'justify-end')}
+      >
+        {VIDEOS[focus].learnt && <IconButton icon={AiOutlineCheck} text="text-[#2C972D]" disabled />}
         <IconButton icon={AiOutlineMenu} />
       </div>
     </div>

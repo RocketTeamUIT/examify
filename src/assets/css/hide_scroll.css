@@ -1,4 +1,0 @@
-/* Scrollbar */
-html *::-webkit-scrollbar {
-  display: none;
-}
