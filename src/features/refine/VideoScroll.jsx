@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Video from './Video';
 import 'assets/css/hide_scroll.css';
 import { useRef } from 'react';
@@ -16,36 +16,41 @@ const VIDEOS = [
   {
     src: 'https://res.cloudinary.com/doxsstgkc/video/upload/v1675918351/examify-refine/ssstik.io_1675918139190_avtevq.mp4',
   },
+  {
+    src: 'https://res.cloudinary.com/doxsstgkc/video/upload/v1675924886/examify-refine/ssstik.io_1675924762697_pusrsw.mp4',
+  },
 ];
 
 export default function VideoScroll({ videoRefs, focus, setFocus, outerRef }) {
   const ref = useRef(0);
+  const flag = useRef(false);
 
   function handleScroll(e) {
-    // if (e.currentTarget.scrollTop > ref.current) {
-    //   setFocus((prev) => prev + 1);
-    // } else if (e.currentTarget.scrollTop < ref.current) {
-    //   setFocus((prev) => prev - 1);
-    // }
-    // ref.current = e.currentTarget.scrollTop;
+    if (!flag.current) {
+      if (e.currentTarget.scrollTop > ref.current) {
+        if (focus < videoRefs.current.length) {
+          setFocus((prev) => prev + 1);
+        }
+      } else if (e.currentTarget.scrollTop < ref.current) {
+        if (focus > 0) {
+          setFocus((prev) => prev - 1);
+        }
+      }
+      flag.current = true;
+      setTimeout(() => {
+        flag.current = false;
+      }, 500);
+    }
+    ref.current = e.currentTarget.scrollTop;
   }
 
   return (
     <>
-      <div
-        onClick={() => {
-          console.log(videoRefs.current.map((i) => i.getBoundingClientRect().top));
-        }}
-      >
-        {focus}
-      </div>
       <div className="h-full flex-1 space-y-6 overflow-auto" ref={outerRef} onScroll={handleScroll}>
         <div className="h-5"></div>
-        {Array(5)
-          .fill('')
-          .map((_, index) => (
-            <Video focus={focus} key={index} index={index} ref={(el) => (videoRefs.current[index] = el)} />
-          ))}
+        {VIDEOS.map((item, index) => (
+          <Video focus={focus} src={item.src} key={index} index={index} ref={(el) => (videoRefs.current[index] = el)} />
+        ))}
         <div className="h-5"></div>
       </div>
     </>

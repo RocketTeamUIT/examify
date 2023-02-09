@@ -24,12 +24,7 @@ const SuspenseLayout = ({ children }) => {
     }
   }, [location]);
 
-  return (
-    <>
-      {isLoading && <LoadingScreen />}
-      <div className={classNames(isLoading && 'opacity-0 pointer-events-none')}>{children}</div>
-    </>
-  );
+  return children;
 };
 
 export default SuspenseLayout;
