@@ -4,7 +4,7 @@ import Tippy from '@tippyjs/react';
 import { HiEllipsisHorizontal } from 'react-icons/hi2';
 import { useNavigate } from 'react-router-dom';
 
-function OptionButton({ examId }) {
+function OptionButton({ examId, recordId }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const showMenu = () => setMenuVisible(true);
   const hideMenu = () => setMenuVisible(false);
@@ -23,8 +23,7 @@ function OptionButton({ examId }) {
             {
               title: 'Xem chi tiết đáp án',
               action: () => {
-                // Temp
-                navigate(`/exams/${examId}`);
+                navigate(`/exams/record-detail/${recordId}`);
               },
             },
             {

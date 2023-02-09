@@ -39,6 +39,6 @@ export const COLUMNS = [
   {
     Header: '',
     accessor: 'examId',
-    Cell: (props) => <OptionButton examId={props.value} />,
+    Cell: (props) => <OptionButton examId={props.value} recordId={props.row.original.id} />,
   },
 ];
