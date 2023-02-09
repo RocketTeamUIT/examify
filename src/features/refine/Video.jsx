@@ -51,7 +51,7 @@ const Video = forwardRef(({ index, focus, src }, ref) => {
   }, [handleKeydown]);
 
   useEffect(() => {
-    setTimeout(() => setMuted(false), 5000);
+    setTimeout(() => setMuted(false), 2000);
     // videoRef.current.play();
   }, []);
 
