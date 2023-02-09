@@ -15,7 +15,7 @@ import { searchCourseService } from '../../features/course/services/course';
 import { printPrice } from '../../utils/formatCurrency';
 
 const NAVIGATION_LIST = [
-  ['Khoá học', '/courses'],
+  ['Khoá học', '/learn'],
   ['Đề thi', '/exams'],
   ['Flashcard', '/flashcards'],
 ];

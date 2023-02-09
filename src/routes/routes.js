@@ -34,6 +34,8 @@ import AnswerDetail from 'features/exam/AnswerDetail';
 
 //Contest
 import { ContestHome, ContestMain } from '../features/contest';
+import CourseLearn from 'features/refine/CourseLearn';
+import HeaderLayout from 'layouts/HeaderLayout';
 
 // Public routes
 //  Default is DefaultLayout if `layout` is not given
@@ -165,6 +167,13 @@ const publicRouters = [
   { path: config.routes.tuanBig, component: TuanBigTest },
 
   { path: 'test', component: Test },
+
+  // GTNM
+  {
+    path: '/learn',
+    component: CourseLearn,
+    layout: HeaderLayout,
+  },
 ];
 
 // Private routes
