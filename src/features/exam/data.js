@@ -13062,3 +13062,72 @@ export const dataRecord = {
     },
   ],
 };
+
+export const dataReview = [
+  {
+    type: 'Listening',
+    skillBracketAbilities: {
+      title:
+        'Điểm của bạn khoảng giữa từ 300 đến 400. Thí sinh đạt điểm trong khoảng 300 trở đi nhìn chung sẽ có những điểm mạnh như sau:',
+      abilitiesList: [
+        'Thí sinh thỉnh thoảng có thể suy luận ra ý chính, mục đích chính và ngữ cảnh cơ bản của các đoạn hội thoại ngắn, đặc biệt là khi từ vựng không khó.',
+        'Thí sinh có thể hiểu ý chính, mục đích, ngữ cảnh cơ bản khi thông tin này được lặp lại hoặc diễn giải.',
+        'Thí sinh có thể hiểu chi tiết trong các cuộc hội thoại ngắn, khi những cuộc thoại này sử dụng từ vựng ở mức độ dễ hoặc trung bình.',
+        'Thí sinh có thể hiểu chi tiết trong những cuộc hội thoại dài khi được nghe lặp lại và khi thông tin then chốt xuất hiện ở đầu hoặc cuối đoạn hội thoại. Thí sinh có thể hiểu chi tiết khi những thông tin này được diễn giải một chút.',
+      ],
+    },
+    skillMeasureList: [
+      {
+        title: 'Suy luận theo ngữ cảnh',
+        percentVal: 66,
+      },
+      {
+        title: 'Nắm bắt ý chính và từ khóa',
+        percentVal: 58,
+      },
+      {
+        title: 'Hiểu chi tiết đoạn hội thoại ngắn',
+        percentVal: 62,
+      },
+      {
+        title: 'Hiểu chi tiết đoạn hội thoại dài',
+        percentVal: 61,
+      },
+    ],
+  },
+  {
+    type: 'Reading',
+    skillBracketAbilities: {
+      title: 'Điểm của bạn gần khoảng 350. Thí sinh đạt điểm trong khoảng 350 trở đi sẽ có những điểm mạnh như sau:',
+      abilitiesList: [
+        'Thí sinh có thể suy luận ý chính và mục đích của một đoạn viết, có thể suy luận về các chi tiết nhỏ.',
+        'Thí sinh có thể tóm gọn được thông tin. Thí sinh có thể hiểu được thông tin thực tế, ngay cả khi những thông tin này chú giải dài dòng.',
+        'Thí sinh có thể kết hợp thông tin từ những phần khác trong đoạn văn, ngay cả khi từ vựng và ngữ pháp của đoạn văn khó.',
+        'Thí sinh có thể hiểu từ vựng ở mức độ trung bình. Thỉnh thoảng có thể hiểu từ vựng khó trong một ngữ cảnh, ý nghĩa khác của một từ vựng có nghĩa thông dụng và ý nghĩa của một câu sử dụng thành ngữ.',
+        'Thí sinh có thể hiểu các cấu cơ bản của ngữ pháp. Thí sinh có thể hiểu các cấu trúc ngữ pháp khó, phức tạp và không phổ biến.',
+      ],
+    },
+    skillMeasureList: [
+      {
+        title: 'Suy luận theo thông tin văn bản',
+        percentVal: 72,
+      },
+      {
+        title: 'Hiểu thông tin đặc biệt trong đoạn',
+        percentVal: 74,
+      },
+      {
+        title: 'Kết hợp thông tin từ nhiều câu',
+        percentVal: 65,
+      },
+      {
+        title: 'Hiểu từ vựng trong đoạn văn',
+        percentVal: 77,
+      },
+      {
+        title: 'Hiểu ngữ pháp  trong đoạn văn',
+        percentVal: 70,
+      },
+    ],
+  },
+];

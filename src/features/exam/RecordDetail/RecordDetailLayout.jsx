@@ -5,7 +5,7 @@ function RecordDetailLayout({ children }) {
   return (
     <Container>
       <div className="grid grid-cols-12 gap-5">
-        <div className="mt-8 mb-20 col-start-3 col-span-8">{children}</div>
+        <div className="mt-8 mb-20 col-start-2 col-span-10">{children}</div>
       </div>
     </Container>
   );
