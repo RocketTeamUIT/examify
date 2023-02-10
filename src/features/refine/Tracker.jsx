@@ -18,9 +18,9 @@ export default function Tracker({ focus, setFocus }) {
           <div
             key={index}
             className={classNames(
-              'h-[60px] px-5 text-t_dark flex items-center cursor-pointer transition relative',
+              'h-[60px] px-5 text-t_dark flex items-center transition relative',
               focus === index && 'bg-[#E7E5EA] font-bold',
-              VIDEOS[index].unlocked && 'hover:bg-[#E7E5EA]',
+              VIDEOS[index].unlocked && 'cursor-pointer hover:bg-[#E7E5EA]',
             )}
             onClick={() => {
               if (VIDEOS[index].unlocked) {
@@ -38,11 +38,11 @@ export default function Tracker({ focus, setFocus }) {
             className="flex items-center justify-center h-[80px] w-[80px] rounded-full relative progress-wrapper"
             style={{
               '--border-color': '#208AFF',
-              '--degree': '120deg',
+              '--degree': '240deg',
             }}
           >
             <span className="text-[1.125rem] font-semibold w-[58px] h-[58px] bg-white rounded-full flex items-center justify-center text-ac_lighter_blue">
-              33%
+              67%
             </span>
           </div>
         </div>

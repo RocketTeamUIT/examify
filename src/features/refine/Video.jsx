@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { VIDEOS } from 'data/mock';
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import { CgTranscript } from 'react-icons/cg';
 import { IoIosPause } from 'react-icons/io';
@@ -33,6 +34,7 @@ const Video = forwardRef(({ index, focus, data }, ref) => {
   const VolumeButton = muted ? IoVolumeMute : IoVolumeMedium;
 
   const toggle = useCallback(() => {
+    if (!VIDEOS[index].unlocked) return;
     if (playing) {
       videoRef.current.pause();
       setPlaying(false);
@@ -40,7 +42,7 @@ const Video = forwardRef(({ index, focus, data }, ref) => {
       videoRef.current.play();
       setPlaying(true);
     }
-  }, [playing]);
+  }, [playing, index]);
 
   const handleKeydown = useCallback(
     (e) => {
@@ -68,13 +70,13 @@ const Video = forwardRef(({ index, focus, data }, ref) => {
   }
 
   function findTranscript(time) {
-    return data.transcript.find((item) => item.start / 1000 >= time || !item.end || time <= item.end / 1000);
+    return data.transcript.find((item) => time >= item.start / 1000 && (!item.end || time <= item.end / 1000)) ?? {};
   }
 
   function updateTranscript(e) {
     const currentTime = e.currentTarget.currentTime;
 
-    if (!transcript.start) {
+    if (!transcript.start || currentTime === 0) {
       setTranscript(findTranscript(currentTime));
       return;
     }
@@ -109,7 +111,7 @@ const Video = forwardRef(({ index, focus, data }, ref) => {
       <VolumeButton className="h-6 w-6 absolute top-5 right-5 text-white" onClick={toggleVolume} />
       <div className="bg-gradient-to-t from-[#000000ab] to-[#00000000] absolute bottom-0 left-0 right-0 rounded-[0_0_16px_16px] p-5 text-white text-[20px_28px]">
         {/* Transcript */}
-        {playing && (
+        {playing && transcript.text && (
           <div
             className="bg-[#33333380] hover:bg-[#333333bb] cursor-pointer p-3 font-medium rounded-xl w-fit"
             onClick={toggleShow}
