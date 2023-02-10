@@ -13062,3 +13062,167 @@ export const dataRecord = {
     },
   ],
 };
+
+export const dataReview = [
+  {
+    type: 'Listening',
+    skillBracketAbilities: {
+      title:
+        'Điểm của bạn khoảng giữa từ 300 đến 400. Thí sinh đạt điểm trong khoảng 300 trở đi nhìn chung sẽ có những điểm mạnh như sau:',
+      abilitiesList: [
+        'Thí sinh thỉnh thoảng có thể suy luận ra ý chính, mục đích chính và ngữ cảnh cơ bản của các đoạn hội thoại ngắn, đặc biệt là khi từ vựng không khó.',
+        'Thí sinh có thể hiểu ý chính, mục đích, ngữ cảnh cơ bản khi thông tin này được lặp lại hoặc diễn giải.',
+        'Thí sinh có thể hiểu chi tiết trong các cuộc hội thoại ngắn, khi những cuộc thoại này sử dụng từ vựng ở mức độ dễ hoặc trung bình.',
+        'Thí sinh có thể hiểu chi tiết trong những cuộc hội thoại dài khi được nghe lặp lại và khi thông tin then chốt xuất hiện ở đầu hoặc cuối đoạn hội thoại. Thí sinh có thể hiểu chi tiết khi những thông tin này được diễn giải một chút.',
+      ],
+    },
+    skillMeasureList: [
+      {
+        title: 'Suy luận theo ngữ cảnh',
+        percentVal: 66,
+      },
+      {
+        title: 'Nắm bắt ý chính và từ khóa',
+        percentVal: 58,
+      },
+      {
+        title: 'Hiểu chi tiết đoạn hội thoại ngắn',
+        percentVal: 62,
+      },
+      {
+        title: 'Hiểu chi tiết đoạn hội thoại dài',
+        percentVal: 61,
+      },
+    ],
+  },
+  {
+    type: 'Reading',
+    skillBracketAbilities: {
+      title: 'Điểm của bạn gần khoảng 350. Thí sinh đạt điểm trong khoảng 350 trở đi sẽ có những điểm mạnh như sau:',
+      abilitiesList: [
+        'Thí sinh có thể suy luận ý chính và mục đích của một đoạn viết, có thể suy luận về các chi tiết nhỏ.',
+        'Thí sinh có thể tóm gọn được thông tin. Thí sinh có thể hiểu được thông tin thực tế, ngay cả khi những thông tin này chú giải dài dòng.',
+        'Thí sinh có thể kết hợp thông tin từ những phần khác trong đoạn văn, ngay cả khi từ vựng và ngữ pháp của đoạn văn khó.',
+        'Thí sinh có thể hiểu từ vựng ở mức độ trung bình. Thỉnh thoảng có thể hiểu từ vựng khó trong một ngữ cảnh, ý nghĩa khác của một từ vựng có nghĩa thông dụng và ý nghĩa của một câu sử dụng thành ngữ.',
+        'Thí sinh có thể hiểu các cấu cơ bản của ngữ pháp. Thí sinh có thể hiểu các cấu trúc ngữ pháp khó, phức tạp và không phổ biến.',
+      ],
+    },
+    skillMeasureList: [
+      {
+        title: 'Suy luận theo thông tin văn bản',
+        percentVal: 72,
+      },
+      {
+        title: 'Hiểu thông tin đặc biệt trong đoạn',
+        percentVal: 74,
+      },
+      {
+        title: 'Kết hợp thông tin từ nhiều câu',
+        percentVal: 65,
+      },
+      {
+        title: 'Hiểu từ vựng trong đoạn văn',
+        percentVal: 77,
+      },
+      {
+        title: 'Hiểu ngữ pháp  trong đoạn văn',
+        percentVal: 70,
+      },
+    ],
+  },
+];
+
+export const dataComment = {
+  commentList: [
+    {
+      commentId: 6,
+      userId: 1,
+      courseId: 11,
+      respondId: null,
+      content: 'Phần tư vấn cải thiện điểm này rất là hữu ích',
+      totalLike: 0,
+      createdAt: '2023-02-10T01:51:54.147Z',
+      updatedAt: '2023-02-10T01:51:54.147Z',
+      hasLiked: false,
+      user: {
+        id: 1,
+        avt: 'http://res.cloudinary.com/dt68ufvrr/image/upload/v1673599864/swkvdaj6wioqvfhiqupy.jpg',
+        lastName: 'Tuấn',
+        firstName: 'Nguyễn Thái',
+        rank: {
+          rankId: 1,
+          rankName: 'Luyện Khí',
+        },
+      },
+      childComment: [],
+    },
+    {
+      commentId: 5,
+      userId: 1,
+      courseId: 11,
+      respondId: null,
+      content: 'Sao mình bị nghe nhanh hơn bình thường ấy nhỉ ?',
+      totalLike: 0,
+      createdAt: '2023-02-10T01:51:36.887Z',
+      updatedAt: '2023-02-10T01:51:36.887Z',
+      hasLiked: false,
+      user: {
+        id: 1,
+        avt: 'http://res.cloudinary.com/dt68ufvrr/image/upload/v1673599864/swkvdaj6wioqvfhiqupy.jpg',
+        lastName: 'Tuấn',
+        firstName: 'Nguyễn Thái',
+        rank: {
+          rankId: 1,
+          rankName: 'Luyện Khí',
+        },
+      },
+      childComment: [
+        {
+          commentId: 7,
+          userId: 1,
+          courseId: 11,
+          respondId: 5,
+          content:
+            'Có thể là bạn với làm quen với đề thi nên nhanh là chuyện bình thường. Bạn có thể làm quen bằng cách điều chỉnh tốc độ của đoạn audio',
+          totalLike: 1,
+          createdAt: '2023-02-10T01:51:59.718Z',
+          updatedAt: '2023-02-10T01:52:02.176Z',
+          hasLiked: true,
+          user: {
+            id: 1,
+            avt: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1676021005/image_4_u4kgni.png',
+            lastName: 'Phúc',
+            firstName: 'Hoàng Văn',
+            rank: {
+              rankId: 1,
+              rankName: 'Trợ giảng',
+            },
+          },
+        },
+        {
+          commentId: 7,
+          userId: 1,
+          courseId: 11,
+          respondId: 5,
+          content: 'Mình cảm ơn đội ngũ giảng viên nhiều ạ!',
+          totalLike: 1,
+          createdAt: '2023-02-10T01:51:59.718Z',
+          updatedAt: '2023-02-10T01:52:02.176Z',
+          hasLiked: true,
+          user: {
+            id: 1,
+            avt: 'http://res.cloudinary.com/dt68ufvrr/image/upload/v1673599864/swkvdaj6wioqvfhiqupy.jpg',
+            lastName: 'Tuấn',
+            firstName: 'Nguyễn Thái',
+            rank: {
+              rankId: 1,
+              rankName: 'Luyện Khí',
+            },
+          },
+        },
+      ],
+    },
+  ],
+  totalRootComment: 2,
+  totalComment: 3,
+};

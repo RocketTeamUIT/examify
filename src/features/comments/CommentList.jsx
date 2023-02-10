@@ -16,6 +16,8 @@ const CommentList = ({
   selected,
   setSelected,
   loading,
+  includeHeader = true,
+  includeContainerTemp = false,
 }) => {
   const Divider = () => <div className="border-t br_light_gray w-full mt-[6px] mb-[14px]" />;
 
@@ -25,64 +27,130 @@ const CommentList = ({
   }, [totalRootComments]);
 
   return (
-    <div className="grid grid-cols-12">
-      <div className="col-span-full xl:col-span-8">
-        {/* Header */}
-        <div className="flex">
-          <h2 className="font-semibold text-h3 relative w-fit mb-8">
-            Bình luận
-            <div className="absolute left-[calc(100%+4px)] -top-1">
-              <Tag color="red">{totalComments}</Tag>
-            </div>
-          </h2>
-          <div className="ml-auto">
-            <Dropdown
-              initialState={0}
-              data={{
-                type: 'active',
-                actionsList: [
-                  {
-                    title: 'Mới nhất',
-                    action: () => {
-                      setType('latest');
-                    },
-                  },
-                  {
-                    title: 'Phổ biến',
-                    action: () => {
-                      setType('popular');
-                    },
-                  },
-                ],
-              }}
-            >
-              Sắp xếp theo
-            </Dropdown>
+    <>
+      {!includeContainerTemp && (
+        <div className="grid grid-cols-12">
+          <div className="col-span-full xl:col-span-8">
+            {/* Header */}
+            {includeHeader && (
+              <div className="flex">
+                <h2 className="font-semibold text-h3 relative w-fit mb-8">
+                  Bình luận
+                  <div className="absolute left-[calc(100%+4px)] -top-1">
+                    <Tag color="red">{totalComments}</Tag>
+                  </div>
+                </h2>
+                <div className="ml-auto">
+                  <Dropdown
+                    initialState={0}
+                    data={{
+                      type: 'active',
+                      actionsList: [
+                        {
+                          title: 'Mới nhất',
+                          action: () => {
+                            setType('latest');
+                          },
+                        },
+                        {
+                          title: 'Phổ biến',
+                          action: () => {
+                            setType('popular');
+                          },
+                        },
+                      ],
+                    }}
+                  >
+                    Sắp xếp theo
+                  </Dropdown>
+                </div>
+              </div>
+            )}
+
+            {/* Create new comment */}
+            <CommentEditor reloadComments={reloadComments} />
+            <Divider />
+
+            {!loading && (
+              <>
+                {comments.map((comment, index) => {
+                  return (
+                    <div key={index}>
+                      <Comment reloadComments={reloadComments} comment={comment} />
+                      {index !== comments.length - 1 && <Divider />}
+                    </div>
+                  );
+                })}
+
+                <div className="flex justify-center mt-8">
+                  <Pagination length={totalPages} selected={selected} setSelected={setSelected} />
+                </div>
+              </>
+            )}
           </div>
         </div>
-
-        {/* Create new comment */}
-        <CommentEditor reloadComments={reloadComments} />
-        <Divider />
-
-        {!loading && (
-          <>
-            {comments.map((comment, index) => {
-              return (
-                <div key={index}>
-                  <Comment reloadComments={reloadComments} comment={comment} />
-                  {index !== comments.length - 1 && <Divider />}
+      )}
+      {includeContainerTemp && (
+        <div className="w-full">
+          {/* Header */}
+          {includeHeader && (
+            <div className="flex">
+              <h2 className="font-semibold text-h3 relative w-fit mb-8">
+                Bình luận
+                <div className="absolute left-[calc(100%+4px)] -top-1">
+                  <Tag color="red">{totalComments}</Tag>
                 </div>
-              );
-            })}
-
-            <div className="flex justify-center mt-8">
-              <Pagination length={totalPages} selected={selected} setSelected={setSelected} />
+              </h2>
+              <div className="ml-auto">
+                <Dropdown
+                  initialState={0}
+                  data={{
+                    type: 'active',
+                    actionsList: [
+                      {
+                        title: 'Mới nhất',
+                        action: () => {
+                          setType('latest');
+                        },
+                      },
+                      {
+                        title: 'Phổ biến',
+                        action: () => {
+                          setType('popular');
+                        },
+                      },
+                    ],
+                  }}
+                >
+                  Sắp xếp theo
+                </Dropdown>
+              </div>
             </div>
-          </>
-        )}
-      </div>
-    </div>
+          )}
+
+          {/* Create new comment */}
+          <CommentEditor reloadComments={reloadComments} />
+          <Divider />
+
+          {!loading && (
+            <>
+              {comments.map((comment, index) => {
+                return (
+                  <div key={index}>
+                    <Comment reloadComments={reloadComments} comment={comment} />
+                    {index !== comments.length - 1 && <Divider />}
+                  </div>
+                );
+              })}
+
+              <div className="flex justify-center mt-8">
+                <Pagination length={totalPages} selected={selected} setSelected={setSelected} />
+              </div>
+            </>
+          )}
+        </div>
+      )}
+    </>
   );
 };
 

@@ -8,6 +8,8 @@ import { QuestionModal } from '../components/QuestionCircle';
 import { useSelector } from 'react-redux';
 import { isEmptyObject } from 'utils';
 import config from 'config';
+import Review from './Review';
+import { dataReview } from '../data';
 
 function RecordDetailBase() {
   const location = useLocation();
@@ -57,10 +59,15 @@ function RecordDetailBase() {
         </div>
       </div>
 
+      <h2 className="text-h4 font-medium mb-5">Kết quả bài làm</h2>
+
       {/* if use at here, performance is optimized */}
       <QuestionModal />
 
       <Outlet context={[partIdList, partIdListGrByHashtag]} />
+
+      {/* Section static */}
+      <Review data={dataReview} />
     </RecordDetailLayout>
   );
 }
