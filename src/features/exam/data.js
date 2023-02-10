@@ -13131,3 +13131,98 @@ export const dataReview = [
     ],
   },
 ];
+
+export const dataComment = {
+  commentList: [
+    {
+      commentId: 6,
+      userId: 1,
+      courseId: 11,
+      respondId: null,
+      content: 'Phần tư vấn cải thiện điểm này rất là hữu ích',
+      totalLike: 0,
+      createdAt: '2023-02-10T01:51:54.147Z',
+      updatedAt: '2023-02-10T01:51:54.147Z',
+      hasLiked: false,
+      user: {
+        id: 1,
+        avt: 'http://res.cloudinary.com/dt68ufvrr/image/upload/v1673599864/swkvdaj6wioqvfhiqupy.jpg',
+        lastName: 'Tuấn',
+        firstName: 'Nguyễn Thái',
+        rank: {
+          rankId: 1,
+          rankName: 'Luyện Khí',
+        },
+      },
+      childComment: [],
+    },
+    {
+      commentId: 5,
+      userId: 1,
+      courseId: 11,
+      respondId: null,
+      content: 'Sao mình bị nghe nhanh hơn bình thường ấy nhỉ ?',
+      totalLike: 0,
+      createdAt: '2023-02-10T01:51:36.887Z',
+      updatedAt: '2023-02-10T01:51:36.887Z',
+      hasLiked: false,
+      user: {
+        id: 1,
+        avt: 'http://res.cloudinary.com/dt68ufvrr/image/upload/v1673599864/swkvdaj6wioqvfhiqupy.jpg',
+        lastName: 'Tuấn',
+        firstName: 'Nguyễn Thái',
+        rank: {
+          rankId: 1,
+          rankName: 'Luyện Khí',
+        },
+      },
+      childComment: [
+        {
+          commentId: 7,
+          userId: 1,
+          courseId: 11,
+          respondId: 5,
+          content:
+            'Có thể là bạn với làm quen với đề thi nên nhanh là chuyện bình thường. Bạn có thể làm quen bằng cách điều chỉnh tốc độ của đoạn audio',
+          totalLike: 1,
+          createdAt: '2023-02-10T01:51:59.718Z',
+          updatedAt: '2023-02-10T01:52:02.176Z',
+          hasLiked: true,
+          user: {
+            id: 1,
+            avt: 'https://res.cloudinary.com/dt68ufvrr/image/upload/v1676021005/image_4_u4kgni.png',
+            lastName: 'Phúc',
+            firstName: 'Hoàng Văn',
+            rank: {
+              rankId: 1,
+              rankName: 'Trợ giảng',
+            },
+          },
+        },
+        {
+          commentId: 7,
+          userId: 1,
+          courseId: 11,
+          respondId: 5,
+          content: 'Mình cảm ơn đội ngũ giảng viên nhiều ạ!',
+          totalLike: 1,
+          createdAt: '2023-02-10T01:51:59.718Z',
+          updatedAt: '2023-02-10T01:52:02.176Z',
+          hasLiked: true,
+          user: {
+            id: 1,
+            avt: 'http://res.cloudinary.com/dt68ufvrr/image/upload/v1673599864/swkvdaj6wioqvfhiqupy.jpg',
+            lastName: 'Tuấn',
+            firstName: 'Nguyễn Thái',
+            rank: {
+              rankId: 1,
+              rankName: 'Luyện Khí',
+            },
+          },
+        },
+      ],
+    },
+  ],
+  totalRootComment: 2,
+  totalComment: 3,
+};
