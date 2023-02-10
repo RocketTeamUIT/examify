@@ -1,0 +1,58 @@
+.skill-per {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 95%;
+  border-radius: 6px;
+  animation: progress 0.4s ease-in-out forwards;
+  opacity: 0;
+}
+.skill-per.listening {
+  /* width: var(--score) / 450; */
+  animation-delay: 0.1s;
+  background: #187321;
+}
+.skill-per.reading {
+  /* width: var(--score) / 450; */
+  animation-delay: 0.1s;
+  background: #b74809;
+}
+.skill-per .tooltip {
+  position: absolute;
+  right: -18px;
+  top: -42px;
+  font-size: 10px;
+  font-weight: 800;
+  font-family: 'Tomorrow';
+  height: 36px;
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 100%;
+  background: #fff;
+  z-index: 1;
+}
+.tooltip::before {
+  content: '';
+  position: absolute;
+  right: 9px;
+  bottom: -9px;
+  height: 0px;
+  width: 0px;
+  z-index: -1;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #000;
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}

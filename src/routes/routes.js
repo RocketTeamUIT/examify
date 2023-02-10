@@ -31,6 +31,7 @@ import Flashcard, { ExploreFlashcard, FlashcardPractice, FlashcardSetDetail, MyF
 import ExamTaking from 'features/exam/ExamTaking';
 import ExamTakingLayout from 'layouts/ExamTakingLayout';
 import AnswerDetail from 'features/exam/AnswerDetail';
+import ExamAnswer from 'features/exam/ExamAnswer';
 
 //Contest
 import { ContestHome, ContestMain } from '../features/contest';
@@ -142,6 +143,11 @@ const publicRouters = [
   //   component: AnswerDetail,
   //   layout: ExamTakingLayout,
   // },
+  {
+    path: config.routes.examAnswer,
+    component: ExamAnswer,
+    layout: NoRecommendLayout,
+  },
 
   // Flashcard
   {
