@@ -1,3 +1,14 @@
+## Hướng dẫn cài đặt
+### Cài đặt Frontend và chạy Automation test (lab 3) sử dụng Jest và React-testing-library:
+- Clone repository này về máy
+- Mở Terminal/CMD tại vị trí thư mục
+- Gõ lệnh: `npm install`
+- Sau đó gõ lệnh: `npm run coverage` để thực hiện automation test
+### Thực hiện Blackbox Testing
+- Do cấu trúc phức tạp của dự án, mong cô truy cập vào đường dẫn sau để truy cập tới trang web:
+[Examify - Website to Learn and Practice English](https://examify-ten.vercel.app/)
+- Khi gặp bất cứ vấn đề gì với website (vì project sử dụng free tier/trial T_T, nên có thể hết bandwidth), phiền cô gọi nhóm 9 ở trên Zalo ạ (SE113 - Web)
+
 ## Folder Structure
 
 ```

@@ -26,6 +26,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
+      serif: ['Tomorrow', 'sans-serif'],
     },
     fontWeight: {
       light: 300,
