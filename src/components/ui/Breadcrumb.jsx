@@ -31,19 +31,20 @@ export function BreadcrumbItem({ children, isCurrent = false }) {
 }
 
 function Breadcrumb({ hierarchy }) {
-  return (
-    // Wrapper
-    <ol aria-label="breadcrumb" className="flex gap-2 items-center">
-      {hierarchy.map((data, index) => (
-        <React.Fragment key={index}>
-          {/* Items */}
-          <BreadcrumbItem isCurrent={hierarchy.length === index + 1}>{data}</BreadcrumbItem>
-          {/* Icon */}
-          {hierarchy.length !== index + 1 && <HiOutlineChevronRight className="dark:text-t_gray" />}
-        </React.Fragment>
-      ))}
-    </ol>
-  );
+  return null;
+  // return (
+  //   // Wrapper
+  //   <ol aria-label="breadcrumb" className="flex gap-2 items-center">
+  //     {hierarchy.map((data, index) => (
+  //       <React.Fragment key={index}>
+  //         {/* Items */}
+  //         <BreadcrumbItem isCurrent={hierarchy.length === index + 1}>{data}</BreadcrumbItem>
+  //         {/* Icon */}
+  //         {hierarchy.length !== index + 1 && <HiOutlineChevronRight className="dark:text-t_gray" />}
+  //       </React.Fragment>
+  //     ))}
+  //   </ol>
+  // );
 }
 
 BreadcrumbItem.propTypes = {

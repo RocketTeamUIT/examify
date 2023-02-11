@@ -50,11 +50,6 @@ function RecordDetailBase() {
             <></>
           )}
         </div>
-
-        <div className="mt-6">
-          <Table data={headerData} />
-          <div className="mt-7 mb-7 h-[1px] bg-bg_light_gray_3"></div>
-        </div>
       </div>
 
       <h2 className="text-h4 font-medium mb-5">Kết quả bài làm</h2>

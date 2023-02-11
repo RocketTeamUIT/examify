@@ -24,6 +24,8 @@ const Tag = ({ children, color = 'volcano', icon, width }) => {
   // Check validity of color
   const checkColor = COLORS[color] === undefined ? color : COLORS[color];
 
+  return null;
+
   return (
     <div
       role="presentation"
