@@ -42,8 +42,15 @@ export default function CourseLearn() {
   return (
     <div className="bg-white flex h-[calc(100vh-60px)] relative">
       <div className="px-5 flex-1 flex justify-between h-full">
-        <div className="h-full hidden absolute sm:static sm:flex flex-col justify-between py-5">
-          <IconButton icon={AiOutlineArrowUp} ref={prevRef} onClick={() => next(-1, prevRef.current)} />
+        <div
+          className={classNames(
+            'h-full hidden absolute sm:static sm:flex flex-col py-5',
+            focus === 0 ? 'justify-end' : 'justify-between',
+          )}
+        >
+          {focus !== 0 && (
+            <IconButton icon={AiOutlineArrowUp} ref={prevRef} onClick={() => next(-1, prevRef.current)} />
+          )}
           <IconButton icon={AiOutlineArrowDown} ref={nextRef} onClick={() => next(1, nextRef.current)} />
         </div>
 
