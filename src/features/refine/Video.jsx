@@ -95,6 +95,30 @@ const Video = forwardRef(({ index, focus, data }, ref) => {
     setShow((prev) => !prev);
   }
 
+  function getDescription() {
+    if (!expand && VIDEOS[index].shortDesc)
+      return (
+        <>
+          {VIDEOS[index].shortDesc}{' '}
+          <span className="font-bold cursor-pointer" onClick={toggleExpand}>
+            thêm
+          </span>
+        </>
+      );
+
+    if (expand && VIDEOS[index].shortDesc)
+      return (
+        <>
+          {VIDEOS[index].description}{' '}
+          <span className="font-bold cursor-pointer" onClick={toggleExpand}>
+            ẩn
+          </span>
+        </>
+      );
+
+    return VIDEOS[index].description;
+  }
+
   return (
     <div className="m-auto bg-black flex-1 rounded-2xl h-[calc(100vh-156px)] aspect-[9/16] min-h-[500px] relative">
       <video
@@ -123,9 +147,7 @@ const Video = forwardRef(({ index, focus, data }, ref) => {
         <h5 className="font-semibold mt-3 mb-[7px]">
           Bài {index + 1}. {data.title}
         </h5>
-        <p onDoubleClick={toggleExpand} className={classNames(!expand && 'custom-ellipsis')}>
-          {data.description}
-        </p>
+        <p>{getDescription()}</p>
       </div>
     </div>
   );

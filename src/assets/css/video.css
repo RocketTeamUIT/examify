@@ -1,11 +1,12 @@
 /* Scrollbar */
-html *::-webkit-scrollbar {
-  display: none;
-}
 
 .custom-ellipsis {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  display: none;
 }

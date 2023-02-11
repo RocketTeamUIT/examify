@@ -79,7 +79,7 @@ export default function VideoScroll({ videoRefs, focus, setFocus, outerRef }) {
   return (
     <>
       <div
-        className={classNames('h-full flex-1 space-y-6', disabled ? 'overflow-hidden' : 'overflow-auto')}
+        className={classNames('h-full flex-1 space-y-6 custom-scroll', disabled ? 'overflow-hidden' : 'overflow-auto')}
         ref={outerRef}
         onWheel={handleScroll}
       >

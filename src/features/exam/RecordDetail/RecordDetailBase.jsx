@@ -43,10 +43,8 @@ function RecordDetailBase() {
           )}
 
           {location.pathname === `/exams/record-detail/${recordId}` ? (
-            <Link to={`/exams/record-detail/${recordId}/fullmode`}>
-              <Button type="outline" height={32} unbold>
-                Xem dạng liệt kê
-              </Button>
+            <Link to={`/exams/advise`}>
+              <Button>Nhận tư vấn</Button>
             </Link>
           ) : (
             <></>

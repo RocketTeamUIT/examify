@@ -6,6 +6,7 @@ export const VIDEOS = [
     unlocked: true,
     description:
       "Ngoài việc đáp lại lời cảm ơn bằng you're welcome, chúng ta có một số cách khác như no problem, no worries. Nếu đang ở Mỹ, ta có thể nói don't mention it. Hoặc nếu ở Anh, ta có thể nói it's alright",
+    shortDesc: "Ngoài việc đáp lại lời cảm ơn bằng you're welcome, chúng ta có...",
     transcript: [
       {
         start: 0,
@@ -147,6 +148,7 @@ export const VIDEOS = [
     title: 'Đừng phát âm chữ T trong tiếng Anh, liệu có đúng?',
     description:
       'Một bài học ví dụ về khi nào thì chúng ta áp dụng việc không phát âm chữ T, khi nào thì cần phải phát âm nó',
+    shortDesc: 'Một bài học ví dụ về khi nào thì chúng ta áp dụng việc không phát...',
     transcript: [
       {
         start: 0,
@@ -172,6 +174,7 @@ export const VIDEOS = [
     unlocked: true,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt est dolor, a efficitur augue sagittis non. Ut scelerisque iaculis nisi, in accumsan eros.',
+    shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
     transcript: [
       {
         start: 0,
@@ -201,6 +204,7 @@ export const VIDEOS = [
     title: "'Attention' (Funk Remix) (Prod. MINDA)",
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt est dolor, a efficitur augue sagittis non. Ut scelerisque iaculis nisi, in accumsan eros.',
+    shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
     transcript: [
       {
         start: 0,
@@ -224,6 +228,7 @@ export const VIDEOS = [
     title: 'Solar system',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt est dolor, a efficitur augue sagittis non. Ut scelerisque iaculis nisi, in accumsan eros.',
+    shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
     transcript: [
       {
         start: 0,
@@ -248,6 +253,7 @@ export const VIDEOS = [
     title: 'Trong trường hợp',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt est dolor, a efficitur augue sagittis non. Ut scelerisque iaculis nisi, in accumsan eros.',
+    shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
     transcript: [
       {
         start: 0,
@@ -272,6 +278,7 @@ export const VIDEOS = [
     title: 'Tôi, tôi sắp trở thành',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt est dolor, a efficitur augue sagittis non. Ut scelerisque iaculis nisi, in accumsan eros.',
+    shortDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
     transcript: [
       {
         start: 0,
