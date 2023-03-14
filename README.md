@@ -1,3 +1,8 @@
+## Examify Projects
+- Frontend: https://github.com/RocketTeamUIT/examify
+- Frontend (Admin): https://github.com/RocketTeamUIT/examify-admin
+- Backend: https://github.com/RocketTeamUIT/examify-server
+
 ## Hướng dẫn cài đặt
 ### Cài đặt Frontend và chạy Automation test (lab 3) sử dụng Jest và React-testing-library:
 - Clone repository này về máy
