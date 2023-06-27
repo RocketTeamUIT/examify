@@ -1,90 +1,31 @@
 ## Examify Projects
+- Deployment: https://examify-ten.vercel.app/
 - Frontend: https://github.com/RocketTeamUIT/examify
 - Frontend (Admin): https://github.com/RocketTeamUIT/examify-admin
 - Backend: https://github.com/RocketTeamUIT/examify-server
-- Deployment: https://examify-ten.vercel.app/
 
-## Folder Structure
+## Introduction:
+Website that helps student learn and practice English. Major features:
+- Provide free and paid courses for students
+- Accumulated points mechanism
+- Allow students to access and enroll in courses, and unlock courses using accumulated points
+- Provide TOEIC format exams
+- Take exams like real TOEIC test and view result
+- Access a great number of flashcards of both system and other users
+- Learn and practice flashcards
+- Get annual reports and statistics
 
-```
-.src/
-├── assets                              # Lưu ảnh, icon, ...                                        #Care
-├── component                           # Chứa các component chung dùng mọi nơi                     #Care
-  ├── form
-    ├── Checkbox
-    ├── FormInput
-    └── ...
-  ├── ui
-      ├── Button
-      ├── Breadcrumb
-      └── ...
-├── config                              # Lưu config của ứng dụng                                   #Care
-├── data                                # Lưu dữ liệu không thay đổi                                #Care
-├── features                            # Các features của ứng dụng                                 #Care
-  ├── auth
-      ├── components                    # Component chung chỉ dành cho feature Auth
-          ├── SigninForm
-          ├── SignupForm
-          └── ForgetPasswordForm
-      ├── hooks                         # Hook chỉ dành cho feature Auth
-      ├── services                      # Service chỉ dành cho feature Auth
-      └── index.js                      # Entry point, muốn export ra cái gì thì nằm ở đây
-  ├── courses
-  ├── exam
-  ├── flashcard
-  └── contest
-├── hooks                               # Hook globals
-├── layouts                             # Chứa các layout bố cục màn hình                           #Care
-├── lib                                 # Thư viện bên thứ 3
-├── pages                               # Chứa những page chỉ tồn tại duy nhất                      #Care
-  ├── Home
-  ├── Signin
-  ├── Signup
-  └── ...
-├── routes                              # Chứa các routes điều hướng trang web                      #Care
-├── services                            # Viết service gọi api ở đây
-└── utils                               # Chứa những pure function để thực hiện tác vụ nào đó
-```
+## Preview
+![All courses](https://github.com/RocketTeamUIT/examify/assets/93902080/8cfc4244-3819-45e2-93b7-a4d7fdf9ba70)
 
-## Naming convention
+![Course detail](https://github.com/RocketTeamUIT/examify/assets/93902080/19b4d64c-a813-4a38-8b99-c73005d62e60)
 
-- camelCase: tên biến, thuộc tính của object,...
-- PascalCase: tên file của Component
+![Learn course](https://github.com/RocketTeamUIT/examify/assets/93902080/f3520c8b-ebd4-487a-bf2a-c0ebce73d704)
 
-## File cấu hình:
+![Exam detail](https://github.com/RocketTeamUIT/examify/assets/93902080/e902c88c-ac1b-4f2f-961e-0ee7172c63b8)
 
-|         File          |                        Ý nghĩa                        |
-| :-------------------: | :---------------------------------------------------: |
-|     `.gitignore`      |        Không theo dõi những file được liệt kê         |
-|     `.prettierrc`     |             Chứa các quy tắc format code              |
-|   `.prettierignore`   | Không áp dụng format code cho những file được liệt kê |
-| `.tailwind.config.js` |   Ghi đè và bổ sung cấu hình mặc định của tailwind    |
-|  `postcss.config.js`  |               Biên dịch pre-css -> css                |
+![Take exam](https://github.com/RocketTeamUIT/examify/assets/93902080/630578ea-5b07-4ad0-9288-9ae7edc54889)
 
-## Extensions VSC
+![Flashcard list](https://github.com/RocketTeamUIT/examify/assets/93902080/b235278f-3cd5-4e97-ba90-9cc656d12b63)
 
-|            Name             |                   Ý nghĩa                    |
-| :-------------------------: | :------------------------------------------: |
-|      `Auto Rename Tag`      |       Auto rename paired HTML/XML tag        |
-|      `Auto Close Tag`       |     Automatically add HTML/XML close tag     |
-|  `Prettier Code formatter`  |                 Format code                  |
-|   `Simple React Snippets`   |      Cú pháp để tạo ra 1 đoạn code nhỏ       |
-| `Tailwind CSS IntelliSense` |           Biên dịch pre-css -> css           |
-|    `Material Icon Theme`    |          Bộ icon cho file và folder          |
-|          `Gitlens`          | Hiển thị thông tin Git (commit, author, ...) |
-
-## Extensions for Dev (on Chrome)
-
-|          Name           |         Ý nghĩa         |
-| :---------------------: | :---------------------: |
-| `React Developer Tools` |  React debugging tools  |
-|    `Redux DevTools`     | Quản lí state trực quan |
-
-## Members:
-
-|         Name          |         Email          |
-| :-------------------: | :--------------------: |
-| `Hoàng Đình Anh Tuấn` | 20522110@gm.uit.edu.vn |
-|   `Hoàng Văn Phúc`    | 20521760@gm.uit.edu.vn |
-|    `Phan Thanh Tú`    | 20522101@gm.uit.edu.vn |
-|  `Nguyễn Thái Tuấn`   | tuannt150102@gmail.com |
+![Practice flashcard](https://github.com/RocketTeamUIT/examify/assets/93902080/5da59079-dcd5-40e0-ba2d-95b6906ea900)
