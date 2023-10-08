@@ -1,5 +1,4 @@
 ## Examify Projects
-- Deployment: https://examify-ten.vercel.app/
 - Frontend: https://github.com/RocketTeamUIT/examify
 - Frontend (Admin): https://github.com/RocketTeamUIT/examify-admin
 - Backend: https://github.com/RocketTeamUIT/examify-server
